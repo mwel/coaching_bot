@@ -37,14 +37,18 @@ GENDER, PHOTO, LOCATION, BIO = range(4)
 
 def start(update: Update, context: CallbackContext) -> int:
     """Starts the conversation and asks the user about their gender."""
-    reply_keyboard = [['Boy', 'Girl', 'Other']]
+    reply_keyboard = [['Lady', 'Gentleman', 'I am a unicorn.']]
 
     update.message.reply_text(
-        'Hi! My name is The Coaching Bot. I will guide you through the onboarding process for your first coaching session. '
-        'Send /cancel to stop talking to me.\n\n'
-        'Are you a lady or a gentleman?',
+        'Hi! I am The Coaching Bot by wavehoover. You have taken the first step in you journey to success '
+        'by contacting me. As your personal CoachingBot, I will guide you through the onboarding process for '
+        'your first coaching session.'
+        'You can send /cancel at any time, if you are no longer interested in a conversation with me '
+        'nor your future coach.\n\n'
+        'So - let\'s get started with a simple question:'
+        'Would you like to be referred to as lady or a gentleman?',
         reply_markup=ReplyKeyboardMarkup(
-            reply_keyboard, one_time_keyboard=True, input_field_placeholder='Boy or Girl?'
+            reply_keyboard, one_time_keyboard=True, input_field_placeholder='Lady of Gentleman?'
         ),
     )
 
@@ -56,8 +60,9 @@ def gender(update: Update, context: CallbackContext) -> int:
     user = update.message.from_user
     logger.info("Gender of %s: %s", user.first_name, update.message.text)
     update.message.reply_text(
-        'I see! Please send me a photo of yourself, '
-        'so I know what you look like, or send /skip if you don\'t want to.',
+        'Alright! Now, in order to get to know you better, please send me a photo of yourself.'
+        'If you don\'t want to or would like to postpone this step, '
+        'just send /skip and we will continue to the next step.',
         reply_markup=ReplyKeyboardRemove(),
     )
 
@@ -71,7 +76,8 @@ def photo(update: Update, context: CallbackContext) -> int:
     photo_file.download('user_photo.jpg')
     logger.info("Photo of %s: %s", user.first_name, 'user_photo.jpg')
     update.message.reply_text(
-        'Gorgeous! Now, send me your location please, or send /skip if you don\'t want to.'
+        'Gorgeous! Now, send me your location please, so I know where you are from. '
+        'Or, if you prefer not to, just /skip this step.'
     )
 
     return LOCATION
@@ -82,7 +88,9 @@ def skip_photo(update: Update, context: CallbackContext) -> int:
     user = update.message.from_user
     logger.info("User %s did not send a photo.", user.first_name)
     update.message.reply_text(
-        'I bet you look great! Now, send me your location please, or send /skip.'
+        'Ok, I\'ll take your word for it and bet you look great! ;) '
+        'Now, send me your location please, so I know where you are from. '
+        'Or, if you prefer not to, just /skip this step.'
     )
 
     return LOCATION
@@ -96,7 +104,8 @@ def location(update: Update, context: CallbackContext) -> int:
         "Location of %s: %f / %f", user.first_name, user_location.latitude, user_location.longitude
     )
     update.message.reply_text(
-        'Maybe I can visit you sometime! At last, tell me something about yourself.'
+        'Wow! I always wanted to go there - maybe I can visit sometime.'
+        'At last, tell me a little bit about yourself, so I cen get to know you better.'
     )
 
     return BIO
@@ -107,7 +116,8 @@ def skip_location(update: Update, context: CallbackContext) -> int:
     user = update.message.from_user
     logger.info("User %s did not send a location.", user.first_name)
     update.message.reply_text(
-        'You seem a bit paranoid! At last, tell me something about yourself.'
+        'Ok, you seem a bit paranoid, but then again - you can never be too careful! '
+        'Now, at last, tell me a little bit about yourself - otherwise this really doesn\'t make any sense. ;).'
     )
 
     return BIO
@@ -127,7 +137,8 @@ def cancel(update: Update, context: CallbackContext) -> int:
     user = update.message.from_user
     logger.info("User %s canceled the conversation.", user.first_name)
     update.message.reply_text(
-        'Bye! I hope we can talk again some day.', reply_markup=ReplyKeyboardRemove()
+        'APPLICATION TERMINATED by ' + user.first_name,
+        'You ended the converstation and now have 2 options. Leave OR /start over.', reply_markup=ReplyKeyboardRemove()
     )
 
     return ConversationHandler.END
