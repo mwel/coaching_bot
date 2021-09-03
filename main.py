@@ -137,7 +137,6 @@ def main() -> None:
     """Run the bot."""
     # Create the Updater and pass it your bot's token.
     updater = Updater("TOKEN")
-    """1995756895:AAHVarTrPIh3FxoW13WgxHxKwLef4o1exAk"""
 
     # Get the dispatcher to register handlers
     dispatcher = updater.dispatcher
