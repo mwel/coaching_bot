@@ -13,6 +13,12 @@ Press Ctrl-C on the command line or send a signal to the process to stop the
 bot.
 """
 
+import telegram
+bot = telegram.Bot(token='1995756895:AAHVarTrPIh3FxoW13WgxHxKwLef4o1exAk')
+
+print(bot.get_me())
+{"first_name": "The Coaching Bot", "username": "TheCoachingBot"}
+
 import logging
 
 from telegram import ReplyKeyboardMarkup, ReplyKeyboardRemove, Update
@@ -24,6 +30,7 @@ from telegram.ext import (
     ConversationHandler,
     CallbackContext,
 )
+
 
 # Enable logging
 logging.basicConfig(
@@ -143,11 +150,10 @@ def cancel(update: Update, context: CallbackContext) -> int:
 
     return ConversationHandler.END
 
-
 def main() -> None:
     """Run the bot."""
     # Create the Updater and pass it your bot's token.
-    updater = Updater("TOKEN")
+    updater = Updater("1995756895:AAHVarTrPIh3FxoW13WgxHxKwLef4o1exAk")
 
     # Get the dispatcher to register handlers
     dispatcher = updater.dispatcher
