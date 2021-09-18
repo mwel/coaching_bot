@@ -6,24 +6,17 @@
 First, a few callback functions are defined. Then, those functions are passed to
 the Dispatcher and registered at their respective places.
 Then, the bot is started and runs until we press Ctrl-C on the command line.
+
 Usage:
 Example of a bot-user conversation using ConversationHandler.
 Send /start to initiate the conversation.
 Press Ctrl-C on the command line or send a signal to the process to stop the
 bot.
 """
-from constants import API_KEY
 
-import telegram
-bot = telegram.Bot(token=API_KEY)
-
-print(bot.get_me())
-{"first_name": "The Coaching Bot", "username": "TheCoachingBot"}
-
+# imports
 import logging
-
-import dateTime
-
+import telegram
 from telegram import ReplyKeyboardMarkup, ReplyKeyboardRemove, Update
 from telegram.ext import (
     Updater,
@@ -33,6 +26,14 @@ from telegram.ext import (
     ConversationHandler,
     CallbackContext,
 )
+import dateTime
+from constants import API_KEY
+
+#
+bot = telegram.Bot(token=API_KEY)
+
+print(bot.get_me())
+{"first_name": "The Coaching Bot", "username": "TheCoachingBot"}
 
 # Enable logging
 logging.basicConfig(
@@ -44,8 +45,8 @@ logger = logging.getLogger(__name__)
 GENDER, PHOTO, LOCATION, BIO = range(4)
 
 
+# Starts the conversation and asks the user about their gender.
 def start(update: Update, context: CallbackContext) -> int:
-    """Starts the conversation and asks the user about their gender."""
     reply_keyboard = [['Lady', 'Gentleman', 'I am a unicorn.']]
 
     update.message.reply_text(
@@ -55,17 +56,17 @@ def start(update: Update, context: CallbackContext) -> int:
         'You can send /cancel at any time, if you are no longer interested in a conversation with me '
         'nor your future coach.\n\n'
         'So - let\'s get started with a simple question:'
-        'Would you like to be referred to as lady or a gentleman?',
+        'Would you like to be referred to as a lady or gentleman?',
         reply_markup=ReplyKeyboardMarkup(
-            reply_keyboard, one_time_keyboard=True, input_field_placeholder='Lady of Gentleman?'
+            reply_keyboard, one_time_keyboard=True, input_field_placeholder='Lady or Gentleman?'
         ),
     )
 
     return GENDER
 
 
+# Stores the selected gender and asks for a photo.
 def gender(update: Update, context: CallbackContext) -> int:
-    """Stores the selected gender and asks for a photo."""
     user = update.message.from_user
     logger.info("Gender of %s: %s", user.first_name, update.message.text)
     update.message.reply_text(
@@ -78,8 +79,8 @@ def gender(update: Update, context: CallbackContext) -> int:
     return PHOTO
 
 
+# Stores the photo and asks for a location.
 def photo(update: Update, context: CallbackContext) -> int:
-    """Stores the photo and asks for a location."""
     user = update.message.from_user
     photo_file = update.message.photo[-1].get_file()
     photo_file.download('user_photo.jpg')
@@ -92,8 +93,8 @@ def photo(update: Update, context: CallbackContext) -> int:
     return LOCATION
 
 
+# Skips the photo and asks for a location.
 def skip_photo(update: Update, context: CallbackContext) -> int:
-    """Skips the photo and asks for a location."""
     user = update.message.from_user
     logger.info("User %s did not send a photo.", user.first_name)
     update.message.reply_text(
@@ -105,8 +106,8 @@ def skip_photo(update: Update, context: CallbackContext) -> int:
     return LOCATION
 
 
+# Stores the location and asks for some info about the user.
 def location(update: Update, context: CallbackContext) -> int:
-    """Stores the location and asks for some info about the user."""
     user = update.message.from_user
     user_location = update.message.location
     logger.info(
@@ -120,8 +121,8 @@ def location(update: Update, context: CallbackContext) -> int:
     return BIO
 
 
+# Skips the location and asks for info about the user.
 def skip_location(update: Update, context: CallbackContext) -> int:
-    """Skips the location and asks for info about the user."""
     user = update.message.from_user
     logger.info("User %s did not send a location.", user.first_name)
     update.message.reply_text(
@@ -132,8 +133,8 @@ def skip_location(update: Update, context: CallbackContext) -> int:
     return BIO
 
 
+# Stores the info about the user and ends the conversation.
 def bio(update: Update, context: CallbackContext) -> int:
-    """Stores the info about the user and ends the conversation."""
     user = update.message.from_user
     logger.info("Bio of %s: %s", user.first_name, update.message.text)
     update.message.reply_text('Thank you! I hope we can talk again some day.')
@@ -141,8 +142,8 @@ def bio(update: Update, context: CallbackContext) -> int:
     return ConversationHandler.END
 
 
+# Cancels and ends the conversation.
 def cancel(update: Update, context: CallbackContext) -> int:
-    """Cancels and ends the conversation."""
     user = update.message.from_user
     logger.info("User %s canceled the conversation.", user.first_name)
     update.message.reply_text(
@@ -152,9 +153,10 @@ def cancel(update: Update, context: CallbackContext) -> int:
 
     return ConversationHandler.END
 
+
+# Runs the bot.
 def main() -> None:
-    """Run the bot."""
-    # Create the Updater and pass it your bot's token.
+    # Passes the API_TOKEN to the bot.
     updater = Updater(API_KEY)
 
     # Get the dispatcher to register handlers

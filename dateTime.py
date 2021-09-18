@@ -9,19 +9,22 @@ import datetime
 # return today
 def thisDay() -> datetime:
     today = datetime.date.today()
-    # print("Current date and time: " + today)
+    print("Current date and time:")
+    print(today)
     return today
 
 
 # return date in 1 week
 def oneWeek() -> datetime:
     oneW = datetime.timedelta.days
-    # print("You have until: " + oneW)
+    print("You have until:")
+    print(oneW)
     return oneW
 
 
 # return date in 2 weeks
 def twoWeeks() -> datetime:
     twoW = datetime.timedelta.days
-    # print("You have until: " + twoW)
+    print("You have until: ")
+    print(twoW)
     return twoW
