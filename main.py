@@ -12,9 +12,10 @@ Send /start to initiate the conversation.
 Press Ctrl-C on the command line or send a signal to the process to stop the
 bot.
 """
+from constants import API_KEY
 
 import telegram
-bot = telegram.Bot(token='1995756895:AAHVarTrPIh3FxoW13WgxHxKwLef4o1exAk')
+bot = telegram.Bot(token=API_KEY)
 
 print(bot.get_me())
 {"first_name": "The Coaching Bot", "username": "TheCoachingBot"}
@@ -30,7 +31,6 @@ from telegram.ext import (
     ConversationHandler,
     CallbackContext,
 )
-
 
 # Enable logging
 logging.basicConfig(
@@ -153,7 +153,7 @@ def cancel(update: Update, context: CallbackContext) -> int:
 def main() -> None:
     """Run the bot."""
     # Create the Updater and pass it your bot's token.
-    updater = Updater("1995756895:AAHVarTrPIh3FxoW13WgxHxKwLef4o1exAk")
+    updater = Updater(API_KEY)
 
     # Get the dispatcher to register handlers
     dispatcher = updater.dispatcher
