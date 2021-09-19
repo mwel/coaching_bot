@@ -54,10 +54,10 @@ def start(update: Update, context: CallbackContext) -> int:
     update.message.reply_text(
         'Hi! I am The Coaching Bot by wavehoover. You have taken the first step in you journey to success '
         'by contacting me. As your personal CoachingBot, I will guide you through the onboarding process for '
-        'your first coaching session.'
-        'You can send /cancel at any time, if you are no longer interested in a conversation with me '
-        'nor your future coach.\n\n'
-        'So - let\'s get started with a simple question:'
+        'your first coaching session. '
+        '(You can send /cancel at any time, if you are no longer interested in a conversation with me '
+        'nor your future coach.)\n\n'
+        'So - let\'s get started with a simple question: '
         'Would you like to be referred to as a lady or gentleman?',
         reply_markup=ReplyKeyboardMarkup(
             reply_keyboard, one_time_keyboard=True, input_field_placeholder='Lady or Gentleman?'
@@ -72,9 +72,9 @@ def gender(update: Update, context: CallbackContext) -> int:
     user = update.message.from_user
     logger.info("Gender of %s: %s", user.first_name, update.message.text)
     update.message.reply_text(
-        'Alright! Now, in order to get to know you better, please send me a photo of yourself.'
-        'If you don\'t want to or would like to postpone this step, '
-        'just send /skip and we will continue to the next step.',
+        'Alright! Now, in order to get to know you better, please send me a photo of yourself. '
+        '(If you don\'t want to or would like to postpone this step, '
+        'just send /skip and we will continue to the next step.) ',
         reply_markup=ReplyKeyboardRemove(),
     )
 
@@ -168,7 +168,7 @@ def main() -> None:
     conv_handler = ConversationHandler(
         entry_points=[CommandHandler('start', start)],
         states={
-            GENDER: [MessageHandler(Filters.regex('^(Boy|Girl|Other)$'), gender)],
+            GENDER: [MessageHandler(Filters.regex('^(Gentleman|Lady|I\'m a unicorn)$'), gender)],
             PHOTO: [MessageHandler(Filters.photo, photo), CommandHandler('skip', skip_photo)],
             LOCATION: [
                 MessageHandler(Filters.location, location),
