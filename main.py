@@ -14,6 +14,8 @@ Press Ctrl-C on the command line or send a signal to the process to stop the
 bot.
 """
 
+
+
 # imports
 import logging
 import telegram
@@ -29,7 +31,7 @@ from telegram.ext import (
 import dateTime
 from constants import API_KEY
 
-#
+# Hand over API_TOKEN to the bot
 bot = telegram.Bot(token=API_KEY)
 
 print(bot.get_me())
@@ -156,13 +158,13 @@ def cancel(update: Update, context: CallbackContext) -> int:
 
 # Runs the bot.
 def main() -> None:
-    # Passes the API_TOKEN to the bot.
+    # Passes the API_TOKEN to the Updater.
     updater = Updater(API_KEY)
 
-    # Get the dispatcher to register handlers
+    # Gets the dispatcher to register handlers
     dispatcher = updater.dispatcher
 
-    # Add conversation handler with the states GENDER, PHOTO, LOCATION and BIO
+    # Adds conversation handler with the states GENDER, PHOTO, LOCATION and BIO
     conv_handler = ConversationHandler(
         entry_points=[CommandHandler('start', start)],
         states={
