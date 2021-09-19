@@ -1,6 +1,10 @@
+Credit for the boilerplate goes to the contributers of "https://github.com/python-telegram-bot/python-telegram-bot/blob/master/examples/conversationbot.py" Thanks! Great work, guys.
+
+Everything beyond is licensed under the:
+
 MIT License
 
-Copyright (c) 2021 Max
+Copyright (c) 2021 Max Wellenhofer
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
