@@ -34,9 +34,6 @@ from constants import API_KEY
 # Hand over API_TOKEN to the bot
 bot = telegram.Bot(token=API_KEY)
 
-print(bot.get_me())
-{"first_name": "The Coaching Bot", "username": "TheCoachingBot"}
-
 # Enable logging
 logging.basicConfig(
     format='%(asctime)s - %(name)s - %(levelname)s - %(message)s', level=logging.INFO
@@ -44,12 +41,20 @@ logging.basicConfig(
 
 logger = logging.getLogger(__name__)
 
+print(bot.get_me())
+{"first_name": "The Coaching Bot", "username": "TheCoachingBot"}
+
+# gender copy variables
+male = 'Gentleman'
+female = 'Lady'
+other = 'I am a unicorn.'
+
 GENDER, PHOTO, LOCATION, BIO = range(4)
 
 
 # Starts the conversation and asks the user about their gender.
 def start(update: Update, context: CallbackContext) -> int:
-    reply_keyboard = [['Lady', 'Gentleman', 'I am a unicorn.']]
+    reply_keyboard = [[female, male, other]]
 
     update.message.reply_text(
         'Hi! I am The Coaching Bot by wavehoover. You have taken the first step in you journey to success '
@@ -60,7 +65,7 @@ def start(update: Update, context: CallbackContext) -> int:
         'So - let\'s get started with a simple question: '
         'Would you like to be referred to as a lady or gentleman?',
         reply_markup=ReplyKeyboardMarkup(
-            reply_keyboard, one_time_keyboard=True, input_field_placeholder='Lady, Gentleman or whatever you like to be...'
+            reply_keyboard, one_time_keyboard=True, input_field_placeholder='Lady, Gentleman or are you a unicorn?'
         ),
     )
 
@@ -89,8 +94,8 @@ def photo(update: Update, context: CallbackContext) -> int:
     logger.info("Photo of %s: %s", user.first_name, user.first_name+'_photo.jpg')
     update.message.reply_text(
         'Gorgeous! Now, send me your location please, so I know where you are from. \n\n'
-        'Here is a format example: ... \n\n'
-        'Or, if you prefer not to, just /skip this step.'
+        'Just use Telegram\'s built in function to share your location with me once for the record. \n\n'
+        'Or, if you prefer not to, you can /skip this step.'
     )
 
     return LOCATION
@@ -103,6 +108,7 @@ def skip_photo(update: Update, context: CallbackContext) -> int:
     update.message.reply_text(
         'Ok, I\'ll take your word for it and bet you look great! ;)  \n\n'
         'Now, send me your location please, so I know where you are from. \n\n'
+        'Just use Telegram\'s built in function to share your location with me once for the record. \n\n'
         'Or, if you prefer not to, just /skip this step.'
     )
 
@@ -117,8 +123,8 @@ def location(update: Update, context: CallbackContext) -> int:
         "Location of %s: %f / %f", user.first_name, user_location.latitude, user_location.longitude
     )
     update.message.reply_text(
-        'Wow! I always wanted to go there - maybe I can visit sometime. \n\n'
-        'At last, tell me a little bit about yourself, so I cen get to know you better.'
+        'Wow! I\'ve always wanted to go there - maybe I can visit sometime. \n\n'
+        'At last, tell me a little bit about yourself, so I can get to know you better.'
     )
 
     return BIO
@@ -169,7 +175,7 @@ def main() -> None:
     conv_handler = ConversationHandler(
         entry_points=[CommandHandler('start', start)],
         states={
-            GENDER: [MessageHandler(Filters.regex('^(Gentleman|Lady|I\'m a unicorn)$'), gender)],
+            GENDER: [MessageHandler(Filters.regex('^(Gentleman|Lady|I am a unicorn.)$'), gender)],
             PHOTO: [MessageHandler(Filters.photo, photo), CommandHandler('skip', skip_photo)],
             LOCATION: [
                 MessageHandler(Filters.location, location),
