@@ -60,7 +60,7 @@ def start(update: Update, context: CallbackContext) -> int:
         'So - let\'s get started with a simple question: '
         'Would you like to be referred to as a lady or gentleman?',
         reply_markup=ReplyKeyboardMarkup(
-            reply_keyboard, one_time_keyboard=True, input_field_placeholder='Lady or Gentleman?'
+            reply_keyboard, one_time_keyboard=True, input_field_placeholder='Lady, Gentleman or whatever you like to be...'
         ),
     )
 
@@ -72,7 +72,7 @@ def gender(update: Update, context: CallbackContext) -> int:
     user = update.message.from_user
     logger.info("Gender of %s: %s", user.first_name, update.message.text)
     update.message.reply_text(
-        'Alright! Now, in order to get to know you better, please send me a photo of yourself. '
+        'Alright! Now, in order to get to know you better, please send me a photograph of yourself. '
         '(If you don\'t want to or would like to postpone this step, '
         'just send /skip and we will continue to the next step.) ',
         reply_markup=ReplyKeyboardRemove(),
@@ -85,10 +85,11 @@ def gender(update: Update, context: CallbackContext) -> int:
 def photo(update: Update, context: CallbackContext) -> int:
     user = update.message.from_user
     photo_file = update.message.photo[-1].get_file()
-    photo_file.download('user_photo.jpg')
-    logger.info("Photo of %s: %s", user.first_name, 'user_photo.jpg')
+    photo_file.download(user.first_name+'_photo.jpg')
+    logger.info("Photo of %s: %s", user.first_name, user.first_name+'_photo.jpg')
     update.message.reply_text(
-        'Gorgeous! Now, send me your location please, so I know where you are from. '
+        'Gorgeous! Now, send me your location please, so I know where you are from. \n\n'
+        'Here is a format example: ... \n\n'
         'Or, if you prefer not to, just /skip this step.'
     )
 
@@ -98,10 +99,10 @@ def photo(update: Update, context: CallbackContext) -> int:
 # Skips the photo and asks for a location.
 def skip_photo(update: Update, context: CallbackContext) -> int:
     user = update.message.from_user
-    logger.info("User %s did not send a photo.", user.first_name)
+    logger.info("User << %s >> did not send a photo.", user.first_name)
     update.message.reply_text(
-        'Ok, I\'ll take your word for it and bet you look great! ;) '
-        'Now, send me your location please, so I know where you are from. '
+        'Ok, I\'ll take your word for it and bet you look great! ;)  \n\n'
+        'Now, send me your location please, so I know where you are from. \n\n'
         'Or, if you prefer not to, just /skip this step.'
     )
 
@@ -116,7 +117,7 @@ def location(update: Update, context: CallbackContext) -> int:
         "Location of %s: %f / %f", user.first_name, user_location.latitude, user_location.longitude
     )
     update.message.reply_text(
-        'Wow! I always wanted to go there - maybe I can visit sometime.'
+        'Wow! I always wanted to go there - maybe I can visit sometime. \n\n'
         'At last, tell me a little bit about yourself, so I cen get to know you better.'
     )
 
@@ -128,7 +129,7 @@ def skip_location(update: Update, context: CallbackContext) -> int:
     user = update.message.from_user
     logger.info("User %s did not send a location.", user.first_name)
     update.message.reply_text(
-        'Ok, you seem a bit paranoid, but then again - you can never be too careful! '
+        'Ok, you seem a bit paranoid, but then again - you can never be too careful!  \n\n'
         'Now, at last, tell me a little bit about yourself - otherwise this really doesn\'t make any sense. ;).'
     )
 
@@ -139,7 +140,7 @@ def skip_location(update: Update, context: CallbackContext) -> int:
 def bio(update: Update, context: CallbackContext) -> int:
     user = update.message.from_user
     logger.info("Bio of %s: %s", user.first_name, update.message.text)
-    update.message.reply_text('Thank you! I hope we can talk again some day.')
+    update.message.reply_text('Thank you so much for signing up! Coaching can change your life and you have just taken the first step in the right direction.')
 
     return ConversationHandler.END
 
