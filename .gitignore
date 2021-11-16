@@ -130,3 +130,7 @@ dmypy.json
 
 # constants
 constants.py
+
+# email access
+coaching_mail-address.txt
+
