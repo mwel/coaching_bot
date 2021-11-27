@@ -31,7 +31,7 @@ print(bot.get_me())
 
 # Runs the bot.
 def main() -> None:
-    # Passes the API_TOKEN to the Updater.
+    # Creates the updater and passes the API_TOKEN to it.
     updater = Updater(API_KEY)
 
     # Gets the dispatcher to register handlers
