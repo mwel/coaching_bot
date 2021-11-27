@@ -16,22 +16,18 @@ bot.
 
 # imports
 import telegram
-from telegram import ReplyKeyboardMarkup, ReplyKeyboardRemove, Update
-from telegram.ext import (
-    Updater,
-)
-from bot.conversation_handlers.stage01 import conv_handler
-from bot.constants.API_constant import API_KEY
+from telegram.ext import Updater
+from conversation_handlers.stage01 import conv_handler
+from constants.API_constant import API_KEY
+
 
 # Hand over API_TOKEN to the bot
 bot = telegram.Bot(token=API_KEY)
 
+
 print(bot.get_me())
 {"first_name": "The Coaching Bot", "username": "TheCoachingBot"}
 
-# took the definitions of "GENDER, PHOTO, LOCATION, BIO = range(4)", separated them and put them into their respective classes.
-
-# took functions and separated them into separate files in the handler_functions folder.
 
 # Runs the bot.
 def main() -> None:
@@ -41,7 +37,7 @@ def main() -> None:
     # Gets the dispatcher to register handlers
     dispatcher = updater.dispatcher
 
-    # removed conv handlers from here and separated them into ConversationHandlers.CH-Stage01.py
+    # removed conv handlers from here and separated them into conversation_handlers.stage01.py
 
     dispatcher.add_handler(conv_handler) #calling Handler from separate class
     # more Handlers here...

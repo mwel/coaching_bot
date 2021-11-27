@@ -3,7 +3,7 @@ from telegram import Update
 from telegram.ext import (
     CallbackContext,
 )
-from bot.logEnabler import logger;
+from logEnabler import logger;
 
 
 LOCATION = range(1)

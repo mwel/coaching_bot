@@ -6,7 +6,7 @@ from telegram.ext import (
 )
 
 
-from bot.logEnabler import logger;
+from logEnabler import logger;
 
 
 # Cancels and ends the conversation.

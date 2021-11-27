@@ -5,14 +5,14 @@ from telegram.ext import (
     Filters,
     ConversationHandler,
 )
-from bot.handler_functions.start import GENDER, start
-from bot.handler_functions.bio import bio
-from bot.handler_functions.gender import PHOTO, gender
-from bot.handler_functions.photo import LOCATION, photo
-from bot.handler_functions.skip_photo import LOCATION, skip_photo
-from bot.handler_functions.location import BIO, location
-from bot.handler_functions.skip_location import BIO, skip_location
-from bot.handler_functions.cancel import cancel
+from handler_functions.start import GENDER, start
+from handler_functions.bio import bio
+from handler_functions.gender import PHOTO, gender
+from handler_functions.photo import LOCATION, photo
+from handler_functions.skip_photo import LOCATION, skip_photo
+from handler_functions.location import BIO, location
+from handler_functions.skip_location import BIO, skip_location
+from handler_functions.cancel import cancel
 
 
 # Adds conversation handler with the states GENDER, PHOTO, LOCATION and BIO for stage 1 of the sign up

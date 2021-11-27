@@ -5,7 +5,7 @@ from telegram.ext import (
     CallbackContext,
 )
 
-from bot.logEnabler import logger;
+from logEnabler import logger;
 
 
 # Stores the info about the user and ends the conversation.

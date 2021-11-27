@@ -3,7 +3,7 @@ from telegram import ReplyKeyboardRemove, Update
 from telegram.ext import (
     CallbackContext,
 )
-from bot.logEnabler import logger;
+from logEnabler import logger;
 
 
 PHOTO = range(1)
