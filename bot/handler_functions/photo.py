@@ -1,20 +1,22 @@
 # imports
-from telegram import ReplyKeyboardRemove, Update
+from telegram import Update
 from telegram.ext import (
     CallbackContext,
 )
+import logEnabler;
 
-PHOTO = range(1)
+LOCATION = range(1)
 
-# Stores the selected gender and asks for a photo.
-def gender(update: Update, context: CallbackContext) -> int:
+# Stores the photo and asks for a location.
+def photo(update: Update, context: CallbackContext) -> int:
     user = update.message.from_user
-    logger.info("Gender of %s: %s", user.first_name, update.message.text)
+    photo_file = update.message.photo[-1].get_file()
+    photo_file.download(user.first_name+'_photo.jpg')
+    logEnabler.logger.info("Photo of %s: %s", user.first_name, user.first_name+'_photo.jpg')
     update.message.reply_text(
-        'Alright! Now, in order to get to know you better, please send me a photograph of yourself. '
-        '(If you don\'t want to or would like to postpone this step, '
-        'just send /skip and we will continue to the next step.) ',
-        reply_markup=ReplyKeyboardRemove(),
+        'Gorgeous! Now, send me your location please, so I know where you are from. \n\n'
+        'Just use Telegram\'s built in function to share your location with me once for the record. \n\n'
+        'Or, if you prefer not to, you can /skip this step.'
     )
 
-    return PHOTO
+    return LOCATION
