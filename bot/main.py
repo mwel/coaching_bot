@@ -29,6 +29,7 @@ from telegram.ext import (
     CallbackContext,
 )
 import dateTime
+import ConversationHandlers
 from constants import API_KEY
 
 # Hand over API_TOKEN to the bot
@@ -44,46 +45,12 @@ logger = logging.getLogger(__name__)
 print(bot.get_me())
 {"first_name": "The Coaching Bot", "username": "TheCoachingBot"}
 
-# gender copy variables
-male = 'Gentleman'
-female = 'Lady'
-other = 'I am a unicorn.'
+# took the definitions of "GENDER, PHOTO, LOCATION, BIO = range(4)", separated them and put them into their respective classes.
 
-GENDER, PHOTO, LOCATION, BIO = range(4)
+# took the function, that returns the gender and separated it into handler_functions.gender.py
 
 
-# Starts the conversation and asks the user about their gender.
-def start(update: Update, context: CallbackContext) -> int:
-    reply_keyboard = [[female, male, other]]
 
-    update.message.reply_text(
-        'Hi! I am The Coaching Bot by wavehoover. You have taken the first step in you journey to success '
-        'by contacting me. As your personal CoachingBot, I will guide you through the onboarding process for '
-        'your first coaching session. '
-        '(You can send /cancel at any time, if you are no longer interested in a conversation with me '
-        'nor your future coach.)\n\n'
-        'So - let\'s get started with a simple question: '
-        'Would you like to be referred to as a lady or gentleman?',
-        reply_markup=ReplyKeyboardMarkup(
-            reply_keyboard, one_time_keyboard=True, input_field_placeholder='Lady, Gentleman or are you a unicorn?'
-        ),
-    )
-
-    return GENDER
-
-
-# Stores the selected gender and asks for a photo.
-def gender(update: Update, context: CallbackContext) -> int:
-    user = update.message.from_user
-    logger.info("Gender of %s: %s", user.first_name, update.message.text)
-    update.message.reply_text(
-        'Alright! Now, in order to get to know you better, please send me a photograph of yourself. '
-        '(If you don\'t want to or would like to postpone this step, '
-        'just send /skip and we will continue to the next step.) ',
-        reply_markup=ReplyKeyboardRemove(),
-    )
-
-    return PHOTO
 
 
 # Stores the photo and asks for a location.
@@ -171,22 +138,10 @@ def main() -> None:
     # Gets the dispatcher to register handlers
     dispatcher = updater.dispatcher
 
-    # Adds conversation handler with the states GENDER, PHOTO, LOCATION and BIO
-    conv_handler = ConversationHandler(
-        entry_points=[CommandHandler('start', start)],
-        states={
-            GENDER: [MessageHandler(Filters.regex('^(Gentleman|Lady|I am a unicorn.)$'), gender)],
-            PHOTO: [MessageHandler(Filters.photo, photo), CommandHandler('skip', skip_photo)],
-            LOCATION: [
-                MessageHandler(Filters.location, location),
-                CommandHandler('skip', skip_location),
-            ],
-            BIO: [MessageHandler(Filters.text & ~Filters.command, bio)],
-        },
-        fallbacks=[CommandHandler('cancel', cancel)],
-    )
+    # removed conv handlers from here and separated them into ConversationHandlers.CH-Stage01.py
 
-    dispatcher.add_handler(conv_handler)
+    dispatcher.add_handler(ConversationHandlers.conv_handler) #calling Handler from separate class
+    # more Handlers here...
 
     # Start the Bot
     updater.start_polling()
