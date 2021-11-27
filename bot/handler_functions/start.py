@@ -1,4 +1,3 @@
-import telegram
 from telegram import ReplyKeyboardMarkup, Update
 from telegram.ext import (
     CallbackContext,
@@ -9,7 +8,9 @@ male = 'Gentleman'
 female = 'Lady'
 other = 'I am a unicorn.'
 
+
 GENDER = range(1)
+
 
 # Starts the conversation and asks the user about their gender.
 def start(update: Update, context: CallbackContext) -> int:

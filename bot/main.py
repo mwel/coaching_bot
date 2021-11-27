@@ -14,23 +14,14 @@ Press Ctrl-C on the command line or send a signal to the process to stop the
 bot.
 """
 
-
-
 # imports
-import logging
 import telegram
 from telegram import ReplyKeyboardMarkup, ReplyKeyboardRemove, Update
 from telegram.ext import (
     Updater,
-    CommandHandler,
-    MessageHandler,
-    Filters,
-    ConversationHandler,
-    CallbackContext,
 )
-import dateTime
-import ConversationHandlers
-from constants import API_KEY
+from bot.conversation_handlers.stage01 import conv_handler
+from bot.constants.API_constant import API_KEY
 
 # Hand over API_TOKEN to the bot
 bot = telegram.Bot(token=API_KEY)
@@ -42,12 +33,6 @@ print(bot.get_me())
 
 # took functions and separated them into separate files in the handler_functions folder.
 
-
-
-
-
-
-
 # Runs the bot.
 def main() -> None:
     # Passes the API_TOKEN to the Updater.
@@ -58,7 +43,7 @@ def main() -> None:
 
     # removed conv handlers from here and separated them into ConversationHandlers.CH-Stage01.py
 
-    dispatcher.add_handler(ConversationHandlers.conv_handler) #calling Handler from separate class
+    dispatcher.add_handler(conv_handler) #calling Handler from separate class
     # more Handlers here...
 
     # Start the Bot

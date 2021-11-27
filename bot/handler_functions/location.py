@@ -3,15 +3,17 @@ from telegram import Update
 from telegram.ext import (
     CallbackContext,
 )
-import logEnabler;
+from bot.logEnabler import logger;
+
 
 BIO = range(1)
+
 
 # Stores the location and asks for some info about the user.
 def location(update: Update, context: CallbackContext) -> int:
     user = update.message.from_user
     user_location = update.message.location
-    logEnabler.logger.info(
+    logger.info(
         "Location of %s: %f / %f", user.first_name, user_location.latitude, user_location.longitude
     )
     update.message.reply_text(
