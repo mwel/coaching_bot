@@ -5,15 +5,13 @@ from telegram.ext import (
     Filters,
     ConversationHandler,
 )
-from bot.handler_functions.gender import start
-
-from bot.main import GENDER, PHOTO, LOCATION, BIO;
+from bot.handler_functions.start import GENDER, start
 from bot.handler_functions.bio import bio
-from bot.handler_functions.gender import gender
-from bot.handler_functions.photo import photo
-from bot.handler_functions.skip_photo import skip_photo
-from bot.handler_functions.location import location
-from bot.handler_functions.skip_location import skip_location
+from bot.handler_functions.gender import PHOTO, gender
+from bot.handler_functions.photo import LOCATION, photo
+from bot.handler_functions.skip_photo import LOCATION, skip_photo
+from bot.handler_functions.location import BIO, location
+from bot.handler_functions.skip_location import BIO, skip_location
 from bot.handler_functions.cancel import cancel
 
 
