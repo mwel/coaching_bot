@@ -4,8 +4,6 @@ from telegram.ext import (
     ConversationHandler,
     CallbackContext,
 )
-
-
 from logEnabler import logger;
 
 

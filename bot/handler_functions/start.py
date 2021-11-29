@@ -2,14 +2,12 @@ from telegram import ReplyKeyboardMarkup, Update
 from telegram.ext import (
     CallbackContext,
 )
+from conversation_handlers.stage_constants import GENDER
 
 # gender copy variables
 male = 'Gentleman'
 female = 'Lady'
 other = 'I am a unicorn.'
-
-
-GENDER = range(1)
 
 
 # Starts the conversation and asks the user about their gender.

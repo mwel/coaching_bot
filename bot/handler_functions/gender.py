@@ -4,9 +4,7 @@ from telegram.ext import (
     CallbackContext,
 )
 from logEnabler import logger;
-
-
-PHOTO = range(1)
+from conversation_handlers.stage_constants import PHOTO
 
 
 # Stores the selected gender and asks for a photo.

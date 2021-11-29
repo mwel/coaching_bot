@@ -4,7 +4,6 @@ from telegram.ext import (
     ConversationHandler,
     CallbackContext,
 )
-
 from logEnabler import logger;
 
 
@@ -12,6 +11,7 @@ from logEnabler import logger;
 def bio(update: Update, context: CallbackContext) -> int:
     user = update.message.from_user
     logger.info("Bio of %s: %s", user.first_name, update.message.text)
+    # write to user dictionary
     update.message.reply_text('Thank you so much for signing up! Coaching can change your life and you have just taken the first step in the right direction.')
 
     return ConversationHandler.END
