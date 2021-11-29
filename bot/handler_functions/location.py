@@ -11,12 +11,20 @@ from conversation_handlers.stage_constants import BIO
 def location(update: Update, context: CallbackContext) -> int:
     user = update.message.from_user
     user_location = update.message.location
+
+    # write location to user dict
+    context.user_data['latitude'] = user_location.latitude
+    context.user_data['longitude'] = user_location.longitude
+
+    # print status of user dictionary:
+    print ('+++++ User Dictionary +++++ \n' + str(context.user_data) + '\n +++++ +++++ +++++')
+
     logger.info(
-        "Location of %s: %f / %f", user.first_name, user_location.latitude, user_location.longitude
+        "Location of %s %s: %f / %f", context.user_data['first_name'], context.user_data['last_name'], user_location.latitude, user_location.longitude
     )
     update.message.reply_text(
         'Wow! I\'ve always wanted to go there - maybe I can visit sometime. \n\n'
-        'At last, tell me a little bit about yourself, so I can get to know you better.'
+        'Now - tell me a little bit about yourself, so I can get to know you better.'
     )
 
     return BIO
@@ -25,10 +33,18 @@ def location(update: Update, context: CallbackContext) -> int:
 # Skips the location and asks for info about the user.
 def skip_location(update: Update, context: CallbackContext) -> int:
     user = update.message.from_user
-    logger.info("User %s did not send a location.", user.first_name)
+
+    # mark in user dict, that no location has been supplied.
+    context.user_data['latitude'] = 'N/A'
+    context.user_data['longitude'] = 'N/A'
+
+    # print status of user dictionary:
+    print ('+++++ User Dictionary +++++ \n' + str(context.user_data) + '\n +++++ +++++ +++++')
+    
+    logger.info("User %s %s did not submit a location.", context.user_data['first_name'], context.user_data['last_name'])
     update.message.reply_text(
-        'Ok, you seem a bit paranoid, but then again - you can never be too careful!  \n\n'
-        'Now, at last, tell me a little bit about yourself - otherwise this really doesn\'t make any sense. ;).'
-    )
+        'No matter where you are, coaching will get you to the next level!  \n\n'
+        'Now, %s - tell me a little bit about yourself - we want to get to know you a little better in order to provide you with the best consulting service possible.'
+    ), context.user_data['first_name']
 
     return BIO

@@ -11,8 +11,13 @@ from conversation_handlers.stage_constants import LOCATION
 def photo(update: Update, context: CallbackContext) -> int:
     user = update.message.from_user
     photo_file = update.message.photo[-1].get_file()
-    photo_file.download(user.first_name+'_photo.jpg')
+    photo_file.download(user.first_name+'_photo.jpg') #add date to photo
+    context.user_data['user_photo'] = photo_file
     logger.info("Photo of %s: %s", user.first_name, user.first_name+'_photo.jpg')
+
+    # print status of user dictionary:
+    print ('+++++ User Dictionary +++++ \n' + str(context.user_data) + '\n +++++ +++++ +++++')
+
     update.message.reply_text(
         'Gorgeous! Now, send me your location please, so I know where you are from. \n\n'
         'Just use Telegram\'s built in function to share your location with me once for the record. \n\n'
@@ -25,7 +30,11 @@ def photo(update: Update, context: CallbackContext) -> int:
 # Skips the photo and asks for a location.
 def skip_photo(update: Update, context: CallbackContext) -> int:
     user = update.message.from_user
-    logger.info("User << %s >> did not send a photo.", user.first_name)
+    logger.info("User [%s %s] did not submit a photo.", context.user_data['first_name'], context.user_data['last_name'])
+
+    # print status of user dictionary:
+    print ('+++++ User Dictionary +++++ \n' + str(context.user_data) + '\n +++++ +++++ +++++')
+    
     update.message.reply_text(
         'Ok, I\'ll take your word for it and bet you look great! ;)  \n\n'
         'Now, send me your location please, so I know where you are from. \n\n'

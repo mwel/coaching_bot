@@ -1,4 +1,4 @@
-from telegram import ReplyKeyboardMarkup, Update
+from telegram import ReplyKeyboardMarkup, Update, message
 from telegram.ext import (
     CallbackContext,
 )
@@ -12,18 +12,17 @@ other = 'I am a unicorn.'
 
 # Starts the conversation and asks the user about their gender.
 def start(update: Update, context: CallbackContext) -> int:
-
+    # ask for user info and write variables to dict
+    # user_id
+    context.user_data['user_id'] = update.message.from_user.id
     # first name
-    first_name = update.message.from_user.first_name
-
-    # write first_name to dict
-    context.user_data['first_name'] = first_name # safe user data into user dictionary like this.
-
+    context.user_data['first_name'] = update.message.from_user.first_name # safe user data into user dictionary like this.
     # last name
-    last_name = update.message.from_user.last_name
-    # safe more initial variables about the user here.
+    context.user_data['last_name'] = update.message.from_user.last_name
+    # >> safe more initial variables about the user here.
     
-    print ('//printing user data: \n' + str(context.user_data))
+    # print status of user dictionary:
+    print ('+++++ User Dictionary +++++ \n' + str(context.user_data) + '\n +++++ +++++ +++++')
 
     reply_keyboard = [[female, male, other]]
     update.message.reply_text(
