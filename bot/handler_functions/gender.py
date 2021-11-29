@@ -12,7 +12,7 @@ def gender(update: Update, context: CallbackContext) -> int:
     user = update.message.from_user
     logger.info("Gender of %s: %s", user.first_name, update.message.text)
     update.message.reply_text(
-        'Alright! Now, in order to get to know you better, please send me a photograph of yourself. '
+        f'Alright, {context.user_data["first_name"]}! Now, in order to get to know you better, please send me a photograph of yourself. '
         '(If you don\'t want to or would like to postpone this step, '
         'just send /skip and we will continue to the next step.) ',
         reply_markup=ReplyKeyboardRemove(),

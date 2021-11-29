@@ -17,7 +17,7 @@ def start(update: Update, context: CallbackContext) -> int:
     first_name = update.message.from_user.first_name
 
     # write first_name to dict
-    context.user_data['first_name'] = first_name
+    context.user_data['first_name'] = first_name # safe user data into user dictionary like this.
 
     # last name
     last_name = update.message.from_user.last_name
