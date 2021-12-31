@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Application Data</title>
+            <style>
+                table {
+                    border-collapse: collapse;
+                    width: 100%;
+                    color: #588c7e;
+                    font-family: monospace;
+                    font-size: 25px;
+                    text-align: left;
+                    }
+            th {
+                background-color: #588c7e;
+                color: white;
+                }
+            tr:nth-child(even) {background-color: #f2f2f2}
+            </style>
+    </head>
+        <body>
+            <table>
+                <tr>
+                    <th>Telegram-ID</th>
+                    <th>First Name</th>
+                    <th>Surname</th>
+                    <th>Email Address</th>
+                    <th>Gender</th>
+                    <th>Location</th>
+                    <th>Phone Number</th>
+                    <th>Date Submitted</th>
+                    <th>Bio</th>
+                </tr>
+            
+            // get data into table
+            <?php include 'get_user_data.php';?>
+
+            </table>
+        </body>
+</html>
