@@ -31,12 +31,11 @@ class PersistenceTest (BasePersistence):
         # ask db for data. if there is data, return
         print ("Called: get_user_data()")
         # call from here another class with another method, that takes care of the db query and writed the data back into the dictionary, that should be returned from this method.
-        user_data = {} 
+        user_data = defaultdict(dict) 
         # now get data from db and hand it write it into the empty dict, you just created... like so:
         # add User data from DB here in the form user_data[user_id]=user_data_as_dict
-        #user_data[222978147] = {'status': 'Phrittus'} #this is how you do it and should work, but does not.
-        user_data = {222987147: {'status': 'phritte'}} #this is ugly, but works.
-        return defaultdict(int, user_data)
+        user_data[222987147] = {'status': 'Phrittus'} # This is how you add user data
+        return user_data
 
     def update_user_data(self, user_id, data): #called after command is handled (user interaction)
         print (f"Called: update_user_data(user_id: {user_id}, data: {str(data)})")
