@@ -20,12 +20,11 @@ def location(update: Update, context: CallbackContext) -> int:
     print ('+++++ User Dictionary +++++ \n' + str(context.user_data) + '\n +++++ +++++ +++++')
 
     logger.info(
-        "Location of %s %s: %f / %f", context.user_data['first_name'], context.user_data['last_name'], user_location.latitude, user_location.longitude
+        f'Location of {context.user_data["first_name"]} {context.user_data["last_name"]}: {user_location.latitude} , {user_location.longitude}'
     )
     update.message.reply_text(
         'Wow! I\'ve always wanted to go there - maybe I can visit sometime. \n\n'
-        'Now - tell me a little bit about yourself, so I can get to know you better.'
-    )
+        f'Now, {context.user_data["first_name"]} - tell me a little bit about yourself - we want to get to know you a little better in order to provide you with the best consulting service possible.')
 
     return BIO
 
@@ -41,10 +40,9 @@ def skip_location(update: Update, context: CallbackContext) -> int:
     # print status of user dictionary:
     print ('+++++ User Dictionary +++++ \n' + str(context.user_data) + '\n +++++ +++++ +++++')
     
-    logger.info("User %s %s did not submit a location.", context.user_data['first_name'], context.user_data['last_name'])
+    logger.info(f'User {context.user_data["first_name"]} {context.user_data["last_name"]} did not submit a location.')
     update.message.reply_text(
         'No matter where you are, coaching will get you to the next level!  \n\n'
-        'Now, %s - tell me a little bit about yourself - we want to get to know you a little better in order to provide you with the best consulting service possible.'
-    ), context.user_data['first_name']
+        f'Now, {context.user_data["first_name"]} - tell me a little bit about yourself - we want to get to know you a little better in order to provide you with the best consulting service possible.')
 
     return BIO
