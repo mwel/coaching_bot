@@ -1,5 +1,6 @@
 # connect to the coachingBot_DB and 
 import sqlite3
+import database_connector
   
 # connecting to the database
 connection = sqlite3.connect("coachingBotDB.db")
@@ -9,16 +10,11 @@ cursor = connection.cursor()
 # print with no errors
 print("Successfully connected to coachingBotDB")
 
-# SQL command to create a table in the database
-sql_command = """CREATE TABLE emp ( 
-staff_number INTEGER PRIMARY KEY, 
-fname VARCHAR(20), 
-lname VARCHAR(30), 
-gender CHAR(1), 
-joining DATE);"""
+# if none exists, create table in database
+table_users = str(database_connector.CREATE_user_table.sql)
   
 # execute the statement
-cursor.execute(sql_command)
+cursor.execute(table_users)
 
 # close the connection
 connection.close()
