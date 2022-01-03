@@ -13,7 +13,7 @@ def photo(update: Update, context: CallbackContext) -> int:
     photo_file = update.message.photo[-1].get_file()
     photo_file.download(user.first_name+'_photo.jpg') #add date to photo
     context.user_data['user_photo'] = photo_file
-    logger.info("Photo of %s: %s", user.first_name, user.first_name+'_photo.jpg')
+    logger.info(f'Photo of {context.user_data["first_name"]} {context.user_data["last_name"]}: {user.first_name+"_photo.jpg"}')
 
     # print status of user dictionary:
     print ('+++++ User Dictionary +++++ \n' + str(context.user_data) + '\n +++++ +++++ +++++')
@@ -30,7 +30,7 @@ def photo(update: Update, context: CallbackContext) -> int:
 # Skips the photo and asks for a location.
 def skip_photo(update: Update, context: CallbackContext) -> int:
     user = update.message.from_user
-    logger.info("User [%s %s] did not submit a photo.", context.user_data['first_name'], context.user_data['last_name'])
+    logger.info(f'User {context.user_data["first_name"]} {context.user_data["last_name"]} did not submit a photo.')
 
     # print status of user dictionary:
     print ('+++++ User Dictionary +++++ \n' + str(context.user_data) + '\n +++++ +++++ +++++')

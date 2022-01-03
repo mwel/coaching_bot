@@ -14,7 +14,7 @@ other = 'I am a unicorn.'
 def start(update: Update, context: CallbackContext) -> int:
     # ask for user info and write variables to dict
     # user_id
-    context.user_data['user_id'] = update.message.from_user.id
+    context.user_data['user_id'] = update.message.from_user.id # update user dict.
     # first name
     context.user_data['first_name'] = update.message.from_user.first_name # safe user data into user dictionary like this.
     # last name

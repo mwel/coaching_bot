@@ -34,7 +34,7 @@ class PersistenceTest (BasePersistence):
         user_data = defaultdict(dict) 
         # now get data from db and hand it write it into the empty dict, you just created... like so:
         # add User data from DB here in the form user_data[user_id]=user_data_as_dict
-        user_data[222987147] = {'status': 'Phrittus'} # This is how you add user data
+        user_data[28648774] = {'status': 'Phrittus'} # This is how you add user data
         return user_data
 
     def update_user_data(self, user_id, data): #called after command is handled (user interaction)

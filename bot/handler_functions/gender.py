@@ -10,7 +10,7 @@ from conversation_handlers.stage_constants import PHOTO
 # Stores the selected gender and asks for a photo.
 def gender(update: Update, context: CallbackContext) -> int:
     user = update.message.from_user
-    logger.info("Gender of %s %s: %s", context.user_data['first_name'], context.user_data['last_name'], update.message.text)
+    logger.info(f'Gender of {context.user_data["first_name"]} {context.user_data["last_name"]}: {update.message.text}')
     
     # write gender to user dict
     if update.message.text == 'Gentleman':
