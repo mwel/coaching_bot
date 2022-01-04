@@ -4,7 +4,7 @@ from telegram.ext import (
     CallbackContext,
 )
 from logEnabler import logger;
-from conversation_handlers.stage_constants import BIO
+from handler_functions import states
 
 
 # Stores the location and asks for some info about the user.
@@ -26,7 +26,7 @@ def location(update: Update, context: CallbackContext) -> int:
         'Wow! I\'ve always wanted to go there - maybe I can visit sometime. \n\n'
         f'Now, {context.user_data["first_name"]} - tell me a little bit about yourself - we want to get to know you a little better in order to provide you with the best consulting service possible.')
 
-    return BIO
+    return states.BIO
 
 
 # Skips the location and asks for info about the user.
@@ -45,4 +45,4 @@ def skip_location(update: Update, context: CallbackContext) -> int:
         'No matter where you are, coaching will get you to the next level!  \n\n'
         f'Now, {context.user_data["first_name"]} - tell me a little bit about yourself - we want to get to know you a little better in order to provide you with the best consulting service possible.')
 
-    return BIO
+    return states.BIO

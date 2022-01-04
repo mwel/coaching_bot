@@ -2,7 +2,7 @@ from telegram import ReplyKeyboardMarkup, Update, message
 from telegram.ext import (
     CallbackContext,
 )
-from conversation_handlers.stage_constants import GENDER
+from handler_functions import states
 
 # gender copy variables
 male = 'Gentleman'
@@ -38,4 +38,4 @@ def start(update: Update, context: CallbackContext) -> int:
         ),
     )
 
-    return GENDER
+    return states.GENDER

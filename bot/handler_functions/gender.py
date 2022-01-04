@@ -4,7 +4,7 @@ from telegram.ext import (
     CallbackContext,
 )
 from logEnabler import logger;
-from conversation_handlers.stage_constants import PHOTO
+from handler_functions import states
 
 
 # Stores the selected gender and asks for a photo.
@@ -30,4 +30,4 @@ def gender(update: Update, context: CallbackContext) -> int:
         reply_markup=ReplyKeyboardRemove(),
     )
 
-    return PHOTO
+    return states.PHOTO

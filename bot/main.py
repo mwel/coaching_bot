@@ -16,10 +16,23 @@ bot.
 
 # imports
 import telegram
-from telegram.ext import Updater
-from conversation_handlers.stage01 import conv_handler
 from constants.API_constant import API_KEY
 from utils.persistenceTest import PersistenceTest
+from telegram.ext import (
+    Updater,
+    CommandHandler,
+    MessageHandler,
+    Filters,
+    ConversationHandler,
+)
+
+from handler_functions.start import start
+from handler_functions.bio import bio
+from handler_functions.gender import gender
+from handler_functions.photo import photo, skip_photo
+from handler_functions.location import location, skip_location
+from handler_functions.cancel import cancel
+from handler_functions import states
 
 
 # Hand over API_TOKEN to the bot
@@ -41,7 +54,20 @@ def main() -> None:
     # Gets the dispatcher to register handlers
     dispatcher = updater.dispatcher
 
-    # removed conv handlers from here and separated them into conversation_handlers.stage01.py
+    # Adds conversation handler with the states GENDER, PHOTO, LOCATION and BIO for stage 1 of the sign up
+    conv_handler = ConversationHandler(
+        entry_points=[CommandHandler('start', start)],
+        states={
+            states.GENDER: [MessageHandler(Filters.regex('^(Gentleman|Lady|I am a unicorn.)$'), gender)],
+            states.PHOTO: [MessageHandler(Filters.photo, photo), CommandHandler('skip', skip_photo)],
+            states.LOCATION: [
+                MessageHandler(Filters.location, location),
+                CommandHandler('skip', skip_location),
+            ],
+            states.BIO: [MessageHandler(Filters.text & ~Filters.command, bio)],
+        },
+        fallbacks=[CommandHandler('cancel', cancel)],
+    )
 
     dispatcher.add_handler(conv_handler) #calling Handler from separate class
     # more Handlers here...

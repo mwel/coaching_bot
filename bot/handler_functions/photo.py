@@ -4,7 +4,7 @@ from telegram.ext import (
     CallbackContext,
 )
 from logEnabler import logger;
-from conversation_handlers.stage_constants import LOCATION
+from handler_functions import states
 
 
 # Stores the photo and asks for a location.
@@ -24,8 +24,7 @@ def photo(update: Update, context: CallbackContext) -> int:
         'Or, if you prefer not to, you can /skip this step.'
     )
 
-    return LOCATION
-
+    return states.LOCATION
 
 # Skips the photo and asks for a location.
 def skip_photo(update: Update, context: CallbackContext) -> int:
@@ -42,4 +41,4 @@ def skip_photo(update: Update, context: CallbackContext) -> int:
         'Or, if you prefer not to, just /skip this step.'
     )
 
-    return LOCATION
+    return states.LOCATION
