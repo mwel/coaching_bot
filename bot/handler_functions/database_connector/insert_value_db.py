@@ -1,7 +1,7 @@
 # connect to the coachingBot_DB and check, if the user table already exists. If not, create it.
 import sqlite3
 
-from create_db import create_db
+from handler_functions.database_connector.create_db import create_db
 
 
 def insert_update (user_id, column, value):
