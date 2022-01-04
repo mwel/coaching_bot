@@ -2,7 +2,7 @@
 import sqlite3
 
 
-def insert_update (user_id, first_name, last_name, gender, photo, birthdate, email, phone, longitude, latitude, bio):
+def insert_update (user_id, first_name, last_name, gender, photo, birthdate, email, phone, longitude, latitude, bio, state):
     # connect to db
     connection = sqlite3.connect("coachingBotDB.db")
     print("+++++ Connected to coachingBotDB. +++++")
@@ -11,11 +11,9 @@ def insert_update (user_id, first_name, last_name, gender, photo, birthdate, ema
     cursor = connection.cursor()
     print("+++++ Cursor created. +++++")
 
-    
+
     # sql command to INSERT a new record into the db
-    # c.execute("INSERT INTO test VALUES (?, 'bar')", (testfield,))
-    # insert_command = 'INSERT INTO users VALUES (user_id, first_name, last_name, gender, photo, birthdate, email, phone, longitude, latitude, bio)'
-    insert_command = 'INSERT INTO users VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)'
+    insert_command = 'INSERT INTO users VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)'
     insert_args = (
         user_id,
         first_name,
@@ -28,21 +26,23 @@ def insert_update (user_id, first_name, last_name, gender, photo, birthdate, ema
         longitude,
         latitude,
         bio,
+        state,
         )
-    
+
 
     # sql command to UPDATE an existing record
-    update_command = """UPDATE users SET 
+    update_command = """UPDATE users SET
         first_name = ?,
         last_name = ?,
         gender = ?,
         photo = ?,
-        birthdate = ?, 
+        birthdate = ?,
         email = ?,
         phone = ?,
-        longitude = ?, 
+        longitude = ?,
         latitude = ?,
-        bio = ? 
+        bio = ?,
+        state = ?
         WHERE user_id = ?
         """
     update_args = (
@@ -56,7 +56,9 @@ def insert_update (user_id, first_name, last_name, gender, photo, birthdate, ema
             longitude,
             latitude,
             bio,
-            user_id)
+            state,
+            user_id
+            )
 
 
     #if record exists, UPDATE it. Else, INSERT.
@@ -76,11 +78,10 @@ def insert_update (user_id, first_name, last_name, gender, photo, birthdate, ema
         print (f'INSERTED record {user_id}: {first_name} {last_name}')
 
 
-    #commit changes to db			
+    #commit changes to db
     connection.commit()
-    print('+++++ COMMITTED changes to DB. +++++')  
+    print('+++++ COMMITTED changes to DB. +++++')
 
     # close connection
     connection.close()
     print ('+++++ CLOSED connection to DB. +++++')
-

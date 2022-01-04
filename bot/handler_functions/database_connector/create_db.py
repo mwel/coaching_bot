@@ -1,7 +1,7 @@
 # connect to the coachingBot_DB and check, if the user table already exists. If not, create it.
 import sqlite3
 
-def connect_db ():
+def create_db ():
     # connect to db
     connection = sqlite3.connect("coachingBotDB.db")
     print("+++++ Connected to coachingBotDB. +++++")
@@ -11,9 +11,9 @@ def connect_db ():
     print("+++++ Cursor created. +++++")
 
     # put table checker sql statement into a variable
-    checker = '''SELECT count(name) 
-        FROM sqlite_master 
-        WHERE type='table' AND name='users' 
+    checker = '''SELECT count(name)
+        FROM sqlite_master
+        WHERE type='table' AND name='users'
     '''
     cursor.execute(checker)
 
@@ -34,15 +34,15 @@ def connect_db ():
     );'''
 
     #if count is 1, table already exists - else, create it and tell me you did!
-    if cursor.fetchone()[0]==1: 
+    if cursor.fetchone()[0]==1:
         print('+++++ Table "users" already exists. +++++')
     else:
         cursor.execute(table_users)
         print('+++++ Table "users" created. +++++')
 
-    #commit changes to db			
+    #commit changes to db
     connection.commit()
-    print('+++++ COMMITTED changes to DB. +++++')  
+    print('+++++ COMMITTED changes to DB. +++++')
 
     # close connection
     connection.close()
@@ -50,5 +50,4 @@ def connect_db ():
 
 
 if __name__ == '__main__':
-    connect_db()
-
+    create_db()

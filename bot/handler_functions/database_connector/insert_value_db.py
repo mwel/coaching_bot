@@ -1,8 +1,15 @@
 # connect to the coachingBot_DB and check, if the user table already exists. If not, create it.
 import sqlite3
 
+from create_db import create_db
+
 
 def insert_update (user_id, column, value):
+
+    # create db if non-existent
+    # TODO: nice-to-have: use if clause to check table existence and only on fail try to create
+    create_db()
+
     # connect to db
     connection = sqlite3.connect("coachingBotDB.db")
     print("+++++ Connected to coachingBotDB. +++++")
@@ -11,14 +18,11 @@ def insert_update (user_id, column, value):
     cursor = connection.cursor()
     print("+++++ Cursor created. +++++")
 
-    # sql command to check, if user exists
-    user_check = f'SELECT EXISTS (SELECT 1 FROM users WHERE user_id={user_id})'
-    cursor.execute(user_check)
-
-    if not cursor.fetchone():
-        print("+++++ No record found +++++")
-        cursor.execute('INSERT INTO users VALUES (?)', (user_id,))
-        print (f'CREATED record {user_id}')
+    try:
+        cursor.execute('INSERT INTO users (user_id) VALUES (?)', (user_id,))
+        print (f'CREATED record {user_id}: {cursor.lastrowid}')
+    except sqlite3.IntegrityError:
+        print("+++++ Record found. Updating. +++++")
 
     # sql command to UPDATE an existing record
     update_command = f"UPDATE users SET {column} = ? WHERE user_id = ?"
@@ -27,11 +31,10 @@ def insert_update (user_id, column, value):
     cursor.execute(update_command, update_args)
     print (f'UPDATED record {user_id}: {column} >> {value}')
 
-    #commit changes to db			
+    #commit changes to db
     connection.commit()
-    print('+++++ COMMITTED changes to DB. +++++')  
+    print('+++++ COMMITTED changes to DB. +++++')
 
     # close connection
     connection.close()
     print ('+++++ CLOSED connection to DB. +++++')
-
