@@ -27,7 +27,7 @@ def getAllData(user_id):
     return table_data
 
 
-def getFirstName(user_id):
+def getFirstName(user_id, column):
     # connect to db
     connection = sqlite3.connect("coachingBotDB.db")
     print("+++++ Connected to coachingBotDB. +++++")
