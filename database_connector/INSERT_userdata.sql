@@ -1,7 +1,7 @@
 -- CREATION of user records and UPDATE queries to add more data to existing records
 
 -- initial INSERT command for when a user data set is created
-INSERT INTO users(user_id, first_name, last_name)
+INSERT INTO users(user_id, first_name, last_name, gender, photo, birthdate, email, phone, longitude, latitude, bio)
 VALUES ('user_id%', 'first_name%', 'last_name%')
 
 
