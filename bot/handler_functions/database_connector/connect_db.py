@@ -20,8 +20,8 @@ def connect_db ():
     # put table creation sql statement into a variable
     table_users = '''CREATE TABLE IF NOT EXISTS users (
         user_id INTEGER PRIMARY KEY,
-        first_name TEXT NOT NULL,
-        last_name TEXT NOT NULL,
+        first_name TEXT,
+        last_name TEXT,
         gender TEXT,
         photo BLOB,
         birthdate INT,
@@ -29,7 +29,8 @@ def connect_db ():
         phone TEXT UNIQUE,
         longitude INT,
         latitude INT,
-        bio TEXT NOT NULL
+        bio TEXT,
+        state INT
     );'''
 
     #if count is 1, table already exists - else, create it and tell me you did!
@@ -46,4 +47,8 @@ def connect_db ():
     # close connection
     connection.close()
     print ('+++++ CLOSED connection to DB. +++++')
+
+
+if __name__ == '__main__':
+    connect_db()
 

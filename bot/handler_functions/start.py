@@ -3,6 +3,7 @@ from telegram.ext import (
     CallbackContext,
 )
 from handler_functions import states
+from handler_functions.database_connector.insert_value_db import insert_update
 
 # gender copy variables
 male = 'Gentleman'
@@ -23,8 +24,10 @@ def start(update: Update, context: CallbackContext) -> int:
     context.user_data['user_id'] = update.message.from_user.id # update user dict.
     # first name
     context.user_data['first_name'] = update.message.from_user.first_name # safe user data into user dictionary like this.
+    insert_update(update.message.from_user.id, 'first_name', update.message.from_user.first_name)
     # last name
     context.user_data['last_name'] = update.message.from_user.last_name
+    insert_update(update.message.from_user.id, 'last_name', update.message.from_user.last_name)
     # >> safe more initial variables about the user here.
     
     # print status of user dictionary:
@@ -43,5 +46,7 @@ def start(update: Update, context: CallbackContext) -> int:
         ),
     )
 
-    # TODO: save state to DB
+    # save state to DB
+    insert_update(update.message.from_user.id, 'state', states.GENDER)
+
     return states.GENDER

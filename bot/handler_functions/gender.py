@@ -5,6 +5,7 @@ from telegram.ext import (
 )
 from logEnabler import logger;
 from handler_functions import states
+from handler_functions.database_connector.insert_value_db import insert_update
 
 
 # Stores the selected gender and asks for a photo.
@@ -30,5 +31,6 @@ def gender(update: Update, context: CallbackContext) -> int:
         reply_markup=ReplyKeyboardRemove(),
     )
     
-    # TODO: save state to DB
+    # save state to DB
+    insert_update(update.message.from_user.id, 'state', states.PHOTO)
     return states.PHOTO
