@@ -65,6 +65,7 @@ def main() -> None:
             states.BIO:         [MessageHandler(Filters.text & ~Filters.command, bio)],
             # more states here...
         },
+        fallbacks=[CommandHandler('cancel', cancel)],
     )
 
     dispatcher.add_handler(conv_handler) #calling Handler from separate class
