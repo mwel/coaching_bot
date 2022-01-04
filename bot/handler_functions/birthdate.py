@@ -5,10 +5,10 @@ from telegram.ext import (
     CallbackContext,
 )
 from logEnabler import logger;
-from conversation_handlers.stage_constants import BIRTHDATE
+import states
 
 
 # Stores the info about the user and ends the conversation.
 def birthdate(update: Update, context: CallbackContext) -> int:
 
-    return BIRTHDATE
+    return states.BIRTHDATE
