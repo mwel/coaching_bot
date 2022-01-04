@@ -23,7 +23,7 @@ def photo(update: Update, context: CallbackContext) -> int:
         'Just use Telegram\'s built in function to share your location with me once for the record. \n\n'
         'Or, if you prefer not to, you can /skip this step.'
     )
-
+    # TODO: save state to DB
     return states.LOCATION
 
 # Skips the photo and asks for a location.
@@ -40,5 +40,5 @@ def skip_photo(update: Update, context: CallbackContext) -> int:
         'Just use Telegram\'s built in function to share your location with me once for the record. \n\n'
         'Or, if you prefer not to, just /skip this step.'
     )
-
+    # TODO: save state to DB
     return states.LOCATION

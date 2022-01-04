@@ -25,7 +25,8 @@ def location(update: Update, context: CallbackContext) -> int:
     update.message.reply_text(
         'Wow! I\'ve always wanted to go there - maybe I can visit sometime. \n\n'
         f'Now, {context.user_data["first_name"]} - tell me a little bit about yourself - we want to get to know you a little better in order to provide you with the best consulting service possible.')
-
+    
+    # TODO: save state to DB
     return states.BIO
 
 
@@ -44,5 +45,6 @@ def skip_location(update: Update, context: CallbackContext) -> int:
     update.message.reply_text(
         'No matter where you are, coaching will get you to the next level!  \n\n'
         f'Now, {context.user_data["first_name"]} - tell me a little bit about yourself - we want to get to know you a little better in order to provide you with the best consulting service possible.')
-
+    
+    # TODO: save state to DB
     return states.BIO

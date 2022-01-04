@@ -29,5 +29,6 @@ def gender(update: Update, context: CallbackContext) -> int:
         'just send /skip and we will continue to the next step.) ',
         reply_markup=ReplyKeyboardRemove(),
     )
-
+    
+    # TODO: save state to DB
     return states.PHOTO

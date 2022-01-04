@@ -16,4 +16,5 @@ def cancel(update: Update, context: CallbackContext) -> int:
         'You ended the converstation and now have 2 options. Leave OR /start over.'
     )
 
+    # TODO: delete db record
     return ConversationHandler.END

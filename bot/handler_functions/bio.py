@@ -17,4 +17,5 @@ def bio(update: Update, context: CallbackContext) -> int:
     # print status of user dictionary:
     print ('+++++ User Dictionary +++++ \n' + str(context.user_data) + '\n +++++ +++++ +++++')
 
+    # TODO: save state to DB
     return ConversationHandler.END

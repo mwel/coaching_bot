@@ -12,6 +12,12 @@ other = 'I am a unicorn.'
 
 # Starts the conversation and asks the user about their gender.
 def start(update: Update, context: CallbackContext) -> int:
+    
+    # if user esists in db: 
+        # return user_progress ... and tell the user about it.
+    # else... everything below.
+    
+    
     # ask for user info and write variables to dict
     # user_id
     context.user_data['user_id'] = update.message.from_user.id # update user dict.
@@ -38,4 +44,5 @@ def start(update: Update, context: CallbackContext) -> int:
         ),
     )
 
+    # TODO: save state to DB
     return states.GENDER
