@@ -27,12 +27,12 @@ def start(update: Update, context: CallbackContext) -> int:
     reply_keyboard = [[female, male, other]]
     update.message.reply_text(
         f'Hi {context.user_data["first_name"]},\n' 'I am The Coaching Bot by wavehoover. You have taken the first step in you journey to success '
-        'by contacting me. As your personal CoachingBot, I will guide you through the onboarding process for '
+        'by contacting me. As your personal CoachingBot, I will guide you through the application process for '
         'your first coaching session. '
         '(You can send /cancel at any time, if you are no longer interested in a conversation with me '
         'nor your future coach.)\n\n'
-        'So - let\'s get started with a simple question: '
-        'Would you like to be referred to as a lady or gentleman?',
+        'Ok - let\'s start with some basics: '
+        'Would you like to be referred to as lady, gentleman or unicorn?',
         reply_markup=ReplyKeyboardMarkup(
             reply_keyboard, one_time_keyboard=True, input_field_placeholder='Lady, Gentleman or are you a unicorn?'
         ),
