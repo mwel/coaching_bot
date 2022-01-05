@@ -15,12 +15,14 @@ def photo(update: Update, context: CallbackContext) -> int:
     photo_file.download(user.first_name+'_photo.jpg') #add date to photo
 
     # convert to binary
-    with open(photo_file, 'rb') as file:
-        binary_photo_file = file.read()
+    # with open(photo_file, 'rb') as file:
+    #     binary_photo_file = file.read()
     
-
+    # write to user dict
     context.user_data['user_photo'] = photo_file
-    insert_update(update.message.from_user.id, 'photo', photo_file) # ERROR: unsupported type
+    # write pic top db
+    # insert_update(update.message.from_user.id, 'photo', binary_photo_file) # ERROR: unsupported type
+    # log info
     logger.info(f'Photo of {update.message.from_user.first_name} {update.message.from_user.last_name}: {update.message.from_user.first_name+"_photo.jpg"}')
 
     # print status of user dictionary:
