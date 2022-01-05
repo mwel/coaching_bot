@@ -21,8 +21,9 @@ def gender(update: Update, context: CallbackContext) -> int:
         insert_update(update.message.from_user.id, 'gender', 'diverse') 
 
     update.message.reply_text(
-        f'Alright, {update.message.from_user.first_name}!'
-        'Tell me - when is your birthday?',
+        f'Alright, {update.message.from_user.first_name}, '
+        'tell me - when is your birthday?',
+        reply_markup=ReplyKeyboardRemove(),
         # TODO: KeyboardButton(str, ...) # date picker for birthday
     )
     

@@ -13,8 +13,12 @@ def cancel(update: Update, context: CallbackContext) -> int:
     logger.info(f'User {user.first_name} canceled the conversation.')
     update.message.reply_text(
         f'APPLICATION TERMINATED by {user.first_name}\n\n'
-        'You ended the converstation and now have 2 options. Leave OR /start over.'
+        'You ended the converstation.'
+        # TODO: 'All your previously submitted data has been deleted.' 
+        'Now you can close this chat -OR- /start over.',
+        reply_markup=ReplyKeyboardRemove(),
     )
 
     # TODO: delete db record
+    
     return ConversationHandler.END

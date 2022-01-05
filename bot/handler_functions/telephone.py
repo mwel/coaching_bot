@@ -1,5 +1,5 @@
 # imports
-from telegram import Update
+from telegram import Update, ReplyKeyboardRemove
 from telegram.ext import CallbackContext
 from logEnabler import logger;
 
@@ -20,6 +20,7 @@ def telephone(update: Update, context: CallbackContext) -> int:
         'I\'m from Switzerland. It\'s really nice here! Where are you from?\n\n'
         '- > Tip: Use Telegram\'s built in function to share your location with me.\n\n'
         'Or, if you prefer not to, just /skip this step.',
+        reply_markup=ReplyKeyboardRemove(),
     )
     
     # save state to DB
@@ -39,6 +40,7 @@ def skip_telephone(update: Update, context: CallbackContext) -> int:
         'I\'m from Switzerland. It\'s really nice here! Where are you from?\n\n'
         '- > Tip: Use Telegram\'s built in function to share your location with me.\n\n'
         'Or, if you prefer not to, just /skip this step.',
+        reply_markup=ReplyKeyboardRemove(),
     )
     
     # save state to DB

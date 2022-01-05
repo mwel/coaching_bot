@@ -1,5 +1,5 @@
 # imports
-from telegram import Update
+from telegram import Update, ReplyKeyboardRemove
 from telegram.ext import CallbackContext
 from logEnabler import logger;
 
@@ -24,6 +24,7 @@ def location(update: Update, context: CallbackContext) -> int:
         'Wow! I\'ve always wanted to go there - maybe I can visit sometime. \n\n'
         'Here is a picture of me - can you send one of you?'
         '... or just /skip this step.',
+        reply_markup=ReplyKeyboardRemove(),
     )
     
     # save state to DB
@@ -46,6 +47,7 @@ def skip_location(update: Update, context: CallbackContext) -> int:
         'No matter where you are, coaching will get you to the next level!\n\n'
         'Here is a picture of me - can you send one of you?'
         '... or just /skip this step.',
+        reply_markup=ReplyKeyboardRemove(),
     )
 
     # save state to DB

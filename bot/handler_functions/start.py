@@ -1,5 +1,5 @@
 # imports
-from telegram import Update, message
+from telegram import Update, ReplyKeyboardRemove
 from telegram.ext import CallbackContext
 from logEnabler import logger; 
 

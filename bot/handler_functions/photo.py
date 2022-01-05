@@ -1,6 +1,6 @@
 # imports
-from telegram import (ReplyKeyboardRemove, Update)
-from telegram.ext import CallbackContext
+from telegram import ReplyKeyboardRemove, Update
+from telegram.ext import ConversationHandler, CallbackContext
 
 from logEnabler import logger;
 from handler_functions import states
@@ -18,14 +18,14 @@ def photo(update: Update, context: CallbackContext) -> int:
     
     # write to user dict
     context.user_data['user_photo'] = photo_file
-    # write pic top db
+    # write pic to db
     # insert_update(update.message.from_user.id, 'photo', binary_photo_file) # ERROR: unsupported type
     # log info
     logger.info(f'Photo of {update.message.from_user.first_name} {update.message.from_user.last_name}: {update.message.from_user.first_name+"_photo.jpg"}')
 
     update.message.reply_text(
         'Great picture!',
-        reply_markup=ReplyKeyboardRemove()
+        reply_markup=ReplyKeyboardRemove(),
     )
 
     # copy for STAGE 01 COMPLETED
@@ -33,7 +33,7 @@ def photo(update: Update, context: CallbackContext) -> int:
 
     # save state to DB
     insert_update(update.message.from_user.id, 'state', 'S1_COMPLETED')
-    return 'S1_COMPLETED'
+    return ConversationHandler.END
 
 # Skips the photo and asks for a location.
 def skip_photo(update: Update, context: CallbackContext) -> int:
@@ -42,7 +42,7 @@ def skip_photo(update: Update, context: CallbackContext) -> int:
     
     update.message.reply_text(
         'Ok, I\'ll take your word for it and bet you look great! ;)  \n\n',
-         reply_markup=ReplyKeyboardRemove()
+         reply_markup=ReplyKeyboardRemove(),
     )
 
     # copy for STAGE 01 COMPLETED
@@ -50,4 +50,4 @@ def skip_photo(update: Update, context: CallbackContext) -> int:
 
     # save state to DB
     insert_update(update.message.from_user.id, 'state', 'S1_COMPLETED')
-    return 'S1_COMPLETED'
+    return ConversationHandler.END

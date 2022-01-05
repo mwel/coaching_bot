@@ -54,24 +54,22 @@ def main() -> None:
     dispatcher = updater.dispatcher
 
     # this is the STATE MACHINE
-    # Adds conversation handler with the states GENDER, PHOTO, LOCATION and BIO for stage 1 of the sign up
     conv_handler = ConversationHandler(
         entry_points=[CommandHandler('start', start)],
         states={
             states.BIO:         [MessageHandler(Filters.text & ~Filters.command, bio)],
             states.GENDER:      [MessageHandler(Filters.regex('^(Gentleman|Lady|I am a unicorn.)$'), gender)],
-            states.BIRTHDATE:   [MessageHandler(Filters.text & ~Filters.command, birthdate), CommandHandler('skip', skip_birthdate)],
-            states.EMAIL:       [MessageHandler(Filters.text & ~Filters.command, email), CommandHandler('skip', skip_email)],
-            states.TELEPHONE:   [MessageHandler(Filters.text & ~Filters.command, telephone), CommandHandler('skip', skip_telephone)],
+            states.BIRTHDATE:   [MessageHandler(Filters.text, birthdate), CommandHandler('skip', skip_birthdate)],
+            states.EMAIL:       [MessageHandler(Filters.text, email), CommandHandler('skip', skip_email)],
+            states.TELEPHONE:   [MessageHandler(Filters.text, telephone), CommandHandler('skip', skip_telephone)],
             states.LOCATION:    [MessageHandler(Filters.location, location), CommandHandler('skip', skip_location)],
             states.PHOTO:       [MessageHandler(Filters.photo, photo), CommandHandler('skip', skip_photo)],
-            # states.COMPLETED:   [MessageHandler]
             # more states here...
         },
         fallbacks=[CommandHandler('cancel', cancel)],
     )
 
-    dispatcher.add_handler(conv_handler) #calling Handler from separate class
+    dispatcher.add_handler(conv_handler)
     # more Handlers here...
 
     # Start the Bot
