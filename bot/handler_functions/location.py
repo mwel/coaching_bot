@@ -5,6 +5,8 @@ from telegram.ext import (
 )
 from logEnabler import logger;
 from handler_functions import states
+from handler_functions.database_connector.insert_value_db import insert_update
+
 
 
 # Stores the location and asks for some info about the user.
@@ -14,19 +16,23 @@ def location(update: Update, context: CallbackContext) -> int:
 
     # write location to user dict
     context.user_data['latitude'] = user_location.latitude
+    # TODO: write latitude to DB
     context.user_data['longitude'] = user_location.longitude
+    # TODO: write longitude to DB
+
 
     # print status of user dictionary:
     print ('+++++ User Dictionary +++++ \n' + str(context.user_data) + '\n +++++ +++++ +++++')
 
     logger.info(
-        f'Location of {context.user_data["first_name"]} {context.user_data["last_name"]}: {user_location.latitude} , {user_location.longitude}'
+        f'Location of {update.message.from_user.first_name} {update.message.from_user.last_name}: {user_location.latitude} , {user_location.longitude}'
     )
     update.message.reply_text(
         'Wow! I\'ve always wanted to go there - maybe I can visit sometime. \n\n'
-        f'Now, {context.user_data["first_name"]} - tell me a little bit about yourself - we want to get to know you a little better in order to provide you with the best consulting service possible.')
+        f'Now, {update.message.from_user.first_name} - tell me a little bit about yourself - we want to get to know you a little better in order to provide you with the best consulting service possible.')
     
-    # TODO: save state to DB
+    # save state to DB
+    insert_update(update.message.from_user.id, 'state', states.BIO)
     return states.BIO
 
 
@@ -41,10 +47,11 @@ def skip_location(update: Update, context: CallbackContext) -> int:
     # print status of user dictionary:
     print ('+++++ User Dictionary +++++ \n' + str(context.user_data) + '\n +++++ +++++ +++++')
     
-    logger.info(f'User {context.user_data["first_name"]} {context.user_data["last_name"]} did not submit a location.')
+    logger.info(f'User {update.message.from_user.first_name} {update.message.from_user.last_name} did not submit a location.')
     update.message.reply_text(
         'No matter where you are, coaching will get you to the next level!  \n\n'
-        f'Now, {context.user_data["first_name"]} - tell me a little bit about yourself - we want to get to know you a little better in order to provide you with the best consulting service possible.')
+        f'Now, {update.message.from_user.first_name} - tell me a little bit about yourself - we want to get to know you a little better in order to provide you with the best consulting service possible.')
     
-    # TODO: save state to DB
+    # save state to DB
+    insert_update(update.message.from_user.id, 'state', states.BIO)
     return states.BIO

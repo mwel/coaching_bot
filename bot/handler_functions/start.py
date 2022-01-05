@@ -21,21 +21,21 @@ def start(update: Update, context: CallbackContext) -> int:
     
     # ask for user info and write variables to dict
     # user_id
-    context.user_data['user_id'] = update.message.from_user.id # update user dict.
+    # context.user_data['user_id'] = update.message.from_user.id # update user dict.
     # first name
-    context.user_data['first_name'] = update.message.from_user.first_name # safe user data into user dictionary like this.
-    insert_update(update.message.from_user.id, 'first_name', update.message.from_user.first_name)
+    # context.user_data['first_name'] = update.message.from_user.first_name # safe user data into user dictionary like this.
+    insert_update(update.message.from_user.id, 'first_name', update.message.from_user.first_name) # saving of user_id not necessary, because it will be saved here anyway.
     # last name
-    context.user_data['last_name'] = update.message.from_user.last_name
+    # context.user_data['last_name'] = update.message.from_user.last_name
     insert_update(update.message.from_user.id, 'last_name', update.message.from_user.last_name)
     # >> safe more initial variables about the user here.
     
     # print status of user dictionary:
-    print ('+++++ User Dictionary +++++ \n' + str(context.user_data) + '\n +++++ +++++ +++++')
+    #print ('+++++ User Dictionary +++++ \n' + str(context.user_data) + '\n +++++ +++++ +++++')
 
     reply_keyboard = [[female, male, other]]
     update.message.reply_text(
-        f'Hi {context.user_data["first_name"]},\n' 'I am a coaching bot by wavehoover. You have taken the first step on you journey to success '
+        f'Hi {update.message.from_user.first_name},\n' 'I am a coaching bot by wavehoover. You have taken the first step on you journey to success '
         'by contacting me. I will guide you through the application process for your first coaching session. '
         'It is super easy. Just follow the questions, answer or skip them - that\'s it.'
         '(You can send /cancel at any time, if you are no longer interested in a conversation)\n\n'
@@ -48,5 +48,4 @@ def start(update: Update, context: CallbackContext) -> int:
 
     # save state to DB
     insert_update(update.message.from_user.id, 'state', states.GENDER)
-
     return states.GENDER
