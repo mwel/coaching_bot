@@ -12,15 +12,15 @@ def insert_update (user_id, column, value):
 
     # connect to db
     connection = sqlite3.connect("coachingBotDB.db")
-    print("+++++ Connected to coachingBotDB. +++++")
+    print("+++++ CONNECTED to coachingBotDB. +++++")
 
     # cursor
     cursor = connection.cursor()
-    print("+++++ Cursor created. +++++")
+    # print("+++++ Cursor created. +++++")
 
     try:
         cursor.execute('INSERT INTO users (user_id) VALUES (?)', (user_id,))
-        print (f'CREATED record {user_id}: {cursor.lastrowid}')
+        print (f'+++++ CREATED record {user_id}: {cursor.lastrowid} +++++')
     except sqlite3.IntegrityError:
         print("+++++ Record found. Updating. +++++")
 
@@ -29,7 +29,7 @@ def insert_update (user_id, column, value):
     update_args = (value, user_id)
 
     cursor.execute(update_command, update_args)
-    print (f'UPDATED record {user_id}: {column} >> {value}')
+    print (f'+++++ UPDATED record {user_id}: {column} >> {value} +++++')
 
     #commit changes to db
     connection.commit()
