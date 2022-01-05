@@ -1,2 +1,2 @@
 # one constant per stage
-GENDER, PHOTO, LOCATION, BIO = range(4)
+BIO, GENDER, BIRTHDATE, EMAIL, TELEPHONE, LOCATION, PHOTO, COMPLETED  = range(8)

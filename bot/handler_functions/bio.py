@@ -1,28 +1,34 @@
 # imports
-from telegram import Update
-from telegram.ext import (
-    ConversationHandler,
-    CallbackContext,
-)
+from telegram import (ReplyKeyboardMarkup, Update)
 from logEnabler import logger;
+
+
+from handler_functions import states
 from handler_functions.database_connector.insert_value_db import insert_update
 
+# gender copy variables
+male = 'Gentleman'
+female = 'Lady'
+other = 'Unicorn'
 
-
-# Stores the info about the user and ends the conversation.
-def bio(update: Update, context: CallbackContext) -> int:
-    logger.info(f'Bio of {update.message.from_user.first_name} {update.message.from_user.last_name}: {update.message.text}')
-    # write to user dictionary
-    # context.user_data['bio'] = update.message.text
+# Stores the information received and continues on to the next state
+def bio(update: Update) -> int:
+    logger.info(f'+++++ Bio of {update.message.from_user.first_name} {update.message.from_user.last_name}: {update.message.text} +++++')
+    
     # write bio to DB
     insert_update(update.message.from_user.id, 'bio', update.message.text)
 
-    # copy for STAGE 01 COMPLETED
-    update.message.reply_text(f'Thanks for signing up, {update.message.from_user.first_name}! What\'s next? \n\n You will receive an email with all your submitted data. From there, you will be able to make an appointment for your first session. Once you\'ve done so, I will get back in touch with you and send you some small tasks for you to prep. \n\nUntil then - have a good one and take care!')
+    # create keyboard for next question >> GENDER
+    reply_keyboard = [[female, male, other]]
 
-    # print status of user dictionary:
-    # print ('+++++ User Dictionary +++++ \n' + str(context.user_data) + '\n +++++ +++++ +++++')
+    update.message.reply_text(
+        'Ok - let\'s get some basics out of the way: '
+        'Would you like to be referred to as lady, gentleman or unicorn?',
+        reply_markup=ReplyKeyboardMarkup(
+            reply_keyboard, one_time_keyboard=True, input_field_placeholder='Lady? Gentleman? Unicorn?'
+            )
+        )
 
     # save state to DB
-    insert_update(update.message.from_user.id, 'state', 'COMPLETED')
-    return ConversationHandler.END
+    insert_update(update.message.from_user.id, 'state', states.GENDER)
+    return states.GENDER

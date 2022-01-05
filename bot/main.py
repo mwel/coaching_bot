@@ -16,6 +16,10 @@ bot.
 
 # imports
 import telegram
+from bot.handler_functions.birthdate import birthdate, skip_birthdate
+from bot.handler_functions.email import email, skip_email
+from bot.handler_functions.states import BIRTHDATE, EMAIL
+from bot.handler_functions.telephone import skip_telephone, telephone
 from constants.API_constant import API_KEY
 from telegram.ext import (
     Updater,
@@ -55,10 +59,14 @@ def main() -> None:
     conv_handler = ConversationHandler(
         entry_points=[CommandHandler('start', start)],
         states={
-            states.GENDER:      [MessageHandler(Filters.regex('^(Gentleman|Lady|I am a unicorn.)$'), gender)],
-            states.PHOTO:       [MessageHandler(Filters.photo, photo), CommandHandler('skip', skip_photo)],
-            states.LOCATION:    [MessageHandler(Filters.location, location), CommandHandler('skip', skip_location)],
             states.BIO:         [MessageHandler(Filters.text & ~Filters.command, bio)],
+            states.GENDER:      [MessageHandler(Filters.regex('^(Gentleman|Lady|I am a unicorn.)$'), gender)],
+            states.BIRTHDATE:   [MessageHandler(Filters.text & ~Filters.command, birthdate), CommandHandler('skip', skip_birthdate)],
+            states.EMAIL:       [MessageHandler(Filters.text & ~Filters.command, email), CommandHandler('skip', skip_email)],
+            states.TELEPHONE:   [MessageHandler(Filters.text & ~Filters.command, telephone), CommandHandler('skip', skip_telephone)],
+            states.LOCATION:    [MessageHandler(Filters.location, location), CommandHandler('skip', skip_location)],
+            states.PHOTO:       [MessageHandler(Filters.photo, photo), CommandHandler('skip', skip_photo)],
+            # states.COMPLETED:   [MessageHandler]
             # more states here...
         },
         fallbacks=[CommandHandler('cancel', cancel)],

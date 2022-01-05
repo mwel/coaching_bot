@@ -1,5 +1,5 @@
 # imports
-from telegram import Update
+from telegram import (ReplyKeyboardRemove, Update)
 from telegram.ext import (
     CallbackContext,
 )
@@ -10,9 +10,8 @@ from handler_functions.database_connector.insert_value_db import insert_update
 
 # Stores the photo and asks for a location.
 def photo(update: Update, context: CallbackContext) -> int:
-    user = update.message.from_user
     photo_file = update.message.photo[-1].get_file()
-    photo_file.download(user.first_name+'_photo.jpg') #add date to photo
+    photo_file.download(update.message.from_user.first_name+'_photo.jpg') #add date to photo
 
     # convert to binary
     # with open(photo_file, 'rb') as file:
@@ -25,33 +24,31 @@ def photo(update: Update, context: CallbackContext) -> int:
     # log info
     logger.info(f'Photo of {update.message.from_user.first_name} {update.message.from_user.last_name}: {update.message.from_user.first_name+"_photo.jpg"}')
 
-    # print status of user dictionary:
-    # print ('+++++ User Dictionary +++++ \n' + str(context.user_data) + '\n +++++ +++++ +++++')
-
     update.message.reply_text(
-        'Great picture!\n\n Now, send me your location please, so I know where you are from. \n\n'
-        'Just use Telegram\'s built in function to share your location with me once for the record. \n\n'
-        'Or, if you prefer not to, you can always /skip this step.'
+        'Great picture!',
+        reply_markup=ReplyKeyboardRemove()
     )
+
+    # copy for STAGE 01 COMPLETED
+    update.message.reply_text(f'Thanks for signing up, {update.message.from_user.first_name}! What\'s next? \n\n You will receive an email with all your submitted data. From there, you will be able to make an appointment for your first session. Once you\'ve done so, I will get back in touch with you and send you some small tasks for you to prep. \n\nUntil then - have a good one and take care!')
+
     # save state to DB
-    insert_update(update.message.from_user.id, 'state', states.LOCATION)
-    return states.LOCATION
+    insert_update(update.message.from_user.id, 'state', states.COMPLETED)
+    return states.COMPLETED
 
 # Skips the photo and asks for a location.
-def skip_photo(update: Update, context: CallbackContext) -> int:
-    user = update.message.from_user
+def skip_photo(update: Update) -> int:
     logger.info(f'User {update.message.from_user.first_name} {update.message.from_user.last_name} did not update.message.from_user.first_namephoto.')
     insert_update(update.message.from_user.id, 'photo', 'NULL')
-
-    # print status of user dictionary:
-    print ('+++++ User Dictionary +++++ \n' + str(context.user_data) + '\n +++++ +++++ +++++')
     
     update.message.reply_text(
-        'Ok, I\'ll take your word for it and bet you look great! ;)  \n\n'
-        'Now, send me your location please, so I know where you are from. \n\n'
-        'Just use Telegram\'s built in function to share your location with me once for the record. \n\n'
-        'Or, if you prefer not to, just /skip this step.'
+        'Ok, I\'ll take your word for it and bet you look great! ;)  \n\n',
+         reply_markup=ReplyKeyboardRemove()
     )
+
+    # copy for STAGE 01 COMPLETED
+    update.message.reply_text(f'Thanks for signing up, {update.message.from_user.first_name}! What\'s next? \n\n You will receive an email with all your submitted data. From there, you will be able to make an appointment for your first session. Once you\'ve done so, I will get back in touch with you and send you some small tasks for you to prep. \n\nUntil then - have a good one and take care!')
+
     # save state to DB
-    insert_update(update.message.from_user.id, 'state', states.LOCATION)
-    return states.LOCATION
+    insert_update(update.message.from_user.id, 'state', states.COMPLETED)
+    return states.COMPLETED
