@@ -1,5 +1,6 @@
 # imports
 from telegram import (ReplyKeyboardMarkup, KeyboardButton, Update)
+from telegram.ext import CallbackContext
 from logEnabler import logger;
 
 
@@ -8,7 +9,7 @@ from handler_functions.database_connector.insert_value_db import insert_update
 
 
 # Stores the information received and continues on to the next state
-def email(update: Update) -> int:
+def email(update: Update, context: CallbackContext) -> int:
     logger.info(f'Email address of {update.message.from_user.first_name} {update.message.from_user.last_name}: {update.message.text}')
 
     insert_update(update.message.from_user.id, 'email', update.message.text)
@@ -26,7 +27,7 @@ def email(update: Update) -> int:
 
 
 # Skips this information and continues on to the next state
-def skip_email(update: Update) -> int:
+def skip_email(update: Update, context: CallbackContext) -> int:
     logger.info(f'No email address submitted by {update.message.from_user.first_name} {update.message.from_user.last_name}.')
 
     update.message.reply_text(

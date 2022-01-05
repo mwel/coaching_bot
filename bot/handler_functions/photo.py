@@ -1,8 +1,7 @@
 # imports
 from telegram import (ReplyKeyboardRemove, Update)
-from telegram.ext import (
-    CallbackContext,
-)
+from telegram.ext import CallbackContext
+
 from logEnabler import logger;
 from handler_functions import states
 from handler_functions.database_connector.insert_value_db import insert_update
@@ -37,7 +36,7 @@ def photo(update: Update, context: CallbackContext) -> int:
     return 'S1_COMPLETED'
 
 # Skips the photo and asks for a location.
-def skip_photo(update: Update) -> int:
+def skip_photo(update: Update, context: CallbackContext) -> int:
     logger.info(f'User {update.message.from_user.first_name} {update.message.from_user.last_name} did not update.message.from_user.first_namephoto.')
     insert_update(update.message.from_user.id, 'photo', 'NULL')
     

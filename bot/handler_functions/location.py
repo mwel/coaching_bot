@@ -1,5 +1,6 @@
 # imports
 from telegram import Update
+from telegram.ext import CallbackContext
 from logEnabler import logger;
 
 
@@ -8,7 +9,7 @@ from handler_functions.database_connector.insert_value_db import insert_update
 
 
 # Stores the information received and continues on to the next state
-def location(update: Update) -> int:
+def location(update: Update, context: CallbackContext) -> int:
     user_location = update.message.location
 
     # write latitude to DB
@@ -31,7 +32,7 @@ def location(update: Update) -> int:
 
 
 # Skips this information and continues on to the next state
-def skip_location(update: Update) -> int:
+def skip_location(update: Update, context: CallbackContext) -> int:
 
     # mark in db, that no location has been submitted.
     insert_update(update.message.from_user.id, 'latitude', '0')

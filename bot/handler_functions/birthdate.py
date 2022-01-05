@@ -1,5 +1,6 @@
 # imports
 from telegram import (ReplyKeyboardMarkup, KeyboardButton, Update)
+from telegram.ext import CallbackContext
 from logEnabler import logger;
 
 
@@ -8,7 +9,7 @@ from handler_functions.database_connector.insert_value_db import insert_update
 
 
 # Stores the information received and continues on to the next state
-def birthdate(update: Update) -> int:
+def birthdate(update: Update, context: CallbackContext) -> int:
     logger.info(f'Birthdate of {update.message.from_user.first_name} {update.message.from_user.last_name}: {update.message.text}')
 
     insert_update(update.message.from_user.id, 'birthdate', update.message.text)
@@ -27,7 +28,7 @@ def birthdate(update: Update) -> int:
 
 
 # Skips this information and continues on to the next state
-def skip_birthdate(update: Update) -> int:
+def skip_birthdate(update: Update, context: CallbackContext) -> int:
     logger.info(f'No birthdate submitted by {update.message.from_user.first_name} {update.message.from_user.last_name}.')
 
     # insert_update(update.message.from_user.id, 'birthdate', '0')
