@@ -2,17 +2,7 @@
 # pylint: disable=C0116,W0613
 # This program is dedicated to the public domain under the CC0 license.
 
-"""
-First, a few callback functions are defined. Then, those functions are passed to
-the Dispatcher and registered at their respective places.
-Then, the bot is started and runs until we press Ctrl-C on the command line.
-
-Usage:
-Example of a bot-user conversation using ConversationHandler.
-Send /start to initiate the conversation.
-Press Ctrl-C on the command line or send a signal to the process to stop the
-bot.
-"""
+""" -- main -- of the coaching Bot by wavehoover """
 
 # imports
 import telegram
@@ -28,12 +18,13 @@ from telegram.ext import (
 from handler_functions.start import start
 from handler_functions.bio import bio
 from handler_functions.gender import gender
-from handler_functions.photo import photo, skip_photo
-from handler_functions.location import location, skip_location
 from handler_functions.birthdate import birthdate, skip_birthdate
 from handler_functions.email import email, skip_email
-from handler_functions.telephone import skip_telephone, telephone
+from handler_functions.telephone import telephone, skip_telephone
+from handler_functions.location import location, skip_location
+from handler_functions.photo import photo, skip_photo
 from handler_functions.cancel import cancel
+
 from handler_functions import states
 
 
@@ -53,7 +44,7 @@ def main() -> None:
     # Gets the dispatcher to register handlers
     dispatcher = updater.dispatcher
 
-    # this is the STATE MACHINE
+    # bot state machine(s)
     conv_handler = ConversationHandler(
         entry_points=[CommandHandler('start', start)],
         states={

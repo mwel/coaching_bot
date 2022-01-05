@@ -140,3 +140,6 @@ coaching_mail-address.txt
 
 # photos
 user_pictures
+
+# db
+coachingBotDB.db
