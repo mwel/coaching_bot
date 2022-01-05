@@ -17,7 +17,6 @@ bot.
 # imports
 import telegram
 from constants.API_constant import API_KEY
-from utils.persistenceTest import PersistenceTest
 from telegram.ext import (
     Updater,
     CommandHandler,
@@ -45,11 +44,8 @@ print(bot.get_me())
 
 # Runs the bot.
 def main() -> None:
-    #create dummy persistance class until I know how it works.
-    persistence = PersistenceTest(store_user_data=True, store_chat_data=True, store_bot_data=True, store_callback_data=True) #why user data didn't generate?
-
     # Creates the updater and passes the API_TOKEN to it.
-    updater = Updater(API_KEY, persistence=persistence)
+    updater = Updater(API_KEY)
 
     # Gets the dispatcher to register handlers
     dispatcher = updater.dispatcher
