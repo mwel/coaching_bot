@@ -37,16 +37,3 @@ def skip_email(update: Update) -> int:
     # Looping back to state: EMAIL (we do not want to save anything to the db as we want to user to submit an email) 
     return states.EMAIL
     
-
-
-
-
-
-
-
-
-
-
-
-phone_number
-

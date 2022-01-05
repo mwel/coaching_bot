@@ -16,10 +16,6 @@ bot.
 
 # imports
 import telegram
-from bot.handler_functions.birthdate import birthdate, skip_birthdate
-from bot.handler_functions.email import email, skip_email
-from bot.handler_functions.states import BIRTHDATE, EMAIL
-from bot.handler_functions.telephone import skip_telephone, telephone
 from constants.API_constant import API_KEY
 from telegram.ext import (
     Updater,
@@ -34,6 +30,9 @@ from handler_functions.bio import bio
 from handler_functions.gender import gender
 from handler_functions.photo import photo, skip_photo
 from handler_functions.location import location, skip_location
+from handler_functions.birthdate import birthdate, skip_birthdate
+from handler_functions.email import email, skip_email
+from handler_functions.telephone import skip_telephone, telephone
 from handler_functions.cancel import cancel
 from handler_functions import states
 
