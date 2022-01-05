@@ -33,8 +33,8 @@ def photo(update: Update, context: CallbackContext) -> int:
     update.message.reply_text(f'Thanks for signing up, {update.message.from_user.first_name}! What\'s next? \n\n You will receive an email with all your submitted data. From there, you will be able to make an appointment for your first session. Once you\'ve done so, I will get back in touch with you and send you some small tasks for you to prep. \n\nUntil then - have a good one and take care!')
 
     # save state to DB
-    insert_update(update.message.from_user.id, 'state', states.COMPLETED)
-    return states.COMPLETED
+    insert_update(update.message.from_user.id, 'state', 'S1_COMPLETED')
+    return 'S1_COMPLETED'
 
 # Skips the photo and asks for a location.
 def skip_photo(update: Update) -> int:
@@ -50,5 +50,5 @@ def skip_photo(update: Update) -> int:
     update.message.reply_text(f'Thanks for signing up, {update.message.from_user.first_name}! What\'s next? \n\n You will receive an email with all your submitted data. From there, you will be able to make an appointment for your first session. Once you\'ve done so, I will get back in touch with you and send you some small tasks for you to prep. \n\nUntil then - have a good one and take care!')
 
     # save state to DB
-    insert_update(update.message.from_user.id, 'state', states.COMPLETED)
-    return states.COMPLETED
+    insert_update(update.message.from_user.id, 'state', 'S1_COMPLETED')
+    return 'S1_COMPLETED'
