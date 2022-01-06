@@ -4,11 +4,9 @@ import sqlite3
 def create_db ():
     # connect to db
     connection = sqlite3.connect("coachingBotDB.db")
-    print("+++++ Connected to coachingBotDB. +++++")
 
     # cursor
     cursor = connection.cursor()
-    print("+++++ Cursor created. +++++")
 
     # put table checker sql statement into a variable
     checker = '''SELECT count(name)
@@ -35,18 +33,16 @@ def create_db ():
 
     #if count is 1, table already exists - else, create it and tell me you did!
     if cursor.fetchone()[0]==1:
-        print('+++++ Table "users" already exists. +++++')
+        print('+++++ ALREADY EXISTS: table "users". +++++')
     else:
         cursor.execute(table_users)
-        print('+++++ Table "users" created. +++++')
+        print('+++++ CREATED table: "users". +++++')
 
     #commit changes to db
     connection.commit()
-    print('+++++ COMMITTED changes to DB. +++++')
 
     # close connection
     connection.close()
-    print ('+++++ CLOSED connection to DB. +++++')
 
 
 if __name__ == '__main__':

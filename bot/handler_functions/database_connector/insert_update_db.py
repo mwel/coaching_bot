@@ -5,12 +5,9 @@ import sqlite3
 def insert_update (user_id, first_name, last_name, gender, photo, birthdate, email, phone, longitude, latitude, bio, state):
     # connect to db
     connection = sqlite3.connect("coachingBotDB.db")
-    print("+++++ Connected to coachingBotDB. +++++")
 
     # cursor
     cursor = connection.cursor()
-    print("+++++ Cursor created. +++++")
-
 
     # sql command to INSERT a new record into the db
     insert_command = 'INSERT INTO users VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)'
@@ -28,7 +25,6 @@ def insert_update (user_id, first_name, last_name, gender, photo, birthdate, ema
         bio,
         state,
         )
-
 
     # sql command to UPDATE an existing record
     update_command = """UPDATE users SET
@@ -68,20 +64,19 @@ def insert_update (user_id, first_name, last_name, gender, photo, birthdate, ema
     cursor.execute(user_check)
 
     if cursor.fetchone():
-        print("+++++ Record Found! +++++")
+        print("+++++ FOUND record +++++")
         cursor.execute(update_command, update_args)
-        print (f'UPDATED record {user_id}: {first_name} {last_name}')
+        print (f'+++++ UPDATED RECORD {user_id}: {first_name} {last_name} +++++')
 
     else:
-        print("+++++ No record found +++++")
+        print("+++++ NOT FOUND record +++++")
         cursor.execute(insert_command, insert_args)
-        print (f'INSERTED record {user_id}: {first_name} {last_name}')
+        print (f'+++++ INSERTED RECORD {user_id}: {first_name} {last_name} +++++')
 
 
     #commit changes to db
     connection.commit()
-    print('+++++ COMMITTED changes to DB. +++++')
-
+    
     # close connection
     connection.close()
-    print ('+++++ CLOSED connection to DB. +++++')
+    
