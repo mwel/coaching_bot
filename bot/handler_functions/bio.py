@@ -7,10 +7,6 @@ from logEnabler import logger;
 from handler_functions import states
 from handler_functions.database_connector.insert_value_db import insert_update
 
-# gender copy variables
-male = 'Gentleman'
-female = 'Lady'
-other = 'Unicorn'
 
 # Stores the information received and continues on to the next state
 def bio(update: Update, context: CallbackContext) -> int:
@@ -20,7 +16,7 @@ def bio(update: Update, context: CallbackContext) -> int:
     insert_update(update.message.from_user.id, 'bio', update.message.text)
 
     # create keyboard for next question >> GENDER
-    reply_keyboard = [[female, male, other]]
+    reply_keyboard = [['Gentleman', 'Lady', 'Unicorn']]
 
     update.message.reply_text(
         'What a story! We will definately pick that up in our first session!\n\n'

@@ -26,7 +26,7 @@ def create_db ():
         photo BLOB,
         birthdate INT,
         email TEXT UNIQUE,
-        phone TEXT UNIQUE,
+        telephone TEXT UNIQUE,
         longitude INT,
         latitude INT,
         bio TEXT,
