@@ -15,7 +15,7 @@ def bio(update: Update, context: CallbackContext) -> int:
     # write bio to DB
     insert_update(update.message.from_user.id, 'bio', update.message.text)
 
-    # create keyboard for next question >> GENDER
+    # reply keyboard for next state
     reply_keyboard = [['Gentleman', 'Lady', 'Unicorn']]
 
     update.message.reply_text(
@@ -23,7 +23,7 @@ def bio(update: Update, context: CallbackContext) -> int:
         'Ok - now let\'s get some basics down: \n'
         'Would you like to be referred to as lady, gentleman or unicorn?',
         reply_markup=ReplyKeyboardMarkup(
-            reply_keyboard, one_time_keyboard=True, input_field_placeholder='Lady? Gentleman? Unicorn?'
+            reply_keyboard, one_time_keyboard=True, input_field_placeholder='Lady? Gentleman? Unicorn? ... here you can be whatever you want.'
             )
         )
 

@@ -12,6 +12,8 @@ from handler_functions.database_connector.insert_value_db import insert_update
 def telephone(update: Update, context: CallbackContext) -> int:
     logger.info(f'Telephone number of {update.message.from_user.first_name} {update.message.from_user.last_name}: {update.message.text}')
 
+    # TODO: data validation phone number
+
     insert_update(update.message.from_user.id, 'telephone', update.message.text)
 
     update.message.reply_text(

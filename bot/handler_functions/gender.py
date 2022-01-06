@@ -25,7 +25,12 @@ def gender(update: Update, context: CallbackContext) -> int:
     elif update.message.text == 'Lady':
         insert_update(update.message.from_user.id, 'gender', 'female')
     else:
+
+        print ('gender.py line 29')
+
         insert_update(update.message.from_user.id, 'gender', 'diverse') 
+
+        print ('gender.py line 33')
 
     update.message.reply_text(
         f'Alright, {update.message.from_user.first_name}, '

@@ -2,6 +2,8 @@
 # pylint: disable=C0116,W0613
 # This program is dedicated to the public domain under the CC0 license.
 
+# connect and launch the bot by entering this in your webbrowser: https://t.me/thecoachingbot?start=start
+
 """ -- main -- of the coaching Bot by wavehoover """
 
 # imports
@@ -49,10 +51,10 @@ def main() -> None:
         entry_points=[CommandHandler('start', start)],
         states={
             states.BIO:         [MessageHandler(Filters.text & ~Filters.command, bio)],
-            states.GENDER:      [MessageHandler(Filters.regex('^(Gentleman|Lady|I am a unicorn.)$'), gender)],
-            states.BIRTHDATE:   [MessageHandler(Filters.text, birthdate), CommandHandler('skip', skip_birthdate)],
-            states.EMAIL:       [MessageHandler(Filters.text, email), CommandHandler('skip', skip_email)],
-            states.TELEPHONE:   [MessageHandler(Filters.text, telephone), CommandHandler('skip', skip_telephone)],
+            states.GENDER:      [MessageHandler(Filters.regex('^(Gentleman|Lady|Unicorn)$'), gender)],
+            states.BIRTHDATE:   [MessageHandler(Filters.text & ~Filters.command, birthdate), CommandHandler('skip', skip_birthdate)],
+            states.EMAIL:       [MessageHandler(Filters.text & ~Filters.command, email), CommandHandler('skip', skip_email)],
+            states.TELEPHONE:   [MessageHandler(Filters.text & ~Filters.command, telephone), CommandHandler('skip', skip_telephone)],
             states.LOCATION:    [MessageHandler(Filters.location, location), CommandHandler('skip', skip_location)],
             states.PHOTO:       [MessageHandler(Filters.photo, photo), CommandHandler('skip', skip_photo)],
             # more states here...

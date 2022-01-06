@@ -19,11 +19,13 @@ reply_keyboard = [ # TypeError: getattr(): attribute name must be string >> why?
 def email(update: Update, context: CallbackContext) -> int:
     logger.info(f'Email address of {update.message.from_user.first_name} {update.message.from_user.last_name}: {update.message.text}')
 
+    # TODO: data validation email address
+
     insert_update(update.message.from_user.id, 'email', update.message.text)
 
     update.message.reply_text(
         'Ok - I will send you a summary, once we have completed Stage 1. \n\n'
-        'One of the prep steps for your first face to face session is a quick phone call.'
+        'One of the prep steps for your first face to face session is a quick phone call. '
         'In order for your coach to be able to give you a call, please send me a phone number, we can reach you under:',
         # TODO: reply_markup=ReplyKeyboardMarkup(reply_keyboard, one_time_keyboard=True, input_field_placeholder='+00 000 000 000')
     )
@@ -42,7 +44,7 @@ def skip_email(update: Update, context: CallbackContext) -> int:
         ['/cancel']],
 
     update.message.reply_text(
-        'Sorry, without an email address, the onboarding cannot be finished. Please enter one or /cancel'
+        'Sorry, without an email address, the onboarding cannot be finished. Please enter one or /cancel\n\n'
         'WARNING: If you cancel, all your previously submitted data will be deleted and you have to start over.',
         # TODO: reply_markup=ReplyKeyboardMarkup(one_time_keyboard=True, input_field_placeholder='mybest@address.com')
     )

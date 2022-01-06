@@ -1,5 +1,5 @@
 # imports
-from telegram import (ReplyKeyboardMarkup, KeyboardButton, Update)
+from telegram import (ReplyKeyboardMarkup, ReplyKeyboardRemove, KeyboardButton, Update, replykeyboardremove)
 from telegram.ext import CallbackContext
 from logEnabler import logger;
 
@@ -9,14 +9,13 @@ from handler_functions.database_connector.insert_value_db import insert_update
 
 
 # TODO: Keyboard for next state
-reply_keyboard = 'email keyboard'
+reply_keyboard = [] # TODO: implement normal or mail keyboard
 
 # replymarkup_variable for next state
-custom_keyboard=ReplyKeyboardMarkup(
-    reply_keyboard, 
-    one_time_keyboard=True, 
-    input_field_placeholder='mybest@address.com'
-    )
+reply_markup=ReplyKeyboardMarkup(
+            reply_keyboard,
+            input_field_placeholder='mybestmail@me.com'
+            )
 
 
 # Stores the information received and continues on to the next state
@@ -29,8 +28,8 @@ def birthdate(update: Update, context: CallbackContext) -> int:
         f'Great age!\n\n'
         'Now, send me your email address, so I can send you your summary of submitted data upon completion.'
         'WARNING: You can /skip this step, but if you do, I cannot send you a summary and confirmation of your request.',
-        # TODO: reply_markup=custom_markup
-        # )
+        reply_markup=reply_markup,
+        # TODO: reply_markup=custom_markup,
     )
     
     # save state to DB
@@ -46,10 +45,9 @@ def skip_birthdate(update: Update, context: CallbackContext) -> int:
 
     update.message.reply_text(
         f'I wouldn\'t want to talk about my age either... ;)\n\n'
-        'Now, send me your email address, so I can send you your summary of submitted data upon completion.'
-        'WARNING: You can /skip this step, but if you do, I cannot send you a summary and confirmation of your request.',
-        # TODO: reply_markup=custom_markup
-        # )
+        'Now, send me your email address, so I can send you your summary of submitted data upon completion.',
+        reply_markup=reply_markup,
+        # TODO: reply_markup=custom_markup,
     )
     
     # save state to DB
