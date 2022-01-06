@@ -8,7 +8,7 @@ def delete_record(user_id):
     cursor = connection.cursor()
     
     # DELETE record for specific user_id
-    cursor.execute(f'''DELETE FROM coachingBotDB.users WHERE user_id = {user_id};''')
+    cursor.execute(f'''DELETE FROM users WHERE user_id = {user_id};''')
     print(f'+++++ DELETED record for user_id: {user_id}. +++++')  
 
     #commit changes to db			
