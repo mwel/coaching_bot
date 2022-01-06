@@ -28,5 +28,5 @@ def gender(update: Update, context: CallbackContext) -> int:
     )
     
     # save state to DB
-    insert_update(update.message.from_user.id, 'state', states.BIRTHDAY)
-    return states.BIRTHDAY
+    insert_update(update.message.from_user.id, 'state', states.BIRTHDATE)
+    return states.BIRTHDATE
