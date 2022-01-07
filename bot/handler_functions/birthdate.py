@@ -26,7 +26,7 @@ def birthdate(update: Update, context: CallbackContext) -> int:
 
     update.message.reply_text(
         f'Great age!\n\n'
-        'Now, send me your email address, so I can send you your summary of submitted data upon completion.'
+        'Now, send me your email address, so I can send you your summary of submitted data upon completion.\n\n'
         'WARNING: You can /skip this step, but if you do, I cannot send you a summary and confirmation of your request.',
         reply_markup=reply_markup,
         # TODO: reply_markup=custom_markup,
