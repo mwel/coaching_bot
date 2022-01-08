@@ -25,6 +25,7 @@ from handler_functions.email import email, skip_email
 from handler_functions.telephone import telephone, skip_telephone
 from handler_functions.location import location, skip_location
 from handler_functions.photo import photo, skip_photo
+from handler_functions.summary_s1 import summary
 from handler_functions.cancel import cancel
 
 from handler_functions import states
