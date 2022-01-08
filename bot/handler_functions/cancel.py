@@ -26,3 +26,19 @@ def cancel(update: Update, context: CallbackContext) -> int:
     )
     
     return ConversationHandler.END
+
+
+# delete user record
+def delete(update: Update, context: CallbackContext) -> int:
+    logger.info(f'User {update.message.from_user.first_name} deleted own user record.')
+
+    # delete record of user upon cancellation of the sign up process
+    delete_record(update.message.from_user.id)
+
+    update.message.reply_text(
+        f'SUCCESS {update.message.from_user.first_name}\n'
+        'All your previously submitted data has been deleted.\n\n',
+        reply_markup=ReplyKeyboardRemove(),
+    )
+    
+    return ConversationHandler.END

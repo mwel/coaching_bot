@@ -3,7 +3,6 @@ from telegram.ext import CallbackContext
 
 def help(update: Update, context: CallbackContext):
     # Show the help text.
-    bot = context.bot
 
     header = '*coaching Bot HELP*\n\n'
     
@@ -20,5 +19,5 @@ def help(update: Update, context: CallbackContext):
 
     # forge final string
     text = header + help_items 
-    bot.send_message(chat_id=update.effective_user.id, text=text, parse_mode='Markdown')
+    context.bot.send_message(chat_id=update.effective_user.id, text=text, parse_mode='Markdown')
     

@@ -26,7 +26,7 @@ from handler_functions.telephone import telephone, skip_telephone
 from handler_functions.location import location, skip_location
 from handler_functions.photo import photo, skip_photo
 from handler_functions.summary_s1 import summary
-from handler_functions.cancel import cancel
+from handler_functions.cancel import cancel, delete
 from handler_functions.help import help
 
 from handler_functions import states
@@ -71,15 +71,6 @@ def main() -> None:
     dispatcher.add_handler(Commandhandler('summary', summary)) # /help
     dispatcher.add_handler(Commandhandler('delete', delete)) # /help
     dispatcher.add_handler(Commandhandler('status', status)) # /help
-
-
-    help_handler = ConversationHandler(
-        entry_points=[CommandHandler('help', help)],
-        states={
-            HELP:               [MessageHandler(Filters.text & ~Filters.command, bio)],
-        },
-        fallbacks=  [CommandHandler('close', close)],
-
     # more Handlers here...
 
     # Start the Bot

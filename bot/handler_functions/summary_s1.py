@@ -43,3 +43,4 @@ def summary(update: Update, context: CallbackContext) -> int:
     # save state to DB
     insert_update(update.message.from_user.id, 'state', 'S1_COMPLETED')
     return ConversationHandler.END
+
