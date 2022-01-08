@@ -12,23 +12,23 @@ from handler_functions.database_connector import select_db
 # Starts the conversation and continues on to the next state
 def start(update: Update, context: CallbackContext) -> int:
     
-    if select_db.user_search == True: # maybe also check, whether there is a db value saved in 'state'
+    if select_db.user_search(update.message.from_user.id) == True: # maybe also check, whether there is a db value saved in 'state'
         # get user's state from db
         state = select_db.get_value(update.message.from_user.id, 'state')
 
         update.message.reply_text(
             f'Welcome back {update.message.from_user.first_name},\n' 
-            'Let\'s continue where we left off...',
+            'Let\'s continue where we left off...\n\n'
+            '(In case you would like to start over, just /cancel and /start again.)',
             reply_markup=ReplyKeyboardRemove(),
             )
 
         # call next function for user
-        return state
+        return states.state
         
     else:
         logger.info(f'+++++ NEW USER: {update.message.from_user.first_name} {update.message.from_user.last_name} +++++')
 
-    
         # write user info to db
         insert_update(update.message.from_user.id, 'first_name', update.message.from_user.first_name) # saving of user_id not necessary, because it will be saved here anyway.
         insert_update(update.message.from_user.id, 'last_name', update.message.from_user.last_name)
