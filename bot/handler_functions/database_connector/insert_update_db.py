@@ -59,7 +59,7 @@ def insert_update (user_id, first_name, last_name, gender, photo, birthdate, ema
 
     #if record exists, UPDATE it. Else, INSERT.
     # sql command to check, if user exists
-    user_check = f'SELECT EXISTS (SELECT 1 FROM users WHERE user_id={user_id})'
+    user_check = f'SELECT EXISTS (SELECT 1 FROM users WHERE user_id={user_id})' # will return a sqlite3.Cursor object
 
     cursor.execute(user_check)
 

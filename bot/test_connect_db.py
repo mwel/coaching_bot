@@ -20,6 +20,8 @@ from handler_functions.database_connector import select_db
 
 # insert_value_db.insert_update(123456789, 'first_name', 'Tüb')
 
-select_db.getAllData(28648774)
+# select_db.get_all_data(28648774)
 
-select_db.getValue(28648774, 'first_name')
+# select_db.get_value(28648774, 'state')
+
+select_db.user_search(28648774)

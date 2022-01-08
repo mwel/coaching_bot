@@ -12,7 +12,6 @@ def insert_update (user_id, column, value):
 
     # connect to db
     connection = sqlite3.connect("coachingBotDB.db")
-
     # cursor
     cursor = connection.cursor()
 
@@ -31,6 +30,5 @@ def insert_update (user_id, column, value):
 
     #commit changes to db
     connection.commit()
-
     # close connection
     connection.close()

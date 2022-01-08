@@ -9,11 +9,11 @@ def create_db ():
     cursor = connection.cursor()
 
     # put table checker sql statement into a variable
-    checker = '''SELECT count(name)
-        FROM sqlite_master
-        WHERE type='table' AND name='users'
-    '''
-    cursor.execute(checker)
+    # checker = '''SELECT count(name)
+    #     FROM sqlite_master
+    #     WHERE type='table' AND name='users'
+    # '''
+    # cursor.execute(checker)
 
     # put table creation sql statement into a variable
     table_users = '''CREATE TABLE IF NOT EXISTS users (
@@ -31,12 +31,12 @@ def create_db ():
         state INT
     );'''
 
-    #if count is 1, table already exists - else, create it and tell me you did!
+    #if count is 1, table already exists - else, create it
     if cursor.fetchone()[0]==1:
-        print('+++++ ALREADY EXISTS: table "users". +++++')
+        print('+++++ ALREADY EXISTS: table "users" +++++')
     else:
         cursor.execute(table_users)
-        print('+++++ CREATED table: "users". +++++')
+        print('+++++ CREATED table: "users" +++++')
 
     #commit changes to db
     connection.commit()
