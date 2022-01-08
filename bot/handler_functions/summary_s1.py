@@ -3,7 +3,6 @@ from telegram import ReplyKeyboardRemove, Update
 from telegram.ext import ConversationHandler, CallbackContext
 
 from logEnabler import logger;
-from handler_functions import states
 from handler_functions.database_connector.insert_value_db import insert_update
 from handler_functions.database_connector import select_db
         
@@ -28,13 +27,18 @@ def summary(update: Update, context: CallbackContext) -> int:
     # steps for STAGE 01 COMPLETED
     update.message.reply_text(
         f'Thanks for signing up, {update.message.from_user.first_name}!\n\n' 
-        f'SUMMARY for {update.message.from_user.first_name} {update.message.from_user.last_name}:\n\n{summary}'
+        f'SUMMARY for {update.message.from_user.first_name} {update.message.from_user.last_name}:\n\n{summary}',
+            reply_markup=ReplyKeyboardRemove(),
+    )
+    
+    update.message.reply_text(
         'What\'s next? \n' 
         'In addition you will receive an email with all your submitted data. From there, you will be able to make an appointment for your first session. Once you\'ve done so, I will get back in touch with you and send you some small tasks for you to prep.\n\n'
         'Until then - have a good one and take care!'
         'Your wavehoover Team',
             reply_markup=ReplyKeyboardRemove(),
     )
+    
 
     # save state to DB
     insert_update(update.message.from_user.id, 'state', 'S1_COMPLETED')
