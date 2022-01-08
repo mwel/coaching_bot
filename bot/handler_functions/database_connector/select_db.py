@@ -20,7 +20,7 @@ def user_search(user_id): # I'm sure there is a better solution for this, but th
     cursor.execute(user_check)
 
     # get result from db, parse it as string, trim it and pase it as boolean
-    result = bool((str(cursor.fetchone())).lstrip('(').rstrip(',)'))
+    result = bool(int((str(cursor.fetchone())).lstrip('(').rstrip(',)')))
 
     print(f'+++++ RECORD REQUESTED for user_id: {user_id} +++++')
     if result == True:

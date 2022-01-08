@@ -38,6 +38,6 @@ from handler_functions import states
 # select_db.get_value(28648774, 'bio')
 # select_db.get_value(28648774, 'state')
 
-# select_db.user_search(28648774)
+select_db.user_search(28648774)
 
-print (states.GENDER)
+# print (states.GENDER)
