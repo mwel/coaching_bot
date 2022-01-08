@@ -23,7 +23,6 @@ def user_search(user_id): # I'm sure there is a better solution for this, but th
     result = bool((str(cursor.fetchone())).lstrip('(').rstrip(',)'))
 
     print(f'+++++ RECORD REQUESTED for user_id: {user_id} +++++')
-
     if result == True:
         print(f'+++++ RECORD FOUND +++++')
     else:
@@ -52,7 +51,9 @@ def get_all_data(user_id):
     # store all data from selection in table_data
     table_data = cursor.fetchall()
     
+    
     # print table
+    print(f'+++++ RECORD REQUESTED for user_id: {user_id} +++++')
     for i in table_data:
         print(i)
 
@@ -76,16 +77,11 @@ def get_value(user_id, column):
     cursor.execute(selection)
     
     # store all data from selection in table_data
-    table_data = cursor.fetchall()
+    table_value = (str(cursor.fetchone())).lstrip("('").rstrip("',)")
     
-    # print table
-    for i in table_data:
-        print(i)
+    # print value
+    print(f'+++++ RECORD REQUESTED for user_id: {user_id} +++++')
+    print(table_value)
 
-    return table_data
-
-
-def trim_state(state):
-    
-    return state.strip("'")
+    return table_value
     

@@ -12,9 +12,9 @@ from handler_functions.database_connector import select_db
 # Starts the conversation and continues on to the next state
 def start(update: Update, context: CallbackContext) -> int:
     
-    if select_db.user_search == True:
-        # get user's state from db and clean up the string
-        state = (select_db.get_value(update.message.from_user.id, 'state')).strip("'") # trim the edges of the sql result
+    if select_db.user_search == True: # maybe also check, whether there is a db value saved in 'state'
+        # get user's state from db
+        state = select_db.get_value(update.message.from_user.id, 'state')
 
         update.message.reply_text(
             f'Welcome back {update.message.from_user.first_name},\n' 

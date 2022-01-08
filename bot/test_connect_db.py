@@ -22,6 +22,18 @@ from handler_functions.database_connector import select_db
 
 # select_db.get_all_data(28648774)
 
+# single selects for all db colum value types
+# select_db.get_value(28648774, 'first_name')
+# select_db.get_value(28648774, 'last_name')
+# select_db.get_value(28648774, 'gender')
+# select_db.get_value(28648774, 'photo')
+# select_db.get_value(28648774, 'birthdate')
+# select_db.get_value(28648774, 'email')
+# select_db.get_value(28648774, 'telephone')
+# select_db.get_value(28648774, 'longitude')
+# select_db.get_value(28648774, 'latitude')
+# select_db.get_value(28648774, 'bio')
 # select_db.get_value(28648774, 'state')
 
-select_db.user_search(28648774)
+
+# select_db.user_search(28648774)
