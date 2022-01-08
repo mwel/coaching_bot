@@ -23,8 +23,11 @@ def start(update: Update, context: CallbackContext) -> int:
             reply_markup=ReplyKeyboardRemove(),
             )
 
+        print (f'#########STATE: {state}')
+        print (states.state_translator(state))
+
         # call next function for user
-        return states.state # TODO: find out how to parse the state back from a number into the respective state like "BIO"        
+        return states.state_translator(state) # TODO: find out how to parse the state back from a number into the respective state like "BIO"        
 
     else:
         logger.info(f'+++++ NEW USER: {update.message.from_user.first_name} {update.message.from_user.last_name} +++++')
