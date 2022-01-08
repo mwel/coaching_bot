@@ -12,17 +12,16 @@ from handler_functions.database_connector.delete_record_db import delete_record
 
 # Cancels and ends the conversation.
 def cancel(update: Update, context: CallbackContext) -> int:
-    user = update.message.from_user
-    logger.info(f'User {user.first_name} canceled the conversation.')
+    logger.info(f'User {update.message.from_user.first_name} canceled the conversation.')
 
     # delete record of user upon cancellation of the sign up process
     delete_record(update.message.from_user.id)
 
     update.message.reply_text(
-        f'APPLICATION TERMINATED by {user.first_name}\n\n'
+        f'APPLICATION TERMINATED by {update.message.from_user.first_name}\n\n'
         'You ended the converstation.\n'
         'All your previously submitted data has been deleted.\n\n' 
-        'Now you can close this chat -OR- /start over.',
+        'Now you can close this chat\n-OR-\n/start over.',
         reply_markup=ReplyKeyboardRemove(),
     )
     

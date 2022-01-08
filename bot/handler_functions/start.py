@@ -1,6 +1,6 @@
 # imports
-from telegram import Update, ReplyKeyboardRemove
-from telegram.ext import CallbackContext
+from telegram import Update, ReplyKeyboardRemove, ReplyKeyboardMarkup
+from telegram.ext import CallbackContext, ConversationHandler
 from logEnabler import logger; 
 
 
@@ -12,22 +12,32 @@ from handler_functions.database_connector import select_db
 # Starts the conversation and continues on to the next state
 def start(update: Update, context: CallbackContext) -> int:
     
-    if select_db.user_search(update.message.from_user.id) == True: # maybe also check, whether there is a db value saved in 'state'
+    if select_db.user_search(update.message.from_user.id): # maybe also check, whether there is a db value saved in 'state'
         # get user's state from db
         state = select_db.get_value(update.message.from_user.id, 'state')
 
         update.message.reply_text(
             f'Welcome back {update.message.from_user.first_name},\n' 
-            'Let\'s continue where we left off...\n\n'
-            '(In case you would like to start over, just /cancel and /start again.)',
+            'Let\'s continue where we left off...\n\n',
+            # '(In case you would like to start over, just /cancel and /start again.)',
             reply_markup=ReplyKeyboardRemove(),
             )
 
-        print (f'#########STATE: {state}')
         print (states.state_translator(state))
-
-        # call next function for user
-        return states.state_translator(state) # TODO: find out how to parse the state back from a number into the respective state like "BIO"        
+        
+        reply_keyboard = [['/cancel'],['/summary']]
+        if state == 'S1_COMPLETED': # stage 1 was apparently already completed for this user in the past.
+            update.message.reply_text(
+           f'Ah! I see, you have already completed stage 1 of the sign up.\nYou now have 2 choices:\n'
+           'Go to your email account and check, whether you have received our summary or just go back to your /summary here\n'
+           '- OR -\ndelete all your data you have previously entered via /cancel and /start over.',
+            reply_markup=ReplyKeyboardMarkup(
+            reply_keyboard, one_time_keyboard=True, input_field_placeholder='STAGE -1- COMPLETE'
+            )
+            return ConversationHandler.END
+        else:    
+            # call next function for user
+            return states.state_translator(state) # TODO: find out how to parse the state back from a number into the respective state like "BIO"        
 
     else:
         logger.info(f'+++++ NEW USER: {update.message.from_user.first_name} {update.message.from_user.last_name} +++++')

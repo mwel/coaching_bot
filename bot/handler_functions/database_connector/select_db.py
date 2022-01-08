@@ -81,7 +81,7 @@ def get_value(user_id, column):
     
     # print value
     print(f'+++++ RECORD REQUESTED for user_id: {user_id} +++++')
-    print(table_value)
+    print(f'+++++ DB RESPONSE: {table_value} +++++')
 
     return table_value
     

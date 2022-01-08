@@ -12,16 +12,16 @@ def summary(update: Update, context: CallbackContext) -> int:
 
     logger.info(f'+++++ User {update.message.from_user.first_name} completed stage 1. +++++')
 
-    summary = f"""Given Name = {select_db.get_value(update.message.from_user.id, 'first_name')}
-        Last Name: {select_db.get_value(update.message.from_user.id, 'last_name')}
-        Gender choice: {select_db.get_value(update.message.from_user.id, 'gender')}
-        Bidthdate: {select_db.get_value(update.message.from_user.id, 'birthdate')}
-        Email address: {select_db.get_value(update.message.from_user.id, 'email')}
-        Phone number: {select_db.get_value(update.message.from_user.id, 'telephone')}
-        Longitude: {select_db.get_value(update.message.from_user.id, 'longitude')}
-        Latitude: {select_db.get_value(update.message.from_user.id, 'latitude')}
-        Your story: {select_db.get_value(update.message.from_user.id, 'bio')}
-        Status: Stage -1- completed'
+    summary = f"""Given Name:\t{select_db.get_value(update.message.from_user.id, 'first_name')}
+        Last Name:\t{select_db.get_value(update.message.from_user.id, 'last_name')}
+        Gender choice:\t{select_db.get_value(update.message.from_user.id, 'gender')}
+        Bidthdate:\t{select_db.get_value(update.message.from_user.id, 'birthdate')}
+        Email address:\t{select_db.get_value(update.message.from_user.id, 'email')}
+        Phone number:\t{select_db.get_value(update.message.from_user.id, 'telephone')}
+        Longitude:\t{select_db.get_value(update.message.from_user.id, 'longitude')}
+        Latitude:\t{select_db.get_value(update.message.from_user.id, 'latitude')}
+        Your story:\t{select_db.get_value(update.message.from_user.id, 'bio')}
+        Status:\tSTAGE -1- COMPLETED
         """
 
     # steps for STAGE 01 COMPLETED

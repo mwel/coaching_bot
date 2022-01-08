@@ -27,6 +27,7 @@ from handler_functions.location import location, skip_location
 from handler_functions.photo import photo, skip_photo
 from handler_functions.summary_s1 import summary
 from handler_functions.cancel import cancel
+from handler_functions.help import help
 
 from handler_functions import states
 
@@ -61,10 +62,24 @@ def main() -> None:
             states.SUMMARY:     [MessageHandler(Filters.regex('^(COMPLETE SIGN UP)$'), summary)],
             # more states here...
         },
-        fallbacks=[CommandHandler('cancel', cancel)],
+        fallbacks=  [CommandHandler('cancel', cancel)],
     )
+    
+    # dispatch conversation handlers
+    dispatcher.add_handler(conv_handler) # /start, /cancel
+    dispatcher.add_handler(Commandhandler('help', help)) # /help
+    dispatcher.add_handler(Commandhandler('summary', summary)) # /help
+    dispatcher.add_handler(Commandhandler('delete', delete)) # /help
+    dispatcher.add_handler(Commandhandler('status', status)) # /help
 
-    dispatcher.add_handler(conv_handler)
+
+    help_handler = ConversationHandler(
+        entry_points=[CommandHandler('help', help)],
+        states={
+            HELP:               [MessageHandler(Filters.text & ~Filters.command, bio)],
+        },
+        fallbacks=  [CommandHandler('close', close)],
+
     # more Handlers here...
 
     # Start the Bot
