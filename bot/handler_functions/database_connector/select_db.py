@@ -3,17 +3,20 @@ import sqlite3
 def getAllData(user_id):
     # connect to db
     connection = sqlite3.connect("coachingBotDB.db")
-    print("+++++ Connected to coachingBotDB. +++++")
 
     # cursor
     cursor = connection.cursor()
-    print("+++++ Cursor created. +++++")
     
+    # SELECT all info from user with respective user_id
     selection = f"""SELECT * 
-        FROM coachingBotDB.users
+        FROM users
         WHERE user_id = {user_id} 
         """
+    
+    user_count = cursor.execute(selection)
 
+    # execute command to fetch all data from table users
+    print(f'+++++ Coaching Bot Users: ({user_count}) +++++')
     # execute command to fetch all data from table users
     cursor.execute(selection)
     
@@ -27,17 +30,16 @@ def getAllData(user_id):
     return table_data
 
 
-def getFirstName(user_id, column):
+
+def getValue(user_id, column):
     # connect to db
     connection = sqlite3.connect("coachingBotDB.db")
-    print("+++++ Connected to coachingBotDB. +++++")
 
     # cursor
     cursor = connection.cursor()
-    print("+++++ Cursor created. +++++")
     
-    selection = f"""SELECT first_name 
-        FROM coachingBotDB.users
+    selection = f"""SELECT {column} 
+        FROM users
         WHERE user_id = {user_id} 
         """
 

@@ -1,5 +1,6 @@
 # data base tests
-import create_db, select_db, insert_update_db, delete_record_db, insert_value_db
+# from database_connector import create_db, select_db, insert_update_db, delete_record_db, insert_value_db
+from handler_functions.database_connector import select_db
 
 
 # insert_update_db.insert_update(
@@ -17,4 +18,8 @@ import create_db, select_db, insert_update_db, delete_record_db, insert_value_db
 #     state = '-1'
 #     )
 
-insert_value_db.insert_update(123456789, 'first_name', 'Tüb')
+# insert_value_db.insert_update(123456789, 'first_name', 'Tüb')
+
+select_db.getAllData(28648774)
+
+select_db.getValue(28648774, 'first_name')
