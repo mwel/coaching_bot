@@ -17,6 +17,7 @@ reply_keyboard = [
 
 # Stores the information received and continues on to the next state
 def gender(update: Update, context: CallbackContext) -> int:
+    
     logger.info(f'Gender choice of {update.message.from_user.first_name} {update.message.from_user.last_name}: {update.message.text}')
     
     # write data to db

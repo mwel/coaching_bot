@@ -57,6 +57,7 @@ def main() -> None:
             states.TELEPHONE:   [MessageHandler(Filters.text & ~Filters.command, telephone), CommandHandler('skip', skip_telephone)],
             states.LOCATION:    [MessageHandler(Filters.location, location), CommandHandler('skip', skip_location)],
             states.PHOTO:       [MessageHandler(Filters.photo, photo), CommandHandler('skip', skip_photo)],
+            states.SUMMARY:     [MessageHandler(Filters.regex('^(COMPLETE SIGN UP)$'), summary)],
             # more states here...
         },
         fallbacks=[CommandHandler('cancel', cancel)],

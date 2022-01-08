@@ -24,8 +24,8 @@ def start(update: Update, context: CallbackContext) -> int:
             )
 
         # call next function for user
-        return states.state
-        
+        return states.state # TODO: find out how to parse the state back from a number into the respective state like "BIO"        
+
     else:
         logger.info(f'+++++ NEW USER: {update.message.from_user.first_name} {update.message.from_user.last_name} +++++')
 

@@ -1,11 +1,14 @@
 # imports
-from telegram import ReplyKeyboardRemove, Update
+from telegram import ReplyKeyboardRemove, ReplyKeyboardMarkup, Update
 from telegram.ext import ConversationHandler, CallbackContext
-
 from logEnabler import logger;
-from handler_functions import states
+
+
+from handler_functions import states, summary_s1
 from handler_functions.database_connector.insert_value_db import insert_update
 
+
+reply_keyboard = [['COMPLETE SIGN UP'],['/cancel']]
 
 # Stores the photo and asks for a location.
 def photo(update: Update, context: CallbackContext) -> int:
@@ -26,16 +29,16 @@ def photo(update: Update, context: CallbackContext) -> int:
     logger.info(f'Photo of {update.message.from_user.first_name} {update.message.from_user.last_name}: {update.message.from_user.first_name+"_photo.jpg"}')
 
     update.message.reply_text(
-        'Great picture!',
-        reply_markup=ReplyKeyboardRemove(),
+        'Great picture!\n\n'
+        'You are now at the end of stage 1. Would you like to complete your sign up for personal coaching or rather /cancel?',
+        reply_markup=ReplyKeyboardMarkup(
+        reply_keyboard, one_time_keyboard=True, input_field_placeholder='COMPLETE SIGN UP'
+        )
     )
 
-    # steps for STAGE 01 COMPLETED
-    update.message.reply_text(f'Thanks for signing up, {update.message.from_user.first_name}! What\'s next? \n\n You will receive an email with all your submitted data. From there, you will be able to make an appointment for your first session. Once you\'ve done so, I will get back in touch with you and send you some small tasks for you to prep. \n\nUntil then - have a good one and take care!')
-
     # save state to DB
-    insert_update(update.message.from_user.id, 'state', 'S1_COMPLETED')
-    return ConversationHandler.END
+    insert_update(update.message.from_user.id, 'state', states.SUMMARY)
+    return states.SUMMARY
 
 
 # Skips the photo and asks for a location.
@@ -44,13 +47,13 @@ def skip_photo(update: Update, context: CallbackContext) -> int:
     insert_update(update.message.from_user.id, 'photo', 'NULL')
     
     update.message.reply_text(
-        'Ok, I\'ll take your word for it and bet you look great! ;)  \n\n',
-         reply_markup=ReplyKeyboardRemove(),
+        'Great picture!\n\n'
+        'You are now at the end of stage 1. Would you like to complete your sign up for personal coaching or rather /cancel?',
+        reply_markup=ReplyKeyboardMarkup(
+        reply_keyboard, one_time_keyboard=True, input_field_placeholder='COMPLETE SIGN UP'
+        )
     )
 
-    # steps for STAGE 01 COMPLETED
-    update.message.reply_text(f'Thanks for signing up, {update.message.from_user.first_name}! What\'s next? \n\n You will receive an email with all your submitted data. From there, you will be able to make an appointment for your first session. Once you\'ve done so, I will get back in touch with you and send you some small tasks for you to prep. \n\nUntil then - have a good one and take care!')
-
     # save state to DB
-    insert_update(update.message.from_user.id, 'state', 'S1_COMPLETED')
-    return ConversationHandler.END
+    insert_update(update.message.from_user.id, 'state', states.SUMMARY)
+    return states.SUMMARY
