@@ -2,6 +2,8 @@
 # from database_connector import create_db, select_db, insert_update_db, delete_record_db, insert_value_db
 from handler_functions.database_connector import select_db
 from handler_functions import states
+from handler_functions import help
+
 
 
 
@@ -38,6 +40,8 @@ from handler_functions import states
 # select_db.get_value(28648774, 'bio')
 # select_db.get_value(28648774, 'state')
 
-select_db.user_search(28648774)
+# select_db.user_search(28648774)
 
 # print (states.GENDER)
+
+help.help()

@@ -1,6 +1,14 @@
 # one constant per stage
 BIO, GENDER, BIRTHDATE, EMAIL, TELEPHONE, LOCATION, PHOTO, SUMMARY  = range(8)
 
+
+def count_states():
+  for i in range:
+    n=+1
+  print (f'State count: {n}')
+  return n
+
+
 # translater of states from db response back to constants
 def state_translator(state_number):
     switch={

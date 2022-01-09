@@ -1,12 +1,14 @@
 from telegram import Update
 from telegram.ext import CallbackContext
 
-def help(update: Update, context: CallbackContext):
-    # Show the help text.
 
+# Show the help text.
+def help(update: Update, context: CallbackContext):
+
+    # header text    
     header = '*coaching Bot HELP*\n\n'
     
-    # add more help lines here
+    # commands
     help    = 'Call for help and it shall be displayed.\n'
     start   = 'Start The Coaching Bot.\n'
     summary = 'Ask the database for everything it has on you.'
@@ -14,10 +16,9 @@ def help(update: Update, context: CallbackContext):
     delete  = 'Delete all data you have ever submitted.\n'
     status  = 'Ask the bot how many steps you have left to complete your current stage.\n'
     
-    # sum em up
-    help_items = help + start + summary + cancel + delete + status
+    #  build a list in the order you like.
+    text = [header, help, start, summary, cancel, delete, status]
 
     # forge final string
-    text = header + help_items 
-    context.bot.send_message(chat_id=update.effective_user.id, text=text, parse_mode='Markdown')
+    context.bot.send_message(chat_id=update.effective_user.id, text=text) # cut out as last argument: "parse_mode='Markdown'"
     
