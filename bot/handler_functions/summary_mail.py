@@ -19,8 +19,8 @@ def summary_mail(recipient_name, summary, recipient_address):
         Cheers,\nYour wavehoover Team"""
 
     server = smtplib.SMTP_SSL(smtp_address, smtp_port)
-    server.starttls()
-    server.ehlo() # not sure, what this does
+    # server.starttls()
+    # server.ehlo() # not sure, what this does
     server.login(sender_address, password)
 
     message = MIMEMultipart()
