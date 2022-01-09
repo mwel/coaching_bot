@@ -25,13 +25,13 @@ def birthdate(update: Update, context: CallbackContext) -> int:
     insert_update(update.message.from_user.id, 'birthdate', update.message.text)
 
     update.message.reply_text(
-        f'Great age!\n\n'
+        'Great age!\n\n'
         'Now, send me your email address, so I can send you your summary of submitted data upon completion.\n\n'
         'WARNING: You can /skip this step, but if you do, I cannot send you a summary and confirmation of your request.',
         reply_markup=reply_markup,
         # TODO: reply_markup=custom_markup,
     )
-    
+
     # save state to DB
     insert_update(update.message.from_user.id, 'state', states.EMAIL)
     return states.EMAIL
@@ -44,12 +44,12 @@ def skip_birthdate(update: Update, context: CallbackContext) -> int:
     # insert_update(update.message.from_user.id, 'birthdate', '0')
 
     update.message.reply_text(
-        f'I wouldn\'t want to talk about my age either... ;)\n\n'
+        'I wouldn\'t want to talk about my age either... ;)\n\n'
         'Now, send me your email address, so I can send you your summary of submitted data upon completion.',
         reply_markup=reply_markup,
         # TODO: reply_markup=custom_markup,
     )
-    
+
     # save state to DB
     insert_update(update.message.from_user.id, 'state', states.EMAIL)
     return states.EMAIL
