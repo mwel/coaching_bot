@@ -63,7 +63,7 @@ def main() -> None:
             states.SUMMARY:     [MessageHandler(Filters.regex('^(COMPLETE SIGN UP)$'),                              summary)],
             # more states here...
         },
-        fallbacks=  [CommandHandler('cancel', cancel)],
+        fallbacks = [CommandHandler('cancel', cancel)],
     )
 
     # more conversation handlers for secondary commands

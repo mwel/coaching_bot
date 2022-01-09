@@ -20,13 +20,13 @@ def create_db ():
         last_name TEXT,
         gender TEXT,
         photo BLOB,
-        birthdate INT,
+        birthdate INTEGER,
         email TEXT UNIQUE,
         telephone TEXT UNIQUE,
-        longitude INT,
-        latitude INT,
+        longitude INTEGER,
+        latitude INTEGER,
         bio TEXT,
-        state INT,
+        state INTEGER,
         mail_sent BOOLEAN
     );'''
 
