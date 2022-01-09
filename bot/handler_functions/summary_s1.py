@@ -27,16 +27,20 @@ def summary(update: Update, context: CallbackContext) -> int:
     state = select_db.get_value(update.message.from_user.id, 'state')
     mail_sent = select_db.get_value(update.message.from_user.id, 'mail_sent')
 
-    summary = f"""Given Name:\t{first_name}
-        Last Name:\t{last_name}
-        Gender choice:\t{gender}
-        Bidthdate:\t{birthdate}
-        Email address:\t{email}
+    # if all questions of the bot have been ansered of skipped, send COMPLETE tag to user. Else - send status.
+    if state == states.COMPLETED:
+        state = 'COMPLETE'
+
+    summary = f"""Given Name:\t\t{first_name}
+        Last Name:\t\t{last_name}
+        Gender choice:\t\t{gender}
+        Bidthdate:\t\t\t{birthdate}
+        Email address:\t\t{email}
         Phone number:\t{telephone}
-        Longitude:\t{longitude}
-        Latitude:\t{latitude}
-        Your story:\t{bio}
-        Status:\tSTAGE -1- COMPLETED
+        Longitude:\t\t{longitude}
+        Latitude:\t\t\t{latitude}
+        Your story:\t\t{bio}
+        Sign Up:\t\t\t{state}
         """
 
     # steps for STAGE 01 COMPLETED

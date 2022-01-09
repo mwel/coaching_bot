@@ -30,7 +30,7 @@ def summary_mail(recipient_name, summary, recipient_address):
     message['Subject'] = subject
 
     # email body
-    body =   f"""Hi {recipient_name}, 
+    body =   f"""Hi {recipient_name}, \t
         thanks for signing up. This is the confirmation for your sign up with the coaching program by wavehoover. \n 
         {summary}\n
         Looking forward to meeting you!\n
