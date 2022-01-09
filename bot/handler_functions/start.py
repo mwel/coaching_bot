@@ -9,10 +9,17 @@ from handler_functions.database_connector.insert_value_db import insert_update
 from handler_functions.database_connector import select_db
 
 
+from handler_functions.database_connector.create_db import create_db
+
+
 # Starts the conversation and continues on to the next state
 def start(update: Update, context: CallbackContext) -> int:
-    
+
+    # CREATE DB, IF NOT EXISTS
+    create_db()
+
     if select_db.user_search(update.message.from_user.id) == True: # maybe also check, whether there is a db value saved in 'state'
+        
         # get user's state from db
         state = select_db.get_value(update.message.from_user.id, 'state')
 
