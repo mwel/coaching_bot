@@ -17,7 +17,7 @@ def help(update: Update, context: CallbackContext):
     status  = 'Ask the bot how many steps you have left to complete your current stage.\n'
     
     #  build a list in the order you like.
-    text = [header, help, start, summary, cancel, delete, status]
+    text = [header, help, start, summary, cancel, delete, status] # TODO: needs fixing and formatting
 
     # forge final string
     context.bot.send_message(chat_id=update.effective_user.id, text=text) # cut out as last argument: "parse_mode='Markdown'"

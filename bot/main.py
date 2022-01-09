@@ -28,6 +28,7 @@ from handler_functions.photo import photo, skip_photo
 from handler_functions.summary_s1 import summary
 from handler_functions.cancel import cancel, delete
 from handler_functions.help import help
+from handler_functions.status import status
 
 from handler_functions import states
 
@@ -53,13 +54,13 @@ def main() -> None:
         entry_points=[CommandHandler('start', start)],
         states={
             states.BIO:         [MessageHandler(Filters.text                                & ~Filters.command,     bio)],
-            states.GENDER:      [MessageHandler(Filters.regex('^(Gentleman|Lady|Unicorn)$'  & ~Filters.command),    gender)],
+            states.GENDER:      [MessageHandler(Filters.regex('^(Gentleman|Lady|Unicorn)$'),                        gender)],
             states.BIRTHDATE:   [MessageHandler(Filters.text                                & ~Filters.command,     birthdate), CommandHandler('skip', skip_birthdate)],
             states.EMAIL:       [MessageHandler(Filters.text                                & ~Filters.command,     email),     CommandHandler('skip', skip_email)],
             states.TELEPHONE:   [MessageHandler(Filters.text                                & ~Filters.command,     telephone), CommandHandler('skip', skip_telephone)],
             states.LOCATION:    [MessageHandler(Filters.location                            & ~Filters.command,     location),  CommandHandler('skip', skip_location)],
             states.PHOTO:       [MessageHandler(Filters.photo                               & ~Filters.command,     photo),     CommandHandler('skip', skip_photo)],
-            states.SUMMARY:     [MessageHandler(Filters.regex('^(COMPLETE SIGN UP)$'        & ~Filters.command),    summary)],
+            states.SUMMARY:     [MessageHandler(Filters.regex('^(COMPLETE SIGN UP)$'),                              summary)],
             # more states here...
         },
         fallbacks=  [CommandHandler('cancel', cancel)],
@@ -67,10 +68,10 @@ def main() -> None:
 
     # more conversation handlers for secondary commands
     dispatcher.add_handler(conv_handler)                                # /start, /cancel
-    dispatcher.add_handler(Commandhandler('help', help.call))           # /help
-    dispatcher.add_handler(Commandhandler('summary', summary.call))     # /summary
-    dispatcher.add_handler(Commandhandler('delete', delete.call))       # /delete
-    dispatcher.add_handler(Commandhandler('status', status.call))       # /status
+    dispatcher.add_handler(CommandHandler('help', help))                # /help
+    dispatcher.add_handler(CommandHandler('summary', summary))          # /summary
+    dispatcher.add_handler(CommandHandler('delete', delete))            # /delete
+    dispatcher.add_handler(CommandHandler('status', status))            # /status
     # add more Handlers here...
 
     # Start the Bot

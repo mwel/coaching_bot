@@ -28,11 +28,12 @@ def start(update: Update, context: CallbackContext) -> int:
         reply_keyboard = [['/cancel'],['/summary']]
         if state == 'S1_COMPLETED': # stage 1 was apparently already completed for this user in the past.
             update.message.reply_text(
-           f'Ah! I see, you have already completed stage 1 of the sign up.\nYou now have 2 choices:\n'
+           f'Ah! I see, you have already completed stage 1 of the sign up.\nYou now have 2 options:\n'
            'Go to your email account and check, whether you have received our summary or just go back to your /summary here\n'
            '- OR -\ndelete all your data you have previously entered via /cancel and /start over.',
             reply_markup=ReplyKeyboardMarkup(
             reply_keyboard, one_time_keyboard=True, input_field_placeholder='STAGE -1- COMPLETE'
+                )
             )
             return ConversationHandler.END
         else:    
