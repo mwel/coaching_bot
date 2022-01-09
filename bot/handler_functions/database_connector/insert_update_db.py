@@ -2,7 +2,7 @@
 import sqlite3
 
 
-def insert_update (user_id, first_name, last_name, gender, photo, birthdate, email, phone, longitude, latitude, bio, state):
+def insert_update (user_id, first_name, last_name, gender, photo, birthdate, email, telephone, longitude, latitude, bio, state, mail_sent):
     # connect to db
     connection = sqlite3.connect("coachingBotDB.db")
 
@@ -10,7 +10,7 @@ def insert_update (user_id, first_name, last_name, gender, photo, birthdate, ema
     cursor = connection.cursor()
 
     # sql command to INSERT a new record into the db
-    insert_command = 'INSERT INTO users VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)'
+    insert_command = 'INSERT INTO users VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)'
     insert_args = (
         user_id,
         first_name,
@@ -19,11 +19,12 @@ def insert_update (user_id, first_name, last_name, gender, photo, birthdate, ema
         photo,
         birthdate,
         email,
-        phone,
+        telephone,
         longitude,
         latitude,
         bio,
         state,
+        mail_sent
         )
 
     # sql command to UPDATE an existing record
@@ -34,27 +35,29 @@ def insert_update (user_id, first_name, last_name, gender, photo, birthdate, ema
         photo = ?,
         birthdate = ?,
         email = ?,
-        phone = ?,
+        telephone = ?,
         longitude = ?,
         latitude = ?,
         bio = ?,
         state = ?
+        mail_sent = ?
         WHERE user_id = ?
         """
     update_args = (
-            first_name,
-            last_name,
-            gender,
-            photo,
-            birthdate,
-            email,
-            phone,
-            longitude,
-            latitude,
-            bio,
-            state,
-            user_id
-            )
+        first_name,
+        last_name,
+        gender,
+        photo,
+        birthdate,
+        email,
+        telephone,
+        longitude,
+        latitude,
+        bio,
+        state,
+        mail_sent,
+        user_id
+        )
 
 
     #if record exists, UPDATE it. Else, INSERT.

@@ -26,7 +26,8 @@ def create_db ():
         longitude INT,
         latitude INT,
         bio TEXT,
-        state INT
+        state INT,
+        mail_sent BOOLEAN
     );'''
 
     cursor.execute(checker)
