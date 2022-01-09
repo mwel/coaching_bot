@@ -1,4 +1,4 @@
-"""Definition of states."""
+# STATE DEFINITIONS
 
 # one constant per stage
 MAX_STATES = 9
