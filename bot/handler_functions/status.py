@@ -17,7 +17,7 @@ def status(update: Update, context: CallbackContext) -> int:
 
         # return message, if user had been found in db
         update.message.reply_text(
-            f'You have completed {state} out of {states.MAX_STATES} steps of this stage!\n\n',
+            f'You have completed {state} out of {states.MAX_STATES} steps of the sign-up!\n\n',
                 reply_markup=ReplyKeyboardRemove(),
         )
         return ConversationHandler.END
