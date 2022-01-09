@@ -48,30 +48,30 @@ def main() -> None:
     # Gets the dispatcher to register handlers
     dispatcher = updater.dispatcher
 
-    # bot state machine(s)
+    # bot state machine and main conversation handler
     conv_handler = ConversationHandler(
         entry_points=[CommandHandler('start', start)],
         states={
-            states.BIO:         [MessageHandler(Filters.text & ~Filters.command, bio)],
-            states.GENDER:      [MessageHandler(Filters.regex('^(Gentleman|Lady|Unicorn)$'), gender)],
-            states.BIRTHDATE:   [MessageHandler(Filters.text & ~Filters.command, birthdate), CommandHandler('skip', skip_birthdate)],
-            states.EMAIL:       [MessageHandler(Filters.text & ~Filters.command, email), CommandHandler('skip', skip_email)],
-            states.TELEPHONE:   [MessageHandler(Filters.text & ~Filters.command, telephone), CommandHandler('skip', skip_telephone)],
-            states.LOCATION:    [MessageHandler(Filters.location, location), CommandHandler('skip', skip_location)],
-            states.PHOTO:       [MessageHandler(Filters.photo, photo), CommandHandler('skip', skip_photo)],
-            states.SUMMARY:     [MessageHandler(Filters.regex('^(COMPLETE SIGN UP)$'), summary)],
+            states.BIO:         [MessageHandler(Filters.text                                & ~Filters.command,     bio)],
+            states.GENDER:      [MessageHandler(Filters.regex('^(Gentleman|Lady|Unicorn)$'  & ~Filters.command),    gender)],
+            states.BIRTHDATE:   [MessageHandler(Filters.text                                & ~Filters.command,     birthdate), CommandHandler('skip', skip_birthdate)],
+            states.EMAIL:       [MessageHandler(Filters.text                                & ~Filters.command,     email),     CommandHandler('skip', skip_email)],
+            states.TELEPHONE:   [MessageHandler(Filters.text                                & ~Filters.command,     telephone), CommandHandler('skip', skip_telephone)],
+            states.LOCATION:    [MessageHandler(Filters.location                            & ~Filters.command,     location),  CommandHandler('skip', skip_location)],
+            states.PHOTO:       [MessageHandler(Filters.photo                               & ~Filters.command,     photo),     CommandHandler('skip', skip_photo)],
+            states.SUMMARY:     [MessageHandler(Filters.regex('^(COMPLETE SIGN UP)$'        & ~Filters.command),    summary)],
             # more states here...
         },
         fallbacks=  [CommandHandler('cancel', cancel)],
     )
-    
-    # dispatch conversation handlers
-    dispatcher.add_handler(conv_handler) # /start, /cancel
-    dispatcher.add_handler(Commandhandler('help', help)) # /help
-    dispatcher.add_handler(Commandhandler('summary', summary)) # /help
-    dispatcher.add_handler(Commandhandler('delete', delete)) # /help
-    dispatcher.add_handler(Commandhandler('status', status)) # /help
-    # more Handlers here...
+
+    # more conversation handlers for secondary commands
+    dispatcher.add_handler(conv_handler)                                # /start, /cancel
+    dispatcher.add_handler(Commandhandler('help', help.call))           # /help
+    dispatcher.add_handler(Commandhandler('summary', summary.call))     # /summary
+    dispatcher.add_handler(Commandhandler('delete', delete.call))       # /delete
+    dispatcher.add_handler(Commandhandler('status', status.call))       # /status
+    # add more Handlers here...
 
     # Start the Bot
     updater.start_polling()
