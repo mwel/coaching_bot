@@ -7,16 +7,26 @@ from logEnabler import logger;
 from handler_functions import states
 from handler_functions.database_connector.insert_value_db import insert_update
 
-# reply keyboard for next state
-reply_keyboard = [ # TypeError: getattr(): attribute name must be string >> why?
-    ['7', '8', '9'],
-    ['4', '5', '6'],
-    ['1', '2', '3'],
-    ['+', '0', '#']
-    ],
+
+# TODO: Keyboard for email
+reply_keyboard = [] # TODO: implement normal or mail keyboard
+
+# replymarkup_variable for next state
+reply_markup=ReplyKeyboardMarkup(
+            reply_keyboard,
+            input_field_placeholder='mybestmail@me.com'
+            )
+
 
 # Stores the information received and continues on to the next state
 def email(update: Update, context: CallbackContext) -> int:
+    
+    update.message.reply_text(
+        'Now, send me your email address, so I can send you your summary of submitted data upon completion.\n\n',
+        reply_markup=reply_markup,
+        # TODO: reply_markup=custom_markup,
+    )
+    
     logger.info(f'Email address of {update.message.from_user.first_name} {update.message.from_user.last_name}: {update.message.text}')
 
     # TODO: data validation email address
@@ -24,7 +34,7 @@ def email(update: Update, context: CallbackContext) -> int:
     insert_update(update.message.from_user.id, 'email', update.message.text)
 
     update.message.reply_text(
-        'Ok - I will send you a summary, once we have completed Stage 1. \n\n'
+        'Ok - I will send you a summary, once we have completed the sign up. \n\n'
         'One of the prep steps for your first face to face session is a quick phone call. '
         'In order for your coach to be able to give you a call, please send me a phone number, we can reach you under:',
         # TODO: reply_markup=ReplyKeyboardMarkup(reply_keyboard, one_time_keyboard=True, input_field_placeholder='+00 000 000 000')

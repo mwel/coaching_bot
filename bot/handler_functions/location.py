@@ -10,20 +10,21 @@ from handler_functions.database_connector.insert_value_db import insert_update
 
 # Stores the information received and continues on to the next state
 def location(update: Update, context: CallbackContext) -> int:
-    user_location = update.message.location
-
-    # write latitude to DB
-    insert_update(update.message.from_user.id, 'latitude', user_location.latitude)
-
-    # write longitude to DB
-    insert_update(update.message.from_user.id, 'longitude', user_location.longitude)
-
-    logger.info(f'+++++ Location of {update.message.from_user.first_name} {update.message.from_user.last_name}: {user_location.latitude} , {user_location.longitude} +++++')
     
     update.message.reply_text(
-        'Wow! I\'ve always wanted to go there - maybe I can visit sometime. \n\n'
-        'Here is a picture of me - can you send one of you?'
-        '... or just /skip this step.',
+        f'Alright, {update.message.from_user.first_name} - let\'s continue... '
+        'I\'m from Switzerland. It\'s really nice here! Where are you from?\n\n'
+        '- > Tip: Use Telegram\'s built in function to share your location with me.\n\n',
+        reply_markup=ReplyKeyboardRemove(),
+    )
+
+    insert_update(update.message.from_user.id, 'latitude', update.message.location.latitude)
+    insert_update(update.message.from_user.id, 'longitude', update.message.location.longitude)
+
+    logger.info(f'+++++ Location of {update.message.from_user.first_name} {update.message.from_user.last_name}: {update.message.location.latitude} , {update.message.location.longitude} +++++')
+    
+    update.message.reply_text(
+        'Wow! I\'ve always wanted to go there - maybe I can visit sometime.',
         reply_markup=ReplyKeyboardRemove(),
     )
     
@@ -34,19 +35,11 @@ def location(update: Update, context: CallbackContext) -> int:
 
 # Skips this information and continues on to the next state
 def skip_location(update: Update, context: CallbackContext) -> int:
-
-    # mark in db, that no location has been submitted.
-    insert_update(update.message.from_user.id, 'latitude', '0')
-
-    # mark in user db, that no location has been submitted.
-    insert_update(update.message.from_user.id, 'longitude', '0')
     
     logger.info(f'+++++ No location submitted by {update.message.from_user.first_name} {update.message.from_user.last_name}. +++++')
-    
+
     update.message.reply_text(
-        'No matter where you are, coaching will get you to the next level!\n\n'
-        'Here is a picture of me - can you send one of you?'
-        '... or just /skip this step.',
+        'No matter where you are, coaching will get you to the next level!',
         reply_markup=ReplyKeyboardRemove(),
     )
 

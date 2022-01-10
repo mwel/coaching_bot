@@ -1,4 +1,5 @@
 # imports
+from os import remove
 from telegram import ReplyKeyboardRemove, ReplyKeyboardMarkup, Update
 from telegram.ext import ConversationHandler, CallbackContext
 from logEnabler import logger;
@@ -12,6 +13,13 @@ reply_keyboard = [['COMPLETE SIGN UP'],['/cancel']]
 
 # Stores the photo and asks for a location.
 def photo(update: Update, context: CallbackContext) -> int:
+    
+    update.message.reply_text(
+        'Here is a picture of me - can you send one of you?'
+        '... or just /skip this step.',
+        reply_markup=ReplyKeyboardRemove(),
+    )
+    
     photo_file = update.message.photo[-1].get_file()
     photo_file.download(update.message.from_user.first_name+'_photo.jpg') # TODO: add date to photo
 
@@ -29,11 +37,8 @@ def photo(update: Update, context: CallbackContext) -> int:
     logger.info(f'Photo of {update.message.from_user.first_name} {update.message.from_user.last_name}: {update.message.from_user.first_name+"_photo.jpg"}')
 
     update.message.reply_text(
-        'Great picture!\n\n'
-        'You are now at the end of stage 1. Would you like to complete your sign up for personal coaching or rather /cancel?',
-        reply_markup=ReplyKeyboardMarkup(
-        reply_keyboard, one_time_keyboard=True, input_field_placeholder='COMPLETE SIGN UP'
-        )
+        'Great picture!\n\n',
+        reply_markup=ReplyKeyboardRemove,
     )
 
     # save state to DB
@@ -43,11 +48,12 @@ def photo(update: Update, context: CallbackContext) -> int:
 
 # Skips the photo and asks for a location.
 def skip_photo(update: Update, context: CallbackContext) -> int:
+    
     logger.info(f'User {update.message.from_user.first_name} {update.message.from_user.last_name} did not update.message.from_user.first_namephoto.')
     insert_update(update.message.from_user.id, 'photo', 'NULL')
     
     update.message.reply_text(
-        'Great picture!\n\n'
+        'Ok. No problem. You can send a picture or a social media account later.\n\n'
         'You are now at the end of stage 1. Would you like to complete your sign up for personal coaching or rather /cancel?',
         reply_markup=ReplyKeyboardMarkup(
         reply_keyboard, one_time_keyboard=True, input_field_placeholder='COMPLETE SIGN UP'
