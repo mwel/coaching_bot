@@ -10,16 +10,6 @@ from handler_functions import states
 from handler_functions.database_connector.insert_value_db import insert_update
 
 
-# TODO: Keyboard for next state
-reply_keyboard = [] # TODO: implement normal or mail keyboard
-
-# replymarkup_variable for next state
-reply_markup=ReplyKeyboardMarkup(
-            reply_keyboard,
-            input_field_placeholder='mybestmail@me.com'
-            )
-
-
 # Stores the information received and continues on to the next state
 def birthdate(update: Update, context: CallbackContext) -> int:
     logger.info(f'Birthdate of {update.message.from_user.first_name} {update.message.from_user.last_name}: {update.message.text}')
@@ -27,12 +17,14 @@ def birthdate(update: Update, context: CallbackContext) -> int:
     insert_update(update.message.from_user.id, 'birthdate', update.message.text)
 
     update.message.reply_text(
-        'Great age!\n\n'
-        'Now, send me your email address, so I can send you your summary of submitted data upon completion.\n\n'
-        'WARNING: You can /skip this step, but if you do, I cannot send you a summary and confirmation of your request.',
-        reply_markup=reply_markup,
-        # TODO: reply_markup=custom_markup,
-    )
+        'Great age!\n\n',
+        reply_markup=ReplyKeyboardRemove(),
+        )
+
+    update.message.reply_text(
+        states.MESSAGES[states.EMAIL],
+        reply_markup=states.KEYBOARD_MARKUPS[states.EMAIL],
+        )
 
     # save state to DB
     insert_update(update.message.from_user.id, 'state', states.EMAIL)
@@ -46,11 +38,14 @@ def skip_birthdate(update: Update, context: CallbackContext) -> int:
     # insert_update(update.message.from_user.id, 'birthdate', '0')
 
     update.message.reply_text(
-        'I wouldn\'t want to talk about my age either... ;)\n\n'
-        'Now, send me your email address, so I can send you your summary of submitted data upon completion.',
-        reply_markup=reply_markup,
-        # TODO: reply_markup=custom_markup,
-    )
+        'I wouldn\'t want to talk about my age either... ;)\n\n',
+        reply_markup=ReplyKeyboardRemove(),
+        )
+
+    update.message.reply_text(
+        states.MESSAGES[states.EMAIL],
+        reply_markup=states.KEYBOARD_MARKUPS[states.EMAIL],
+        )    
 
     # save state to DB
     insert_update(update.message.from_user.id, 'state', states.EMAIL)

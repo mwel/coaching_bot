@@ -31,12 +31,15 @@ def photo(update: Update, context: CallbackContext) -> int:
     logger.info(f'Photo of {update.message.from_user.first_name} {update.message.from_user.last_name}: {update.message.from_user.first_name+"_photo.jpg"}')
 
     update.message.reply_text(
-        'Great picture!\n\n'
-        'You are now at the end of stage 1. Would you like to complete your sign up for personal coaching or rather /cancel?',
-        reply_markup=ReplyKeyboardMarkup(
-        reply_keyboard, one_time_keyboard=True, input_field_placeholder='COMPLETE SIGN UP'
+        'Great picture!',
+        reply_markup=ReplyKeyboardRemove(),
         )
-    )
+    
+    update.message.reply_text(
+        states.MESSAGES[states.SUMMARY],
+        reply_markup=states.KEYBOARD_MARKUPS[states.SUMMARY],
+        )
+
 
     # save state to DB
     insert_update(update.message.from_user.id, 'state', states.SUMMARY)
@@ -49,12 +52,14 @@ def skip_photo(update: Update, context: CallbackContext) -> int:
     insert_update(update.message.from_user.id, 'photo', 'NULL')
     
     update.message.reply_text(
-        'Great picture!\n\n'
-        'You are now at the end of stage 1. Would you like to complete your sign up for personal coaching or rather /cancel?',
-        reply_markup=ReplyKeyboardMarkup(
-        reply_keyboard, one_time_keyboard=True, input_field_placeholder='COMPLETE SIGN UP'
+        'No problem. :) You can send me a picture later, if you like.',
+        reply_markup=ReplyKeyboardRemove(),
         )
-    )
+        
+    update.message.reply_text(
+        states.MESSAGES[states.SUMMARY],
+        reply_markup=states.KEYBOARD_MARKUPS[states.SUMMARY],
+        )
 
     # save state to DB
     insert_update(update.message.from_user.id, 'state', states.SUMMARY)

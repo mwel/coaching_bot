@@ -22,7 +22,7 @@ def bio(update: Update, context: CallbackContext) -> int:
         'What a story! We will definately pick that up in our first session!\n\n' + \
         'Ok - now let\'s get some basics down: \n' + \
         states.MESSAGES[states.GENDER],
-        reply_markup=states.KEYBOARDS[states.GENDER],
+        reply_markup=states.KEYBOARD_MARKUPS[states.GENDER],
         )
 
     # save state to DB

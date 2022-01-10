@@ -10,6 +10,8 @@ from handler_functions import states
 from handler_functions.database_connector.insert_value_db import insert_update
 
 
+contact_URL = 'https://wavehoover.com/' # adapt accordingly
+
 # Stores the information received and continues on to the next state
 def telephone(update: Update, context: CallbackContext) -> int:
     logger.info(f'Telephone number of {update.message.from_user.first_name} {update.message.from_user.last_name}: {update.message.text}')
@@ -19,13 +21,14 @@ def telephone(update: Update, context: CallbackContext) -> int:
     insert_update(update.message.from_user.id, 'telephone', update.message.text)
 
     update.message.reply_text(
-        'Cool, now a coach can call you, if there are any open questions.\n\n'
-        f'Alright, {update.message.from_user.first_name} - let\'s continue... '
-        'I\'m from Switzerland. It\'s really nice here! Where are you from?\n\n'
-        '- > Tip: Use Telegram\'s built in function to share your location with me.\n\n'
-        'Or, if you prefer not to, just /skip this step.',
+        'Cool, now a coach can call you, if there are any open questions.',
         reply_markup=ReplyKeyboardRemove(),
-    )
+        )
+
+    update.message.reply_text(
+        states.MESSAGES[states.LOCATION],
+        reply_markup=states.KEYBOARD_MARKUPS[states.LOCATION],
+        )
     
     # save state to DB
     insert_update(update.message.from_user.id, 'state', states.LOCATION)
@@ -36,16 +39,15 @@ def telephone(update: Update, context: CallbackContext) -> int:
 def skip_telephone(update: Update, context: CallbackContext) -> int:
     logger.info(f'No telephone number submitted for {update.message.from_user.first_name} {update.message.from_user.last_name}.')
 
-    # insert_update(update.message.from_user.id, 'telephone', '0')
-
     update.message.reply_text(
-        'Ok. No problem. You can still get in touch with your coach via email or the contact form: https://wavehoover.com/ \n\n'
-        f'Alright, {update.message.from_user.first_name} - let\'s continue... '
-        'I\'m from Switzerland. It\'s really nice here! Where are you from?\n\n'
-        '- > Tip: Use Telegram\'s built in function to share your location with me.\n\n'
-        'Or, if you prefer not to, just /skip this step.',
+        f'Ok. No problem. You can still get in touch with your coach via email or the contact form at {contact_URL}',
         reply_markup=ReplyKeyboardRemove(),
     )
+
+    update.message.reply_text(
+        states.MESSAGES[states.LOCATION],
+        reply_markup=states.KEYBOARD_MARKUPS[states.LOCATION],
+        )
     
     # save state to DB
     insert_update(update.message.from_user.id, 'state', states.LOCATION)

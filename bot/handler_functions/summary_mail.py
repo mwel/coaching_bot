@@ -1,5 +1,6 @@
 """ Mailing feature. Sends a summary to the user upon completion of sign up."""
 
+# imports
 import smtplib
 
 from email.mime.multipart import MIMEMultipart
