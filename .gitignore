@@ -13,3 +13,8 @@ user_pictures
 
 # db
 coachingBotDB.db
+
+# python
+__pycache__
+*.pyc
+
