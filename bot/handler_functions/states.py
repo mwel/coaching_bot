@@ -1,6 +1,6 @@
 """Define states, state transition messages and keyboards."""
 
-from telegram import ReplyKeyboardMarkup
+from telegram import ReplyKeyboardMarkup, InlineKeyboardMarkup
 
 # STATE DEFINITIONS
 MAX_STATES = 9
@@ -70,9 +70,9 @@ KEYBOARD_MARKUPS = {
     ),
         
     
-    EMAIL: ReplyKeyboardMarkup(
-            # keyboard for email addresses,
-            input_field_placeholder='mybestmail@me.com'
+    EMAIL: InlineKeyboardMarkup(
+        'my.bestmail@domain.com',
+            input_field_placeholder='my.bestmail@domain.com'
     ),
     
     TELEPHONE: ReplyKeyboardMarkup(
@@ -82,6 +82,7 @@ KEYBOARD_MARKUPS = {
             ['1', '2', '3'],
             ['+', '0', '#']
             ],
+            one_time_keyboard=False,
             input_field_placeholder='+00 000 000 00'
     ),
     

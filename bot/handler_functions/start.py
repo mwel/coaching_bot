@@ -9,8 +9,6 @@ from logEnabler import logger;
 from handler_functions import states
 from handler_functions.database_connector.insert_value_db import insert_update
 from handler_functions.database_connector import select_db
-
-
 from handler_functions.database_connector.create_db import create_db
 
 
@@ -45,7 +43,7 @@ def start(update: Update, context: CallbackContext) -> int:
             return ConversationHandler.END
 
         # call next function for user
-        update.message.reply_text(states.MESSAGES[state], reply_markup=ReplyKeyboardRemove())
+        update.message.reply_text(states.MESSAGES[state], reply_markup=states.KEYBOARD_MARKUPS[state])
         return state
 
     logger.info(f'+++++ NEW USER: {update.message.from_user.first_name} {update.message.from_user.last_name} +++++')

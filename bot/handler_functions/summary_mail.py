@@ -9,6 +9,7 @@ from email.mime.text import MIMEText
 
 from constants import MAIL_constant
 
+
 # variables
 smtp_address =      MAIL_constant.post_in_server
 smtp_port =         MAIL_constant.port

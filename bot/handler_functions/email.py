@@ -3,10 +3,10 @@
 # imports
 from telegram import (ReplyKeyboardMarkup, ReplyKeyboardRemove, Update)
 from telegram.ext import CallbackContext
-from bot.handler_functions.states import EMAIL, MESSAGES
 from logEnabler import logger;
 
 
+from handler_functions.states import EMAIL, MESSAGES
 from handler_functions import states
 from handler_functions.database_connector.insert_value_db import insert_update
 

@@ -3,9 +3,10 @@
 # imports
 from telegram import Update
 from telegram.ext import CallbackContext
-from bot.handler_functions.cancel import cancel
 
-from bot.handler_functions.states import SUMMARY
+
+from handler_functions.cancel import cancel
+from handler_functions.states import SUMMARY
 
 
 # Show the help text.
