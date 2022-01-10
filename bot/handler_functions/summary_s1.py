@@ -1,5 +1,5 @@
 # imports
-from telegram import ReplyKeyboardRemove, ReplyKeyboardMarkup, Update
+from telegram import ReplyKeyboardRemove, Update
 from telegram.ext import ConversationHandler, CallbackContext
 
 from logEnabler import logger;
@@ -43,21 +43,6 @@ def summary(update: Update, context: CallbackContext) -> int:
         Sign Up:\t\t\t{state}
         """
 
-    # reply keyboard for telephone
-    reply_keyboard = [
-        ['COMPLETE SIGN UP'],
-        ['/cancel'],
-        ],
-
-    # complete or cancel
-    update.message.reply_text(
-        'Ok. No problem. You can send a picture or a social media account later.\n\n'
-        'You are now at the end of stage 1. Would you like to complete your sign up for personal coaching or rather /cancel?',
-        reply_markup=ReplyKeyboardMarkup(
-            reply_keyboard, one_time_keyboard=True, input_field_placeholder='COMPLETE SIGN UP'
-        )
-    )
-    
     # steps for STAGE 01 COMPLETED
     update.message.reply_text(
         f'Thanks for signing up, {update.message.from_user.first_name}!\n\n'

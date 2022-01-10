@@ -1,6 +1,5 @@
 # imports
-from os import remove
-from telegram import (ReplyKeyboardMarkup, ReplyKeyboardRemove, Update)
+from telegram import (ReplyKeyboardMarkup, Update)
 from telegram.ext import CallbackContext
 from logEnabler import logger;
 
@@ -13,20 +12,20 @@ from handler_functions.database_connector.insert_value_db import insert_update
 def bio(update: Update, context: CallbackContext) -> int:
     logger.info(f'+++++ Bio of {update.message.from_user.first_name} {update.message.from_user.last_name}: {update.message.text} +++++')
     
-    update.message.reply_text(
-        f'Now, {update.message.from_user.first_name} - tell me a little bit about yourself - we want to get to know you a little better in order to provide you with the best coaching experience possible.',
-        reply_markup=ReplyKeyboardRemove(),
-        )
-
     # write bio to DB
     insert_update(update.message.from_user.id, 'bio', update.message.text)
 
-    # answer to user entry
-    update.message.reply_text(
-        'What a story! We will definately pick that up in our first session!\n\n',
-        reply_markup=ReplyKeyboardMarkup(),
-    )
+    # reply keyboard for next state
+    reply_keyboard = [['Gentleman', 'Lady', 'Unicorn']]
 
+    update.message.reply_text(
+        'What a story! We will definately pick that up in our first session!\n\n'
+        'Ok - now let\'s get some basics down: \n'
+        'Would you like to be referred to as lady, gentleman or unicorn?',
+        reply_markup=ReplyKeyboardMarkup(
+            reply_keyboard, one_time_keyboard=True, input_field_placeholder='Lady? Gentleman? Unicorn? ... here you can be whatever you want.'
+            )
+        )
 
     # save state to DB
     insert_update(update.message.from_user.id, 'state', states.GENDER)
