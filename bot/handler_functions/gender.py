@@ -17,9 +17,9 @@ reply_keyboard = [
 
 # Stores the information received and continues on to the next state
 def gender(update: Update, context: CallbackContext) -> int:
-    
+
     logger.info(f'Gender choice of {update.message.from_user.first_name} {update.message.from_user.last_name}: {update.message.text}')
-    
+
     # write data to db
     if update.message.text == 'Gentleman':
         insert_update(update.message.from_user.id, 'gender', 'male')
@@ -29,21 +29,20 @@ def gender(update: Update, context: CallbackContext) -> int:
 
         print ('gender.py line 29')
 
-        insert_update(update.message.from_user.id, 'gender', 'diverse') 
+        insert_update(update.message.from_user.id, 'gender', 'diverse')
 
         print ('gender.py line 33')
 
     update.message.reply_text(
-        f'Alright, {update.message.from_user.first_name}, '
-        'tell me - when is your birthday?',
+        f'Alright, {update.message.from_user.first_name}! ' + states.MESSAGES[states.BIRTHDATE],
         #reply_markup=ReplyKeyboardMarkup(
-        #    reply_keyboard, 
-        #    one_time_keyboard=True, 
+        #    reply_keyboard,
+        #    one_time_keyboard=True,
         #    input_field_placeholder='DD.MM.YYYY'),
         # reply_markup=ReplyKeyboardRemove(),
         # TODO: KeyboardButton(str, ...) # date picker for birthday
     )
-    
+
     # save state to DB
     insert_update(update.message.from_user.id, 'state', states.BIRTHDATE)
     return states.BIRTHDATE
