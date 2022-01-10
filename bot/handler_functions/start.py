@@ -27,7 +27,7 @@ def start(update: Update, context: CallbackContext) -> int:
 
         update.message.reply_text(
             f'Welcome back {update.message.from_user.first_name},\n'
-            'Let\'s continue where we left off...\n\n',
+            'Let\'s continue where we left off...',
             # '(In case you would like to start over, just /cancel and /start again.)',
             reply_markup=ReplyKeyboardRemove(),
             )

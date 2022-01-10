@@ -39,9 +39,14 @@ def skip_email(update: Update, context: CallbackContext) -> int:
     logger.info(f'No email address submitted by {update.message.from_user.first_name} {update.message.from_user.last_name}.')
 
     update.message.reply_text(
-        states.MESSAGES[states.EMAIL_OR_EXIT],
-        reply_markup=states.KEYBOARD_MARKUPS[states.EMAIL_OR_CANCEL],
+        'Sorry, without an email address, the onboarding cannot be completed. Please enter a valid address or /cancel\n\n',
+        'WARNING: If you cancel, all your previously submitted data will be deleted and you have to start over.',
+        reply_markup=ReplyKeyboardMarkup(
+            [['ENTER AN EMAIL'], ['/cancel']],
+            input_field_placeholder='mybestmail@me.com',
         )
-            # Looping back to state: EMAIL (we do not want to save anything to the db as we want to user to submit an email) 
+    )
+    
+    # Looping back to state: EMAIL (we do not want to save anything to the db as we want to user to submit an email) 
     return states.EMAIL
     

@@ -17,4 +17,5 @@ coachingBotDB.db
 # python
 __pycache__
 *.pyc
+*.cpython-38.*
 

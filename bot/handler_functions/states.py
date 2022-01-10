@@ -22,10 +22,6 @@ MESSAGES = {
     
     EMAIL: 'Please send me your email address, so I can send you your summary of submitted data upon completion.'
     ,
-
-    EMAIL_OR_EXIT: 'Sorry, without an email address, the onboarding cannot be completed. Please enter a valid address or /cancel\n\n'
-        'WARNING: If you cancel, all your previously submitted data will be deleted and you have to start over.'
-    ,
     
     TELEPHONE: 'One of the prep steps for your first face to face session is a quick phone call. '
         'In order for your coach to be able to give you a call, please send me a phone number, we can reach you under:'
@@ -49,7 +45,6 @@ MESSAGES = {
         'Until then - have a good one and take care!'
         'Your wavehoover Team'
     ,
-
 
 }
 
@@ -79,11 +74,6 @@ KEYBOARD_MARKUPS = {
             # keyboard for email addresses,
             input_field_placeholder='mybestmail@me.com'
     ),
-
-    EMAIL_OR_CANCEL: ReplyKeyboardMarkup(
-            [['ENTER AN EMAIL'], ['/cancel']],
-            input_field_placeholder='mybestmail@me.com'
-    ),
     
     TELEPHONE: ReplyKeyboardMarkup(
             [
@@ -104,10 +94,6 @@ KEYBOARD_MARKUPS = {
             input_field_placeholder='COMPLETE SIGN UP'
     ),
 
-    STATUS: ReplyKeyboardMarkup(
-        [['/start'],['/help']], 
-        one_time_keyboard=True
-    ),
 }
 
 
