@@ -5,9 +5,6 @@ DB_constant.py
 FTP_constant.py
 MAIL_constant.py
 
-# email access
-coaching_mail-address.txt
-
 # photos
 user_pictures
 
@@ -15,7 +12,7 @@ user_pictures
 coachingBotDB.db
 
 # python
-__pycache__
+__pycache__/
 *.pyc
 *.cpython-38.*
 
