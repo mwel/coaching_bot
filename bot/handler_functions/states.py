@@ -1,13 +1,14 @@
-"""Define the states and the state transition messages and keyboards."""
+"""Define states, state transition messages and keyboards."""
+
 from telegram import ReplyKeyboardMarkup
 
 # STATE DEFINITIONS
-
-# one constant per stage
 MAX_STATES = 9
+# one constant per stage
 BIO, GENDER, BIRTHDATE, EMAIL, TELEPHONE, LOCATION, PHOTO, SUMMARY, COMPLETED = range(MAX_STATES)
 
-# Transition messages to display at first encounter and at pick-up when continuing
+
+# transition messages to display at first encounter and at pick-up when continuing
 MESSAGES = {
     BIO: 'Tell me a little bit about yourself - we want to get to know you a little better in order to provide you with the best coaching experience possible.',
     GENDER: 'Would you like to be referred to as lady, gentleman or unicorn?',
@@ -18,7 +19,8 @@ MESSAGES = {
     PHOTO: 'Tolle PHOTO message!',
 }
 
-# Keyboards for the new states
+
+# custom keyboards for next state
 KEYBOARDS = {
     BIO: None,
     GENDER: ReplyKeyboardMarkup(

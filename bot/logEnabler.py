@@ -1,3 +1,5 @@
+""" logger. Manages logging for the bot in the command line."""
+
 import logging
 
 # Enable logging

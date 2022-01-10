@@ -1,3 +1,5 @@
+""" location handler function. called, when user arrives at location state """
+
 # imports
 from telegram import Update, ReplyKeyboardRemove
 from telegram.ext import CallbackContext

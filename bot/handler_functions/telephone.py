@@ -1,3 +1,5 @@
+""" telephone handler function. called, when user arrives at telephone state """
+
 # imports
 from telegram import Update, ReplyKeyboardRemove
 from telegram.ext import CallbackContext

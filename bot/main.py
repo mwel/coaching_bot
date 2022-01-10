@@ -2,9 +2,10 @@
 # pylint: disable=C0116,W0613
 # This program is dedicated to the public domain under the CC0 license.
 
-# connect and launch the bot by entering this in your webbrowser: https://t.me/thecoachingbot?start=start
 
 """ -- main -- of the coaching Bot by wavehoover """
+""" connect and launch the bot by entering this in your webbrowser: https://t.me/thecoachingbot?start=start """
+
 
 # imports
 import telegram

@@ -1,3 +1,5 @@
+""" Summary feature. Collects all data on a user from the data base, packages it into one message and displays it to the user upon completion of sign up."""
+
 # imports
 from telegram import ReplyKeyboardRemove, Update
 from telegram.ext import ConversationHandler, CallbackContext

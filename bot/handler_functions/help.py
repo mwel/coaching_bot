@@ -1,3 +1,6 @@
+""" help handler function. called, when user enters /help """
+
+# imports
 from telegram import Update
 from telegram.ext import CallbackContext
 

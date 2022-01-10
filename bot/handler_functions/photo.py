@@ -1,3 +1,5 @@
+""" photo handler function. called, when user arrives at photo state """
+
 # imports
 from telegram import ReplyKeyboardRemove, ReplyKeyboardMarkup, Update
 from telegram.ext import ConversationHandler, CallbackContext

@@ -3,7 +3,9 @@ from telegram import (ReplyKeyboardMarkup, KeyboardButton, Update)
 from telegram.ext import CallbackContext
 from logEnabler import logger;
 
+""" email handler function. called, when user arrives at email state """
 
+# imports
 from handler_functions import states
 from handler_functions.database_connector.insert_value_db import insert_update
 

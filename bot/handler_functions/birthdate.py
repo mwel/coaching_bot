@@ -1,3 +1,5 @@
+""" birthdate handler function. called, when user arrives at birthdate state """
+
 # imports
 from telegram import (ReplyKeyboardMarkup, ReplyKeyboardRemove, KeyboardButton, Update, replykeyboardremove)
 from telegram.ext import CallbackContext

@@ -1,3 +1,5 @@
+""" status handler function. called, when user enters /status """
+
 # imports
 from telegram import ReplyKeyboardRemove, Update, ReplyKeyboardMarkup
 from telegram.ext import ConversationHandler, CallbackContext

@@ -1,3 +1,5 @@
+""" simple tests for data base and handler functions """
+
 # data base tests
 # from database_connector import create_db, select_db, insert_update_db, delete_record_db, insert_value_db
 from handler_functions.database_connector import select_db

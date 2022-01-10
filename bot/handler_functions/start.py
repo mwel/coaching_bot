@@ -1,3 +1,5 @@
+""" start handler function. called, when the bot is started (user enters /start) """
+
 # imports
 from telegram import Update, ReplyKeyboardRemove, ReplyKeyboardMarkup
 from telegram.ext import CallbackContext, ConversationHandler
@@ -37,7 +39,7 @@ def start(update: Update, context: CallbackContext) -> int:
            'Go to your email account and check, whether you have received our summary or just go back to your /summary here\n'
            '- OR -\ndelete all your data you have previously entered via /cancel and /start over.',
             reply_markup=ReplyKeyboardMarkup(
-            reply_keyboard, one_time_keyboard=True, input_field_placeholder='STAGE -1- COMPLETE'
+            reply_keyboard, one_time_keyboard=True, input_field_placeholder='SIGN UP COMPLETE'
                 )
             )
             return ConversationHandler.END

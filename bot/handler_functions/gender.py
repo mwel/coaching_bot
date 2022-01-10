@@ -1,3 +1,5 @@
+""" cancel handler function. called, when user enters /cancel """
+
 # imports
 from telegram import (ReplyKeyboardRemove, ReplyKeyboardMarkup, KeyboardButton, Update)
 from telegram.ext import CallbackContext

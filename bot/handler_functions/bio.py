@@ -1,3 +1,5 @@
+""" bio handler function. called, when user arrives at bio state """
+
 # imports
 from telegram import Update
 from telegram.ext import CallbackContext
