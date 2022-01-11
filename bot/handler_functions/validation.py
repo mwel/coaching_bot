@@ -26,12 +26,12 @@ def validate_birthdate(input):
 # def validate_email():
 
 
-# validates telephone number for format +00 0000 000 000 0
+# validates telephone number for format +00 0000000000
 def validate_telephone(input): 
 
     print(f'----- Input submitted for validation: {input} -----')
  
-    format = re.compile(r'^\+4[139] \(0\d+\) \d{9,}$/') # regex for telephone numbers for GERMANY, AUSTRIA, SWITZERLAND - adapt to country (also in main conv handler)
+    format = re.compile(r'^\+4[139] \d{9,12}$/') # regex for telephone numbers for GERMANY, AUSTRIA, SWITZERLAND with 9 to 12 digit phone numbers - adapt to country (also in main conv handler)
 
     isValidDate = True
     if re.fullmatch(format, input):
