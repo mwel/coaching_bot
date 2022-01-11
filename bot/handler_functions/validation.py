@@ -31,7 +31,9 @@ def validate_telephone(input):
 
     print(f'----- Input submitted for validation: {input} -----')
  
-    format = re.compile(r'^\+4[139] \d{9,12}$/') # regex for telephone numbers for GERMANY, AUSTRIA, SWITZERLAND with 9 to 12 digit phone numbers - adapt to country (also in main conv handler)
+    format = re.compile(r'^\+4[139]\d{9,12}$') # regex for telephone numbers for GERMANY, AUSTRIA, SWITZERLAND with 9 to 12 digit phone numbers - adapt to country (also in main conv handler)
+
+    print(f'format: {format}')
 
     isValidDate = True
     if re.fullmatch(format, input):
