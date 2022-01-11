@@ -70,10 +70,7 @@ KEYBOARD_MARKUPS = {
     ),
         
     
-    EMAIL: InlineKeyboardMarkup(
-        'my.bestmail@domain.com',
-            input_field_placeholder='my.bestmail@domain.com'
-    ),
+    EMAIL: None,
     
     TELEPHONE: ReplyKeyboardMarkup(
             [
