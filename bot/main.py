@@ -19,8 +19,8 @@ from telegram.ext import (
 )
 
 from handler_functions.start import start
-from handler_functions.bio import bio
-from handler_functions.gender import gender
+from handler_functions.bio import bio, skip_bio
+from handler_functions.gender import gender, skip_gender
 from handler_functions.birthdate import birthdate, skip_birthdate
 from handler_functions.email import email, skip_email
 from handler_functions.telephone import telephone, skip_telephone
@@ -54,8 +54,8 @@ def main() -> None:
     conv_handler = ConversationHandler(
         entry_points=[CommandHandler('start', start)],
         states={
-            states.BIO:         [MessageHandler(Filters.text                                & ~Filters.command,     bio)],
-            states.GENDER:      [MessageHandler(Filters.regex('^(Gentleman|Lady|Unicorn)$'),                        gender)],
+            states.BIO:         [MessageHandler(Filters.text                                & ~Filters.command,     bio),       CommandHandler('skip', skip_bio)],
+            states.GENDER:      [MessageHandler(Filters.regex('^(Gentleman|Lady|Unicorn)$'),                        gender),    CommandHandler('skip', skip_gender)],
             states.BIRTHDATE:   [MessageHandler(Filters.text                                & ~Filters.command,     birthdate), CommandHandler('skip', skip_birthdate)],
             states.EMAIL:       [MessageHandler(Filters.text                                & ~Filters.command,     email),     CommandHandler('skip', skip_email)],
             states.TELEPHONE:   [MessageHandler(Filters.text                                & ~Filters.command,     telephone), CommandHandler('skip', skip_telephone)],

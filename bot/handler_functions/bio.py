@@ -1,7 +1,7 @@
 """ bio handler function. called, when user arrives at bio state """
 
 # imports
-from telegram import Update
+from telegram import Update, ReplyKeyboardRemove
 from telegram.ext import CallbackContext
 from logEnabler import logger;
 
@@ -27,6 +27,25 @@ def bio(update: Update, context: CallbackContext) -> int:
         states.MESSAGES[states.GENDER],
         reply_markup=states.KEYBOARD_MARKUPS[states.GENDER],
         )
+
+    # save state to DB
+    insert_update(update.message.from_user.id, 'state', states.GENDER)
+    return states.GENDER
+
+
+# Skips this information and continues on to the next state
+def skip_bio(update: Update, context: CallbackContext) -> int:
+    logger.info(f'No bio submitted by {update.message.from_user.first_name} {update.message.from_user.last_name}.')
+
+    update.message.reply_text(
+        'Ok, maybe we can have a quick phone call later in order to get to know each other instead.',
+        reply_markup=ReplyKeyboardRemove(),
+        )
+
+    update.message.reply_text(
+        states.MESSAGES[states.GENDER],
+        reply_markup=states.KEYBOARD_MARKUPS[states.GENDER],
+        )    
 
     # save state to DB
     insert_update(update.message.from_user.id, 'state', states.GENDER)
