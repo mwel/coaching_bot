@@ -15,7 +15,7 @@ from handler_functions import states
 def status(update: Update, context: CallbackContext) -> int:
 
     if select_db.user_search(update.message.from_user.id):
-        state = select_db.get_value(update.message.from_user.id, 'state')
+        state = select_db.get_value(update.message.from_user.id, 'state') + 1 # states begin at 0, but the user doesn't care about that ;)
 
         # return message, if user had been found in db
         update.message.reply_text(
