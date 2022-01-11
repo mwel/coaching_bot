@@ -28,7 +28,8 @@ def email(update: Update, context: CallbackContext) -> int:
 
         update.message.reply_text(
             states.MESSAGES[states.TELEPHONE],
-            reply_markup=states.KEYBOARD_MARKUPS[states.TELEPHONE],
+            # reply_markup=states.KEYBOARD_MARKUPS[states.TELEPHONE], # TODO: reactivate once debugged 
+            reply_markup=ReplyKeyboardRemove(),
             )
         
         # save state to DB
@@ -43,11 +44,11 @@ def email(update: Update, context: CallbackContext) -> int:
 
 # Skips this information and continues on to the next state
 def skip_email(update: Update, context: CallbackContext) -> int:
-    
+
     logger.info(f'No email address submitted by {update.message.from_user.first_name} {update.message.from_user.last_name}.')
 
     update.message.reply_text(
-        'Sorry, you can\'t skip that one. We need a valid email address for furute correspondance. Without an email address, the onboarding cannot be completed. Please enter a valid address or /cancel\n\n',
-        'WARNING: /cancel, will delete all your previously submitted data.',
+        'Sorry, you cannot skip that one. We need a valid email address for future correspondance. Without an email address, the onboarding cannot be completed.\n\n'
+        'Of course you can /cancel at any time. This command will delete all your data from our data base.',
         reply_markup=ReplyKeyboardRemove(),
     )    

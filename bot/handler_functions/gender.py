@@ -26,7 +26,8 @@ def gender(update: Update, context: CallbackContext) -> int:
     update.message.reply_text(
         f'Alright, {update.message.from_user.first_name}! ' + \
         states.MESSAGES[states.BIRTHDATE],
-        reply_markup=states.KEYBOARD_MARKUPS[states.BIRTHDATE],
+        # reply_markup=states.KEYBOARD_MARKUPS[states.BIRTHDATE], # TODO: reactivate once debugged 
+        reply_markup=ReplyKeyboardRemove(),
         )
 
     # save state to DB
@@ -46,7 +47,8 @@ def skip_gender(update: Update, context: CallbackContext) -> int:
 
     update.message.reply_text(
         states.MESSAGES[states.BIRTHDATE],
-        reply_markup=states.KEYBOARD_MARKUPS[states.BIRTHDATE],
+        # reply_markup=states.KEYBOARD_MARKUPS[states.BIRTHDATE], # TODO: reactivate once debugged 
+        reply_markup=ReplyKeyboardRemove(),
         )    
 
     # save state to DB

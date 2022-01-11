@@ -27,8 +27,8 @@ def birthdate(update: Update, context: CallbackContext) -> int:
 
         update.message.reply_text(
             states.MESSAGES[states.EMAIL],
+            # reply_markup=states.KEYBOARD_MARKUPS[states.EMAIL], # TODO: reactivate once debugged 
             reply_markup=ReplyKeyboardRemove(),
-            # reply_markup=states.KEYBOARD_MARKUPS[states.EMAIL],
             )
 
         # save state to DB
@@ -38,7 +38,9 @@ def birthdate(update: Update, context: CallbackContext) -> int:
     else: # else, tell user and stay in current state until correct entry is provided.
         update.message.reply_text(
         f'Sorry, that\'s not a valid entry. Please try again.',
-        reply_markup=states.KEYBOARD_MARKUPS[states.BIRTHDATE],
+        # reply_markup=states.KEYBOARD_MARKUPS[states.BIRTHDATE], # TODO: reactivate once debugged 
+        reply_markup=ReplyKeyboardRemove(),
+
         )
 
 
@@ -55,7 +57,8 @@ def skip_birthdate(update: Update, context: CallbackContext) -> int:
 
     update.message.reply_text(
         states.MESSAGES[states.EMAIL],
-        reply_markup=states.KEYBOARD_MARKUPS[states.EMAIL],
+        # reply_markup=states.KEYBOARD_MARKUPS[states.EMAIL], # TODO: reactivate once debugged 
+        reply_markup=ReplyKeyboardRemove(),
         )    
 
     # save state to DB
