@@ -43,17 +43,11 @@ def email(update: Update, context: CallbackContext) -> int:
 
 # Skips this information and continues on to the next state
 def skip_email(update: Update, context: CallbackContext) -> int:
+    
     logger.info(f'No email address submitted by {update.message.from_user.first_name} {update.message.from_user.last_name}.')
 
     update.message.reply_text(
-        'Sorry, without an email address, the onboarding cannot be completed. Please enter a valid address or /cancel\n\n',
-        'WARNING: If you cancel, all your previously submitted data will be deleted and you have to start over.',
-        reply_markup=ReplyKeyboardMarkup(
-            [['ENTER AN EMAIL'], ['/cancel']],
-            input_field_placeholder='mybestmail@me.com',
-        )
-    )
-    
-    # Looping back to state: EMAIL (we do not want to save anything to the db as we want to user to submit an email) 
-    return states.EMAIL
-    
+        'Sorry, you can\'t skip that one. We need a valid email address for furute correspondance. Without an email address, the onboarding cannot be completed. Please enter a valid address or /cancel\n\n',
+        'WARNING: /cancel, will delete all your previously submitted data.',
+        reply_markup=ReplyKeyboardRemove(),
+    )    
