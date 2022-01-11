@@ -40,7 +40,6 @@ def birthdate(update: Update, context: CallbackContext) -> int:
         f'Sorry, that\'s not a valid entry. Please try again.',
         reply_markup=states.KEYBOARD_MARKUPS[states.BIRTHDATE],
         )
-        #return states.BIRTHDATE
 
 
 # Skips this information and continues on to the next state

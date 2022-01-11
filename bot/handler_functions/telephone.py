@@ -42,7 +42,6 @@ def telephone(update: Update, context: CallbackContext) -> int:
         f'Sorry, that\'s not a valid entry. Please try again.',
         reply_markup=states.KEYBOARD_MARKUPS[states.TELEPHONE],
         )
-        #return states.TELEPHONE
 
 
 # Skips this information and continues on to the next state
