@@ -14,6 +14,9 @@ from handler_functions.database_connector.insert_value_db import insert_update
 def bio(update: Update, context: CallbackContext) -> int:
     logger.info(f'+++++ Bio of {update.message.from_user.first_name} {update.message.from_user.last_name}: {update.message.text} +++++')
 
+    # input validation
+    
+
     # write bio to DB
     insert_update(update.message.from_user.id, 'bio', update.message.text)
 

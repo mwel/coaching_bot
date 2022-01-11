@@ -82,7 +82,6 @@ KEYBOARD_MARKUPS = {
             ['1', '2', '3'],
             ['+', '0', '#']
             ],
-            one_time_keyboard=False,
             input_field_placeholder='+00 000 000 00'
     ),
     
