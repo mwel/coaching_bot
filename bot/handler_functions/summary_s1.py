@@ -1,4 +1,6 @@
-""" Summary feature. Collects all data on a user from the data base, packages it into one message and displays it to the user upon completion of sign up."""
+""" Summary feature. Collects all data on a user from the data base, 
+packages it into one message and displays it to the user upon completion 
+of sign up. Also triggers email and appointment delivery."""
 
 # imports
 from telegram import ReplyKeyboardRemove, Update
