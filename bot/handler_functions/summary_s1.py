@@ -10,6 +10,7 @@ from handler_functions import states
 from handler_functions.database_connector.insert_value_db import insert_update
 from handler_functions.database_connector import select_db
 from handler_functions.summary_mail import summary_mail
+from calendar.make_appointment import make_appointment
 
 
 # Stores the photo and asks for a location.
@@ -62,7 +63,13 @@ def summary(update: Update, context: CallbackContext) -> int:
     summary_mail(first_name, summary, email)
     insert_update(update.message.from_user.id, 'mail_sent', '1')
 
-
+    # trigger calendar invitation
+    # coach_name = 'Coach'
+    # coach_email = 'coaching@wavehoover.com'
+    # make_appointment(coachee_name=first_name, coachee_email=email, coach_name=coach_name, coach_email=coach_email, start=(now+2 weeks on a workday) , end=(start+1hour))
+    # insert_update(update.message.from_user.id, 'appointment_sent', time)
+    
+    
     # save state to DB
     insert_update(update.message.from_user.id, 'state', states.COMPLETED)
     return ConversationHandler.END
