@@ -66,10 +66,17 @@ def summary(update: Update, context: CallbackContext) -> int:
     # trigger calendar invitation
     # coach_name = 'Coach'
     # coach_email = 'coaching@wavehoover.com'
-    # make_appointment(coachee_name=first_name, coachee_email=email, coach_name=coach_name, coach_email=coach_email, start=(now+2 weeks on a workday) , end=(start+1hour))
+    # make_appointment(
+    #     coachee_name=first_name, 
+    #     coachee_email=email, 
+    #     coach_name=coach_name, 
+    #     coach_email=coach_email, 
+    #     start=(now+2 weeks on a workday),
+    #     end=(start+1hour)
+    #     )
     # insert_update(update.message.from_user.id, 'appointment_sent', time)
     
-    
+
     # save state to DB
     insert_update(update.message.from_user.id, 'state', states.COMPLETED)
     return ConversationHandler.END
