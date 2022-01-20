@@ -1,11 +1,11 @@
 """ Generates a .ics file, that can be imported to any calendar"""
 
 # imports
-from icalendar import Calendar, Event
-import pytz
 from datetime import datetime
-import os
+import pytz
+from icalendar import Calendar, Event
 from pathlib import Path
+import os
 
 def make_appointment (coachee_name, coachee_email, coach_name, coach_email, start, end):
 
