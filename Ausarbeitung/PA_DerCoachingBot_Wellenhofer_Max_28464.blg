@@ -1,0 +1,5 @@
+[0] Config.pm:304> INFO - This is Biber 2.14
+[0] Config.pm:307> INFO - Logfile is 'PA_DerCoachingBot_Wellenhofer_Max_28464.blg'
+[100] biber-darwin:322> INFO - === Thu Jan 20, 2022, 12:54:25
+[281] Utils.pm:320> ERROR - Cannot find 'PA_DerCoachingBot_Wellenhofer_Max_28464.bcf'!
+[282] Biber.pm:132> INFO - ERRORS: 1
