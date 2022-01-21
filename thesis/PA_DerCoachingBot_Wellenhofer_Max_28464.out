@@ -1,20 +1,12 @@
 \BOOKMARK [0][-]{chapter.1}{Einleitung und Problemstellung}{}% 1
-\BOOKMARK [0][-]{chapter.2}{Weitere Kapitel}{}% 2
-\BOOKMARK [0][-]{chapter.3}{LaTeX-Bausteine}{}% 3
-\BOOKMARK [1][-]{section.3.1}{Abschnitt}{chapter.3}% 4
-\BOOKMARK [2][-]{subsection.3.1.1}{Unterabschnitt}{section.3.1}% 5
-\BOOKMARK [1][-]{section.3.2}{Abbildungen und Tabellen}{chapter.3}% 6
-\BOOKMARK [1][-]{section.3.3}{Listings}{chapter.3}% 7
-\BOOKMARK [1][-]{section.3.4}{Mathematische Formel}{chapter.3}% 8
-\BOOKMARK [1][-]{section.3.5}{S\344tze, Lemmata, Definitionen, Beweise, Beispiele}{chapter.3}% 9
-\BOOKMARK [1][-]{section.3.6}{Fu\337noten}{chapter.3}% 10
-\BOOKMARK [1][-]{section.3.7}{Literaturverweise}{chapter.3}% 11
-\BOOKMARK [0][-]{chapter.4}{Beispiel-Kapitel}{}% 12
-\BOOKMARK [1][-]{section.4.1}{Warum existieren unterschiedliche Konsistenzmodelle?}{chapter.4}% 13
-\BOOKMARK [1][-]{section.4.2}{Klassifizierung eines Konsistenzmodells}{chapter.4}% 14
-\BOOKMARK [1][-]{section.4.3}{Linearisierbarkeit \(atomic consistency\)}{chapter.4}% 15
-\BOOKMARK [0][-]{chapter.5}{Zusammenfassung und Ausblick}{}% 16
-\BOOKMARK [0][-]{chapter*.13}{Literaturverzeichnis}{}% 17
-\BOOKMARK [0][-]{chapter*.14}{Sachverzeichnis}{}% 18
-\BOOKMARK [0][-]{appendix.A}{Glossar}{}% 19
-\BOOKMARK [0][-]{appendix.B}{Selbstst\344ndigkeitserkl\344rung}{}% 20
+\BOOKMARK [0][-]{chapter.2}{VerwandteArbeiten}{}% 2
+\BOOKMARK [0][-]{chapter.3}{Grundlagen}{}% 3
+\BOOKMARK [0][-]{chapter.4}{Konzept}{}% 4
+\BOOKMARK [0][-]{chapter.5}{Realisierung}{}% 5
+\BOOKMARK [0][-]{chapter.6}{Implementierung}{}% 6
+\BOOKMARK [0][-]{chapter.7}{Beispiele}{}% 7
+\BOOKMARK [0][-]{chapter.8}{Anwendungsszenarien}{}% 8
+\BOOKMARK [0][-]{chapter.9}{Zusammenfassung und Ausblick}{}% 9
+\BOOKMARK [0][-]{chapter*.7}{Literaturverzeichnis}{}% 10
+\BOOKMARK [0][-]{appendix.A}{Glossar}{}% 11
+\BOOKMARK [0][-]{appendix.B}{Selbstst\344ndigkeitserkl\344rung}{}% 12

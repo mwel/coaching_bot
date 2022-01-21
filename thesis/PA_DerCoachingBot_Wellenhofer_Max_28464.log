@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2021.1.31)  20 JAN 2022 20:15
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2021.1.31)  21 JAN 2022 13:17
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -596,14 +596,14 @@ bibgerm.sty: babel.sty detected
 
 
 pdfTeX warning: pdflatex (file /Users/mwellenhofer/Git/coaching_bot/thesis/images/logo-fb-informatik.pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<images/logo-fb-informatik.pdf, id=84, 811.81792pt x 157.11497pt>
+<images/logo-fb-informatik.pdf, id=52, 811.81792pt x 157.11497pt>
 File: images/logo-fb-informatik.pdf Graphic file (type pdf)
 <use images/logo-fb-informatik.pdf>
 Package pdftex.def Info: images/logo-fb-informatik.pdf  used on input line 89.
 (pdftex.def)             Requested size: 209.12683pt x 40.47253pt.
 [1
 
-{/usr/local/texlive/2020/texmf-var/fonts/map/pdftex/updmap/pdftex.map} </Users/mwellenhofer/Git/coaching_bot/thesis/images/logo-fb-informatik.pdf>] (/Users/mwellenhofer/Git/coaching_bot/thesis/chapters/Vorwort.tex
+{/usr/local/texlive/2020/texmf-var/fonts/map/pdftex/updmap/pdftex.map} </Users/mwellenhofer/Git/coaching_bot/thesis/images/logo-fb-informatik.pdf>] (/Users/mwellenhofer/Git/coaching_bot/thesis/chapters/Kurzfassung.tex
 LaTeX Font Info:    Trying to load font information for U+msa on input line 2.
  (/usr/local/texlive/2020/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
@@ -611,98 +611,99 @@ File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 LaTeX Font Info:    Trying to load font information for U+msb on input line 2.
  (/usr/local/texlive/2020/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-)) (/Users/mwellenhofer/Git/coaching_bot/thesis/chapters/Kurzfassung.tex [2
+) [2
 
 
 
 
-] [3
-
-
-]) [4
+]) [3
 
 
 ] (/Users/mwellenhofer/Git/coaching_bot/thesis/PA_DerCoachingBot_Wellenhofer_Max_28464.toc)
 \tf@toc=\write5
 \openout5 = `PA_DerCoachingBot_Wellenhofer_Max_28464.toc'.
 
- [5
+ [4
 
 
 ] (/Users/mwellenhofer/Git/coaching_bot/thesis/PA_DerCoachingBot_Wellenhofer_Max_28464.lof)
 \tf@lof=\write6
 \openout6 = `PA_DerCoachingBot_Wellenhofer_Max_28464.lof'.
 
- [6
+ [5
 
 
 ] (/Users/mwellenhofer/Git/coaching_bot/thesis/PA_DerCoachingBot_Wellenhofer_Max_28464.lot)
 \tf@lot=\write7
 \openout7 = `PA_DerCoachingBot_Wellenhofer_Max_28464.lot'.
 
- [7
+ [6
 
 
 ] (/Users/mwellenhofer/Git/coaching_bot/thesis/PA_DerCoachingBot_Wellenhofer_Max_28464.lol)
 \tf@lol=\write8
 \openout8 = `PA_DerCoachingBot_Wellenhofer_Max_28464.lol'.
 
- [8
+ [7
 
 
 ] (/Users/mwellenhofer/Git/coaching_bot/thesis/chapters/EinleitungProblemstellung.tex
 Kapitel 1.
-) (/Users/mwellenhofer/Git/coaching_bot/thesis/chapters/WeitereKapitel.texpdfTeX warning (ext4): destination with the same identifier (name{page.1}) has been already used, duplicate ignored
+) (/Users/mwellenhofer/Git/coaching_bot/thesis/chapters/VerwandteArbeiten.texpdfTeX warning (ext4): destination with the same identifier (name{page.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
 l.1 \chapter
-            {Weitere Kapitel} [1
+            {VerwandteArbeiten} [1
 
 
 
 
 ]
 Kapitel 2.
-) (/Users/mwellenhofer/Git/coaching_bot/thesis/chapters/Bausteine.tex [2
+) (/Users/mwellenhofer/Git/coaching_bot/thesis/chapters/Grundlagen.tex [2
 
 
 ]
 Kapitel 3.
-[3
+) (/Users/mwellenhofer/Git/coaching_bot/thesis/chapters/Konzept.tex [3
 
 
 ]
-<images/sequence.pdf, id=190, 301.02461pt x 184.2082pt>
-File: images/sequence.pdf Graphic file (type pdf)
-<use images/sequence.pdf>
-Package pdftex.def Info: images/sequence.pdf  used on input line 25.
-(pdftex.def)             Requested size: 301.02386pt x 184.20773pt.
- (/usr/local/texlive/2020/texmf-dist/tex/latex/listings/lstlang1.sty
-File: lstlang1.sty 2020/03/24 1.8d listings language file
-) [4 </Users/mwellenhofer/Git/coaching_bot/thesis/images/sequence.pdf>] [5] [6]) (/Users/mwellenhofer/Git/coaching_bot/thesis/chapters/Beispiel.tex [7]
 Kapitel 4.
-[8
+) (/Users/mwellenhofer/Git/coaching_bot/thesis/chapters/Realisierung.tex [4
 
 
-] [9]) (/Users/mwellenhofer/Git/coaching_bot/thesis/chapters/ZusammenfassungAusblick.tex [10]
+]
 Kapitel 5.
-) [11
+) (/Users/mwellenhofer/Git/coaching_bot/thesis/chapters/Implementierung.tex [5
 
 
-] (/Users/mwellenhofer/Git/coaching_bot/thesis/PA_DerCoachingBot_Wellenhofer_Max_28464.bbl
-Underfull \hbox (badness 2452) in paragraph at lines 39--42
-[]\OT1/cmr/m/it/12 Wikipedia: Pro-gram-m-aus-druck\OT1/cmr/m/n/12 .  []$\OT1/cmtt/m/n/12 https : / / de . wikipedia . org / wiki /
- []
-
-) (/Users/mwellenhofer/Git/coaching_bot/thesis/PA_DerCoachingBot_Wellenhofer_Max_28464.ind [12
+]
+Kapitel 6.
+) (/Users/mwellenhofer/Git/coaching_bot/thesis/chapters/Beispiele.tex [6
 
 
+]
+Kapitel 7.
+) (/Users/mwellenhofer/Git/coaching_bot/thesis/chapters/Anwendungsszenarien.tex [7
 
 
-] [13
+]
+Kapitel 8.
+) (/Users/mwellenhofer/Git/coaching_bot/thesis/chapters/ZusammenfassungAusblick.tex [8
 
 
-])
+]
+Kapitel 9.
+) [9
+
+
+] (/Users/mwellenhofer/Git/coaching_bot/thesis/PA_DerCoachingBot_Wellenhofer_Max_28464.bbl) (/Users/mwellenhofer/Git/coaching_bot/thesis/PA_DerCoachingBot_Wellenhofer_Max_28464.ind) [10
+
+
+
+
+]
 \openout2 = `chapters/Glossar.aux'.
 
  (/Users/mwellenhofer/Git/coaching_bot/thesis/chapters/Glossar.tex
@@ -716,12 +717,11 @@ Underfull \hbox (badness 10000) in paragraph at lines 5--6
  []
 
 )
-Underfull \hbox (badness 10000) in paragraph at lines 7--120
+Underfull \hbox (badness 10000) in paragraph at lines 7--125
 
  []
 
-[14
-
+[11
 
 
 
@@ -738,34 +738,34 @@ Underfull \hbox (badness 10000) in paragraph at lines 7--8
 
  []
 
-) [15
+) [12
 
 
 
 
 ]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 125.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 125.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 130.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 130.
  (/Users/mwellenhofer/Git/coaching_bot/thesis/PA_DerCoachingBot_Wellenhofer_Max_28464.aux (/Users/mwellenhofer/Git/coaching_bot/thesis/chapters/Glossar.aux) (/Users/mwellenhofer/Git/coaching_bot/thesis/chapters/Selbststaendigkeitserklaerung.aux))
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 125.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 125.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 130.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 130.
 Package rerunfilecheck Info: File `PA_DerCoachingBot_Wellenhofer_Max_28464.out' has not changed.
-(rerunfilecheck)             Checksum: 0D548C8092A3FE8F4C3F9FF0A15BD4AF;1310.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 125.
+(rerunfilecheck)             Checksum: 9C5498ADB3293A6CDA9DFE86A80EB8D2;633.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 130.
  ) 
 Here is how much of TeX's memory you used:
- 12628 strings out of 480608
- 191531 string characters out of 5903630
- 686551 words of memory out of 5000000
- 28121 multiletter control sequences out of 15000+600000
- 542539 words of font info for 63 fonts, out of 8000000 for 9000
+ 12071 strings out of 480608
+ 186470 string characters out of 5903630
+ 489712 words of memory out of 5000000
+ 27645 multiletter control sequences out of 15000+600000
+ 538842 words of font info for 48 fonts, out of 8000000 for 9000
  1146 hyphenation exceptions out of 8191
- 41i,10n,44p,1066b,2223s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/local/texlive/2020/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}</usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmbxti10.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt8.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt9.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb>
-Output written on /Users/mwellenhofer/Git/coaching_bot/thesis/PA_DerCoachingBot_Wellenhofer_Max_28464.pdf (23 pages, 670079 bytes).
+ 41i,9n,42p,713b,401s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb>
+Output written on /Users/mwellenhofer/Git/coaching_bot/thesis/PA_DerCoachingBot_Wellenhofer_Max_28464.pdf (19 pages, 480782 bytes).
 PDF statistics:
- 457 PDF objects out of 1000 (max. 8388607)
- 403 compressed objects within 5 object streams
- 114 named destinations out of 1000 (max. 500000)
- 171 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 199 PDF objects out of 1000 (max. 8388607)
+ 168 compressed objects within 2 object streams
+ 40 named destinations out of 1000 (max. 500000)
+ 102 words of extra memory for PDF output out of 10000 (max. 10000000)
 

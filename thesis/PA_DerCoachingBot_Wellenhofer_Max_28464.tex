@@ -90,7 +90,7 @@
 
 %------------------ Vorwort, Kurzfassung, Verzeichnisse ------------------------
 \frontmatter
-\input{chapters/Vorwort}								% Vorwort (optional)
+%\input{chapters/Vorwort}								% Vorwort (optional)
 \input{chapters/Kurzfassung}							% Kurzfassung/Abstract
 \tableofcontents										% Inhaltsverzeichnis
 \listoffigures											% Abbildungsverzeichnis (optional)
@@ -100,11 +100,15 @@
 
 %------------------ Kapitel ----------------------------------------------------
 \mainmatter
-\input{chapters/EinleitungProblemstellung}
-\input{chapters/WeitereKapitel}
-\input{chapters/Bausteine}
-\input{chapters/Beispiel}
-\input{chapters/ZusammenfassungAusblick}
+\input{chapters/EinleitungProblemstellung.tex}
+\input{chapters/VerwandteArbeiten.tex}
+\input{chapters/Grundlagen.tex}
+\input{chapters/Konzept.tex}
+\input{chapters/Realisierung.tex}
+\input{chapters/Implementierung.tex}
+\input{chapters/Beispiele.tex}
+\input{chapters/Anwendungsszenarien.tex}
+\input{chapters/ZusammenfassungAusblick.tex}
 
 
 
@@ -112,6 +116,7 @@
 %------------------ Literaturverzeichnis & Index -------------------------------
 \backmatter
 \bibliography{literatur}								% Literaturverzeichnis (literatur.bib)
+\appendix{appendix}
 \printindex												% Index (optional)
 
 
