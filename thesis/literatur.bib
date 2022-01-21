@@ -1,0 +1,190 @@
+% Within this .bib-file use 'and' to specify more than one author.
+
+% You have to use only the english abbreviations WITHOUT curly brackets
+% for months! e.g.: 'jan', 'feb', 'mar', 'apr', 'may', 'jun', 'jul',
+% 'aug', 'sep', 'oct', 'nov', 'dec'.
+
+
+%%%%%%%% book
+%%
+%% A Book with an explicit publisher.
+%%
+%% Required fields:
+%% author or editor, title, publisher, year
+%%
+%% Optional fields:
+%% volume or number, series, address, edition, month, isbn, note
+
+@book{Coulouris:02,
+  author    = {George Coulouris and Jean Dollimore and Tim Kindberg},
+  title     = {{Verteilte Systeme: Konzepte und Design}},
+  edition   = {3.},
+  publisher = {Addison Wesley},
+  address   = {München},
+  year      = 2002,
+  isbn      = {3-8273-7022-1}
+}
+
+@book{Cormen:90,
+  author    = {Thomas H. Cormen and Charles E. Leiserson and Ronald L. Rivest},
+  title     = {{Introduction to Algorithms}},
+  publisher = {The MIT Press},
+  address   = {Cambridge, Massachusetts},
+  year      = 1990,
+  isbn      = {0-262-03141-8}
+}
+
+
+%%%%%%%% inbook
+%%
+%% A part of a book which may be a chapter (or section or whatever) and/or
+%% a range of pages.
+%%
+%% Required fields:
+%% author or editor, title, chapter and/or pages, publisher, year
+%%
+%% Optional fields:
+%% volume or number, series, type, address, edition, month, note
+
+
+%%%%%%%% booklet
+%%
+%% A work that is printed and bound, but without a named publisher or
+%% sponsoring institution.
+%%
+%% Required fields:
+%% title
+%%
+%% Optional fields:
+%% author, howpublished, address, month, year, note
+
+
+%%%%%%%% proceedings
+%%
+%% The proceedings of a conference. See also: inproceedings.
+%%
+%% Required fields:
+%% title, year
+%%
+%% Optional fields:
+%% editor, volume or number, series, address, month, organization, publisher, note
+
+
+%%%%%%%% inproceedings
+%%
+%% An article in a conference preceedings.
+%%
+%% Required fields:
+%% author, title, booktitle, year
+%%
+%% Optional fields:
+%% editor, volume or number, series, pages, address, month, organization,
+%% publisher, note
+
+
+%%%%%%%% article
+%%
+%% An article from a journal or magazine.
+%%
+%% Required fields:
+%% author, title, journal, year
+%%
+%% Optional fields:
+%% volume, number, pages, month, note
+
+@article{Cheriton:85,
+  author  = {David R. Cheriton},
+  title   = {{Preliminary Thoughts on Problem-oriented Shared Memory: A Decentralized Approach to Distributed Systems}},
+  journal = {ACM SIGOPS Operating Systems Review},
+  year    = 1985,
+  volume  = 19,
+  number  = 4,
+  pages   = {26-33}
+}
+
+
+%%%%%%%% phdthesis
+%%
+%% A PhD, Master, Bachelor oder Diploma thesis.
+%%
+%% Required fields:
+%% author, title, school, year
+%%
+%% Optional fields:
+%% type, address, month, note
+
+@phdthesis{Gottwald:03,
+  author = {Tim Gottwald and Rainer Oechsle},
+  title  = {{DisASTer (Distributed Algorithms Simulation Terrain): A Platform for the Implementation of Distributed Algorithms}},
+  school = {{Fachhochschule Trier, Fachbereich Informatik}},
+  year   = 2003,
+  type   = {Diplomarbeit}
+}
+
+@phdthesis{Nannen:03,
+  author = {Volker Nannen},
+  title  = {{The Paradox of Overfitting}},
+  school = {Rijksuniversiteit Groningen},
+  year   = {2003},
+  type   = {Master-Abschlussarbeit}
+}
+
+
+%%%%%%%% techreport
+%%
+%% A report published by a school or other institution, usally
+%% numbered within a series.
+%%
+%% Required fields:
+%% author, title, institution, year
+%%
+%% Optional fields:
+%% type, number, address, month, note
+
+@techreport{Mosberger:93,
+  author      = {David Mosberger},
+  title       = {{Memory Consistency Models}},
+  year        = 1993,
+  month       = Nov,
+  type        = {Technical Report},
+  number      = {93/11},
+  institution = {University of Arizona, Department of Computer Science}
+}
+
+@techreport{Malte:97,
+  author      = {Peter Malte},
+  title       = {{Replikation in Mobile Computing}},
+  institution = {Universität Karlsruhe, Institut für Telematik},
+  year        = 1997,
+  type        = {Seminar},
+  number      = {31/1997}
+}
+
+
+%%%%%%%% manual
+%%
+%% Technical documentation.
+%%
+%% Required fields:
+%% title
+%%
+%% Optional fields:
+%% author, editor, organization, address, edition, month, year, note
+
+
+%%%%%%%% misc
+%%
+%% Use this type when nothing else fits, e.g. for web pages.
+%%
+%% Required fields:
+%% none
+%%
+%% Optional fields:
+%% author, key, title, howpublished, month, year, note
+
+@misc{wiki:listing,
+  key          = {{Wikipedia: Programmausdruck}},
+  title        = {{Wikipedia: Programmausdruck}},
+  howpublished = {\url{https://de.wikipedia.org/wiki/Programmausdruck}},
+  note         = {Abgerufen am 13.10.2021}
+}

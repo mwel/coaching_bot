@@ -1,0 +1,43 @@
+\begin{thebibliography}{CDK02}
+
+\bibitem[CDK02]{Coulouris:02}
+{\sc Coulouris, George}, {\sc Jean Dollimore} \btxandlong{}\ {\sc Tim
+  Kindberg}: {\em {Verteilte Systeme: Konzepte und Design}}.
+\newblock Addison Wesley, München, 3. \btxeditionlong{}, 2002.
+
+\bibitem[Che85]{Cheriton:85}
+{\sc Cheriton, David~R.}: {\em {Preliminary Thoughts on Problem-oriented Shared
+  Memory: A Decentralized Approach to Distributed Systems}}.
+\newblock ACM SIGOPS Operating Systems Review, 19(4):26--33, 1985.
+
+\bibitem[CLR90]{Cormen:90}
+{\sc Cormen, Thomas~H.}, {\sc Charles~E. Leiserson} \btxandlong{}\ {\sc
+  Ronald~L. Rivest}: {\em {Introduction to Algorithms}}.
+\newblock The MIT Press, Cambridge, Massachusetts, 1990.
+
+\bibitem[GO03]{Gottwald:03}
+{\sc Gottwald, Tim} \btxandlong{}\ {\sc Rainer Oechsle}: {\em {DisASTer
+  (Distributed Algorithms Simulation Terrain): A Platform for the
+  Implementation of Distributed Algorithms}}.
+\newblock Diplomarbeit, {Fachhochschule Trier, Fachbereich Informatik}, 2003.
+
+\bibitem[Mal97]{Malte:97}
+{\sc Malte, Peter}: {\em {Replikation in Mobile Computing}}.
+\newblock Seminar\ 31/1997, Universität Karlsruhe, Institut für Telematik,
+  1997.
+
+\bibitem[Mos93]{Mosberger:93}
+{\sc Mosberger, David}: {\em {Memory Consistency Models}}.
+\newblock Technical Report\ 93/11, University of Arizona, Department of
+  Computer Science, \btxmonnovlong{} 1993.
+
+\bibitem[Nan03]{Nannen:03}
+{\sc Nannen, Volker}: {\em {The Paradox of Overfitting}}.
+\newblock Master-Abschlussarbeit, Rijksuniversiteit Groningen, 2003.
+
+\bibitem[{Wik}]{wiki:listing}
+{\em {Wikipedia: Programmausdruck}}.
+\newblock \url{https://de.wikipedia.org/wiki/Programmausdruck}.
+\newblock Abgerufen am 13.10.2021.
+
+\end{thebibliography}

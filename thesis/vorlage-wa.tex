@@ -1,12 +1,11 @@
-%------------------ PA_DerCoachingBot_Wellenhofer_Max_28464.tex ------------------------------------------------
+%------------------ vorlage.tex ------------------------------------------------
 %
-% Ausarbeitung zum Modul Projektstudium 
-% im Fernstudium der Informatik an der Hochschule Trier 
-% 
-% Author: Maximilian Wellenhofer
-% Betreuer: Prof. Dr. Georg Schneider
+% LaTeX-Vorlage zur Erstellung der Ausarbeitung
+% für das Modul "Wissenschaftliches Arbeiten"
+% im Fachbereich Informatik der Hochschule Trier
 %
-% Wintersemester 2021/22
+% Basis: Vorlage 'svmono' des Springer Verlags
+% Bearbeiter: Hermann Schloß, Christian Bettinger
 %
 %-------------------------------------------------------------------------------
 
@@ -68,34 +67,29 @@
 %------------------ Titelseite -------------------------------------------------
 \begin{document}
 
-\title{Der Coaching Bot}
-\subtitle{The Coaching Bot}
+\title{Titel der Arbeit}
 
-\author{Maximilian Wellenhofer}
+\author{
+	Vorname Nachname\\
+	Vorname Nachname\\
+	Vorname Nachname
+}
+\groupid{Gruppenkennung}
 
-\supervisor{Prof. Dr. Georg Schneider}
+\supervisor{Titel Vorname Nachname}
 
-\address{Zürich}
-\submitdate{28.02.2022}
+\address{Ort}
+\submitdate{DD.MM.YYYY}
 
 %------------------ Projektart -------------------------------------------------
-%\project{Bachelor-Projektarbeit}
-%\project{Bachelor-Abschlussarbeit}
-\project{Master-Projektstudium}
-%\project{Master-Abschlussarbeit}
-%\project{Seminar}
-%\project{Hausarbeit}
+\project{Ausarbeitung zum Modul ''Wissenschaftliches Arbeiten''}
 
 \mytitlepage
 
 %------------------ Vorwort, Kurzfassung, Verzeichnisse ------------------------
 \frontmatter
-\input{chapters/Vorwort}								% Vorwort (optional)
 \input{chapters/Kurzfassung}							% Kurzfassung/Abstract
 \tableofcontents										% Inhaltsverzeichnis
-\listoffigures											% Abbildungsverzeichnis (optional)
-\listoftables											% Tabellenverzeichnis (optional)
-\lstlistoflistings										% Listings (optional)
 
 
 %------------------ Kapitel ----------------------------------------------------
@@ -107,8 +101,6 @@
 \input{chapters/ZusammenfassungAusblick}
 
 
-
-
 %------------------ Literaturverzeichnis & Index -------------------------------
 \backmatter
 \bibliography{literatur}								% Literaturverzeichnis (literatur.bib)
@@ -118,7 +110,6 @@
 %------------------ Anhänge ----------------------------------------------------
 \begin{appendix}
 	\include{chapters/Glossar}							% Glossar (optional)
-	\include{chapters/Selbststaendigkeitserklaerung}	% Selbstständigkeitserklärung
 \end{appendix}
 
 
