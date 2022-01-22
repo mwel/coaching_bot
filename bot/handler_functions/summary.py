@@ -11,7 +11,7 @@ from logEnabler import logger;
 from handler_functions import states
 from handler_functions.database_connector.insert_value_db import insert_update
 from handler_functions.database_connector import select_db
-from handler_functions.summary_mail import summary_mail
+from handler_functions.confirmation_mail import confirmation_mail
 from handler_functions.calendar.generate_ics import generate_ics
 
 
@@ -62,7 +62,7 @@ def summary(update: Update, context: CallbackContext) -> int:
     )
 
     # trigger confirmation email
-    summary_mail(first_name, summary, email)
+    confirmation_mail(first_name, summary, email)
     insert_update(update.message.from_user.id, 'mail_sent', '1')
 
     # trigger calendar invitation

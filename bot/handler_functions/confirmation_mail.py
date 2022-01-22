@@ -17,7 +17,7 @@ sender_address =    MAIL_constant.mail_user_in
 password =          MAIL_constant.MAIL_ACCOUNT_PW
 
 # send summary email to user after completion of bot questions
-def summary_mail(recipient_name, summary, recipient_address):
+def confirmation_mail(recipient_name, summary, recipient_address):
 
     # open connection to mail server and authenticate
     server = smtplib.SMTP_SSL(smtp_address, smtp_port)
@@ -49,4 +49,4 @@ def summary_mail(recipient_name, summary, recipient_address):
 
 
 # if __name__ == '__main__':
-#     summary_mail('Subject: Automated e-mail', 'my_test_email@test.com', 'Automated email from the coaching Bot by wavehoover.')
+#     confirmation_mail('Subject: Automated e-mail', 'my_test_email@test.com', 'Automated email from the coaching Bot by wavehoover.')
