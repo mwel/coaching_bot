@@ -12,7 +12,7 @@ from handler_functions import states
 from handler_functions.database_connector.insert_value_db import insert_update
 from handler_functions.database_connector import select_db
 from handler_functions.summary_mail import summary_mail
-from calendar.make_appointment import make_appointment
+from handler_functions.calendar.generate_ics import generate_ics
 
 
 # Stores the photo and asks for a location.
