@@ -7,16 +7,16 @@ from icalendar import Calendar, Event
 from pathlib import Path
 import os
 
-def make_appointment (coachee_name, coachee_email, coach_name, coach_email, start, end):
+def make_appointment (coachee_name, coachee_email, coach_name, coach_email, year, month, day, start_hour, start_minute, end_hour, end_minute):
 
     # when the meeting should start
-    start_time = datetime(2021, 4, 4, 8, 0, 0, tzinfo=pytz.utc) # replace with start parameter
+    start_time = datetime(year, month, day, start_hour, start_minute, 0, tzinfo=pytz.utc) # replace with start parameter
 
     # when the meeting should end
-    end_time = datetime(2021, 4, 4, 10, 0, 0, tzinfo=pytz.utc) # replace with end parameter
+    end_time = datetime(year, month, day, end_hour, end_minute, 0, tzinfo=pytz.utc) # replace with end parameter
     
     # small note to put in the appointment
-    message = ''
+    message = f'Coaching sessiong between {coachee_name} and {coach_name}. Your coach will call you on your phone.'
 
     # create a calendar object and add the attendees - in this case the coach and the coachee
     cal = Calendar()

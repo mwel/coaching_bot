@@ -5,10 +5,7 @@
 from handler_functions.database_connector import select_db
 from handler_functions import states
 from handler_functions import help
-
-
-
-
+from handler_functions.calendar import make_appointment
 
 # insert_update_db.insert_update(
 #     user_id=123456789,
@@ -46,4 +43,20 @@ from handler_functions import help
 
 # print (states.GENDER)
 
-help.help()
+# help.help()
+
+# test calendar function
+make_appointment(
+    coachee_name='Maria', 
+    coachee_email='mgw.longwave@gmail.com', 
+    coach_name='Coach', 
+    coach_email='max@wavehoover.com', 
+    year = 2022,
+    month = 1,
+    day =1,
+    start_hour=9,
+    start_minute=0, 
+    end_hour=10,
+    end_minute=0, 
+    )
+
