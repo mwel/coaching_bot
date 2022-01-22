@@ -5,7 +5,7 @@
 from handler_functions.database_connector import select_db
 from handler_functions import states
 from handler_functions import help
-from handler_functions.calendar import make_appointment
+from handler_functions.calendar.make_appointment import make_appointment
 
 # insert_update_db.insert_update(
 #     user_id=123456789,
