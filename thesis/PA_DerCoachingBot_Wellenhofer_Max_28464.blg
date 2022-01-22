@@ -4,45 +4,47 @@ The top-level auxiliary file: PA_DerCoachingBot_Wellenhofer_Max_28464.aux
 The style file: geralpha.bst
 A level-1 auxiliary file: chapters/Glossar.aux
 A level-1 auxiliary file: chapters/Selbststaendigkeitserklaerung.aux
-Database file #1: literatur.bib
+Database file #1: coaching_bot_group.bib
+Warning--I didn't find a database entry for "Gottwald:03"
 You've used 1 entry,
             2768 wiz_defined-function locations,
-            612 strings with 5415 characters,
-and the built_in function-call counts, 367 in all, are:
-= -- 37
-> -- 19
-< -- 0
-+ -- 6
-- -- 6
-* -- 27
-:= -- 74
+            613 strings with 5343 characters,
+and the built_in function-call counts, 319 in all, are:
+= -- 30
+> -- 8
+< -- 1
++ -- 2
+- -- 2
+* -- 18
+:= -- 57
 add.period$ -- 2
 call.type$ -- 1
-change.case$ -- 5
+change.case$ -- 4
 chr.to.int$ -- 1
 cite$ -- 1
-duplicate$ -- 14
-empty$ -- 21
-format.name$ -- 7
-if$ -- 71
+duplicate$ -- 13
+empty$ -- 29
+format.name$ -- 4
+if$ -- 68
 int.to.chr$ -- 1
 int.to.str$ -- 0
 missing$ -- 0
 newline$ -- 7
 num.names$ -- 3
-pop$ -- 5
+pop$ -- 9
 preamble$ -- 1
-purify$ -- 7
+purify$ -- 6
 quote$ -- 0
 skip$ -- 14
 stack$ -- 0
 substring$ -- 7
 swap$ -- 3
-text.length$ -- 0
-text.prefix$ -- 0
+text.length$ -- 1
+text.prefix$ -- 1
 top$ -- 0
 type$ -- 8
 warning$ -- 0
-while$ -- 3
+while$ -- 2
 width$ -- 2
-write$ -- 14
+write$ -- 13
+(There was 1 warning)

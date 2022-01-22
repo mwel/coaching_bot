@@ -16,3 +16,7 @@ __pycache__/
 *.pyc
 *.cpython-38.*
 __pycache__.
+
+# bibs
+IUG.bib
+

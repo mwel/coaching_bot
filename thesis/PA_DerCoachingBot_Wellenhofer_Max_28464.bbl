@@ -1,9 +1,7 @@
-\begin{thebibliography}{GO03}
+\begin{thebibliography}{Wel21}
 
-\bibitem[GO03]{Gottwald:03}
-{\sc Gottwald, Tim} \btxandlong{}\ {\sc Rainer Oechsle}: {\em {DisASTer
-  (Distributed Algorithms Simulation Terrain): A Platform for the
-  Implementation of Distributed Algorithms}}.
-\newblock Diplomarbeit, {Fachhochschule Trier, Fachbereich Informatik}, 2003.
+\bibitem[Wel21]{repo}
+{\sc Wellenhofer, Max}: {\em {The Coaching Bot Repository}}.
+\newblock \url{https://github.com/mwel/coaching{\_}bot}, 2021.
 
 \end{thebibliography}
