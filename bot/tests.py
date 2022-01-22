@@ -5,7 +5,7 @@
 from handler_functions.database_connector import select_db
 from handler_functions import states
 from handler_functions import help
-from handler_functions.calendar.make_appointment import make_appointment
+from handler_functions.calendar.generate_ics import generate_ics
 
 # insert_update_db.insert_update(
 #     user_id=123456789,
@@ -46,9 +46,10 @@ from handler_functions.calendar.make_appointment import make_appointment
 # help.help()
 
 # test calendar function
-make_appointment(
+generate_ics(
     coachee_name='Maria', 
     coachee_email='mgw.longwave@gmail.com', 
+    coachee_phone_number='+41123456789',
     coach_name='Coach', 
     coach_email='max@wavehoover.com', 
     year = 2022,
