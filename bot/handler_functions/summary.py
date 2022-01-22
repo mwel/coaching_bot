@@ -13,6 +13,7 @@ from handler_functions.database_connector.insert_value_db import insert_update
 from handler_functions.database_connector import select_db
 from handler_functions.confirmation_mail import confirmation_mail
 from handler_functions.calendar.generate_ics import generate_ics
+from handler_functions.calendar.send_invitation import send_invitation
 
 
 # Stores the photo and asks for a location.
@@ -37,7 +38,8 @@ def summary(update: Update, context: CallbackContext) -> int:
     if state == states.COMPLETED:
         state = 'COMPLETE'
 
-    summary = f"""Given Name:\t\t{first_name}
+    summary = f"""
+        Given Name:\t\t{first_name}
         Last Name:\t\t{last_name}
         Gender choice:\t\t{gender}
         Bidthdate:\t\t\t{birthdate}
@@ -66,17 +68,26 @@ def summary(update: Update, context: CallbackContext) -> int:
     insert_update(update.message.from_user.id, 'mail_sent', '1')
 
     # trigger calendar invitation
-    # coach_name = 'Coach'
-    # coach_email = 'coaching@wavehoover.com'
-    # make_appointment(
-    #     coachee_name=first_name, 
-    #     coachee_email=email, 
-    #     coach_name=coach_name, 
-    #     coach_email=coach_email, 
-    #     start=(now+2 weeks on a workday),
-    #     end=(start+1hour)
-    #     )
-    # insert_update(update.message.from_user.id, 'appointment_sent', time)
+    coach_name = 'Max'
+    coach_email = 'max@wavehoover.com'
+    ics= generate_ics(
+        coachee_name=first_name, 
+        coachee_email=email, 
+        coachee_phone_number=telephone,
+        coach_name=coach_name, 
+        coach_email=coach_email, 
+        year = 2022,
+        month = 1,
+        day =1,
+        start_hour=9,
+        start_minute=0, 
+        end_hour=10,
+        end_minute=0, 
+        )
+
+    # send_invitation(ics, ...)
+
+    insert_update(update.message.from_user.id, 'appointment_sent', time)
     
 
     # save state to DB
