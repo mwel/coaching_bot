@@ -4,6 +4,7 @@ API_constant.py
 DB_constant.py
 FTP_constant.py
 MAIL_constant.py
+credentials.json
 
 # photos
 user_pictures
