@@ -11,6 +11,7 @@
 \contentsline {chapter}{\numberline {6}Implementierung}{6}{chapter.6}%
 \contentsline {chapter}{\numberline {7}Beispiele}{7}{chapter.7}%
 \contentsline {chapter}{\numberline {8}Anwendungsszenarien}{8}{chapter.8}%
+\contentsline {paragraph}{Ausbaupotenzial}{8}{section*.9}%
 \contentsline {chapter}{\numberline {9}Zusammenfassung und Ausblick}{9}{chapter.9}%
 \contentsline {chapter}{Glossar}{11}{appendix.A}%
 \contentsline {chapter}{Selbstständigkeitserklärung}{12}{appendix.B}%
