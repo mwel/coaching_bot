@@ -1,13 +1,11 @@
 <?php
 
-// include constants.DB_constants.py // figure out, how to get constants in here and ...
-
     // Make a database connection so that we can fetch data from a database.
     $conn = mysqli_connect("localhost", "root", "", "company"); // ... figure out here, how to use them. Syntax?
     
     // If error during connection, display error and exit. Else continue.
     if ($conn->connect_error) {
-        die("Connection failed: " . $conn->connect_error);
+        die(">>>>> Connection failed: " . $conn->connect_error);
     }
     
     // SQL query to select data from a database.
