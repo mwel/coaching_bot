@@ -16,6 +16,7 @@ def create_db ():
     # put table creation sql statement into a variable
     table_users = '''CREATE TABLE IF NOT EXISTS users (
         user_id INTEGER PRIMARY KEY,
+        time_stamp TEXT,
         first_name TEXT,
         last_name TEXT,
         gender TEXT,
@@ -27,7 +28,8 @@ def create_db ():
         latitude INTEGER,
         bio TEXT,
         state INTEGER,
-        mail_sent BOOLEAN
+        mail_sent BOOLEAN,
+        appointment TEXT
     );'''
 
     cursor.execute(checker)

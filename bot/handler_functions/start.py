@@ -1,6 +1,7 @@
 """ start handler function. called, when the bot is started (user enters /start) """
 
 # imports
+from datetime import datetime
 from telegram import Update, ReplyKeyboardRemove, ReplyKeyboardMarkup
 from telegram.ext import CallbackContext, ConversationHandler
 from logEnabler import logger;
@@ -51,6 +52,7 @@ def start(update: Update, context: CallbackContext) -> int:
     # write user info to db
     insert_update(update.message.from_user.id, 'first_name', update.message.from_user.first_name) # saving of user_id not necessary, because it will be saved here anyway.
     insert_update(update.message.from_user.id, 'last_name', update.message.from_user.last_name)
+    # insert_update(update.message.from_user.id, 'state', 0) # set state to 0 in case user does not even complete step 1, leaves and returns later.
     # insert_update(update.message.from_user.id, 'phone_number', update.message.from_user.phone_number) # TODO: figure out how to get user's phone number
     # >> safe more initial variables about the user here.
 
@@ -64,5 +66,6 @@ def start(update: Update, context: CallbackContext) -> int:
         )
 
     # save state to DB
+    insert_update(update.message.from_user.id, 'time_stamp', datetime.now())
     insert_update(update.message.from_user.id, 'state', states.BIO)
     return states.BIO
