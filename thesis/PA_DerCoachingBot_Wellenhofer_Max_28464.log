@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2021.1.31)  29 JAN 2022 12:12
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2021.1.31)  29 JAN 2022 15:46
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -667,97 +667,335 @@ Kapitel 2.
 
 ]
 Kapitel 3.
-/Users/mwellenhofer/Git/coaching_bot/thesis/chapters/03_Grundlagen.tex:10: Missing $ inserted.
-<inserted text> 
-                $
-l.10 ...oogle-api-python-client/docs/dyn/calendar_
-                                                  v3.html
-I've inserted a begin-math/end-math symbol since I think
-you left one out. Proceed, with fingers crossed.
 
-/Users/mwellenhofer/Git/coaching_bot/thesis/chapters/03_Grundlagen.tex:11: Missing $ inserted.
-<inserted text> 
-                $
-l.11 
-     
-I've inserted a begin-math/end-math symbol since I think
-you left one out. Proceed, with fingers crossed.
+LaTeX Warning: Citation `python3.8.6' on page 3 undefined on input line 8.
 
 
-Overfull \hbox (37.33586pt too wide) in paragraph at lines 10--11
-[]\OT1/cmr/m/n/12 API: https://googleapis.github.io/google-api-python-client/docs/dyn/calendar$[]3\OML/cmm/m/it/12 :html$ 
- []
+LaTeX Warning: Citation `telegramAPI' on page 3 undefined on input line 13.
 
 
-Overfull \hbox (112.25487pt too wide) in paragraph at lines 12--13
-[]\OT1/cmr/m/n/12 Google Cloud Con-so-le: https://console.cloud.google.com/apis/credentials/consent?project=coaching-
- []
+LaTeX Warning: Citation `telegramAPIext' on page 3 undefined on input line 13.
 
 
-Overfull \hbox (127.12427pt too wide) in paragraph at lines 14--15
-[]\OT1/cmr/m/n/12 Calendar API Py-thon Quick-start Gui-de: htt-ps://developers.google.com/calendar/api/quickstart/python 
- []
-
-) (/Users/mwellenhofer/Git/coaching_bot/thesis/chapters/04_Konzept.tex
-Overfull \hbox (20.65164pt too wide) in paragraph at lines 16--1
-[]\OT1/cmr/m/n/12 Verify own web-si-te: htt-ps://www.google.com/webmasters/verification/home?hl=en
- []
+LaTeX Warning: Citation `conversationBot' on page 3 undefined on input line 14.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 16--1
+LaTeX Warning: Citation `sqlite' on page 3 undefined on input line 19.
 
- []
+
+LaTeX Warning: Citation `sqlite3API' on page 3 undefined on input line 24.
+
+
+LaTeX Warning: Citation `HTML' on page 3 undefined on input line 29.
+
+
+LaTeX Warning: Citation `php' on page 3 undefined on input line 34.
 
 [3
 
 
 ]
+
+LaTeX Warning: Citation `googleCalAPI' on page 4 undefined on input line 39.
+
+
+LaTeX Warning: Citation `repo' on page 4 undefined on input line 44.
+
+) (/Users/mwellenhofer/Git/coaching_bot/thesis/chapters/04_Konzept.tex [4]
 Kapitel 4.
-) (/Users/mwellenhofer/Git/coaching_bot/thesis/chapters/05_Realisierung.tex [4
+
+LaTeX Warning: File `concept and fancy drawings/PA_Architecture.svg' not found on input line 14.
+
+
+/Users/mwellenhofer/Git/coaching_bot/thesis/chapters/04_Konzept.tex:14: LaTeX Error: Unknown graphics extension: .svg.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.14 ...pt and fancy drawings/PA_Architecture.svg}
+                                                  
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+LaTeX Warning: File `concept and fancy drawings/PA_Conversation_Flow.svg' not found on input line 22.
+
+
+/Users/mwellenhofer/Git/coaching_bot/thesis/chapters/04_Konzept.tex:22: LaTeX Error: Unknown graphics extension: .svg.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.22 ...d fancy drawings/PA_Conversation_Flow.svg}
+                                                  
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+) (/Users/mwellenhofer/Git/coaching_bot/thesis/chapters/05_Realisierung.tex [5
 
 
 ]
 Kapitel 5.
-) (/Users/mwellenhofer/Git/coaching_bot/thesis/chapters/06_Implementierung.tex [5
+) (/Users/mwellenhofer/Git/coaching_bot/thesis/chapters/06_Implementierung.tex [6
 
 
 ]
 Kapitel 6.
 
-LaTeX Warning: Citation `repo' on page 6 undefined on input line 7.
+LaTeX Warning: Citation `pipenv' on page 7 undefined on input line 15.
 
-) (/Users/mwellenhofer/Git/coaching_bot/thesis/chapters/07_Beispiele.tex [6
+/Users/mwellenhofer/Git/coaching_bot/thesis/chapters/06_Implementierung.tex:15: Missing $ inserted.
+<inserted text> 
+                $
+l.15 ...ite{pipenv} installieren und das coaching_
+                                                  bot/Pipfile via
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+/Users/mwellenhofer/Git/coaching_bot/thesis/chapters/06_Implementierung.tex:16: Missing $ inserted.
+<inserted text> 
+                $
+l.16 
+     
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+
+LaTeX Warning: Citation `repo' on page 7 undefined on input line 19.
+
+/Users/mwellenhofer/Git/coaching_bot/thesis/chapters/06_Implementierung.tex:29: Missing $ inserted.
+<inserted text> 
+                $
+l.29 ...oachingBot hat aber nut einen - den "conv_
+                                                  handler". Der Conversation...
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+/Users/mwellenhofer/Git/coaching_bot/thesis/chapters/06_Implementierung.tex:30: Missing $ inserted.
+<inserted text> 
+                $
+l.30 
+     
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+
+Overfull \hbox (100.01903pt too wide) in paragraph at lines 29--30
+\OT1/cmr/m/n/12 hat aber nut einen - den "conv$[]\OML/cmm/m/it/12 andler\OT1/cmr/m/n/12 "\OML/cmm/m/it/12 :DerConversationHandlerkoordiniertalleCommandHandler:$ 
+ []
+
+[7
 
 
 ]
+Overfull \hbox (19.6779pt too wide) in paragraph at lines 40--41
+\OT1/cmr/m/n/12 chen-den API-Schl[]ussel und bein-hal-tet den Dis-pat-cher, an dem wie-der-um Conversation-
+ []
+
+/Users/mwellenhofer/Git/coaching_bot/thesis/chapters/06_Implementierung.tex:61: Missing $ inserted.
+<inserted text> 
+                $
+l.61 Handler-Funktionen (siehe coaching_
+                                        bot/handler_functions in \cite{repo}...
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+
+LaTeX Warning: Citation `repo' on page 8 undefined on input line 61.
+
+
+LaTeX Warning: Command \" invalid in math mode on input line 61.
+
+/Users/mwellenhofer/Git/coaching_bot/thesis/chapters/06_Implementierung.tex:61: Please use \mathaccent for accents in math mode.
+<recently read> \accent 
+                        
+l.61 ...hreiben deren Umfang und Aufbau und erklä
+                                                  ren ihre Funktionsweise.
+I'm changing \accent to \mathaccent here; wish me luck.
+(Accents are not the same in formulas as they are in text.)
+
+/Users/mwellenhofer/Git/coaching_bot/thesis/chapters/06_Implementierung.tex:61: Missing { inserted.
+<to be read again> 
+                   \fontdimen 
+l.61 ...hreiben deren Umfang und Aufbau und erklä
+                                                  ren ihre Funktionsweise.
+A left brace was mandatory here, so I've put one in.
+You might want to delete and/or insert some corrections
+so that I will find a matching right brace soon.
+(If you're confused by all this, try typing `I}' now.)
+
+/Users/mwellenhofer/Git/coaching_bot/thesis/chapters/06_Implementierung.tex:62: Missing $ inserted.
+<inserted text> 
+                $
+l.62 
+     
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+/Users/mwellenhofer/Git/coaching_bot/thesis/chapters/06_Implementierung.tex:62: Missing } inserted.
+<inserted text> 
+                }
+l.62 
+     
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+
+Overfull \hbox (1393.58633pt too wide) in paragraph at lines 61--62
+\OT1/cmr/m/n/12 Handler-Funktionen (sie-he coaching$[]\OML/cmm/m/it/12 ot=handler[]unctionsin\OT1/cmr/m/n/12 [[]])\OML/cmm/m/it/12 sindFunktionen; dieaufEingabenreagieren; dieviaCallbackContextvomUserandenBotgesendetwerdenundbestimmtenKriterienentsprechen:DieseKriterienwerdendirektindermain:pyineinemderCommandHandlerfestgelegt:ImFolgendengehenwirdetailliertaufdieeinzelnenHandler \OMS/cmsy/m/n/12 ^^@
+ []
+
+
+Overfull \hbox (37.8767pt too wide) in paragraph at lines 61--62
+\OML/cmm/m/it/12 Funktionenein; beschreibenderenUmfangundAufbauunderkl[]$ 
+ []
+
+/Users/mwellenhofer/Git/coaching_bot/thesis/chapters/06_Implementierung.tex:71: Missing $ inserted.
+<inserted text> 
+                $
+l.71 \subsection{confirmation_mail.py}
+                                      
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+/Users/mwellenhofer/Git/coaching_bot/thesis/chapters/06_Implementierung.tex:71: Missing $ inserted.
+<inserted text> 
+                $
+l.71 \subsection{confirmation_mail.py}
+                                      
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `subscript' on input line 71.
+
+) (/Users/mwellenhofer/Git/coaching_bot/thesis/chapters/07_Beispiele.tex
+Overfull \hbox (97.25487pt too wide) in paragraph at lines 120--1
+\OT1/cmr/m/n/12 Google Cloud Con-so-le: https://console.cloud.google.com/apis/credentials/consent?project=coaching-
+ []
+
+
+Overfull \hbox (171.20004pt too wide) in paragraph at lines 120--1
+\OT1/cmr/m/n/12 bot-339115 Ca-len-dar API Py-thon Quick-start Gui-de: htt-ps://developers.google.com/calendar/api/quickstart/python
+ []
+
+
+Overfull \hbox (5.65164pt too wide) in paragraph at lines 120--1
+\OT1/cmr/m/n/12 Ve-rify own web-si-te: htt-ps://www.google.com/webmasters/verification/home?hl=en
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 120--1
+
+ []
+
+[8] [9] [10]
 Kapitel 7.
-) (/Users/mwellenhofer/Git/coaching_bot/thesis/chapters/08_Anwendungsszenarien.tex [7
+) (/Users/mwellenhofer/Git/coaching_bot/thesis/chapters/08_Anwendungsszenarien.tex [11
 
 
 ]
 Kapitel 8.
+) (/Users/mwellenhofer/Git/coaching_bot/thesis/chapters/09_ZusammenfassungAusblick.tex [12
+
+
+]
+Kapitel 9.
+) [13
+
+
+]
+No file PA_DerCoachingBot_Wellenhofer_Max_28464.bbl.
+No file PA_DerCoachingBot_Wellenhofer_Max_28464.ind.
+[14
+
+
+]
+\openout2 = `chapters/Glossar.aux'.
+
+ (/Users/mwellenhofer/Git/coaching_bot/thesis/chapters/Glossar.tex
+
+LaTeX Warning: Citation `Gottwald:03' on page 15 undefined on input line 3.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 3--4
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 5--6
+
+ []
+
 )
+Underfull \hbox (badness 10000) in paragraph at lines 7--126
 
-! LaTeX Error: File `chapters/09_ZusammenfassungAusblick.tex' not found.
+ []
 
-Type X to quit or <RETURN> to proceed,
-or enter new name. (Default extension: tex)
+[15
 
-Enter file name: 
-/Users/mwellenhofer/Git/coaching_bot/thesis/PA_DerCoachingBot_Wellenhofer_Max_28464.tex:112: Emergency stop.
-<read *> 
-         
-l.112 ...{chapters/09_ZusammenfassungAusblick.tex}
-                                                  ^^M
-*** (cannot \read from terminal in nonstop modes)
 
- 
+
+]
+\openout2 = `chapters/Selbststaendigkeitserklaerung.aux'.
+
+ (/Users/mwellenhofer/Git/coaching_bot/thesis/chapters/Selbststaendigkeitserklaerung.tex
+Underfull \hbox (badness 10000) in paragraph at lines 5--6
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 7--8
+
+ []
+
+) [16
+
+
+
+
+]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 131.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 131.
+ (/Users/mwellenhofer/Git/coaching_bot/thesis/PA_DerCoachingBot_Wellenhofer_Max_28464.aux (/Users/mwellenhofer/Git/coaching_bot/thesis/chapters/Glossar.aux) (/Users/mwellenhofer/Git/coaching_bot/thesis/chapters/Selbststaendigkeitserklaerung.aux))
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 131.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 131.
+
+
+Package rerunfilecheck Warning: File `PA_DerCoachingBot_Wellenhofer_Max_28464.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `PA_DerCoachingBot_Wellenhofer_Max_28464.out':
+(rerunfilecheck)             Before: <no file>
+(rerunfilecheck)             After:  CF393B291C82C17234288A795C0E7C29;4145.
+
+LaTeX Warning: There were undefined references.
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 131.
+ ) 
 Here is how much of TeX's memory you used:
- 11992 strings out of 480608
- 183234 string characters out of 5903630
- 490560 words of memory out of 5000000
- 27613 multiletter control sequences out of 15000+600000
- 538848 words of font info for 48 fonts, out of 8000000 for 9000
+ 12181 strings out of 480608
+ 187715 string characters out of 5903630
+ 494560 words of memory out of 5000000
+ 27686 multiletter control sequences out of 15000+600000
+ 541609 words of font info for 57 fonts, out of 8000000 for 9000
  1146 hyphenation exceptions out of 8191
- 41i,5n,42p,713b,358s stack positions out of 5000i,500n,10000p,200000b,80000s
-/Users/mwellenhofer/Git/coaching_bot/thesis/PA_DerCoachingBot_Wellenhofer_Max_28464.tex:112:  ==> Fatal error occurred, no output PDF file produced!
+ 41i,9n,42p,713b,525s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmmib10.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmmib8.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb>
+Output written on /Users/mwellenhofer/Git/coaching_bot/thesis/PA_DerCoachingBot_Wellenhofer_Max_28464.pdf (23 pages, 544690 bytes).
+PDF statistics:
+ 255 PDF objects out of 1000 (max. 8388607)
+ 214 compressed objects within 3 object streams
+ 102 named destinations out of 1000 (max. 500000)
+ 6 words of extra memory for PDF output out of 10000 (max. 10000000)
+

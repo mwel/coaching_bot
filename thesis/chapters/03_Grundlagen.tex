@@ -1,16 +1,44 @@
 \chapter{Grundlagen}
 
-1. Python
-2. Telegram API: 
-3. SQL
-4. PHP
-5. HTML
-6. Google Calendar API: 
+Die folgenden Sprachen und Systeme dienen als Grundlage für die im Rahmen dieses Projekts entwickelte Applikation.
 
-API: https://googleapis.github.io/google-api-python-client/docs/dyn/calendar_v3.html 
 
-Google Cloud Console: https://console.cloud.google.com/apis/credentials/consent?project=coaching-bot-339115 
+\section{Python}
 
-Calendar API Python Quickstart Guide: https://developers.google.com/calendar/api/quickstart/python 
+Der größte Teil der Applikation ist in Python 3.8.6 \cite{python3.8.6} geschrieben. Das war zum Stand des Entwicklungsbeginns 2021 die aktuell stabile Python-Version.
 
-Verify own website: https://www.google.com/webmasters/verification/home?hl=en
+
+\section{Telegram API}
+
+Die Applikation basiert auf der API des Instant Messaging Dienstes Telegram \cite{telegramAPI} sowie deren Extension \cite{telegramAPIext}.
+Als Grundgerüst der für den Bot erforderlichen State Machine wurde der ConversationBot von Leandro Toledo et. al. genutzt. \cite{conversationBot} Das Repository enthält eine Vielzahl basaler Bot-Implementierungen, die als Startpunkt für jegliche Bot-Implementierung einen guten Überblick über das Grundgerüst ein die Funktionsweise eines Bot geben.
+
+
+\section{SQLite}
+
+Zur Speicherung von Nutzerdaten wird eine simple SQLite Datenbank \cite{sqlite} genutzt.
+
+
+\section{SQLite3 API}
+
+Als Schnittstelle zwischen dem Python basierten Backend und der SQLite Datenbank nutzt die Applikation den sqlite3 Database-Connector \cite{sqlite3API}.
+
+
+\section{HMTL}
+
+HTML bietet uns die Möglichkeit die grafische Oberfläche in einem Standard Webbrowser auszugeben. \cite{HTML}
+
+
+\section{PHP}
+
+Die HTML-GUI wird via PHP \cite{php} an die Datenbank gebunden.
+
+
+\section{Google Calendar API}
+
+Die Applikation bindet die Google Calendar API \cite{googleCalAPI} an, um es dem User zu ermöglichen, einen Termin mit dem Anbieter zu vereinbaren: 
+
+
+\section{TheCoachingBot}
+
+Schließlich findet sich der gesamte Source-Code inklusive aller Abhängigkeiten in einem öffentlichen GitHub Repository: \cite{repo} 

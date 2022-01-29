@@ -4,4 +4,119 @@ Kann mit 5. Zusammenfallen. Manchmal eignet es sich, 2 Abstraktionsschritte zu m
   
 Generell für 5. Und 6.: Wenig Quellcode (wenn überhaupt)! Maximal 2/3 Seite und immer begleitet von Erklärungen, was zu sehen ist. Kommentare im Quellcode sind nicht ausreichend. Dies gilt für UML Diagrammen analog.  
 
-\cite{repo}
+
+\section{Setup}
+\subsection{Entwicklungsumgebung}
+
+\subsection{Microsoft Visual Studio Code}
+
+\subsection{pipenv}
+Die Applikation nutzt den Package Manager pipenv. Dieser bietet die Möglichkeit, ein projektspezifisches Dokument über alle Abhängigkeiten hinweg zu erstellen und im Projekt selbst zu speichern. So können andere Entwickler Abhängigkeiten leicht installieren und müssen dies nicht auf Systemebene tun, wo es ggf. zu Konflikten mit anderen Projekten kommen könnte. 
+Um alle Abhängigkeiten einzusehen, pipenv \cite{pipenv} installieren und das coaching_bot/Pipfile entsprechend der Dokumentation nutzen, um alle automatisch zu installieren.
+
+\subsection{Konstanten und Schlüssel}
+
+Der Coaching Bot hat einige Abhängigkeiten zu Umsystemen, die Zugangsdaten voraussetzen. Diese sind im Repository \cite{repo} aus Sicherheitsgründen abstrahiert. 
+
+
+\subsection{Dispatcher}
+
+Dispatcher liefern Nachrichten an den User aus. Pro Bot gibt es meist einen Dispatcher. Command- und ConversationHandler werden an diesen angehängt.
+
+
+\subsection{ConversationHandlers}
+
+ConversationHandler kontrollieren den Konversationsfluss zwischen dem User und dem Bot. Pro Bot kann es mehrere ConversationHandler geben. Der CoachingBot hat aber nut einen - den "conv_handler". Der ConversationHandler koordiniert alle CommandHandler.
+
+
+\subsection{CommandHandler}
+
+CommandHandler nehmen Nutzereingaben via eines CallbackContexts entgegen, prüfen diese auf vordefinierte Kriterien und führen prädefinierte Funktionen - sog. Handler Functions aus.
+
+
+\section{Coaching Bot Herzstück - main.py - State Machine}
+Die main.py ist das Herzstück des Coaching Bots.
+
+Sie importiert alle Handler-Functions, authentifiziert sich durch den entsprechenden API-Schlüssel und beinhaltet den Dispatcher, an dem wiederum Conversation- sowie CommandHandler hängen. Darüber hinaus startet sie den Bot und aktualisiert die Handler in regelmäßigen Abständen via dem Updater.
+
+Im Folgenden werden die CommandHandler für den Coaching Bot kurz aufgeführt:
+
+\subsection{start und cancel - Konversation starten und stoppen}
+Der in dieser Applikation umfangreichste ConversationHandler umfasst zwei Commands: "/start" und "/cancel". Solange der Bot ausgeführt wird, lässt sich eine Konversation mit ihm über den Befehlt "/start" starten und via "/cancel" beenden. Zur Funktionsweise von "/start" und "/cancel", siehe "start.py" und "cancel.py" unter "Handler Funktionen". 
+
+\subsection{delete - Nutzerdaten löschen}
+Über den Befehl "/delete" wird der CommandHandler "delete" ausgeführt. Zur Funktionsweise von "/delete", siehe "delete.py" unter "Handler Funktionen". 
+
+\subsection{help - Hilfe ausgeben}
+Über den Befehl "/help" wird der CommandHandler "help" ausgeführt. Zur Funktionsweise von "/help", siehe "help.py" unter "Handler Funktionen". 
+
+\subsection{summary - Zusammenfassung ausgeben}
+Über den Befehl "/summary" wird der CommandHandler "summary" ausgeführt. Zur Funktionsweise von "/summary", siehe "summary.py" unter "Handler Funktionen". 
+
+\subsection{status - Status Quo ausgeben}
+Über den Befehl "/status" wird der CommandHandler "status" ausgeführt. Zur Funktionsweise von "/status", siehe "status.py" unter "Handler Funktionen". 
+
+
+\section{Handler Funktionen}
+Handler-Funktionen (siehe coaching_bot/handler_functions in \cite{repo}) sind Funktionen, die auf Eingaben reagieren, die via CallbackContext vom User an den Bot gesendet werden und bestimmten Kriterien entsprechen. Diese Kriterien werden direkt in der main.py in einem der CommandHandler festgelegt. Im Folgenden gehen wir detailliert auf die einzelnen Handler-Funktionen ein, beschreiben deren Umfang und Aufbau und erklären ihre Funktionsweise. 
+
+\subsection{start.py}
+
+\subsection{birthdate.py}
+
+\subsection{bio.py}
+
+\subsection{cancel}
+
+\subsection{confirmation_mail.py}
+
+\subsection{email.py}
+
+\subsection{gender.py}
+
+\subsection{help.py}
+
+\subsection{location.py}
+
+\subsection{photo.py}
+
+\subsection{states.py}
+
+\subsection{status.py}
+
+\subsection{summary.py}
+
+\subsection{telephone.py}
+
+\subsection{validation.py}
+
+
+
+
+\section{Datenbank}
+
+
+\section{E-Mail-Versand}
+
+
+\section{Tests}
+
+
+
+\section{}
+
+\section{}
+
+\section{}
+
+\section{}
+
+\section{}
+
+
+
+\section{Kalender}
+
+Google Cloud Console: https://console.cloud.google.com/apis/credentials/consent?project=coaching-bot-339115 
+Calendar API Python Quickstart Guide: https://developers.google.com/calendar/api/quickstart/python 
+Verify own website: https://www.google.com/webmasters/verification/home?hl=en
