@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2021.1.31)  29 JAN 2022 15:46
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2021.1.31)  29 JAN 2022 16:20
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -750,7 +750,7 @@ LaTeX Warning: Citation `pipenv' on page 7 undefined on input line 15.
 <inserted text> 
                 $
 l.15 ...ite{pipenv} installieren und das coaching_
-                                                  bot/Pipfile via
+                                                  bot/Pipfile entsprechend d...
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
 
@@ -761,6 +761,11 @@ l.16
      
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
+
+
+Overfull \hbox (218.67012pt too wide) in paragraph at lines 14--16
+\OT1/cmr/m/n/12 penv [[]] in-stal-lie-ren und das coaching$[]\OML/cmm/m/it/12 ot=PipfileentsprechendderDokumentationnutzen; umalleautomatischzuinstallieren:$ 
+ []
 
 
 LaTeX Warning: Citation `repo' on page 7 undefined on input line 19.
@@ -855,6 +860,7 @@ Overfull \hbox (37.8767pt too wide) in paragraph at lines 61--62
 \OML/cmm/m/it/12 Funktionenein; beschreibenderenUmfangundAufbauunderkl[]$ 
  []
 
+[8]
 /Users/mwellenhofer/Git/coaching_bot/thesis/chapters/06_Implementierung.tex:71: Missing $ inserted.
 <inserted text> 
                 $
@@ -895,25 +901,180 @@ Underfull \hbox (badness 10000) in paragraph at lines 120--1
 
  []
 
-[8] [9] [10]
+[9] [10]
 Kapitel 7.
-) (/Users/mwellenhofer/Git/coaching_bot/thesis/chapters/08_Anwendungsszenarien.tex [11
+
+Package hyperref Warning: Difference (2) between bookmark levels is greater 
+(hyperref)                than one, level fixed on input line 5.
+
+
+LaTeX Warning: File `images/stage00.png' not found on input line 9.
+
+
+/Users/mwellenhofer/Git/coaching_bot/thesis/chapters/07_Beispiele.tex:9: Package pdftex.def Error: File `images/stage00.png' not found: using draft setting.
+
+See the pdftex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.9 	\includegraphics{images/stage00.png}
+                                         
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+LaTeX Warning: File `images/stage01.png' not found on input line 18.
+
+
+/Users/mwellenhofer/Git/coaching_bot/thesis/chapters/07_Beispiele.tex:18: Package pdftex.def Error: File `images/stage01.png' not found: using draft setting.
+
+See the pdftex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.18 	\includegraphics{images/stage01.png}
+                                          
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+LaTeX Warning: File `images/stage02.png' not found on input line 27.
+
+
+/Users/mwellenhofer/Git/coaching_bot/thesis/chapters/07_Beispiele.tex:27: Package pdftex.def Error: File `images/stage02.png' not found: using draft setting.
+
+See the pdftex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.27 	\includegraphics{images/stage02.png}
+                                          
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+LaTeX Warning: File `images/stage03.png' not found on input line 36.
+
+
+/Users/mwellenhofer/Git/coaching_bot/thesis/chapters/07_Beispiele.tex:36: Package pdftex.def Error: File `images/stage03.png' not found: using draft setting.
+
+See the pdftex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.36 	\includegraphics{images/stage03.png}
+                                          
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+LaTeX Warning: File `images/stage04.png' not found on input line 45.
+
+
+/Users/mwellenhofer/Git/coaching_bot/thesis/chapters/07_Beispiele.tex:45: Package pdftex.def Error: File `images/stage04.png' not found: using draft setting.
+
+See the pdftex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.45 	\includegraphics{images/stage04.png}
+                                          
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+LaTeX Warning: File `images/stage05.png' not found on input line 54.
+
+
+/Users/mwellenhofer/Git/coaching_bot/thesis/chapters/07_Beispiele.tex:54: Package pdftex.def Error: File `images/stage05.png' not found: using draft setting.
+
+See the pdftex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.54 	\includegraphics{images/stage05.png}
+                                          
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+LaTeX Warning: File `images/stage06.png' not found on input line 63.
+
+
+/Users/mwellenhofer/Git/coaching_bot/thesis/chapters/07_Beispiele.tex:63: Package pdftex.def Error: File `images/stage06.png' not found: using draft setting.
+
+See the pdftex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.63 	\includegraphics{images/stage06.png}
+                                          
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+[11
 
 
 ]
+
+LaTeX Warning: File `images/stage07.png' not found on input line 72.
+
+
+/Users/mwellenhofer/Git/coaching_bot/thesis/chapters/07_Beispiele.tex:72: Package pdftex.def Error: File `images/stage07.png' not found: using draft setting.
+
+See the pdftex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.72 	\includegraphics{images/stage07.png}
+                                          
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+LaTeX Warning: File `images/stage08.png' not found on input line 81.
+
+
+/Users/mwellenhofer/Git/coaching_bot/thesis/chapters/07_Beispiele.tex:81: Package pdftex.def Error: File `images/stage08.png' not found: using draft setting.
+
+See the pdftex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.81 	\includegraphics{images/stage08.png}
+                                          
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+LaTeX Warning: File `images/stage09.png' not found on input line 90.
+
+
+/Users/mwellenhofer/Git/coaching_bot/thesis/chapters/07_Beispiele.tex:90: Package pdftex.def Error: File `images/stage09.png' not found: using draft setting.
+
+See the pdftex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.90 	\includegraphics{images/stage09.png}
+                                          
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+) (/Users/mwellenhofer/Git/coaching_bot/thesis/chapters/08_Anwendungsszenarien.tex [12] [13]
 Kapitel 8.
-) (/Users/mwellenhofer/Git/coaching_bot/thesis/chapters/09_ZusammenfassungAusblick.tex [12
+) (/Users/mwellenhofer/Git/coaching_bot/thesis/chapters/09_ZusammenfassungAusblick.tex [14
 
 
 ]
 Kapitel 9.
-) [13
+) [15
 
 
 ]
 No file PA_DerCoachingBot_Wellenhofer_Max_28464.bbl.
 No file PA_DerCoachingBot_Wellenhofer_Max_28464.ind.
-[14
+[16
 
 
 ]
@@ -921,7 +1082,7 @@ No file PA_DerCoachingBot_Wellenhofer_Max_28464.ind.
 
  (/Users/mwellenhofer/Git/coaching_bot/thesis/chapters/Glossar.tex
 
-LaTeX Warning: Citation `Gottwald:03' on page 15 undefined on input line 3.
+LaTeX Warning: Citation `Gottwald:03' on page 17 undefined on input line 3.
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 3--4
@@ -938,7 +1099,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 7--126
 
  []
 
-[15
+[17
 
 
 
@@ -955,7 +1116,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 7--8
 
  []
 
-) [16
+) [18
 
 
 
@@ -974,7 +1135,7 @@ Package rerunfilecheck Warning: File `PA_DerCoachingBot_Wellenhofer_Max_28464.ou
 
 Package rerunfilecheck Info: Checksums for `PA_DerCoachingBot_Wellenhofer_Max_28464.out':
 (rerunfilecheck)             Before: <no file>
-(rerunfilecheck)             After:  CF393B291C82C17234288A795C0E7C29;4145.
+(rerunfilecheck)             After:  4758768D12280F2525A820EF209CD86D;4809.
 
 LaTeX Warning: There were undefined references.
 
@@ -984,18 +1145,18 @@ LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 131.
  ) 
 Here is how much of TeX's memory you used:
- 12181 strings out of 480608
- 187715 string characters out of 5903630
- 494560 words of memory out of 5000000
- 27686 multiletter control sequences out of 15000+600000
- 541609 words of font info for 57 fonts, out of 8000000 for 9000
+ 12376 strings out of 480608
+ 191585 string characters out of 5903630
+ 492560 words of memory out of 5000000
+ 27838 multiletter control sequences out of 15000+600000
+ 541778 words of font info for 58 fonts, out of 8000000 for 9000
  1146 hyphenation exceptions out of 8191
  41i,9n,42p,713b,525s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmmib10.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmmib8.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb>
-Output written on /Users/mwellenhofer/Git/coaching_bot/thesis/PA_DerCoachingBot_Wellenhofer_Max_28464.pdf (23 pages, 544690 bytes).
+</usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmmib10.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmmib8.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb>
+Output written on /Users/mwellenhofer/Git/coaching_bot/thesis/PA_DerCoachingBot_Wellenhofer_Max_28464.pdf (25 pages, 552850 bytes).
 PDF statistics:
- 255 PDF objects out of 1000 (max. 8388607)
- 214 compressed objects within 3 object streams
- 102 named destinations out of 1000 (max. 500000)
+ 293 PDF objects out of 1000 (max. 8388607)
+ 249 compressed objects within 3 object streams
+ 124 named destinations out of 1000 (max. 500000)
  6 words of extra memory for PDF output out of 10000 (max. 10000000)
 

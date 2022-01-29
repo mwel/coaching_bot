@@ -221,6 +221,7 @@ INPUT /usr/local/texlive/2020/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy
 INPUT /usr/local/texlive/2020/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy6.tfm
 INPUT /Users/mwellenhofer/Git/coaching_bot/thesis/chapters/07_Beispiele.tex
 INPUT /Users/mwellenhofer/Git/coaching_bot/thesis/chapters/07_Beispiele.tex
+INPUT /usr/local/texlive/2020/texmf-dist/fonts/tfm/public/cm/cmtt12.tfm
 INPUT /Users/mwellenhofer/Git/coaching_bot/thesis/chapters/08_Anwendungsszenarien.tex
 INPUT /Users/mwellenhofer/Git/coaching_bot/thesis/chapters/08_Anwendungsszenarien.tex
 INPUT /Users/mwellenhofer/Git/coaching_bot/thesis/chapters/09_ZusammenfassungAusblick.tex
@@ -248,4 +249,5 @@ INPUT /usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pf
 INPUT /usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb
 INPUT /usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb
 INPUT /usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb
+INPUT /usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb
 INPUT /usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb
