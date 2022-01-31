@@ -13,7 +13,7 @@
 
             <h2>Customer list</h2>
 
-            <div>
+            {% if customers|length > 0 %}
                 <table border=1>
                 <tr>
                 <th>First Name</th>
@@ -27,7 +27,10 @@
                     <td>{{ cst.6 }}</td>
                 </tr>
                 {% endfor %}
-            </div>
+            {% else %}
+                No customer entries found.
+            {% endif %}
+
 
         </div>
     </body>
