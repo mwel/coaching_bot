@@ -1,12 +1,12 @@
 import sqlite3
 
-# check, if a record exists in the db and return a boolean  
+# check, if a record exists in the db and return a boolean
 def user_search(user_id): # I'm sure there is a better solution for this, but this is mine.
     # connect to db
     connection = sqlite3.connect("coachingBotDB.db")
     # cursor
     cursor = connection.cursor()
-    
+
     # sql command to check, if user exists
     user_check = f"""SELECT CASE WHEN EXISTS (
         SELECT *
@@ -27,7 +27,7 @@ def user_search(user_id): # I'm sure there is a better solution for this, but th
         print(f'+++++ RECORD FOUND +++++')
     else:
         print(f'+++++ NO RECORD FOUND +++++')
-    
+
     return result
 
 
@@ -37,23 +37,48 @@ def get_all_data(user_id):
     connection = sqlite3.connect("coachingBotDB.db")
     # cursor
     cursor = connection.cursor()
-    
+
     # SELECT all info from user with respective user_id
-    selection = f"""SELECT * 
+    selection = f"""SELECT *
         FROM users
-        WHERE user_id = {user_id} 
+        WHERE user_id = {user_id}
         """
-    
+
     # fetch all data from table users
     print(f'+++++ RECORD FOUND FOR: {user_id} +++++')
     cursor.execute(selection)
-    
+
     # store all data from selection in table_data
     table_data = cursor.fetchall()
-    
-    
+
+
     # print table
     print(f'+++++ RECORD REQUESTED for user_id: {user_id} +++++')
+    for i in table_data:
+        print(i)
+
+    return table_data
+
+
+# get all data available for one single user
+def get_customers():
+    # connect to db
+    connection = sqlite3.connect("coachingBotDB.db")
+    # cursor
+    cursor = connection.cursor()
+
+    # SELECT all info from user with respective user_id
+    selection = f"""SELECT *
+        FROM users
+        """
+
+    # fetch all data from table users
+    cursor.execute(selection)
+
+    # store all data from selection in table_data
+    table_data = cursor.fetchall()
+
+    # print table
     for i in table_data:
         print(i)
 
@@ -67,21 +92,20 @@ def get_value(user_id, column):
 
     # cursor
     cursor = connection.cursor()
-    
-    selection = f"""SELECT {column} 
+
+    selection = f"""SELECT {column}
         FROM users
-        WHERE user_id = {user_id} 
+        WHERE user_id = {user_id}
         """
 
     # execute command to fetch all data from table users
     cursor.execute(selection)
-    
+
     # store all data from selection in table_data
     table_value = (str(cursor.fetchone())).lstrip("('").rstrip("',)")
-    
+
     # print value
     print(f'+++++ RECORD REQUESTED for user_id: {user_id} +++++')
     print(f'+++++ DB RESPONSE: {table_value} +++++')
 
     return table_value
-    

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+    <head>
+        <title>{{ title }}</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+    </head>
+    <body>
+        <div class="container">
+            <h1>{{ title }}</h1>
+
+            Web GUI for the Coaching Bot.
+
+            <h2>Customer list</h2>
+
+            <div>
+                <table border=1>
+                <tr>
+                <th>Name</th>
+                <th>Vorname</th>
+                <th>Maximale Gemäßgröße</th>
+                </tr>
+                {% for cst in customers %}
+                <tr>
+                    <td>{{ cst.0 }}</td>
+                    <td>{{ cst.1 }}</td>
+                    <td>{{ cst.2 }} Liter</td>
+                </tr>
+                {% endfor %}
+            </div>
+
+
+        </div>
+    </body>
+</html>

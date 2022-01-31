@@ -1,0 +1,60 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: #444;
+  }
+
+  /*
+   * Formatting the header area
+   */
+
+  header {
+    background-color: #DFB887;
+    height: 35px;
+    width: 100%;
+    opacity: .9;
+    margin-bottom: 10px;
+  }
+
+  /*
+   * Centering the body content
+   */
+
+  .container {
+    width: 1000px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  table {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  h1 {
+    font-size: 3em;
+    margin-top: 40px;
+    text-align: center;
+    letter-spacing: -2px;
+  }
+
+  h2 {
+    font-size: 2.5em;
+    margin-top: 40px;
+    text-align: center;
+    letter-spacing: -2px;
+  }
+
+  h3 {
+    font-size: 1.5em;
+    font-weight: 100;
+    margin-top: 30px;
+    text-align: center;
+    letter-spacing: -1px;
+    color: #999;
+  }
+
+  img {
+    width: 80%;
+  }
