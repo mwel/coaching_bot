@@ -8,6 +8,8 @@ from logEnabler import logger;
 
 from handler_functions import states
 from handler_functions.database_connector.insert_value_db import insert_update
+from pathlib import Path
+import os
 
 
 reply_keyboard = [['COMPLETE SIGN UP'],['/cancel']]
@@ -15,10 +17,11 @@ reply_keyboard = [['COMPLETE SIGN UP'],['/cancel']]
 # Stores the photo and asks for a location.
 def photo(update: Update, context: CallbackContext) -> int:
     photo_file = update.message.photo[-1].get_file()
-    photo_file.download(update.message.from_user.first_name+'_photo.jpg') # TODO: add date to photo
+    directory = str(Path(__file__).parent.parent.parent)
+    photo_file.download(os.path.join(directory, 'user_pictures', str(update.message.from_user.id) + '.jpg'))
 
     # write to user dict
-    context.user_data['user_photo'] = photo_file
+    # context.user_data['user_photo'] = photo_file
 
     # TODO: save image in db as BLOB
     # convert to binary

@@ -55,10 +55,10 @@ def generate_ics (coachee_name, coachee_email, coachee_phone_number, coach_name,
     print(cal)
 
     # define, where to put the file
-    directory = str(Path(__file__).parent.parent) + "/" # TODO: figure out how to write ics to 'appointments'-folder and how to attach it to the email
+    directory = str(Path(__file__).parent.parent.parent.parent) # TODO: figure out how to write ics to 'appointments'-folder and how to attach it to the email
     
     # open the file
-    f = open(os.path.join(directory, 'wavehoover - Personal Coaching Appointment.ics'), 'wb')
+    f = open(os.path.join(directory, 'appointments', 'wavehoover - Personal Coaching Appointment.ics'), 'wb')
     
     # write calendar invite data to file
     f.write(cal.to_ical())
