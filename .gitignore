@@ -21,3 +21,5 @@ __pycache__.
 # bibs
 IUG.bib
 
+# API token
+token.json
