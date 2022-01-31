@@ -16,19 +16,18 @@
             <div>
                 <table border=1>
                 <tr>
-                <th>Name</th>
-                <th>Vorname</th>
-                <th>Maximale Gemäßgröße</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Birthday</th>
                 </tr>
                 {% for cst in customers %}
                 <tr>
-                    <td>{{ cst.0 }}</td>
-                    <td>{{ cst.1 }}</td>
-                    <td>{{ cst.2 }} Liter</td>
+                    <td>{{ cst.2 }}</td>
+                    <td>{{ cst.3 }}</td>
+                    <td>{{ cst.6 }}</td>
                 </tr>
                 {% endfor %}
             </div>
-
 
         </div>
     </body>

@@ -13,9 +13,8 @@ app.config['SEND_FILE_MAX_AGE_DEFAULT'] = 0
 
 @app.route("/")
 def home():
-    TEST_DATA = [['Phritte', 'Mc Phrittface', 0.1], ['Steilon', 'Mc Stailface', 1.8]]
-    # REAL_DATA = get_customers()
-    return render_template('home.html', **config.CONTEXT, customers=TEST_DATA)
+    data = get_customers()
+    return render_template('home.html', **config.CONTEXT, customers=data)
 
 
 if __name__ == "__main__":
