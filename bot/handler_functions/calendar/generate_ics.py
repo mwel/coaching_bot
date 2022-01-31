@@ -4,26 +4,15 @@
 from datetime import datetime
 from icalendar import Calendar, Event
 from pathlib import Path
+
 import os
 
 # find an appointment for a coaching session
 def find_appointment (calendar, year, month, day, start_hour, start_minute):
 
-    # call calendar and ask for access
-    # ...
+    # TODO: Call Google Calendar API
+    event = 'event' # TODO: Change to API response
 
-    appointment = datetime(year, month, day, start_hour, start_minute, 0)
-    event = ''# call calendar of wavehoover@gmail.com and ask for time slot of 'appointment'
-
-    # if access granted, check for availability of appointment requested
-    taken = True    
-    while taken == True:
-        if event != appointment:
-            taken = False
-            break
-        
-    # generate invitation with event found    
-    generate_ics()
     return event
 
 
