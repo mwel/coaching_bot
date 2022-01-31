@@ -1,7 +1,7 @@
 <style type="text/css">
 body {
 	width:800px;
-	border:red 1px solid;
+	border:#2471A3 1px solid;
 	border-style:dashed;
 	margin:auto;
 	padding:10px;
@@ -12,20 +12,20 @@ td {
 }
 table {
 	margin:auto;
-	border:blue 1px solid;
+	border:#2471A3 1px solid;
 }
 label {
 	font-size:18px;
-	color:blue;
+	color:#2471A3;
     font-weight: bold;
     font-family: cursive;
 }
 h2 {
-	color:red;
+	color: #D5DBDB;
 	text-align:center;
 }
 th {
-	color:red;
+	color:#D5DBDB;
 	font-size:20px;
     font-family: cursive;
 }
