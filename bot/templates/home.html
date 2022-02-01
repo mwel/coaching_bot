@@ -9,21 +9,45 @@
         <div class="container">
             <h1>{{ title }}</h1>
 
-            Web GUI for the Coaching Bot.
-
-            <h2>Customer list</h2>
+            Overview of Coaching Session Sign Ups
+            
+            <h3>Customer list</h3>
 
             {% if customers|length > 0 %}
                 <table border=1>
                 <tr>
-                <th>First Name</th>
-                <th>Last Name</th>
-                <th>Birthday</th>
+                    <th>Avatar</th>
+                    <th>ID</th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Biography</th>
+                    <th>Email</th>
+                    <th>Phone</th>
+                    <th>Application Start</th>
+                    <th>Completed Sign Up</th>
+                    <th>Mail Sent</th>
+                    <th>Appointment</th>
+                    <th>Longitude</th>
+                    <th>Latitude</th>
+                    <th>Gender</th>
+                    <th>Birthdate</th>
                 </tr>
                 {% for cst in customers %}
                 <tr>
+                    <td>{{ cst.5 }}</td>
+                    <td>{{ cst.0 }}</td>
                     <td>{{ cst.2 }}</td>
                     <td>{{ cst.3 }}</td>
+                    <td>{{ cst.11 }}</td>
+                    <td>{{ cst.7 }}</td>
+                    <td>{{ cst.8 }}</td>
+                    <td>{{ cst.1 }}</td>
+                    <td>{{ cst.12 }}</td>
+                    <td>{{ cst.13 }}</td>
+                    <td>{{ cst.14 }}</td>
+                    <td>{{ cst.9 }}</td>
+                    <td>{{ cst.10 }}</td>
+                    <td>{{ cst.4 }}</td>
                     <td>{{ cst.6 }}</td>
                 </tr>
                 {% endfor %}
@@ -32,6 +56,12 @@
             {% endif %}
 
 
+        </div>
+
+        <div>
+            <h3>Coaching Sessions</h3>
+
+            <iframe src="https://calendar.google.com/calendar/embed?src=84qo0c5ctm3e6p2cioh2c11iqc%40group.calendar.google.com&ctz=Europe%2FZurich" style="border: 0" width="800" height="600" frameborder="0" scrolling="no"></iframe>
         </div>
     </body>
 </html>

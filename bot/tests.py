@@ -61,3 +61,20 @@ generate_ics(
     end_minute=0, 
     )
 
+
+
+#   0     user_id INTEGER PRIMARY KEY,
+#   1     time_stamp TEXT,
+#   2     first_name TEXT,
+#   3     last_name TEXT,
+#   4     gender TEXT,
+#   5     photo BLOB,
+#   6     birthdate INTEGER,
+#   7     email TEXT UNIQUE,
+#   8     telephone TEXT UNIQUE,
+#   9     longitude INTEGER,
+#   10    latitude INTEGER,
+#   11    bio TEXT,
+#   12    state INTEGER,
+#   13    mail_sent BOOLEAN,
+#   14    appointment TEXT
