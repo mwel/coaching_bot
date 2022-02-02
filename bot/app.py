@@ -17,8 +17,11 @@ app.config['SEND_FILE_MAX_AGE_DEFAULT'] = 0
 @app.route("/")
 def home():
     data = get_customers()
-    return render_template('home.html', **config.CONTEXT, customers=data)
+    picture_path = os.path.join('static', 'user_pictures')
+    return render_template('home.html', **config.CONTEXT, customers=data, path=picture_path)
 
 
 if __name__ == "__main__":
     app.run(debug=True)
+
+
