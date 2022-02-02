@@ -11,7 +11,7 @@
 
             Overview of Coaching Session Sign Ups
             
-            <h3>Customer list</h3>
+            <h2>Customer list</h2>
 
             {% if customers|length > 0 %}
                 <table border=1>
@@ -34,7 +34,7 @@
                 </tr>
                 {% for cst in customers %}
                 <tr>
-                    <td>{{ cst.5 }}</td>
+                    <td>{<img src="..../user_pictures/" alt="Smiley face" width="42" height="42" style="border:5px solid black">}</td>
                     <td>{{ cst.0 }}</td>
                     <td>{{ cst.2 }}</td>
                     <td>{{ cst.3 }}</td>
