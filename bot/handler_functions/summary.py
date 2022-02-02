@@ -67,7 +67,7 @@ def summary(update: Update, context: CallbackContext) -> int:
     confirmation_mail(first_name, summary, email)
     insert_update(update.message.from_user.id, 'mail_sent', '1')
 
-    # trigger calendar invitation
+    # trigger calendar invitation TODO: make calendar invited dynamic
     coach_name = 'Max'
     coach_email = 'max@wavehoover.com'
     ics= generate_ics(
