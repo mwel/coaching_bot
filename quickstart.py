@@ -8,10 +8,12 @@ from google.oauth2.credentials import Credentials
 from google_auth_oauthlib.flow import InstalledAppFlow
 from googleapiclient.discovery import build
 from googleapiclient.errors import HttpError
+# from googleapiclient
 
 # If modifying these scopes, delete the file token.json.
-SCOPES = ['https://www.googleapis.com/auth/calendar.readonly']
+SCOPES = ['https://www.googleapis.com/auth/calendar']
 
+coaching_calendar_ID = '84qo0c5ctm3e6p2cioh2c11iqc'
 
 def main():
     """Shows basic usage of the Google Calendar API.
@@ -41,7 +43,7 @@ def main():
         # Call the Calendar API
         now = datetime.datetime.utcnow().isoformat() + 'Z'  # 'Z' indicates UTC time
         print('Getting the upcoming 10 events')
-        events_result = service.events().list(calendarId='primary', timeMin=now,
+        events_result = service.events().list(calendarId=coaching_calendar_ID, timeMin=now,
                                               maxResults=10, singleEvents=True,
                                               orderBy='startTime').execute()
         events = events_result.get('items', [])
@@ -57,6 +59,65 @@ def main():
 
     except HttpError as error:
         print('An error occurred: %s' % error)
+
+
+def authenticate():
+    """ Authenticate to Google Calendar API """
+    creds = None
+    # The file token.json stores the user's access and refresh tokens, and is
+    # created automatically when the authorization flow completes for the first
+    # time.
+    if os.path.exists('token.json'):
+        creds = Credentials.from_authorized_user_file('token.json', SCOPES)
+    # If there are no (valid) credentials available, let the user log in.
+    if not creds or not creds.valid:
+        if creds and creds.expired and creds.refresh_token:
+            creds.refresh(Request())
+        else:
+            flow = InstalledAppFlow.from_client_secrets_file(
+                'bot/constants/credentials.json', SCOPES)
+            creds = flow.run_local_server(port=0)
+        # Save the credentials for the next run
+        with open('token.json', 'w') as token:
+            token.write(creds.to_json())
+
+    try:
+        service = build('calendar', 'v3', credentials=creds)
+       
+
+    except HttpError as error:
+        print('An error occurred: %s' % error)
+
+    return service
+
+
+def check_availability():
+
+    service = authenticate()
+    
+    try:
+    
+        service.freebusy().query()
+
+    except HttpError as error:
+        print('An error occurred: %s' % error)
+        
+
+
+def make_appointment():
+
+    
+
+
+
+
+def cancel_appointment():
+
+
+
+
+
+
 
 
 if __name__ == '__main__':
