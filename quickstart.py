@@ -8,12 +8,15 @@ from google.oauth2.credentials import Credentials
 from google_auth_oauthlib.flow import InstalledAppFlow
 from googleapiclient.discovery import build
 from googleapiclient.errors import HttpError
-# from googleapiclient
+
 
 # If modifying these scopes, delete the file token.json.
 SCOPES = ['https://www.googleapis.com/auth/calendar']
 
+# reference to the ID of the calendar to be connected
 coaching_calendar_ID = '84qo0c5ctm3e6p2cioh2c11iqc'
+
+
 
 def main():
     """Shows basic usage of the Google Calendar API.
@@ -84,13 +87,14 @@ def authenticate():
     try:
         service = build('calendar', 'v3', credentials=creds)
        
-
     except HttpError as error:
         print('An error occurred: %s' % error)
 
     return service
 
 
+
+# check, when there is a free slot in the calendar
 def check_availability():
 
     service = authenticate()
@@ -103,20 +107,30 @@ def check_availability():
         print('An error occurred: %s' % error)
         
 
-
+# make an appointment in the calendar
 def make_appointment():
 
+    service = authenticate()
     
+    try:
+    
+        service.event().create()
+
+    except HttpError as error:
+        print('An error occurred: %s' % error)
 
 
-
-
+# cancel / delete an appointment from the calendar
 def cancel_appointment():
 
+    service = authenticate()
+    
+    try:
+    
+        service.event().delete()
 
-
-
-
+    except HttpError as error:
+        print('An error occurred: %s' % error)
 
 
 
