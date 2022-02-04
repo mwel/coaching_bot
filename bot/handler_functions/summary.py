@@ -14,6 +14,7 @@ from handler_functions.database_connector import select_db
 from handler_functions.confirmation_mail import confirmation_mail
 from handler_functions.calendar.generate_ics import generate_ics
 from handler_functions.calendar.send_invitation import send_invitation
+from appointments import make_appointment
 
 
 # Stores the photo and asks for a location.
@@ -85,9 +86,11 @@ def summary(update: Update, context: CallbackContext) -> int:
         end_minute=0, 
         )
 
+    # make_appointment()
+
     # send_invitation(ics, ...)
 
-    insert_update(update.message.from_user.id, 'appointment_sent', time)
+    # insert_update(update.message.from_user.id, 'appointment_sent', time)
     
 
     # save state to DB

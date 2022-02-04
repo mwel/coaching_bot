@@ -61,7 +61,8 @@ def main():
             print(start, event['summary'])
 
     except HttpError as error:
-        print('An error occurred: %s' % error)
+        print('ERROR: %s' % error)
+
 
 
 def authenticate():
@@ -86,9 +87,10 @@ def authenticate():
 
     try:
         service = build('calendar', 'v3', credentials=creds)
+        print('+++++ OAuth2 SUCCESSFUL +++++')
        
     except HttpError as error:
-        print('An error occurred: %s' % error)
+        print('ERROR: %s' % error)
 
     return service
 
@@ -98,14 +100,18 @@ def authenticate():
 def check_availability():
 
     service = authenticate()
-    
+        
     try:
     
-        service.freebusy().query()
+        availability = service.freebusy().query()
+        print('+++++ CAL: AVAILABILITY CHECKED +++++')
+        print(availability)
+        return availability
 
     except HttpError as error:
-        print('An error occurred: %s' % error)
-        
+        print('ERROR: %s' % error)
+
+
 
 # make an appointment in the calendar
 def make_appointment():
@@ -114,23 +120,29 @@ def make_appointment():
     
     try:
     
-        service.event().create()
+        appointment = service.event().create()
+        print('+++++ CAL: APPOINTMENT MADE +++++')
+        print(appointment)
+        return appointment
+
 
     except HttpError as error:
-        print('An error occurred: %s' % error)
+        print('ERROR: %s' % error)
+
 
 
 # cancel / delete an appointment from the calendar
 def cancel_appointment():
 
     service = authenticate()
-    
+
     try:
-    
+        
         service.event().delete()
+        print('+++++ CAL: APPOINTMENT CANCELED +++++')
 
     except HttpError as error:
-        print('An error occurred: %s' % error)
+        print('ERROR: %s' % error)
 
 
 
