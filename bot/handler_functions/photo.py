@@ -17,7 +17,7 @@ reply_keyboard = [['COMPLETE SIGN UP'],['/cancel']]
 # Stores the photo and asks for a location.
 def photo(update: Update, context: CallbackContext) -> int:
     photo_file = update.message.photo[-1].get_file()
-    directory = str(Path(__file__).parent)
+    directory = str(Path(__file__).parent.parent)
     photo_file.download(os.path.join(directory, 'static', 'user_pictures', str(update.message.from_user.id) + '.jpg'))
 
     # write to user dict

@@ -7,7 +7,6 @@ from handler_functions.validation import validate_email
 from logEnabler import logger;
 
 
-from handler_functions.states import EMAIL, MESSAGES
 from handler_functions import states
 from handler_functions.database_connector.insert_value_db import insert_update
 

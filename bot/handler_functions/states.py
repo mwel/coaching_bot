@@ -1,6 +1,8 @@
 """Define states, state transition messages and keyboards."""
 
+from tabnanny import check
 from telegram import ReplyKeyboardMarkup, InlineKeyboardMarkup
+from handler_functions.calendar.calendar_manager import check_availability
 
 # STATE DEFINITIONS
 MAX_STATES = 10
@@ -50,6 +52,10 @@ MESSAGES = {
 
 }
 
+slot1 = str(check_availability())
+slot2 = str(check_availability())
+slot3 = str(check_availability())
+
 # custom keyboards for next state
 KEYBOARD_MARKUPS = {
     
@@ -94,7 +100,7 @@ KEYBOARD_MARKUPS = {
     ),
 
     APPOINTMENT: ReplyKeyboardMarkup(
-            [['date1', 'date2', 'date3']], 
+            [[slot1, slot2, slot3]], 
             one_time_keyboard=True, 
             input_field_placeholder='Choose your appointment...'
     ),

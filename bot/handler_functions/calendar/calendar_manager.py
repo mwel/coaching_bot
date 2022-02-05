@@ -1,7 +1,10 @@
+""" manages CRD calendar functions for coaching appointments """
+
 from __future__ import print_function
 
+# default imports
 import datetime
-import os.path
+from posixpath import dirname
 
 from google.auth.transport.requests import Request
 from google.oauth2.credentials import Credentials
@@ -9,10 +12,15 @@ from google_auth_oauthlib.flow import InstalledAppFlow
 from googleapiclient.discovery import build
 from googleapiclient.errors import HttpError
 
+# custom imports
+import os.path
+from pathlib import Path
 
 
 # If modifying these scopes, delete the file token.json.
 SCOPES = ['https://www.googleapis.com/auth/calendar']
+
+credentials_directory = os.path.join('calendar_credentials', 'credentials.json')
 
 # reference to the ID of the calendar to be connected
 coaching_calendar_ID = '84qo0c5ctm3e6p2cioh2c11iqc'
@@ -35,7 +43,8 @@ def main():
             creds.refresh(Request())
         else:
             flow = InstalledAppFlow.from_client_secrets_file(
-                'bot/constants/credentials.json', SCOPES)
+                credentials_directory, SCOPES)
+
             creds = flow.run_local_server(port=0)
         # Save the credentials for the next run
         with open('token.json', 'w') as token:
@@ -80,7 +89,7 @@ def authenticate():
             creds.refresh(Request())
         else:
             flow = InstalledAppFlow.from_client_secrets_file(
-                'bot/constants/credentials.json', SCOPES)
+                credentials_directory, SCOPES)
             creds = flow.run_local_server(port=0)
         # Save the credentials for the next run
         with open('token.json', 'w') as token:
