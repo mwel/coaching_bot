@@ -1,12 +1,12 @@
 """ simple tests for data base and handler functions """
 
 # data base tests
-# from database_connector import create_db, select_db, insert_update_db, delete_record_db, insert_value_db
-from handler_functions.database_connector import select_db
-from handler_functions import states
-from handler_functions import help
+from handler_functions.database_connector.create_db import create_db
+from handler_functions.database_connector.insert_value_db import insert_update
+# from handler_functions.database_connector import select_db
+# from handler_functions import states
+# from handler_functions import help
 from handler_functions.calendar.generate_ics import generate_ics
-from calendar_manager import authenticate
 
 # insert_update_db.insert_update(
 #     user_id=123456789,
@@ -23,7 +23,9 @@ from calendar_manager import authenticate
 #     state = '-1'
 #     )
 
-# insert_value_db.insert_update(123456789, 'first_name', 'Tüb')
+# create_db()
+
+insert_update(123456789, 'first_name', 'Tüb')
 
 # select_db.get_all_data(28648774)
 
@@ -79,6 +81,3 @@ from calendar_manager import authenticate
 #   12    state INTEGER,
 #   13    mail_sent BOOLEAN,
 #   14    appointment TEXT
-
-# test calendar_manager
-authenticate()

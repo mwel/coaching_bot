@@ -10,6 +10,9 @@ from googleapiclient.discovery import build
 from googleapiclient.errors import HttpError
 
 
+from handler_functions.database_connector.insert_value_db import insert_update
+
+
 # If modifying these scopes, delete the file token.json.
 SCOPES = ['https://www.googleapis.com/auth/calendar']
 
@@ -114,15 +117,17 @@ def check_availability():
 
 
 # make an appointment in the calendar
-def make_appointment():
+def make_appointment(user_id, body):
 
     service = authenticate()
     
     try:
     
-        appointment = service.event().create()
+        appointment = service.event().insert(calendarId=coaching_calendar_ID, body=body)
         print('+++++ CAL: APPOINTMENT MADE +++++')
         print(appointment)
+        insert_update(user_id, 'appointment', appointment)
+
         return appointment
 
 
