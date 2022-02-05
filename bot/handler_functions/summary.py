@@ -14,7 +14,7 @@ from handler_functions.database_connector import select_db
 from handler_functions.confirmation_mail import confirmation_mail
 from handler_functions.calendar.generate_ics import generate_ics
 from handler_functions.calendar.send_invitation import send_invitation
-from appointments import make_appointment
+from calendar import make_appointment
 
 
 # Stores the photo and asks for a location.
