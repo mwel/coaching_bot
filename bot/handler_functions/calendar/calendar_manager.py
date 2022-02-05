@@ -52,7 +52,7 @@ def main():
         events = events_result.get('items', [])
 
         if not events:
-            print('No upcoming events found.')
+            print('No upcomcating events found.')
             return
 
         # Prints the start and name of the next 10 events
