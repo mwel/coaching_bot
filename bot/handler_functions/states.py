@@ -3,9 +3,9 @@
 from telegram import ReplyKeyboardMarkup, InlineKeyboardMarkup
 
 # STATE DEFINITIONS
-MAX_STATES = 9
+MAX_STATES = 10
 # one constant per stage
-BIO, GENDER, BIRTHDATE, EMAIL, TELEPHONE, LOCATION, PHOTO, SUMMARY, COMPLETED = range(MAX_STATES)
+BIO, GENDER, BIRTHDATE, EMAIL, TELEPHONE, LOCATION, PHOTO, SUMMARY, COMPLETED, APPOINTMENT = range(MAX_STATES)
 
 
 # transition messages to display at first encounter and at pick-up when continuing
@@ -40,10 +40,12 @@ MESSAGES = {
     ,
 
     COMPLETED: 'What\'s next? \n'
-        'You will receive an email with this summary as confirmation. From there, you will be able to make an appointment for your first session.'
-        'Once you\'ve done so, I will get back in touch to remind you of your appointment.\n\n'
-        'Until then - have a good one and take care!'
-        'Your wavehoover Team'
+        'You will receive an email with this summary as confirmation.'
+    ,
+
+    APPOINTMENT: 'If you want to make an appointment for your first session, you can now do so by selecting one of the options below:\n\n'
+        'If you would not like to make an appointment, just leave the chat.\n\n'
+        'If you would like to reset your request and delete all your data, just enter /delete.'
     ,
 
 }
@@ -89,6 +91,12 @@ KEYBOARD_MARKUPS = {
     SUMMARY: ReplyKeyboardMarkup(
             [['COMPLETE SIGN UP'], ['/delete']],
             input_field_placeholder='COMPLETE SIGN UP'
+    ),
+
+    APPOINTMENT: ReplyKeyboardMarkup(
+            [['date1', 'date2', 'date3']], 
+            one_time_keyboard=True, 
+            input_field_placeholder='Choose your appointment...'
     ),
 
 }
