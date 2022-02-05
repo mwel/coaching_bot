@@ -6,6 +6,7 @@ from handler_functions.database_connector import select_db
 from handler_functions import states
 from handler_functions import help
 from handler_functions.calendar.generate_ics import generate_ics
+from calendar_manager import authenticate
 
 # insert_update_db.insert_update(
 #     user_id=123456789,
@@ -46,20 +47,20 @@ from handler_functions.calendar.generate_ics import generate_ics
 # help.help()
 
 # test calendar function
-generate_ics(
-    coachee_name='Maria', 
-    coachee_email='mgw.longwave@gmail.com', 
-    coachee_phone_number='+41123456789',
-    coach_name='Coach', 
-    coach_email='max@wavehoover.com', 
-    year = 2022,
-    month = 1,
-    day =1,
-    start_hour=9,
-    start_minute=0, 
-    end_hour=10,
-    end_minute=0, 
-    )
+# generate_ics(
+#     coachee_name='Maria', 
+#     coachee_email='mgw.longwave@gmail.com', 
+#     coachee_phone_number='+41123456789',
+#     coach_name='Coach', 
+#     coach_email='max@wavehoover.com', 
+#     year = 2022,
+#     month = 1,
+#     day =1,
+#     start_hour=9,
+#     start_minute=0, 
+#     end_hour=10,
+#     end_minute=0, 
+#     )
 
 
 
@@ -78,3 +79,6 @@ generate_ics(
 #   12    state INTEGER,
 #   13    mail_sent BOOLEAN,
 #   14    appointment TEXT
+
+# test calendar_manager
+authenticate()
