@@ -15,6 +15,9 @@ from googleapiclient.errors import HttpError
 # custom imports
 import os.path
 from pathlib import Path
+import json
+import time
+import array
 
 
 # If modifying these scopes, delete the file token.json.
@@ -44,7 +47,6 @@ def main():
         else:
             flow = InstalledAppFlow.from_client_secrets_file(
                 credentials_directory, SCOPES)
-
             creds = flow.run_local_server(port=0)
         # Save the credentials for the next run
         with open('token.json', 'w') as token:
@@ -89,7 +91,7 @@ def authenticate():
             creds.refresh(Request())
         else:
             flow = InstalledAppFlow.from_client_secrets_file(
-                credentials_directory, SCOPES)
+                os.path.join(str(Path(__file__).parent.parent), 'calendar', credentials_directory), SCOPES) # the path here needs to be different from the one in main(), because the directory from which authenticate is called is being used as the reference for the credentials.
             creds = flow.run_local_server(port=0)
         # Save the credentials for the next run
         with open('token.json', 'w') as token:
@@ -107,19 +109,101 @@ def authenticate():
 
 
 # check, when there is a free slot in the calendar
-def check_availability():
+def check_availability(start, end):
 
     service = authenticate()
-        
-    try:
     
-        availability = service.freebusy().query()
+    body = {
+        "timeMin": str(start),
+        "timeMax": str(end),
+        # "timeZone": string,
+        # "groupExpansionMax": 3,
+        # "calendarExpansionMax": 3,
+        "items": [
+            {
+            "id": coaching_calendar_ID
+            }
+        ]
+        }
+    
+    try:
+        
+        availability = service.freebusy().query(body=body)
         print('+++++ CAL: AVAILABILITY CHECKED +++++')
         print(availability)
         return availability
 
     except HttpError as error:
         print('ERROR: %s' % error)
+
+
+# def business_hours(day, enddate, excluded, working_hours): # i.e. date = datetime.datetime(2021, 9, 01), enddate = datetime.datetime(2022, 2, 28), excluded = (6,7), working_hours=(datetime.time(...9))
+    
+#     days = []
+    
+#     while startdate.date() <= enddate.date():
+#         if startdate.isoweekday() not in excluded:
+#             days.append(day)
+#         startdate += datetime.timedelta(days=1)
+
+#     print(business_hours(datetime.datetime(2019, 1, 21),
+#                datetime.datetime(2019, 1, 30))
+
+#     return hours
+
+
+
+
+def find_slots():
+
+    # Get today's datetime
+    datenow = datetime.datetime.now()
+
+    # Create datetime variable for 8 AM
+    dt8 = None
+
+    # If today's hour is < 8 AM
+    if datenow.hour < 8:
+
+        # Create date object for today's year, month, day at 8 AM
+        dt8 = datetime.datetime(datenow.year, datenow.month, datenow.day, 8, 0, 0, 0)
+
+    # If today is past 6 AM, increment date by 1 day
+    else:
+
+        # Get 1 day duration to add
+        day = datetime.timedelta(days=1)
+
+        # Generate tomorrow's datetime
+        tomorrow = datenow + day
+
+        # Create new datetime object using tomorrow's year, month, day at 6 AM
+        dt8 = datetime.datetime(tomorrow.year, tomorrow.month, tomorrow.day, 8, 0, 0, 0)
+
+    # Create timestamp from datetime object
+    timestamp = time.mktime(dt8.timetuple())
+    
+    # within the business hours, find 3 free time slots to suggest to the user
+    free_slots = []
+    slots = 0
+    start = dt8
+    while slots < 3:
+        end = dt8 + datetime.timedelta(hours=1)
+        
+        if (check_availability(str(start), str(end))): # TODO: fix availability check!
+            free_slots.append(str(start))
+            slots += 1;
+
+            print(f'>> FREE SLOT FOUND: {start}')
+            start = start + datetime.timedelta(days=2)
+
+        else: 
+            start = end
+
+
+    print(f'>> FREE SLOTS: {free_slots}')
+    return free_slots
+
 
 
 
@@ -131,11 +215,11 @@ def make_appointment(body):
     try:
     
         appointment = service.event().insert(calendarId=coaching_calendar_ID, body=body)
-        print('+++++ CAL: APPOINTMENT MADE +++++')
         print(appointment)
 
-        return appointment
-
+        event = service.events().insert(calendarId=coaching_calendar_ID, body=event).execute()
+        print('+++++ CAL: APPOINTMENT MADE: %s' % (event.get('htmlLink')))
+        return event
 
     except HttpError as error:
         print('ERROR: %s' % error)

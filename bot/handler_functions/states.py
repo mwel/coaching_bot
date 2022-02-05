@@ -52,10 +52,6 @@ MESSAGES = {
 
 }
 
-slot1 = str(check_availability())
-slot2 = str(check_availability())
-slot3 = str(check_availability())
-
 # custom keyboards for next state
 KEYBOARD_MARKUPS = {
     
@@ -99,11 +95,11 @@ KEYBOARD_MARKUPS = {
             input_field_placeholder='COMPLETE SIGN UP'
     ),
 
-    APPOINTMENT: ReplyKeyboardMarkup(
-            [[slot1, slot2, slot3]], 
-            one_time_keyboard=True, 
-            input_field_placeholder='Choose your appointment...'
-    ),
+    # APPOINTMENT: ReplyKeyboardMarkup(
+    #         [[slot1, slot2, slot3]], 
+    #         one_time_keyboard=True, 
+    #         input_field_placeholder='Choose your appointment...'
+    # ),
 
 }
 

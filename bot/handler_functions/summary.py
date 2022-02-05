@@ -3,7 +3,7 @@ packages it into one message and displays it to the user upon completion
 of sign up. Also triggers email and appointment delivery."""
 
 # imports
-from telegram import ReplyKeyboardRemove, Update
+from telegram import ReplyKeyboardRemove, Update, ReplyKeyboardMarkup
 from telegram.ext import ConversationHandler, CallbackContext
 from logEnabler import logger;
 
@@ -15,6 +15,7 @@ from handler_functions.confirmation_mail import confirmation_mail
 from handler_functions.calendar.generate_ics import generate_ics
 from handler_functions.calendar.send_invitation import send_invitation
 from handler_functions.make_appointment import make_appointment
+from handler_functions.calendar.calendar_manager import find_slots
 
 
 # Stores the photo and asks for a location.
@@ -58,11 +59,23 @@ def summary(update: Update, context: CallbackContext) -> int:
         f'SUMMARY for {update.message.from_user.first_name} {update.message.from_user.last_name}:\n\n{summary}',
         reply_markup=ReplyKeyboardRemove(),
     )
+
+    free_slots = find_slots()
+
+    slot1 = str(free_slots[0])
+    slot2 = str(free_slots[1])
+    slot3 = str(free_slots[2])
+
     # next step message
     update.message.reply_text(
         states.MESSAGES[states.APPOINTMENT],
-        reply_markup=states.KEYBOARD_MARKUPS[states.APPOINTMENT],
+        reply_markup=ReplyKeyboardMarkup(
+            [[slot1], [slot2], [slot3]], 
+            one_time_keyboard=True, 
+            input_field_placeholder='Choose your appointment...'
+            )
         )
+    
 
     # trigger confirmation email
     confirmation_mail(first_name, summary, email)
