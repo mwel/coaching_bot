@@ -6,8 +6,9 @@ FTP_constant.py
 MAIL_constant.py
 credentials.json
 
-# photos
+# project
 user_pictures
+appointments
 
 # db
 coachingBotDB.db
