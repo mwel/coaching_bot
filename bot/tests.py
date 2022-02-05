@@ -8,6 +8,9 @@ from handler_functions.database_connector.insert_value_db import insert_update
 # from handler_functions import help
 from handler_functions.calendar.generate_ics import generate_ics
 
+from datetime import datetime, timedelta
+from handler_functions.calendar.calendar_manager import make_appointment
+
 # insert_update_db.insert_update(
 #     user_id=123456789,
 #     first_name='Michael',
@@ -25,7 +28,7 @@ from handler_functions.calendar.generate_ics import generate_ics
 
 # create_db()
 
-insert_update(123456789, 'first_name', 'Tüb')
+# insert_update(123456789, 'first_name', 'Tüb')
 
 # select_db.get_all_data(28648774)
 
@@ -81,3 +84,40 @@ insert_update(123456789, 'first_name', 'Tüb')
 #   12    state INTEGER,
 #   13    mail_sent BOOLEAN,
 #   14    appointment TEXT
+
+
+# make appointment
+
+email = 'mgw.longwave@gmail.com'
+telephone = '0041792789561'
+
+# write data to db
+chosen_slot = '2022-02-06 08:00:00'
+
+summary = 'wavehoover | Coaching Session'
+dt_chosen_slot = datetime.strptime(chosen_slot, '%Y-%m-%d %H:%M:%S')
+slot_end = dt_chosen_slot + timedelta(hours=1)
+
+event = {
+  'summary': 'Coaching Session',
+  'location': 'Phone Call',
+  'description': 'A coaching session just for you.',
+  'start': {
+    'dateTime': '2022-02-10T09:00:00',
+  },
+  'end': {
+    'dateTime': '2022-02-10T10:00:00',
+  },
+  'attendees': [
+    {'email': 'mgw.longwave@gmail.com'},
+  ],
+  'reminders': {
+    'useDefault': False,
+    'overrides': [
+      {'method': 'email', 'minutes': 24 * 60},
+      {'method': 'popup', 'minutes': 10},
+    ],
+  },
+}
+
+make_appointment(event)

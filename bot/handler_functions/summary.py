@@ -12,9 +12,9 @@ from handler_functions import states
 from handler_functions.database_connector.insert_value_db import insert_update
 from handler_functions.database_connector.select_db import get_value
 from handler_functions.confirmation_mail import confirmation_mail
-from handler_functions.calendar.generate_ics import generate_ics
-from handler_functions.calendar.send_invitation import send_invitation
-from handler_functions.make_appointment import make_appointment
+# from handler_functions.calendar.generate_ics import generate_ics
+# from handler_functions.calendar.send_invitation import send_invitation
+# from handler_functions.appointment import appointment
 from handler_functions.calendar.calendar_manager import find_slots
 
 

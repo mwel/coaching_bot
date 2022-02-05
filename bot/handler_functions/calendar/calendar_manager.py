@@ -194,7 +194,7 @@ def find_slots():
             free_slots.append(str(start))
             slots += 1;
 
-            print(f'>> FREE SLOT FOUND: {start}')
+            print(f'>> NEXT FREE SLOT: {start}')
             start = start + datetime.timedelta(days=2)
 
         else: 
@@ -208,14 +208,12 @@ def find_slots():
 
 
 # make an appointment in the calendar
-def make_appointment(body):
+def make_appointment(event):
 
     service = authenticate()
-    
+    print(f'>>>>> CAL List: {service.calendarList().list()}')
+
     try:
-    
-        appointment = service.event().insert(calendarId=coaching_calendar_ID, body=body)
-        print(appointment)
 
         event = service.events().insert(calendarId=coaching_calendar_ID, body=event).execute()
         print('+++++ CAL: APPOINTMENT MADE: %s' % (event.get('htmlLink')))
