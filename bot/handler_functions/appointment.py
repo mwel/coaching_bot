@@ -80,7 +80,7 @@ def appointment(update: Update, context: CallbackContext) -> int:
     )
     
     insert_update(update.message.from_user.id, 'state', states.COMPLETED)
-    return ConversationHandler.END
+    return states.COMPLETED
 
 
 # Skips the photo and asks for a location.

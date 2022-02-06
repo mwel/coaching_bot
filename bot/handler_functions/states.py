@@ -19,14 +19,16 @@ MESSAGES = {
     GENDER: 'Would you like to be referred to as lady, gentleman or unicorn?'
     ,
     
-    BIRTHDATE: 'Tell me - when is your birthday?'
+    BIRTHDATE: 'Tell me - when is your birthday?\n\n'
+        'Format: 01.01.1985'
     ,
     
-    EMAIL: 'Please send me your email address, so I can send you your summary of submitted data upon completion.'
+    EMAIL: 'Please send me your email address, so I can send you your summary of submitted data and we can make a calendar appointment upon completion.'
     ,
     
-    TELEPHONE: 'One prep steps for your first face to face session is a quick phone call.'
-        'In order for your coach to be able to give you a call, please send me a phone number, we can reach you under:'
+    TELEPHONE: 'One prep steps for your first face to face session is a quick phone call.\n'
+        'In order for your coach to be able to give you a call, please send me a phone number, we can reach you under:\n\n'
+        'Format: +410123456789'
     ,
     
     LOCATION: 'Alright - let\'s continue... '
@@ -46,9 +48,9 @@ MESSAGES = {
         'If you would like to reset your request and delete all your data, just enter /delete.'
     ,
 
-    COMPLETED: 'Congratulations! \n'
+    COMPLETED: 'Congratulations! \n\n'
         'You\'re all set for your first session. We are looking forward to it! \n'
-        'Until then - have a good one!\n'
+        'Until then - have a good one!\n\n'
         'Cheers, your wavehoover Team'
     ,
 
@@ -91,17 +93,14 @@ KEYBOARD_MARKUPS = {
     LOCATION: None,
     
     PHOTO: None,
+    
+    APPOINTMENT: None,
 
     SUMMARY: ReplyKeyboardMarkup(
             [['COMPLETE SIGN UP'], ['/delete']],
             input_field_placeholder='COMPLETE SIGN UP'
     ),
 
-    # APPOINTMENT: ReplyKeyboardMarkup(
-    #         [[slot1, slot2, slot3]], 
-    #         one_time_keyboard=True, 
-    #         input_field_placeholder='Choose your appointment...'
-    # ),
 
 }
 

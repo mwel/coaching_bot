@@ -31,12 +31,14 @@ def start(update: Update, context: CallbackContext) -> int:
             reply_markup=ReplyKeyboardRemove(),
             )
 
-        if state == states.APPOINTMENT:  # stage 1 was apparently already completed for this user in the past.
+        if state == states.COMPLETED:  # stage 1 was apparently already completed for this user in the past.
             reply_keyboard = [['/cancel'],['/summary']]
             update.message.reply_text(
-           'Ah! I see, you have already completed the sign up.\nYou now have 2 options:\n'
-           'Go to your email account and check, whether you have received our summary or just go back to your /summary here\n'
-           '- OR -\n/delete all your data you have previously entered and /cancel OR /start over.',
+           'Ah! I see, you have already completed the sign up.\nYou now have multiple options:\n'
+           'If you have already made an appointment, then you\'re all set.\n\n'
+           'If you want to cancel your appointment, just enter /cancel_appointment.\n\n'
+           'If you have not made an appointment yet and would like to do so reenter /summary.\n\n'
+           '- OR -\n\n/delete all your data you have previously entered and /start over.',
             reply_markup=ReplyKeyboardMarkup(
             reply_keyboard, one_time_keyboard=True, input_field_placeholder='SIGN UP COMPLETE'
                 )
