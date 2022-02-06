@@ -24,7 +24,7 @@ SCOPES = ['https://www.googleapis.com/auth/calendar']
 credentials_directory = os.path.join('calendar_credentials', 'credentials.json')
 
 # reference to the ID of the calendar to be connected
-coaching_calendar_ID = '84qo0c5ctm3e6p2cioh2c11iqc'
+coaching_calendar_ID = '84qo0c5ctm3e6p2cioh2c11iqc@group.calendar.google.com'
 
 
 
@@ -111,25 +111,44 @@ def check_availability(start, end):
 
     service = authenticate()
     
+    print(f'+++++ SLOT START: {start}') # must be in format RFC3339, i.e. 1985-04-12T23:20:50.52Z
+    print(f'+++++ SLOT END: {end}')
+
+    start_iso = str(start.isoformat('T')+'+01:00') # convert UTC to CET for the request.
+    print(f'+++++ start_iso: {start_iso}')
+
+    end_iso = str(end.isoformat('T')+'+01:00') # same for end time
+    print(f'+++++ end_iso: {end_iso}')
+
     request = {
-        "timeMin": str(start),
-        "timeMax": str(end),
+        "timeMin": start_iso,
+        "timeMax": end_iso,
+        "timeZone": "Europe/Berlin", # input time zone to let API know to convert to CET for the response
         "items": [
             {
-            "id": coaching_calendar_ID
+            "id": coaching_calendar_ID #put ID incl. the @domain...
             }
         ]
         }
+
+    print (request)
     
     try:
         
-        response = service.freebusy().query(body=request)
-        
+        response = service.freebusy().query(body=request).execute()
         print('+++++ CAL: AVAILABILITY CHECKED +++++')
-        print(response)
-        response_readable = request.get(response)
-        print(f'+++++ OBSTACLES: {response_readable} +++++')
-        return response_readable
+        print('>>>>> HTTP Response' + str(response))
+    
+        # climb down the dict latter and read the busy response from the HTTP-Response object
+        calendars = response.get('calendars')
+        print(f'>>>>> CALENDARS: {calendars}')
+        calendar_temp = calendars.get(coaching_calendar_ID)
+        print(f'>>>>> CALENDAR_TEMP: {calendar_temp}')
+        availability = calendar_temp.get('busy')
+        print(f'>>>>> AVAILABILITY: {availability}')
+        if availability == []:
+            return True
+
 
     except HttpError as error:
         print('ERROR: %s' % error)
@@ -188,18 +207,18 @@ def find_slots():
     round = 0
     while slots < 3:
         round += 1
-        end = dt8 + datetime.timedelta(hours=1)
+        end = start + datetime.timedelta(minutes=50)
         
-        if not (check_availability(start, end)): # TODO: check_availability returns True, if there are obstacles. So 'False' means, we have found a free slot.
+        if (check_availability(start, end)): # TODO: check_availability returns True, if there are obstacles. So 'False' means, we have found a free slot.
             free_slots.append(str(start))
             slots += 1;
 
             print(f'>>>>> FREE SLOT found at: {start} <<<<<')
-            start = start + datetime.timedelta(days=2)
+            start = dt8 + datetime.timedelta(days=3*slots)
 
         else: 
             print ('##### NO SLOT FOUND #####')
-            start = end
+            start = start + datetime.timedelta(hours=1)
         
         print (f'##### SLOTS: {slots} after ROUND: {round} #####') # tell me, how many rounds the while loop has to run to get 3 slots
 
