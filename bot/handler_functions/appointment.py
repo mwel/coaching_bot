@@ -61,8 +61,9 @@ def appointment(update: Update, context: CallbackContext) -> int:
         },
         }
     
-    make_appointment(event) # hand over user info to make appointment
+    make_appointment(user_id=update.message.from_user.id, slot_start=slot_start, event=event) # hand over user info to make appointment
     insert_update(update.message.from_user.id, 'appointment', slot_start)
+    insert_update(update.message.from_user.id, 'event', event)
     logger.info(f'+++++ User {update.message.from_user.first_name} MADE APPOINTMENT AT: {slot_start} +++++')
     
     update.message.reply_text(
@@ -71,6 +72,10 @@ def appointment(update: Update, context: CallbackContext) -> int:
         'In case of any questions, please don\'t hesitate to get in touch!\n'
         'Looking forward to our session!\n'
         'Your wavehoover team',
+        reply_markup=ReplyKeyboardRemove(),
+    )
+    update.message.reply_text(
+        'In case you would like to cancel your appointment, please do so in your calendar OR enter /cancel_appointment\n',
         reply_markup=ReplyKeyboardRemove(),
     )
     

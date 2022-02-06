@@ -7,7 +7,7 @@ import sqlite3
 from handler_functions.database_connector.create_db import create_db
 
 
-def insert_update (user_id, time_stamp, first_name, last_name, gender, photo, birthdate, email, telephone, longitude, latitude, bio, state, mail_sent, appointment):
+def insert_update (user_id, time_stamp, first_name, last_name, gender, photo, birthdate, email, telephone, longitude, latitude, bio, state, mail_sent, appointment, event):
     
     # create db if non-existent
     # TODO: nice-to-have: use if clause to check table existence and only on fail try to create
@@ -20,7 +20,7 @@ def insert_update (user_id, time_stamp, first_name, last_name, gender, photo, bi
     cursor = connection.cursor()
 
     # sql command to INSERT a new record into the db
-    insert_command = 'INSERT INTO users VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)'
+    insert_command = 'INSERT INTO users VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)'
     insert_args = (
         user_id,
         time_stamp,
@@ -35,7 +35,9 @@ def insert_update (user_id, time_stamp, first_name, last_name, gender, photo, bi
         latitude,
         bio,
         state,
-        mail_sent
+        mail_sent,
+        appointment,
+        event
         )
 
     # sql command to UPDATE an existing record
@@ -53,6 +55,7 @@ def insert_update (user_id, time_stamp, first_name, last_name, gender, photo, bi
         state = ?
         mail_sent = ?
         appointment = ?
+        event = ?
         WHERE user_id = ?
         """
     update_args = (
@@ -69,6 +72,7 @@ def insert_update (user_id, time_stamp, first_name, last_name, gender, photo, bi
         state,
         mail_sent,
         appointment,
+        event,
         user_id
         )
 

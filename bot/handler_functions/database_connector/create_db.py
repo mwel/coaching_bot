@@ -29,7 +29,8 @@ def create_db ():
         bio TEXT,
         state INTEGER,
         mail_sent BOOLEAN,
-        appointment TEXT
+        appointment TEXT,
+        event TEXT
     );'''
 
     cursor.execute(checker)

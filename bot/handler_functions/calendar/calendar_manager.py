@@ -229,15 +229,14 @@ def find_slots():
 
 
 # make an appointment in the calendar
-def make_appointment(event):
+def make_appointment(userID, slot_start, event):
 
     service = authenticate()
 
     try:
 
-        event = service.events().insert(calendarId=coaching_calendar_ID, body=event).execute()
-        print('+++++ CAL: APPOINTMENT MADE: %s' % (event.get('htmlLink')))
-        return event
+        service.events().insert(calendarId=coaching_calendar_ID, body=event).execute()
+        print(f'+++++ APPOINTMENT MADE for {userID} at {slot_start}')
 
     except HttpError as error:
         print('ERROR: %s' % error)
@@ -245,14 +244,14 @@ def make_appointment(event):
 
 
 # cancel / delete an appointment from the calendar
-def cancel_appointment():
+def cancel_appointment(userID, slot_start, event):
 
     service = authenticate()
 
     try:
         
-        service.event().delete()
-        print('+++++ CAL: APPOINTMENT CANCELED +++++')
+        service.events().delete(calendarId=coaching_calendar_ID, body=event).execute()
+        print(f'+++++ APPOINTMENT CANCELLED for {userID} at {slot_start}')
 
     except HttpError as error:
         print('ERROR: %s' % error)
