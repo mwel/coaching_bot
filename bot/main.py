@@ -27,7 +27,7 @@ from handler_functions.telephone import telephone, skip_telephone
 from handler_functions.location import location, skip_location
 from handler_functions.photo import photo, skip_photo
 from handler_functions.summary import summary
-from handler_functions.appointment import appointment
+from handler_functions.appointment import appointment, skip_appointment
 from handler_functions.cancel import cancel, delete
 from handler_functions.help import help
 from handler_functions.status import status
@@ -63,7 +63,7 @@ def main() -> None:
             states.LOCATION:    [MessageHandler(Filters.location                            & ~Filters.command,     location),  CommandHandler('skip', skip_location)],
             states.PHOTO:       [MessageHandler(Filters.photo                               & ~Filters.command,     photo),     CommandHandler('skip', skip_photo)],
             states.SUMMARY:     [MessageHandler(Filters.regex('^(COMPLETE SIGN UP)$'),                              summary)],
-            states.APPOINTMENT: [MessageHandler(Filters.text                                & ~Filters.command,     appointment)],
+            states.APPOINTMENT: [MessageHandler(Filters.text                                & ~Filters.command,     appointment), CommandHandler('skip', skip_appointment)],
             # more states here...
         },
         fallbacks = [CommandHandler('cancel', cancel)],

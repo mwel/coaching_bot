@@ -21,13 +21,18 @@ def appointment(update: Update, context: CallbackContext) -> int:
     email = get_value(update.message.from_user.id, 'email')
     telephone = get_value(update.message.from_user.id, 'telephone')
 
-    # write data to db
-    chosen_slot = update.message.text
-    
     summary = 'wavehoover | Coaching Session'
-    dt_chosen_slot = str(chosen_slot.isoformat('T')+'+01:00')
-    slot_end = dt_chosen_slot + datetime.timedelta(minutes=50)
     
+    chosen_slot = update.message.text
+        
+    dt_chosen_slot = datetime.strptime(chosen_slot, '%d/%m/%yT%H:%M:%S')
+    iso_slot_start = str(dt_chosen_slot + '+01:00')
+    print(f'>>>>> ISO_SLOT_START: {iso_slot_start}')
+
+    slot_end = chosen_slot + datetime.timedelta(minutes=50)
+    dt_slot_end = datetime.strptime(slot_end, '%d/%m/%yT%H:%M:%S')
+    iso_slot_end = str(dt_slot_end + '+01:00')
+    print(f'>>>>> ISO_SLOT_END: {iso_slot_end}')
 
     # build the event data into the event object
     event = {
@@ -35,11 +40,15 @@ def appointment(update: Update, context: CallbackContext) -> int:
         'location': 'Phone Call',
         'description': f'Your coach will call you under the following number: {telephone}',
         'start': {
-            'dateTime': chosen_slot,
+            'dateTime': iso_slot_start,
         },
         'end': {
-            'dateTime': slot_end,
+            'dateTime': iso_slot_end,
+            # 'timeZone': 'Europe/Zurich',
         },
+        # 'recurrence': [
+            #'RRULE:FREQ=DAILY;COUNT=2'
+        # ],
         'attendees': [
             {'email': email},
         ],
@@ -64,5 +73,23 @@ def appointment(update: Update, context: CallbackContext) -> int:
         'Your wavehoover team',
         reply_markup=ReplyKeyboardRemove(),
     )
+    
+    insert_update(update.message.from_user.id, 'state', states.COMPLETED)
+    return ConversationHandler.END
 
+
+# Skips the photo and asks for a location.
+def skip_appointment(update: Update, context: CallbackContext) -> int:
+    logger.info(f'User {update.message.from_user.first_name} {update.message.from_user.last_name} does not want to make an appointment.')
+    insert_update(update.message.from_user.id, 'appointment', 'None')
+    
+    update.message.reply_text(
+        'Alright - you can get in touch with us at any time, if you want to.\n'
+        'See you around.\n'
+        'Your wavehoover team',
+        reply_markup=ReplyKeyboardRemove(),
+        )
+
+    # save state to DB
+    insert_update(update.message.from_user.id, 'state', states.COMPLETED)
     return ConversationHandler.END

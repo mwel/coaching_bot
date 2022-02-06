@@ -70,7 +70,7 @@ def summary(update: Update, context: CallbackContext) -> int:
     update.message.reply_text(
         states.MESSAGES[states.APPOINTMENT],
         reply_markup=ReplyKeyboardMarkup(
-            [[slot1], [slot2], [slot3]], 
+            [[slot1], [slot2], [slot3]], ['/skip'], 
             one_time_keyboard=True, 
             input_field_placeholder='Choose your appointment...'
             )

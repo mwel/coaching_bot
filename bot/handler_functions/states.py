@@ -7,7 +7,7 @@ from handler_functions.calendar.calendar_manager import check_availability
 # STATE DEFINITIONS
 MAX_STATES = 10
 # one constant per stage
-BIO, GENDER, BIRTHDATE, EMAIL, TELEPHONE, LOCATION, PHOTO, SUMMARY, COMPLETED, APPOINTMENT = range(MAX_STATES)
+BIO, GENDER, BIRTHDATE, EMAIL, TELEPHONE, LOCATION, PHOTO, SUMMARY, APPOINTMENT, COMPLETED = range(MAX_STATES)
 
 
 # transition messages to display at first encounter and at pick-up when continuing
@@ -38,16 +38,18 @@ MESSAGES = {
     PHOTO: 'Here is a picture of me - can you send one of you?'
     ,
 
-    SUMMARY: 'You are now at the end of the sign up. Would you like to submit or /cancel and delete all your data?'
-    ,
-
-    COMPLETED: 'What\'s next? \n'
-        'You will receive an email with this summary as confirmation.'
+    SUMMARY: 'You are now at the end of the sign up. Would you like to submit you application and continue to make an appointment or /cancel and /delete all your data?'
     ,
 
     APPOINTMENT: 'If you want to make an appointment for your first session, you can now do so by selecting one of the options below:\n\n'
         'If you would not like to make an appointment, just leave the chat.\n\n'
         'If you would like to reset your request and delete all your data, just enter /delete.'
+    ,
+
+    COMPLETED: 'Congratulations! \n'
+        'You\'re all set for your first session. We are looking forward to it! \n'
+        'Until then - have a good one!\n'
+        'Cheers, your wavehoover Team'
     ,
 
 }
