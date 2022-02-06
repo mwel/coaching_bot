@@ -36,15 +36,10 @@ def appointment(update: Update, context: CallbackContext) -> int:
         'description': f'Your coach will call you under the following number: {telephone}',
         'start': {
             'dateTime': chosen_slot,
-            # 'timeZone': 'Europe/Zurich',
         },
         'end': {
             'dateTime': slot_end,
-            # 'timeZone': 'Europe/Zurich',
         },
-        # 'recurrence': [
-            #'RRULE:FREQ=DAILY;COUNT=2'
-        # ],
         'attendees': [
             {'email': email},
         ],

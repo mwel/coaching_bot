@@ -27,7 +27,7 @@ from handler_functions.telephone import telephone, skip_telephone
 from handler_functions.location import location, skip_location
 from handler_functions.photo import photo, skip_photo
 from handler_functions.summary import summary
-from handler_functions.make_appointment import appointment
+from handler_functions.appointment import appointment
 from handler_functions.cancel import cancel, delete
 from handler_functions.help import help
 from handler_functions.status import status

@@ -15,9 +15,7 @@ from googleapiclient.errors import HttpError
 # custom imports
 import os.path
 from pathlib import Path
-import json
 import time
-import array
 
 
 # If modifying these scopes, delete the file token.json.
@@ -113,12 +111,9 @@ def check_availability(start, end):
 
     service = authenticate()
     
-    body = {
+    request = {
         "timeMin": str(start),
         "timeMax": str(end),
-        # "timeZone": string,
-        # "groupExpansionMax": 3,
-        # "calendarExpansionMax": 3,
         "items": [
             {
             "id": coaching_calendar_ID
@@ -128,10 +123,13 @@ def check_availability(start, end):
     
     try:
         
-        availability = service.freebusy().query(body=body)
+        response = service.freebusy().query(body=request)
+        
         print('+++++ CAL: AVAILABILITY CHECKED +++++')
-        print(availability)
-        return availability
+        print(response)
+        response_readable = request.get(response)
+        print(f'+++++ OBSTACLES: {response_readable} +++++')
+        return response_readable
 
     except HttpError as error:
         print('ERROR: %s' % error)
@@ -187,18 +185,23 @@ def find_slots():
     free_slots = []
     slots = 0
     start = dt8
+    round = 0
     while slots < 3:
+        round += 1
         end = dt8 + datetime.timedelta(hours=1)
         
-        if (check_availability(str(start), str(end))): # TODO: fix availability check!
+        if not (check_availability(start, end)): # TODO: check_availability returns True, if there are obstacles. So 'False' means, we have found a free slot.
             free_slots.append(str(start))
             slots += 1;
 
-            print(f'>> NEXT FREE SLOT: {start}')
+            print(f'>>>>> FREE SLOT found at: {start} <<<<<')
             start = start + datetime.timedelta(days=2)
 
         else: 
+            print ('##### NO SLOT FOUND #####')
             start = end
+        
+        print (f'##### SLOTS: {slots} after ROUND: {round} #####') # tell me, how many rounds the while loop has to run to get 3 slots
 
 
     print(f'>> FREE SLOTS: {free_slots}')
@@ -211,7 +214,7 @@ def find_slots():
 def make_appointment(event):
 
     service = authenticate()
-    print(f'>>>>> CAL List: {service.calendarList().list()}')
+    # print(f'>>>>> CAL List: {service.calendarList().list()}')
 
     try:
 
