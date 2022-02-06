@@ -25,8 +25,8 @@ def appointment(update: Update, context: CallbackContext) -> int:
     chosen_slot = update.message.text
     
     summary = 'wavehoover | Coaching Session'
-    dt_chosen_slot = datetime.strptime(chosen_slot, '%d/%m/%y %H:%M:%S')
-    slot_end = dt_chosen_slot + datetime.timedelta(hours=1)
+    dt_chosen_slot = str(chosen_slot.isoformat('T')+'+01:00')
+    slot_end = dt_chosen_slot + datetime.timedelta(minutes=50)
     
 
     # build the event data into the event object
