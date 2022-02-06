@@ -92,32 +92,44 @@ email = 'mgw.longwave@gmail.com'
 telephone = '0041792789561'
 
 # write data to db
-chosen_slot = '2022-02-06 08:00:00'
 
 summary = 'wavehoover | Coaching Session'
-dt_chosen_slot = datetime.strptime(chosen_slot, '%Y-%m-%d %H:%M:%S')
-slot_end = dt_chosen_slot + timedelta(hours=1)
+
+slot_start = '2022-02-07 15:00:00'
+dt_slot_start = datetime.strptime(slot_start, '%Y-%m-%d %H:%M:%S') # https://docs.python.org/3/library/datetime.html#strftime-and-strptime-format-codes
+iso_slot_start = str(dt_slot_start.isoformat('T') + '+01:00')
+print(f'>>>>> ISO_SLOT_START: {iso_slot_start}')
+
+slot_end = str(dt_slot_start + timedelta(minutes=50))
+dt_slot_end = datetime.strptime(slot_end, '%Y-%m-%d %H:%M:%S')
+iso_slot_end = str(dt_slot_end.isoformat('T') + '+01:00')
+print(f'>>>>> ISO_SLOT_END: {iso_slot_end}')
 
 event = {
-  'summary': 'Coaching Session',
-  'location': 'Phone Call',
-  'description': 'A coaching session just for you.',
-  'start': {
-    'dateTime': '2022-02-10T09:00:00',
-  },
-  'end': {
-    'dateTime': '2022-02-10T10:00:00',
-  },
-  'attendees': [
-    {'email': 'mgw.longwave@gmail.com'},
-  ],
-  'reminders': {
-    'useDefault': False,
-    'overrides': [
-      {'method': 'email', 'minutes': 24 * 60},
-      {'method': 'popup', 'minutes': 10},
+    f'summary': summary,
+    'location': 'Phone Call',
+    'description': f'Your coach will call you under the following number: {telephone}',
+    'start': {
+        'dateTime': iso_slot_start,
+        'timeZone': 'Europe/Berlin',
+    },
+    'end': {
+        'dateTime': iso_slot_end,
+        'timeZone': 'Europe/Berlin',
+    },
+    # 'recurrence': [
+        #'RRULE:FREQ=DAILY;COUNT=2'
+    # ],
+    'attendees': [
+        {'email': email},
     ],
-  },
-}
+    'reminders': {
+        'useDefault': False,
+        'overrides': [
+        {'method': 'email', 'minutes': 24 * 60},
+        {'method': 'popup', 'minutes': 60},
+        ],
+    },
+    }
 
 make_appointment(event)

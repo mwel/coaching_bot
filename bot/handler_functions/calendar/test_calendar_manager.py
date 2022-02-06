@@ -24,3 +24,6 @@ find_slots()
 
 # can we delete an appointment?
 # cancel_appointment()
+
+
+{"timeMin": "2022-02-07T08:00:00Z", "timeMax": "2022-02-07T09:00:00Z", "items": [{"id": "84qo0c5ctm3e6p2cioh2c11iqc"}]}

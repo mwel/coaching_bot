@@ -25,7 +25,7 @@ MESSAGES = {
     EMAIL: 'Please send me your email address, so I can send you your summary of submitted data upon completion.'
     ,
     
-    TELEPHONE: 'One of the prep steps for your first face to face session is a quick phone call. '
+    TELEPHONE: 'One prep steps for your first face to face session is a quick phone call.'
         'In order for your coach to be able to give you a call, please send me a phone number, we can reach you under:'
     ,
     

@@ -232,7 +232,6 @@ def find_slots():
 def make_appointment(event):
 
     service = authenticate()
-    # print(f'>>>>> CAL List: {service.calendarList().list()}')
 
     try:
 

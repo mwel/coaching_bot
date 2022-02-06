@@ -36,27 +36,34 @@ def summary(update: Update, context: CallbackContext) -> int:
     state = get_value(update.message.from_user.id, 'state')
     mail_sent = get_value(update.message.from_user.id, 'mail_sent')
 
-    # if all questions of the bot have been ansered of skipped, send COMPLETE tag to user. Else - send status.
-    if state == states.COMPLETED:
-        state = 'COMPLETE'
+    # # if all questions of the bot have been ansered of skipped, send COMPLETE tag to user. Else - send status.
+    # if state == states.COMPLETED:
+    #     state = 'COMPLETE'
 
     summary = f"""
         Given Name:\t\t{first_name}
         Last Name:\t\t{last_name}
         Gender choice:\t\t{gender}
-        Bidthdate:\t\t\t{birthdate}
+        Birthdate:\t\t\t{birthdate}
         Email address:\t\t{email}
         Phone number:\t{telephone}
-        Longitude:\t\t{longitude}
-        Latitude:\t\t\t{latitude}
-        Your story:\t\t{bio}
-        Sign Up:\t\t\t{state}
         """
+        # Longitude:\t\t{longitude}
+        # Latitude:\t\t\t{latitude}
+        # Your story:\t\t{bio}
+        # Sign Up:\t\t\t{state}
+
 
     # confirmation message
     update.message.reply_text(
         f'Thanks for signing up, {update.message.from_user.first_name}!\n\n'
         f'SUMMARY for {update.message.from_user.first_name} {update.message.from_user.last_name}:\n\n{summary}',
+        reply_markup=ReplyKeyboardRemove(),
+    )
+    
+    update.message.reply_text(
+        'Ok. We will look for 3 appointment options you can choose from for your phone call. \n\n'
+        '... SEARCHING ...',
         reply_markup=ReplyKeyboardRemove(),
     )
 

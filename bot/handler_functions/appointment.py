@@ -10,7 +10,7 @@ from handler_functions import states
 from handler_functions.database_connector.insert_value_db import insert_update
 from handler_functions.database_connector.select_db import get_value
 from handler_functions.calendar.calendar_manager import make_appointment
-import datetime
+from datetime import datetime, timedelta
 
 
 # Stores the photo and asks for a location.
@@ -23,15 +23,14 @@ def appointment(update: Update, context: CallbackContext) -> int:
 
     summary = 'wavehoover | Coaching Session'
     
-    chosen_slot = update.message.text
-        
-    dt_chosen_slot = datetime.strptime(chosen_slot, '%d/%m/%yT%H:%M:%S')
-    iso_slot_start = str(dt_chosen_slot + '+01:00')
+    slot_start = update.message.text
+    dt_slot_start = datetime.strptime(slot_start, '%Y-%m-%d %H:%M:%S') # https://docs.python.org/3/library/datetime.html#strftime-and-strptime-format-codes
+    iso_slot_start = str(dt_slot_start.isoformat('T') + '+01:00')
     print(f'>>>>> ISO_SLOT_START: {iso_slot_start}')
 
-    slot_end = chosen_slot + datetime.timedelta(minutes=50)
-    dt_slot_end = datetime.strptime(slot_end, '%d/%m/%yT%H:%M:%S')
-    iso_slot_end = str(dt_slot_end + '+01:00')
+    slot_end = str(dt_slot_start + timedelta(minutes=50))
+    dt_slot_end = datetime.strptime(slot_end, '%Y-%m-%d %H:%M:%S')
+    iso_slot_end = str(dt_slot_end.isoformat('T') + '+01:00')
     print(f'>>>>> ISO_SLOT_END: {iso_slot_end}')
 
     # build the event data into the event object
@@ -41,10 +40,11 @@ def appointment(update: Update, context: CallbackContext) -> int:
         'description': f'Your coach will call you under the following number: {telephone}',
         'start': {
             'dateTime': iso_slot_start,
+            'timeZone': 'Europe/Berlin',
         },
         'end': {
             'dateTime': iso_slot_end,
-            # 'timeZone': 'Europe/Zurich',
+            'timeZone': 'Europe/Berlin',
         },
         # 'recurrence': [
             #'RRULE:FREQ=DAILY;COUNT=2'
@@ -62,12 +62,12 @@ def appointment(update: Update, context: CallbackContext) -> int:
         }
     
     make_appointment(event) # hand over user info to make appointment
-    insert_update(update.message.from_user.id, 'appointment', chosen_slot)
-    logger.info(f'+++++ User {update.message.from_user.first_name} MADE APPOINTMENT AT: {chosen_slot} +++++')
+    insert_update(update.message.from_user.id, 'appointment', slot_start)
+    logger.info(f'+++++ User {update.message.from_user.first_name} MADE APPOINTMENT AT: {slot_start} +++++')
     
     update.message.reply_text(
         'Splendid! You should receive a calendar appointment shortly.\n' 
-        f'Your coach will call you on {chosen_slot} under the following number: {telephone}\n'
+        f'Your coach will call you on {slot_start} under the following number: {telephone}\n'
         'In case of any questions, please don\'t hesitate to get in touch!\n'
         'Looking forward to our session!\n'
         'Your wavehoover team',
