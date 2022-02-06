@@ -4,7 +4,6 @@ from __future__ import print_function
 
 # default imports
 import datetime
-from posixpath import dirname
 
 from google.auth.transport.requests import Request
 from google.oauth2.credentials import Credentials
