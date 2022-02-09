@@ -108,3 +108,6 @@ def summary(update: Update, context: CallbackContext) -> int:
     # save state to DB
     insert_update(user_id, 'state', states.APPOINTMENT)
     return states.APPOINTMENT
+
+
+    

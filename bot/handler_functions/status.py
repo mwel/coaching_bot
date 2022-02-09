@@ -11,14 +11,10 @@ from handler_functions.database_connector import select_db
 from handler_functions import states
 
 
-# Stores the photo and asks for a location.
+# check db for user data and return sign up status
 def status(update: Update, context: CallbackContext) -> int:
 
     if select_db.user_search(update.message.from_user.id):
-
-        # #debug
-        # debug = select_db.get_value(update.message.from_user.id, 'state')
-        # print('XXXXXXX DB output: ', debug, ' XXXXX')
 
         state = int(select_db.get_value(update.message.from_user.id, 'state')) + 1 # states begin at 0, but STAGES start at 1
 
@@ -39,3 +35,4 @@ def status(update: Update, context: CallbackContext) -> int:
         )
     )
     return ConversationHandler.END
+

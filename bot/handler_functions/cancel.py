@@ -31,7 +31,8 @@ def cancel(update: Update, context: CallbackContext) -> int:
             reply_markup=ReplyKeyboardRemove(),
         )
     
-    except:
+    except Exception as exc:
+        logger.info(exc)
         logger.info(f'----- ERROR: User {update.message.from_user.first_name} tried to cancel the bot, but was not able to.')
         update.message.reply_text(
             '- - - ERROR - - -\n'
@@ -57,7 +58,8 @@ def delete(update: Update, context: CallbackContext) -> int:
             reply_markup=ReplyKeyboardRemove(),
         )
 
-    except:
+    except Exception as exc:
+        logger.info(exc)
         logger.info(f'----- ERROR: User {update.message.from_user.first_name} tried to delete his data, but was not able to.')
         update.message.reply_text(
             '- - - ERROR - - -\n'
@@ -78,11 +80,11 @@ def cancel_appointment(update: Update, context: CallbackContext) -> int:
         user_id = update.message.from_user.id
         slot_start = get_value(user_id, 'appointment')
         event = get_value(user_id, 'event')
-        cancel_appointment(user_id, slot_start, event)
+        cancel_appointment(user_id, slot_start)
 
         # remove values from db
         delete_value(user_id, 'appointment')
-        delete_value(user_id, 'event')
+        delete_value(user_id, 'event_id')
 
         logger.info(f'----- User {update.message.from_user.first_name} cancelled appointment.')
         update.message.reply_text(
@@ -91,7 +93,8 @@ def cancel_appointment(update: Update, context: CallbackContext) -> int:
             reply_markup=ReplyKeyboardRemove(),
         )
     
-    except:
+    except Exception as exc:
+        logger.info(exc)
         logger.info(f'----- ERROR: User {update.message.from_user.first_name} tried to cancel, but was not able to.')
         update.message.reply_text(
             '- - - ERROR - - -\n'

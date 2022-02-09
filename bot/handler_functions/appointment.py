@@ -34,7 +34,7 @@ def appointment(update: Update, context: CallbackContext) -> int:
     iso_slot_end = str(dt_slot_end.isoformat('T') + '+01:00')
     print(f'>>>>> ISO_SLOT_END: {iso_slot_end}')
 
-    uuid = uuid4()
+    uuid = str(uuid4())
 
     # build the event data into the event object
     event = {
@@ -67,7 +67,7 @@ def appointment(update: Update, context: CallbackContext) -> int:
     
     make_appointment(update.message.from_user.id, slot_start, event) # hand over user info to make appointment
     insert_update(update.message.from_user.id, 'appointment', slot_start)
-    insert_update(update.message.from_user.id, 'event', uuid)
+    insert_update(update.message.from_user.id, 'event_id', uuid)
     logger.info(f'+++++ User {update.message.from_user.first_name} MADE APPOINTMENT AT: {slot_start} +++++')
     
     update.message.reply_text(

@@ -30,7 +30,7 @@ def create_db ():
         state INTEGER,
         mail_sent BOOLEAN,
         appointment TEXT,
-        event TEXT
+        event_id TEXT
     );'''
 
     cursor.execute(checker)

@@ -16,6 +16,9 @@ import os.path
 from pathlib import Path
 import time
 import uuid
+from handler_functions.database_connector.select_db import get_value
+from logEnabler import logger;
+
 
 
 # If modifying these scopes, delete the file token.json.
@@ -245,12 +248,19 @@ def make_appointment(user_id, slot_start, event):
 
 
 # cancel / delete an appointment from the calendar
-def cancel_appointment(user_id, slot_start, event_id):
+def cancel_appointment(user_id, slot_start):
 
     service = authenticate()
 
     try:
+        event_id = get_value(user_id, 'event_id')
         
+    except Exception as exc:
+        logger.info(exc)            
+        logger.info(f'----- ERROR while trying to get event_id for user_id: {user_id}. -----')
+
+
+    try:        
         service.events().delete(calendarID=coaching_calendar_ID, eventID=event_id, sendNotifications=True, sendUpdates=all).execute()
         print(f'+++++ APPOINTMENT CANCELLED for {user_id} at {slot_start}')
 
