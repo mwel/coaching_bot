@@ -17,14 +17,14 @@ from handler_functions.calendar.calendar_manager import cancel_appointment
 def cancel(update: Update, context: CallbackContext) -> int:
     
     try:
-        logger.info(f'----- User {update.message.from_user.first_name} canceled the conversation. -----')
+        logger.info(f'----- User {update.message.from_user.id} canceled the conversation. -----')
 
         # delete record of user upon cancellation of the sign up process
         delete_record(update.message.from_user.id)
 
         update.message.reply_text(
             '- - - SUCCESS - - -\n'
-            f'APPLICATION TERMINATED by {update.message.from_user.first_name}\n\n'
+            f'APPLICATION TERMINATED by {update.message.from_user.id}\n\n'
             'All your previously submitted data has been deleted.\n\n' 
             'Now you can close this chat\n-OR-\n/start over.',
             reply_markup=ReplyKeyboardRemove(),
@@ -32,7 +32,7 @@ def cancel(update: Update, context: CallbackContext) -> int:
     
     except Exception as exc:
         logger.info(exc)
-        logger.info(f'----- ERROR: User {update.message.from_user.first_name} tried to cancel the bot, but was not able to.')
+        logger.info(f'----- ERROR: User {update.message.from_user.id} tried to cancel the bot, but was not able to.')
         update.message.reply_text(
             '- - - ERROR - - -\n'
             'Sorry - something went wrong. Maybe you need to /start the bot first?',
@@ -46,7 +46,7 @@ def cancel(update: Update, context: CallbackContext) -> int:
 def delete(update: Update, context: CallbackContext) -> int:
     
     try:
-        logger.info(f'----- User {update.message.from_user.first_name} deleted own user record. -----')
+        logger.info(f'----- User {update.message.from_user.id} deleted own user record. -----')
 
         # delete record of user upon cancellation of the sign up process
         delete_record(update.message.from_user.id)
@@ -59,7 +59,7 @@ def delete(update: Update, context: CallbackContext) -> int:
 
     except Exception as exc:
         logger.info(exc)
-        logger.info(f'----- ERROR: User {update.message.from_user.first_name} tried to delete his data, but was not able to.')
+        logger.info(f'----- ERROR: User {update.message.from_user.id} tried to delete his data, but was not able to.')
         update.message.reply_text(
             '- - - ERROR - - -\n'
             'Sorry - something went wrong. Maybe you have not entered any data yet? To check, enter /start OR /cancel.',
@@ -85,7 +85,7 @@ def cancel_appointment(update: Update, context: CallbackContext) -> int:
         delete_value(user_id, 'appointment')
         delete_value(user_id, 'event_id')
 
-        logger.info(f'----- User {update.message.from_user.first_name} cancelled appointment.')
+        logger.info(f'----- User {update.message.from_user.id} cancelled appointment.')
         update.message.reply_text(
             '- - - SUCCESS - - -\n'
             'Your appointment has been canceled.\n\n You can make a new appointment by entering /summary.',
@@ -94,7 +94,7 @@ def cancel_appointment(update: Update, context: CallbackContext) -> int:
     
     except Exception as exc:
         logger.info(exc)
-        logger.info(f'----- ERROR: User {update.message.from_user.first_name} tried to cancel, but was not able to.')
+        logger.info(f'----- ERROR: User {update.message.from_user.id} tried to cancel, but was not able to.')
         update.message.reply_text(
             '- - - ERROR - - -\n'
             'Sorry - something went wrong. Please try to cancel your appointment via your calendar app or just give us a quick call. ',

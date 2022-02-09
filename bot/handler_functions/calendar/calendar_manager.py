@@ -266,9 +266,10 @@ def cancel_appointment(user_id, slot_start):
 
     try:        
         service.events().delete(calendarID=coaching_calendar_ID, eventID=event_id, sendNotifications=True, sendUpdates=all).execute()
-        logger.info(f'+++++ APPOINTMENT CANCELLED for {user_id} at {slot_start}')
+        logger.info(f'----- APPOINTMENT CANCELLED for {user_id} at {slot_start}')
 
     except HttpError as error:
+        logger.info(error)            
         logger.info('ERROR: %s' % error)
 
 

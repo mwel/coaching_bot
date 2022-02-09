@@ -46,7 +46,6 @@ def start(update: Update, context: CallbackContext) -> int:
             reply_keyboard, one_time_keyboard=True, input_field_placeholder='SIGN UP COMPLETE'
                 )
             )
-            # return ConversationHandler.END
 
         elif state == states.APPOINTMENT and select_db.get_value(user_id, 'appointment') == 'None':
 
@@ -54,10 +53,12 @@ def start(update: Update, context: CallbackContext) -> int:
                 ['/status'], 
                 ['/delete']]
             update.message.reply_text(
-            'If you have not made an appointment yet and would like to do so, reenter /summary.\n\n',
-            reply_markup=ReplyKeyboardRemove(),
+            'If you have not made an appointment yet and would like to do so, enter /summary.\n\n',
+            reply_markup=ReplyKeyboardMarkup(
+            reply_keyboard, one_time_keyboard=True, input_field_placeholder='SIGN UP COMPLETE'
             )
-        
+        )
+            return ConversationHandler.END
 
         elif state == states.APPOINTMENT:
 
@@ -70,13 +71,16 @@ def start(update: Update, context: CallbackContext) -> int:
             f'Cool. You already have an appointment on {appointment_made} \n\n'
             'In case you would like to cancel, just enter /cancel_appointment.\n\n'
             'Otherwise, we are looking forward to our call.',
-            reply_markup=ReplyKeyboardRemove(),
+            reply_markup=ReplyKeyboardMarkup(
+            reply_keyboard, one_time_keyboard=True, input_field_placeholder='SIGN UP COMPLETE'
             )
+        )
+            return ConversationHandler.END
         
-
         # call next function for user
         update.message.reply_text(states.MESSAGES[state], reply_markup=states.KEYBOARD_MARKUPS[state])
         return state
+
 
     logger.info(f'+++++ NEW USER: {update.message.from_user.first_name} {update.message.from_user.last_name} +++++')
 
