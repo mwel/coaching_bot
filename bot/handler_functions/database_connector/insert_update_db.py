@@ -2,6 +2,7 @@
 
 # imports 
 import sqlite3
+from logEnabler import logger
 
 
 from handler_functions.database_connector.create_db import create_db
@@ -84,14 +85,14 @@ def insert_update (user_id, time_stamp, first_name, last_name, gender, photo, bi
     cursor.execute(user_check)
 
     if cursor.fetchone():
-        print("+++++ FOUND record +++++")
+        logger.info("+++++ FOUND record +++++")
         cursor.execute(update_command, update_args)
-        print (f'+++++ UPDATED RECORD {user_id}: {first_name} {last_name} +++++')
+        logger.info (f'+++++ UPDATED RECORD {user_id}: {first_name} {last_name} +++++')
 
     else:
-        print("+++++ NOT FOUND record +++++")
+        logger.info("+++++ NOT FOUND record +++++")
         cursor.execute(insert_command, insert_args)
-        print (f'+++++ INSERTED RECORD {user_id}: {first_name} {last_name} +++++')
+        logger.info (f'+++++ INSERTED RECORD {user_id}: {first_name} {last_name} +++++')
 
 
     #commit changes to db

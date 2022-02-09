@@ -1,7 +1,8 @@
 """ connect to the coachingBot_DB and check, if the user table already exists. If not, create it."""
 
 # imports 
-import sqlite3 
+import sqlite3
+from logEnabler import logger
 
 
 from handler_functions.database_connector.create_db import create_db
@@ -20,16 +21,16 @@ def insert_update (user_id, column, value):
 
     try:
         cursor.execute('INSERT INTO users (user_id) VALUES (?)', (user_id,))
-        print (f'+++++ CREATED record {user_id}: {cursor.lastrowid} +++++')
+        logger.info (f'+++++ CREATED record {user_id}: {cursor.lastrowid} +++++')
     except sqlite3.IntegrityError:
-        print("+++++ FOUND record... UPDATING... +++++")
+        logger.info("+++++ FOUND record... UPDATING... +++++")
 
     # sql command to UPDATE an existing record
     update_command = f"UPDATE users SET {column} = ? WHERE user_id = ?"
     update_args = (value, user_id)
 
     cursor.execute(update_command, update_args)
-    print (f'+++++ UPDATED record {user_id}: {column} >> {value} +++++')
+    logger.info (f'+++++ UPDATED record {user_id}: {column} >> {value} +++++')
 
     #commit changes to db
     connection.commit()

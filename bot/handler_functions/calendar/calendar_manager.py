@@ -100,10 +100,10 @@ def authenticate():
 
     try:
         service = build('calendar', 'v3', credentials=creds)
-        print('+++++ OAuth2 SUCCESSFUL +++++')
+        logger.info('+++++ OAuth2 SUCCESSFUL +++++')
        
     except HttpError as error:
-        print('ERROR: %s' % error)
+        logger.info('ERROR: %s' % error)
 
     return service
 
@@ -114,14 +114,14 @@ def check_availability(start, end):
 
     service = authenticate()
     
-    print(f'+++++ SLOT START: {start}') # must be in format RFC3339, i.e. 1985-04-12T23:20:50.52Z
-    print(f'+++++ SLOT END: {end}')
+    logger.info(f'+++++ SLOT START: {start}') # must be in format RFC3339, i.e. 1985-04-12T23:20:50.52Z
+    logger.info(f'+++++ SLOT END: {end}')
 
     start_iso = str(start.isoformat('T')+'+01:00') # convert UTC to CET for the request.
-    print(f'+++++ start_iso: {start_iso}')
+    logger.info(f'+++++ start_iso: {start_iso}')
 
     end_iso = str(end.isoformat('T')+'+01:00') # same for end time
-    print(f'+++++ end_iso: {end_iso}')
+    logger.info(f'+++++ end_iso: {end_iso}')
 
     request = {
         "timeMin": start_iso,
@@ -139,7 +139,7 @@ def check_availability(start, end):
     try:
         
         response = service.freebusy().query(body=request).execute()
-        print('+++++ CAL: AVAILABILITY CHECKED +++++')
+        logger.info('+++++ CAL: AVAILABILITY CHECKED +++++')
         print('>>>>> HTTP Response' + str(response))
     
         # climb down the dict latter and read the busy response from the HTTP-Response object
@@ -154,7 +154,7 @@ def check_availability(start, end):
 
 
     except HttpError as error:
-        print('ERROR: %s' % error)
+        logger.info('ERROR: %s' % error)
 
 
 # def business_hours(day, enddate, excluded, working_hours): # i.e. date = datetime.datetime(2021, 9, 01), enddate = datetime.datetime(2022, 2, 28), excluded = (6,7), working_hours=(datetime.time(...9))
@@ -220,7 +220,7 @@ def find_slots():
             start = dt8 + datetime.timedelta(days=3*slots)
 
         else: 
-            print ('##### NO SLOT FOUND #####')
+            logger.info ('##### NO SLOT FOUND #####')
             start = start + datetime.timedelta(hours=1)
         
         print (f'##### SLOTS: {slots} after ROUND: {round} #####') # tell me, how many rounds the while loop has to run to get 3 slots
@@ -240,10 +240,10 @@ def make_appointment(user_id, slot_start, event):
     try:
 
         service.events().insert(calendarId=coaching_calendar_ID, body=event).execute()
-        print(f'+++++ APPOINTMENT MADE for {user_id} at {slot_start}')
+        logger.info(f'+++++ APPOINTMENT MADE for {user_id} at {slot_start}')
 
     except HttpError as error:
-        print('ERROR: %s' % error)
+        logger.info('ERROR: %s' % error)
 
 
 
@@ -262,10 +262,10 @@ def cancel_appointment(user_id, slot_start):
 
     try:        
         service.events().delete(calendarID=coaching_calendar_ID, eventID=event_id, sendNotifications=True, sendUpdates=all).execute()
-        print(f'+++++ APPOINTMENT CANCELLED for {user_id} at {slot_start}')
+        logger.info(f'+++++ APPOINTMENT CANCELLED for {user_id} at {slot_start}')
 
     except HttpError as error:
-        print('ERROR: %s' % error)
+        logger.info('ERROR: %s' % error)
 
 
 

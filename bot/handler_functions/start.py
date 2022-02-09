@@ -31,7 +31,7 @@ def start(update: Update, context: CallbackContext) -> int:
             reply_markup=ReplyKeyboardRemove(),
             )
 
-        if state == 'COMPLETED':  # stage 1 was apparently already completed for this user in the past.
+        if state >= states.SUMMARY:  # stage 1 was apparently already completed for this user in the past.
             reply_keyboard = [
                 ['/cancel_appointment'], 
                 ['/status'], 

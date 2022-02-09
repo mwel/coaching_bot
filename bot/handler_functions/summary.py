@@ -11,7 +11,7 @@ from logEnabler import logger;
 
 from handler_functions import states
 from handler_functions.database_connector.insert_value_db import insert_update
-from handler_functions.database_connector.select_db import get_value
+from handler_functions.database_connector.select_db import get_value, user_search
 from handler_functions.confirmation_mail import confirmation_mail
 # from handler_functions.calendar.generate_ics import generate_ics
 # from handler_functions.calendar.send_invitation import send_invitation
@@ -21,27 +21,22 @@ from handler_functions.calendar.calendar_manager import find_slots
 
 # Stores the photo and asks for a location.
 def summary(update: Update, context: CallbackContext) -> int:
-
-    user_id = update.message.from_user.id
+    
+    user_id = update.message.from_user.id    
 
     logger.info(f'+++++ User {update.message.from_user.first_name} COMPLETED SIGN UP. +++++')
 
     first_name = get_value(user_id, 'first_name')
     last_name = get_value(user_id, 'last_name')
     gender = get_value(user_id, 'gender')
-    #photo = TODO: get photo into db
     birthdate = get_value(user_id, 'birthdate')
     email = get_value(user_id, 'email')
     telephone = get_value(user_id, 'telephone')
-    longitude = get_value(user_id, 'longitude')
-    latitude = get_value(user_id, 'latitude')
-    bio = get_value(user_id, 'bio')
-    state = get_value(user_id, 'state')
-    mail_sent = get_value(user_id, 'mail_sent')
-
-    # # if all questions of the bot have been ansered of skipped, send COMPLETE tag to user. Else - send status.
-    # if state == states.COMPLETED:
-    #     state = 'COMPLETE'
+    # longitude = get_value(user_id, 'longitude')
+    # latitude = get_value(user_id, 'latitude')
+    # bio = get_value(user_id, 'bio')
+    # state = get_value(user_id, 'state')
+    # mail_sent = get_value(user_id, 'mail_sent')
 
     summary = f"""
         Given Name:\t\t{first_name}

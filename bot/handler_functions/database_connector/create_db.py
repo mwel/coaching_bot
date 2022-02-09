@@ -1,6 +1,10 @@
-# connect to the coachingBot_DB and check, if the user table already exists. If not, create it.
-import sqlite3
+"""connect to the coachingBot_DB and check, if the user table already exists. If not, create it."""
 
+# imports
+import sqlite3
+from logEnabler import logger
+
+# build a new db, if none exists yet
 def create_db ():
     # connect to db
     connection = sqlite3.connect("coachingBotDB.db")
@@ -37,10 +41,10 @@ def create_db ():
 
     #if count is 1, table already exists - else, create it
     if cursor.fetchone()[0]==1:
-        print('+++++ TABLE EXISTS: "users" +++++')
+        logger.info('+++++ TABLE EXISTS: "users" +++++')
     else:
         cursor.execute(table_users)
-        print('+++++ TABLE CREATED: "users" +++++')
+        logger.info('+++++ TABLE CREATED: "users" +++++')
 
     #commit changes to db
     connection.commit()

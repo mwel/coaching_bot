@@ -25,7 +25,6 @@ def cancel(update: Update, context: CallbackContext) -> int:
         update.message.reply_text(
             '- - - SUCCESS - - -\n'
             f'APPLICATION TERMINATED by {update.message.from_user.first_name}\n\n'
-            'You ended the converstation.\n'
             'All your previously submitted data has been deleted.\n\n' 
             'Now you can close this chat\n-OR-\n/start over.',
             reply_markup=ReplyKeyboardRemove(),
@@ -79,7 +78,7 @@ def cancel_appointment(update: Update, context: CallbackContext) -> int:
         # tell google Calendar API to cancel the appointment with this user
         user_id = update.message.from_user.id
         slot_start = get_value(user_id, 'appointment')
-        event = get_value(user_id, 'event')
+        event = get_value(user_id, 'event_id')
         cancel_appointment(user_id, slot_start)
 
         # remove values from db

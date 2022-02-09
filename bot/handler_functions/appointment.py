@@ -17,24 +17,27 @@ from uuid import uuid4
 # Stores the photo and asks for a location.
 def appointment(update: Update, context: CallbackContext) -> int:
 
-    first_name = get_value(update.message.from_user.id, 'first_name')
-    last_name = get_value(update.message.from_user.id, 'last_name')
-    email = get_value(update.message.from_user.id, 'email')
-    telephone = get_value(update.message.from_user.id, 'telephone')
+    user_id = update.message.from_user.id
+
+    first_name = get_value(user_id, 'first_name')
+    last_name = get_value(user_id, 'last_name')
+    email = get_value(user_id, 'email')
+    telephone = get_value(user_id, 'telephone')
 
     summary = 'wavehoover | Coaching Session'
     
     slot_start = update.message.text
     dt_slot_start = datetime.strptime(slot_start, '%Y-%m-%d %H:%M:%S') # https://docs.python.org/3/library/datetime.html#strftime-and-strptime-format-codes
     iso_slot_start = str(dt_slot_start.isoformat('T') + '+01:00')
-    print(f'>>>>> ISO_SLOT_START: {iso_slot_start}')
+    logger.info(f'>>>>> ISO_SLOT_START: {iso_slot_start}')
 
     slot_end = str(dt_slot_start + timedelta(minutes=50))
     dt_slot_end = datetime.strptime(slot_end, '%Y-%m-%d %H:%M:%S')
     iso_slot_end = str(dt_slot_end.isoformat('T') + '+01:00')
-    print(f'>>>>> ISO_SLOT_END: {iso_slot_end}')
+    logger.info(f'>>>>> ISO_SLOT_END: {iso_slot_end}')
 
     uuid = str(uuid4())
+    logger.info(f'>>>>> UUID for user_id {user_id}: {uuid}')
 
     # build the event data into the event object
     event = {
@@ -65,9 +68,9 @@ def appointment(update: Update, context: CallbackContext) -> int:
         },
         }
     
-    make_appointment(update.message.from_user.id, slot_start, event) # hand over user info to make appointment
-    insert_update(update.message.from_user.id, 'appointment', slot_start)
-    insert_update(update.message.from_user.id, 'event_id', uuid)
+    make_appointment(user_id, slot_start, event) # hand over user info to make appointment
+    insert_update(user_id, 'appointment', slot_start)
+    insert_update(user_id, 'event_id', uuid)
     logger.info(f'+++++ User {update.message.from_user.first_name} MADE APPOINTMENT AT: {slot_start} +++++')
     
     update.message.reply_text(
@@ -83,15 +86,18 @@ def appointment(update: Update, context: CallbackContext) -> int:
         reply_markup=ReplyKeyboardRemove(),
     )
     
-    insert_update(update.message.from_user.id, 'state', 'COMPLETED')
+    # insert_update(user_id, 'state', 10)
     # return states.COMPLETED
     return ConversationHandler.END
 
 
 # Skips the photo and asks for a location.
 def skip_appointment(update: Update, context: CallbackContext) -> int:
+
+    user_id = update.message.from_user.id
+
     logger.info(f'User {update.message.from_user.first_name} {update.message.from_user.last_name} does not want to make an appointment.')
-    insert_update(update.message.from_user.id, 'appointment', 'None')
+    insert_update(user_id, 'appointment', 'None')
     
     update.message.reply_text(
         'Alright - you can get in touch with us at any time, if you want to.\n'
@@ -101,5 +107,5 @@ def skip_appointment(update: Update, context: CallbackContext) -> int:
         )
 
     # save state to DB
-    insert_update(update.message.from_user.id, 'state', 'COMPLETED')
+    # insert_update(user_id, 'state', 10)
     return ConversationHandler.END

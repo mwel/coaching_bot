@@ -3,6 +3,7 @@
 
 # imports
 import sqlite3
+from logEnabler import logger
 
 
 # check, if a record exists in the db and return a boolean
@@ -27,11 +28,11 @@ def user_search(user_id): # I'm sure there is a better solution for this, but th
     # get result from db, parse it as string, trim it and pase it as boolean
     result = bool(int((str(cursor.fetchone())).lstrip('(').rstrip(',)')))
 
-    print(f'+++++ RECORD REQUESTED for user_id: {user_id} +++++')
+    logger.info(f'+++++ RECORD REQUESTED for user_id: {user_id} +++++')
     if result == True:
-        print(f'+++++ RECORD FOUND +++++')
+        logger.info(f'+++++ RECORD FOUND +++++')
     else:
-        print(f'+++++ NO RECORD FOUND +++++')
+        logger.info(f'+++++ NO RECORD FOUND +++++')
 
     return result
 
@@ -50,7 +51,7 @@ def get_all_data(user_id):
         """
 
     # fetch all data from table users
-    print(f'+++++ RECORD FOUND FOR: {user_id} +++++')
+    logger.info(f'+++++ RECORD FOUND FOR: {user_id} +++++')
     cursor.execute(selection)
 
     # store all data from selection in table_data
@@ -58,7 +59,7 @@ def get_all_data(user_id):
 
 
     # print table
-    print(f'+++++ RECORD REQUESTED for user_id: {user_id} +++++')
+    logger.info(f'+++++ RECORD REQUESTED for user_id: {user_id} +++++')
     for i in table_data:
         print(i)
 
@@ -110,7 +111,7 @@ def get_value(user_id, column):
     table_value = (str(cursor.fetchone())).lstrip("('").rstrip("',)")
 
     # print value
-    print(f'+++++ RECORD REQUESTED for user_id: {user_id} +++++')
-    print(f'+++++ DB RESPONSE: {table_value} +++++')
+    logger.info(f'+++++ RECORD REQUESTED for user_id: {user_id} +++++')
+    logger.info(f'+++++ DB RESPONSE: {table_value} +++++')
 
     return table_value
