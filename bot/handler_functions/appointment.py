@@ -11,6 +11,7 @@ from handler_functions.database_connector.insert_value_db import insert_update
 from handler_functions.database_connector.select_db import get_value
 from handler_functions.calendar.calendar_manager import make_appointment
 from datetime import datetime, timedelta
+from uuid import SafeUUID, uuid4
 
 
 # Stores the photo and asks for a location.
@@ -33,6 +34,8 @@ def appointment(update: Update, context: CallbackContext) -> int:
     iso_slot_end = str(dt_slot_end.isoformat('T') + '+01:00')
     print(f'>>>>> ISO_SLOT_END: {iso_slot_end}')
 
+    uuid = uuid4()
+
     # build the event data into the event object
     event = {
         f'summary': summary,
@@ -46,6 +49,7 @@ def appointment(update: Update, context: CallbackContext) -> int:
             'dateTime': iso_slot_end,
             'timeZone': 'Europe/Berlin',
         },
+        'id': uuid,
         # 'recurrence': [
             #'RRULE:FREQ=DAILY;COUNT=2'
         # ],
@@ -61,9 +65,9 @@ def appointment(update: Update, context: CallbackContext) -> int:
         },
         }
     
-    make_appointment(user_id=update.message.from_user.id, slot_start=slot_start, event=event) # hand over user info to make appointment
+    make_appointment(update.message.from_user.id, slot_start, event) # hand over user info to make appointment
     insert_update(update.message.from_user.id, 'appointment', slot_start)
-    insert_update(update.message.from_user.id, 'event', event)
+    insert_update(update.message.from_user.id, 'event', uuid)
     logger.info(f'+++++ User {update.message.from_user.first_name} MADE APPOINTMENT AT: {slot_start} +++++')
     
     update.message.reply_text(

@@ -1,4 +1,9 @@
+""" SQL SELECT operations that will check, if a user exists or return a set of db records."""
+
+
+# imports
 import sqlite3
+
 
 # check, if a record exists in the db and return a boolean
 def user_search(user_id): # I'm sure there is a better solution for this, but this is mine.

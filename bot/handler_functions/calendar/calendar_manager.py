@@ -15,6 +15,7 @@ from googleapiclient.errors import HttpError
 import os.path
 from pathlib import Path
 import time
+import uuid
 
 
 # If modifying these scopes, delete the file token.json.
@@ -229,14 +230,14 @@ def find_slots():
 
 
 # make an appointment in the calendar
-def make_appointment(userID, slot_start, event):
+def make_appointment(user_id, slot_start, event):
 
     service = authenticate()
 
     try:
 
         service.events().insert(calendarId=coaching_calendar_ID, body=event).execute()
-        print(f'+++++ APPOINTMENT MADE for {userID} at {slot_start}')
+        print(f'+++++ APPOINTMENT MADE for {user_id} at {slot_start}')
 
     except HttpError as error:
         print('ERROR: %s' % error)
@@ -244,14 +245,14 @@ def make_appointment(userID, slot_start, event):
 
 
 # cancel / delete an appointment from the calendar
-def cancel_appointment(userID, slot_start, event):
+def cancel_appointment(user_id, slot_start, event_id):
 
     service = authenticate()
 
     try:
         
-        service.events().delete(calendarId=coaching_calendar_ID, body=event).execute()
-        print(f'+++++ APPOINTMENT CANCELLED for {userID} at {slot_start}')
+        service.events().delete(calendarID=coaching_calendar_ID, eventID=event_id, sendNotifications=True, sendUpdates=all).execute()
+        print(f'+++++ APPOINTMENT CANCELLED for {user_id} at {slot_start}')
 
     except HttpError as error:
         print('ERROR: %s' % error)
