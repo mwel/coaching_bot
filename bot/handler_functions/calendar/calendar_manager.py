@@ -237,6 +237,8 @@ def make_appointment(user_id, slot_start, event):
 
     service = authenticate()
 
+    
+
     try:
 
         service.events().insert(calendarId=coaching_calendar_ID, body=event).execute()
@@ -244,6 +246,8 @@ def make_appointment(user_id, slot_start, event):
 
     except HttpError as error:
         logger.info('ERROR: %s' % error)
+
+    return
 
 
 

@@ -73,7 +73,7 @@ def main() -> None:
     # more conversation handlers for secondary commands
     dispatcher.add_handler(conv_handler)                                                # /start, /cancel
     dispatcher.add_handler(CommandHandler('help', help))                                # /help
-    # dispatcher.add_handler(CommandHandler('summary', summary))                          # /summary
+    dispatcher.add_handler(CommandHandler('summary', summary))                          # /summary
     dispatcher.add_handler(CommandHandler('delete', delete))                            # /delete
     dispatcher.add_handler(CommandHandler('status', status))                            # /status
     dispatcher.add_handler(CommandHandler('cancel_appointment', cancel_appointment))    # /cancel_appointment

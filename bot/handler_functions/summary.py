@@ -61,10 +61,11 @@ def summary(update: Update, context: CallbackContext) -> int:
     
     # check, if the user already made an appointment. 
     appointment_made = get_value(user_id, 'appointment')
+    # print(f'???????appointment_made: {appointment_made}')
     
-    # If not, make on. Else, inform.
-    if appointment_made != '':
-
+    # If yes, inform. Else, make one.
+    if appointment_made == 'None':
+        
         update.message.reply_text(
             'Ok. We will look for 3 appointment options you can choose from for your phone call. \n\n'
             '... SEARCHING ...',
@@ -86,15 +87,15 @@ def summary(update: Update, context: CallbackContext) -> int:
                 input_field_placeholder='Choose your slot...'
                 )
             )
-    else:
 
+    else:
         update.message.reply_text(
             f'Cool. You already have an appointment: {appointment_made} \n\n'
             'In case you would like to cancel, just enter /cancel_appointment.\n\n'
             'Otherwise, we are looking forward to our call.',
             reply_markup=ReplyKeyboardRemove(),
         )
-    
+        
 
     # trigger confirmation email
     confirmation_mail(first_name, summary, email)

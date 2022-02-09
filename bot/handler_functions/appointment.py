@@ -11,7 +11,8 @@ from handler_functions.database_connector.insert_value_db import insert_update
 from handler_functions.database_connector.select_db import get_value
 from handler_functions.calendar.calendar_manager import make_appointment
 from datetime import datetime, timedelta
-from uuid import uuid4
+from uuid import uuid1
+from random import randint, random
 
 
 # Stores the photo and asks for a location.
@@ -36,7 +37,7 @@ def appointment(update: Update, context: CallbackContext) -> int:
     iso_slot_end = str(dt_slot_end.isoformat('T') + '+01:00')
     logger.info(f'>>>>> ISO_SLOT_END: {iso_slot_end}')
 
-    uuid = str(uuid4())
+    uuid = str(str(user_id) + str(randint(10000, 99999)))
     logger.info(f'>>>>> UUID for user_id {user_id}: {uuid}')
 
     # build the event data into the event object
