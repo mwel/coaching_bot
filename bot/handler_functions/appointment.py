@@ -11,7 +11,7 @@ from handler_functions.database_connector.insert_value_db import insert_update
 from handler_functions.database_connector.select_db import get_value
 from handler_functions.calendar.calendar_manager import make_appointment
 from datetime import datetime, timedelta
-from uuid import SafeUUID, uuid4
+from uuid import uuid4
 
 
 # Stores the photo and asks for a location.
@@ -83,8 +83,9 @@ def appointment(update: Update, context: CallbackContext) -> int:
         reply_markup=ReplyKeyboardRemove(),
     )
     
-    insert_update(update.message.from_user.id, 'state', states.COMPLETED)
-    return states.COMPLETED
+    insert_update(update.message.from_user.id, 'state', 'COMPLETED')
+    # return states.COMPLETED
+    return ConversationHandler.END
 
 
 # Skips the photo and asks for a location.
@@ -100,5 +101,5 @@ def skip_appointment(update: Update, context: CallbackContext) -> int:
         )
 
     # save state to DB
-    insert_update(update.message.from_user.id, 'state', states.COMPLETED)
+    insert_update(update.message.from_user.id, 'state', 'COMPLETED')
     return ConversationHandler.END

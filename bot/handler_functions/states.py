@@ -5,9 +5,9 @@ from telegram import ReplyKeyboardMarkup, InlineKeyboardMarkup
 from handler_functions.calendar.calendar_manager import check_availability
 
 # STATE DEFINITIONS
-MAX_STATES = 10
+MAX_STATES = 9
 # one constant per stage
-BIO, GENDER, BIRTHDATE, EMAIL, TELEPHONE, LOCATION, PHOTO, SUMMARY, APPOINTMENT, COMPLETED = range(MAX_STATES)
+BIO, GENDER, BIRTHDATE, EMAIL, TELEPHONE, LOCATION, PHOTO, SUMMARY, APPOINTMENT = range(MAX_STATES)
 
 
 # transition messages to display at first encounter and at pick-up when continuing
@@ -48,11 +48,11 @@ MESSAGES = {
         'If you would like to reset your request and delete all your data, just enter /delete.'
     ,
 
-    COMPLETED: 'Congratulations! \n\n'
-        'You\'re all set for your first session. We are looking forward to it! \n'
-        'Until then - have a good one!\n\n'
-        'Cheers, your wavehoover Team'
-    ,
+    # COMPLETED: 'Congratulations! \n\n'
+    #     'You\'re all set for your first session. We are looking forward to it! \n'
+    #     'Until then - have a good one!\n\n'
+    #     'Cheers, your wavehoover Team'
+    # ,
 
 }
 
