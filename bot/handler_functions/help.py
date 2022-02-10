@@ -1,33 +1,37 @@
-""" help handler function. called, when user enters /help """
+""" help function. called, when user enters /help """
 
 # imports
 from telegram import Update
 from telegram.ext import CallbackContext
 
-
+import collections
 from handler_functions.cancel import cancel
 from handler_functions.states import SUMMARY
 
 
-# Show the help text.
 def help(update: Update, context: CallbackContext):
 
     # header text    
     header = '*coaching Bot HELP*\n\n'
-    
+
+    # open a new ordered dictionay    
+    help_dict = collections.OrderedDict({})
+
     # commands
-    COMMANDS = {
-    HELP: 'Call for help and it shall be displayed.\n',
-    START: 'Start The Coaching Bot.\n',
-    SUMMARY: 'Ask the database for everything it has on you.',
-    CANCEL: 'End your conversation with the bot and delete all data your have submitted.\n',
-    DELETE: 'Delete all data you have ever submitted.\n',
-    STATUS: 'Ask the bot how many steps you have left to complete your current stage.\n',
-    }
+    help_dict['help'] = 'Call for help and it shall be displayed.\n'
+    help_dict['start'] = 'Start your conversation with The Coaching Bot or pick up, where you left.\n'
+    help_dict['cancel'] = 'End your conversation with the bot and delete all data your have submitted.\n (Only works, if you started the bot.)'
+    help_dict['status'] = 'Ask the bot how many steps you have left to complete your current stage.\n'
+    help_dict['summary'] = 'Ask the database for everything it has on you.\n'
+    help_dict['delete'] = 'Delete all you data.\n (If you do, you have to start over.) \n'
+    # help_dict[''] = '' # add more help here
 
-    #  build a list in the order you like.
-    text = [header, COMMANDS] # TODO: needs fixing and formatting
 
-    # forge final string
-    context.bot.send_message(chat_id=update.effective_user.id, text=text) # cut out as last argument: "parse_mode='Markdown'"
+    # build final string
+    help_items = ['/' + key + ' - ' + value for key, value in help_dict.items()]
+    help_text = '\n'.join(help_items)
+    text = header + help_text
+    
+    # send help text
+    context.bot.send_message(chat_id=update.effective_user.id, text=text, parse_mode='Markdown')
     
