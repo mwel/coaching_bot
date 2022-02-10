@@ -91,7 +91,7 @@ def summary(update: Update, context: CallbackContext) -> int:
     else:
         update.message.reply_text(
             f'Cool. You already have an appointment: {appointment_made} \n\n'
-            'In case you would like to cancel, just enter /cancel_appointment.\n\n'
+            'In case you would like to cancel, you can do so via your calendar app.\n\n'
             'Otherwise, we are looking forward to our call.',
             reply_markup=ReplyKeyboardRemove(),
         )

@@ -28,7 +28,7 @@ from handler_functions.location import location, skip_location
 from handler_functions.photo import photo, skip_photo
 from handler_functions.summary import summary
 from handler_functions.appointment import appointment, skip_appointment
-from handler_functions.cancel import cancel, delete, cancel_appointment
+from handler_functions.cancel import cancel, delete #, cancel_appointment
 from handler_functions.help import help
 from handler_functions.status import status
 
@@ -76,7 +76,7 @@ def main() -> None:
     dispatcher.add_handler(CommandHandler('summary', summary))                          # /summary
     dispatcher.add_handler(CommandHandler('delete', delete))                            # /delete
     dispatcher.add_handler(CommandHandler('status', status))                            # /status
-    dispatcher.add_handler(CommandHandler('cancel_appointment', cancel_appointment))    # /cancel_appointment
+    # dispatcher.add_handler(CommandHandler('cancel_appointment', cancel_appointment))    # /cancel_appointment
     # add more Handlers here...
 
     # Start the Bot

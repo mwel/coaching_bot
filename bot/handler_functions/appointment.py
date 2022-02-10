@@ -20,8 +20,8 @@ def appointment(update: Update, context: CallbackContext) -> int:
 
     user_id = update.message.from_user.id
 
-    first_name = get_value(user_id, 'first_name')
-    last_name = get_value(user_id, 'last_name')
+    # first_name = get_value(user_id, 'first_name')
+    # last_name = get_value(user_id, 'last_name')
     email = get_value(user_id, 'email')
     telephone = get_value(user_id, 'telephone')
 
@@ -37,8 +37,8 @@ def appointment(update: Update, context: CallbackContext) -> int:
     iso_slot_end = str(dt_slot_end.isoformat('T') + '+01:00')
     logger.info(f'>>>>> ISO_SLOT_END: {iso_slot_end}')
 
-    uuid = str(str(user_id) + str(randint(10000, 99999)))
-    logger.info(f'>>>>> UUID for user_id {user_id}: {uuid}')
+    # uuid = str(str(user_id) + str(randint(10000, 99999)))
+    # logger.info(f'>>>>> UUID for user_id {user_id}: {uuid}')
 
     # build the event data into the event object
     event = {
@@ -53,7 +53,7 @@ def appointment(update: Update, context: CallbackContext) -> int:
             'dateTime': iso_slot_end,
             'timeZone': 'Europe/Berlin',
         },
-        'id': uuid,
+        # 'id': uuid,
         # 'recurrence': [
             #'RRULE:FREQ=DAILY;COUNT=2'
         # ],
@@ -71,7 +71,7 @@ def appointment(update: Update, context: CallbackContext) -> int:
     
     make_appointment(user_id, slot_start, event) # hand over user info to make appointment
     insert_update(user_id, 'appointment', slot_start)
-    insert_update(user_id, 'event_id', uuid)
+    # insert_update(user_id, 'event_id', uuid)
     logger.info(f'+++++ User {update.message.from_user.first_name} MADE APPOINTMENT AT: {slot_start} +++++')
     
     update.message.reply_text(
@@ -82,10 +82,10 @@ def appointment(update: Update, context: CallbackContext) -> int:
         'Your wavehoover team',
         reply_markup=ReplyKeyboardRemove(),
     )
-    update.message.reply_text(
-        'In case you would like to cancel your appointment, please do so in your calendar OR enter /cancel_appointment\n',
-        reply_markup=ReplyKeyboardRemove(),
-    )
+    # update.message.reply_text(
+    #     'In case you would like to cancel your appointment, please do so via your calendar app.',
+    #     reply_markup=ReplyKeyboardRemove(),
+    # )
     
     # insert_update(user_id, 'state', 10)
     # return states.COMPLETED

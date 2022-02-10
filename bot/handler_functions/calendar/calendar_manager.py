@@ -15,7 +15,6 @@ from googleapiclient.errors import HttpError
 import os.path
 from pathlib import Path
 import time
-import uuid
 from handler_functions.database_connector.select_db import get_value
 from logEnabler import logger;
 
@@ -216,15 +215,14 @@ def find_slots():
             free_slots.append(str(start))
             slots += 1;
 
-            print(f'>>>>> FREE SLOT found at: {start} <<<<<')
+            print(f'>>>>> Slot found at: {start} <<<<<')
             start = dt8 + datetime.timedelta(days=3*slots)
 
         else: 
             logger.info ('##### NO SLOT FOUND #####')
             start = start + datetime.timedelta(hours=1)
         
-        print (f'##### SLOTS: {slots} after ROUND: {round} #####') # tell me, how many rounds the while loop has to run to get 3 slots
-
+        print (f'##### {slots} slots found in {round} rounds. #####') # tell me, how many rounds the while loop has to run to get 3 slots
 
     print(f'>> FREE SLOTS: {free_slots}')
     return free_slots
@@ -236,8 +234,6 @@ def find_slots():
 def make_appointment(user_id, slot_start, event):
 
     service = authenticate()
-
-    
 
     try:
 
@@ -252,25 +248,25 @@ def make_appointment(user_id, slot_start, event):
 
 
 # cancel / delete an appointment from the calendar
-def cancel_appointment(user_id, slot_start):
+# def cancel_appointment(user_id, slot_start):
 
-    service = authenticate()
+#     service = authenticate()
 
-    try:
-        event_id = get_value(user_id, 'event_id')
+#     try:
+#         event_id = get_value(user_id, 'event_id')
         
-    except Exception as exc:
-        logger.info(exc)            
-        logger.info(f'----- ERROR while trying to get event_id for user_id: {user_id}. -----')
+#     except Exception as exc:
+#         logger.info(exc)            
+#         logger.info(f'----- ERROR while trying to get event_id for user_id: {user_id}. -----')
 
 
-    try:        
-        service.events().delete(calendarID=coaching_calendar_ID, eventID=event_id, sendNotifications=True, sendUpdates=all).execute()
-        logger.info(f'----- APPOINTMENT CANCELLED for {user_id} at {slot_start}')
+#     try:        
+#         service.events().delete(calendarID=coaching_calendar_ID, eventID=event_id, sendNotifications=True, sendUpdates=all).execute()
+#         logger.info(f'----- APPOINTMENT CANCELLED for {user_id} at {slot_start}')
 
-    except HttpError as error:
-        logger.info(error)            
-        logger.info('ERROR: %s' % error)
+#     except HttpError as error:
+#         logger.info(error)            
+#         logger.info('ERROR: %s' % error)
 
 
 

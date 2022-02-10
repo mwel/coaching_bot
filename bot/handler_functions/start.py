@@ -40,7 +40,7 @@ def start(update: Update, context: CallbackContext) -> int:
                 ['/delete']]
             update.message.reply_text(
            'Ah! I see, you have already completed the sign up.\nYou now have multiple options below:\n'
-           'If you have not made an appointment yet and would like to do so, reenter /summary.\n\n'
+           'If you have not made an appointment yet and would like to do so, enter /summary.\n\n'
            'If you want to /delete your record entirely, press /delete.',
             reply_markup=ReplyKeyboardMarkup(
             reply_keyboard, one_time_keyboard=True, input_field_placeholder='SIGN UP COMPLETE'
@@ -64,12 +64,12 @@ def start(update: Update, context: CallbackContext) -> int:
 
             appointment_made = select_db.get_value(user_id, 'appointment')
             reply_keyboard = [
-                ['/cancel_appointment'], 
+                #['/cancel_appointment'], 
                 ['/status'], 
                 ['/delete']]
             update.message.reply_text(
             f'Cool. You already have an appointment on {appointment_made} \n\n'
-            'In case you would like to cancel, just enter /cancel_appointment.\n\n'
+            'In case you would like to cancel, you can do that via your calendar app.\n\n'
             'Otherwise, we are looking forward to our call.',
             reply_markup=ReplyKeyboardMarkup(
             reply_keyboard, one_time_keyboard=True, input_field_placeholder='SIGN UP COMPLETE'

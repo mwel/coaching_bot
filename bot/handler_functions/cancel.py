@@ -10,7 +10,7 @@ from logEnabler import logger;
 
 from handler_functions.database_connector.select_db import get_value
 from handler_functions.database_connector.delete_record_db import delete_record, delete_value
-from handler_functions.calendar.calendar_manager import cancel_appointment
+# from handler_functions.calendar.calendar_manager import cancel_appointment
 
 
 # Cancels and ends the conversation.
@@ -71,34 +71,34 @@ def delete(update: Update, context: CallbackContext) -> int:
 
 
 # cancel appointment and remove it from calendars
-def cancel_appointment(update: Update, context: CallbackContext) -> int:
+# def cancel_appointment(update: Update, context: CallbackContext) -> int:
 
-    try:
+#     try:
 
-        # tell google Calendar API to cancel the appointment with this user
-        user_id = update.message.from_user.id
-        slot_start = get_value(user_id, 'appointment')
-        event = get_value(user_id, 'event_id')
-        cancel_appointment(user_id, slot_start)
+#         # tell google Calendar API to cancel the appointment with this user
+#         user_id = update.message.from_user.id
+#         slot_start = get_value(user_id, 'appointment')
+#         # event = get_value(user_id, 'event_id')
+#         # cancel_appointment(user_id, slot_start)
 
-        # remove values from db
-        delete_value(user_id, 'appointment')
-        delete_value(user_id, 'event_id')
+#         # remove values from db
+#         delete_value(user_id, 'appointment')
+#         delete_value(user_id, 'event_id')
 
-        logger.info(f'----- User {update.message.from_user.id} cancelled appointment.')
-        update.message.reply_text(
-            '- - - SUCCESS - - -\n'
-            'Your appointment has been canceled.\n\n You can make a new appointment by entering /summary.',
-            reply_markup=ReplyKeyboardRemove(),
-        )
+#         logger.info(f'----- User {update.message.from_user.id} cancelled appointment.')
+#         update.message.reply_text(
+#             '- - - SUCCESS - - -\n'
+#             'Your appointment has been canceled.\n\n You can make a new appointment by entering /summary.',
+#             reply_markup=ReplyKeyboardRemove(),
+#         )
     
-    except Exception as exc:
-        logger.info(exc)
-        logger.info(f'----- ERROR: User {update.message.from_user.id} tried to cancel, but was not able to.')
-        update.message.reply_text(
-            '- - - ERROR - - -\n'
-            'Sorry - something went wrong. Please try to cancel your appointment via your calendar app or just give us a quick call. ',
-            reply_markup=ReplyKeyboardRemove(),
-        )
+#     except Exception as exc:
+#         logger.info(exc)
+#         logger.info(f'----- ERROR: User {update.message.from_user.id} tried to cancel, but was not able to.')
+#         update.message.reply_text(
+#             '- - - ERROR - - -\n'
+#             'Sorry - something went wrong. Please try to cancel your appointment via your calendar app or just give us a quick call. ',
+#             reply_markup=ReplyKeyboardRemove(),
+#         )
 
-    return ConversationHandler.END
+#     return ConversationHandler.END
