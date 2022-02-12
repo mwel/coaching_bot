@@ -12,26 +12,17 @@ from pathlib import Path
 import os
 
 
-reply_keyboard = [['COMPLETE SIGN UP'],['/cancel']]
-
 # Stores the photo and asks for a location.
 def photo(update: Update, context: CallbackContext) -> int:
+    
+    user_id = update.message.from_user.id
+
     photo_file = update.message.photo[-1].get_file()
     directory = str(Path(__file__).parent.parent)
-    photo_file.download(os.path.join(directory, 'static', 'user_pictures', str(update.message.from_user.id) + '.jpg'))
+    photo_file.download(os.path.join(directory, 'static', 'user_pictures', str(user_id) + '.jpg'))
 
-    # write to user dict
-    # context.user_data['user_photo'] = photo_file
-
-    # TODO: save image in db as BLOB
-    # convert to binary
-    # with open(photo_file, 'rb') as file:
-    #     binary_photo_file = file.read()
-    
-    # write pic to db
-    # insert_update(update.message.from_user.id, 'photo', binary_photo_file) # ERROR: unsupported type
     # log info
-    logger.info(f'Photo of {update.message.from_user.first_name} {update.message.from_user.last_name}: {update.message.from_user.first_name+"_photo.jpg"}')
+    logger.info(f'+++++ Photo of user {user_id}: {update.message.from_user.first_name+"_photo.jpg"} +++++')
 
     update.message.reply_text(
         'Great picture!',
@@ -43,16 +34,17 @@ def photo(update: Update, context: CallbackContext) -> int:
         reply_markup=states.KEYBOARD_MARKUPS[states.SUMMARY],
         )
 
-
     # save state to DB
-    insert_update(update.message.from_user.id, 'state', states.SUMMARY)
+    insert_update(user_id, 'state', states.SUMMARY)
     return states.SUMMARY
 
 
 # Skips the photo and asks for a location.
 def skip_photo(update: Update, context: CallbackContext) -> int:
-    logger.info(f'User {update.message.from_user.first_name} {update.message.from_user.last_name} did not update.message.from_user.first_namephoto.')
-    insert_update(update.message.from_user.id, 'photo', 'NULL')
+    
+    user_id = update.message.from_user.id
+    
+    logger.info(f'00000 User {user_id} did not submit a photo. 00000')
     
     update.message.reply_text(
         'No problem. :) You can send me a picture later, if you like.',
@@ -65,5 +57,5 @@ def skip_photo(update: Update, context: CallbackContext) -> int:
         )
 
     # save state to DB
-    insert_update(update.message.from_user.id, 'state', states.SUMMARY)
+    insert_update(user_id, 'state', states.SUMMARY)
     return states.SUMMARY

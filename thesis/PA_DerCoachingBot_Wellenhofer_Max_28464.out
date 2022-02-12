@@ -44,54 +44,58 @@
 \BOOKMARK [1][-]{section.6.1}{Setup}{chapter.6}% 44
 \BOOKMARK [2][-]{subsection.6.1.1}{Entwicklungsumgebung}{section.6.1}% 45
 \BOOKMARK [2][-]{subsection.6.1.2}{Microsoft Visual Studio Code}{section.6.1}% 46
-\BOOKMARK [2][-]{subsection.6.1.3}{pipenv}{section.6.1}% 47
+\BOOKMARK [2][-]{subsection.6.1.3}{pipenv \040Python Package Manager}{section.6.1}% 47
 \BOOKMARK [2][-]{subsection.6.1.4}{Konstanten und Schl\374ssel}{section.6.1}% 48
-\BOOKMARK [2][-]{subsection.6.1.5}{Dispatcher}{section.6.1}% 49
-\BOOKMARK [2][-]{subsection.6.1.6}{ConversationHandlers}{section.6.1}% 50
-\BOOKMARK [2][-]{subsection.6.1.7}{CommandHandler}{section.6.1}% 51
-\BOOKMARK [1][-]{section.6.2}{Coaching Bot Herzst\374ck - main.py - State Machine}{chapter.6}% 52
-\BOOKMARK [2][-]{subsection.6.2.1}{start und cancel - Konversation starten und stoppen}{section.6.2}% 53
-\BOOKMARK [2][-]{subsection.6.2.2}{delete - Nutzerdaten l\366schen}{section.6.2}% 54
-\BOOKMARK [2][-]{subsection.6.2.3}{help - Hilfe ausgeben}{section.6.2}% 55
-\BOOKMARK [2][-]{subsection.6.2.4}{summary - Zusammenfassung ausgeben}{section.6.2}% 56
-\BOOKMARK [2][-]{subsection.6.2.5}{status - Status Quo ausgeben}{section.6.2}% 57
+\BOOKMARK [1][-]{section.6.2}{Coaching Bot Herzst\374ck \040main.py \040State Machine}{chapter.6}% 49
+\BOOKMARK [2][-]{subsection.6.2.1}{Dispatcher}{section.6.2}% 50
+\BOOKMARK [2][-]{subsection.6.2.2}{ConversationHandlers}{section.6.2}% 51
+\BOOKMARK [2][-]{subsection.6.2.3}{CommandHandler}{section.6.2}% 52
+\BOOKMARK [2][-]{subsection.6.2.4}{start und cancel \040Konversation starten und stoppen}{section.6.2}% 53
+\BOOKMARK [2][-]{subsection.6.2.5}{delete \040Nutzerdaten l\366schen}{section.6.2}% 54
+\BOOKMARK [2][-]{subsection.6.2.6}{help \040Hilfe ausgeben}{section.6.2}% 55
+\BOOKMARK [2][-]{subsection.6.2.7}{summary \040Zusammenfassung ausgeben}{section.6.2}% 56
+\BOOKMARK [2][-]{subsection.6.2.8}{status \040Status Quo ausgeben}{section.6.2}% 57
 \BOOKMARK [1][-]{section.6.3}{Handler Funktionen}{chapter.6}% 58
 \BOOKMARK [2][-]{subsection.6.3.1}{start.py}{section.6.3}% 59
-\BOOKMARK [2][-]{subsection.6.3.2}{birthdate.py}{section.6.3}% 60
-\BOOKMARK [2][-]{subsection.6.3.3}{bio.py}{section.6.3}% 61
-\BOOKMARK [2][-]{subsection.6.3.4}{cancel}{section.6.3}% 62
-\BOOKMARK [2][-]{subsection.6.3.5}{confirmationmail.py}{section.6.3}% 63
-\BOOKMARK [2][-]{subsection.6.3.6}{email.py}{section.6.3}% 64
-\BOOKMARK [2][-]{subsection.6.3.7}{gender.py}{section.6.3}% 65
-\BOOKMARK [2][-]{subsection.6.3.8}{help.py}{section.6.3}% 66
-\BOOKMARK [2][-]{subsection.6.3.9}{location.py}{section.6.3}% 67
-\BOOKMARK [2][-]{subsection.6.3.10}{photo.py}{section.6.3}% 68
-\BOOKMARK [2][-]{subsection.6.3.11}{states.py}{section.6.3}% 69
-\BOOKMARK [2][-]{subsection.6.3.12}{status.py}{section.6.3}% 70
-\BOOKMARK [2][-]{subsection.6.3.13}{summary.py}{section.6.3}% 71
-\BOOKMARK [2][-]{subsection.6.3.14}{telephone.py}{section.6.3}% 72
-\BOOKMARK [2][-]{subsection.6.3.15}{validation.py}{section.6.3}% 73
+\BOOKMARK [2][-]{subsection.6.3.2}{bio.py}{section.6.3}% 60
+\BOOKMARK [2][-]{subsection.6.3.3}{gender.py}{section.6.3}% 61
+\BOOKMARK [2][-]{subsection.6.3.4}{birthdate.py}{section.6.3}% 62
+\BOOKMARK [2][-]{subsection.6.3.5}{email.py}{section.6.3}% 63
+\BOOKMARK [2][-]{subsection.6.3.6}{telephone.py}{section.6.3}% 64
+\BOOKMARK [2][-]{subsection.6.3.7}{location.py}{section.6.3}% 65
+\BOOKMARK [2][-]{subsection.6.3.8}{photo.py}{section.6.3}% 66
+\BOOKMARK [2][-]{subsection.6.3.9}{summary.py}{section.6.3}% 67
+\BOOKMARK [2][-]{subsection.6.3.10}{confirmation\137mail.py}{section.6.3}% 68
+\BOOKMARK [2][-]{subsection.6.3.11}{help.py}{section.6.3}% 69
+\BOOKMARK [2][-]{subsection.6.3.12}{states.py}{section.6.3}% 70
+\BOOKMARK [2][-]{subsection.6.3.13}{status.py}{section.6.3}% 71
+\BOOKMARK [2][-]{subsection.6.3.14}{validation.py}{section.6.3}% 72
+\BOOKMARK [2][-]{subsection.6.3.15}{cancel}{section.6.3}% 73
 \BOOKMARK [1][-]{section.6.4}{Datenbank}{chapter.6}% 74
-\BOOKMARK [1][-]{section.6.5}{E-Mail-Versand}{chapter.6}% 75
-\BOOKMARK [1][-]{section.6.6}{Tests}{chapter.6}% 76
-\BOOKMARK [1][-]{section.6.7}{}{chapter.6}% 77
-\BOOKMARK [1][-]{section.6.8}{}{chapter.6}% 78
-\BOOKMARK [1][-]{section.6.9}{}{chapter.6}% 79
-\BOOKMARK [1][-]{section.6.10}{}{chapter.6}% 80
-\BOOKMARK [1][-]{section.6.11}{}{chapter.6}% 81
-\BOOKMARK [1][-]{section.6.12}{Kalender}{chapter.6}% 82
-\BOOKMARK [0][-]{chapter.7}{Beispiele}{}% 83
-\BOOKMARK [1][-]{subsection.7.0.1}{Stage 00}{chapter.7}% 84
-\BOOKMARK [2][-]{subsection.7.0.2}{Stage 01}{subsection.7.0.1}% 85
-\BOOKMARK [2][-]{subsection.7.0.3}{Stage 02}{subsection.7.0.1}% 86
-\BOOKMARK [2][-]{subsection.7.0.4}{Stage 03}{subsection.7.0.1}% 87
-\BOOKMARK [2][-]{subsection.7.0.5}{Stage 04}{subsection.7.0.1}% 88
-\BOOKMARK [2][-]{subsection.7.0.6}{Stage 05}{subsection.7.0.1}% 89
-\BOOKMARK [2][-]{subsection.7.0.7}{Stage 06}{subsection.7.0.1}% 90
-\BOOKMARK [2][-]{subsection.7.0.8}{Stage 07}{subsection.7.0.1}% 91
-\BOOKMARK [2][-]{subsection.7.0.9}{Stage 08}{subsection.7.0.1}% 92
-\BOOKMARK [2][-]{subsection.7.0.10}{Stage 09}{subsection.7.0.1}% 93
-\BOOKMARK [0][-]{chapter.8}{Anwendungsszenarien}{}% 94
-\BOOKMARK [0][-]{chapter.9}{Zusammenfassung und Ausblick}{}% 95
-\BOOKMARK [0][-]{appendix.A}{Glossar}{}% 96
-\BOOKMARK [0][-]{appendix.B}{Selbstst\344ndigkeitserkl\344rung}{}% 97
+\BOOKMARK [2][-]{subsection.6.4.1}{create\137db.py}{section.6.4}% 75
+\BOOKMARK [2][-]{subsection.6.4.2}{select\137db.py}{section.6.4}% 76
+\BOOKMARK [2][-]{subsection.6.4.3}{insert\137value\137db.py}{section.6.4}% 77
+\BOOKMARK [2][-]{subsection.6.4.4}{insert\137update\137db.py}{section.6.4}% 78
+\BOOKMARK [2][-]{subsection.6.4.5}{delete\137record.py}{section.6.4}% 79
+\BOOKMARK [1][-]{section.6.5}{EMailVersand}{chapter.6}% 80
+\BOOKMARK [1][-]{section.6.6}{}{chapter.6}% 81
+\BOOKMARK [1][-]{section.6.7}{}{chapter.6}% 82
+\BOOKMARK [1][-]{section.6.8}{}{chapter.6}% 83
+\BOOKMARK [1][-]{section.6.9}{}{chapter.6}% 84
+\BOOKMARK [1][-]{section.6.10}{}{chapter.6}% 85
+\BOOKMARK [1][-]{section.6.11}{Kalender}{chapter.6}% 86
+\BOOKMARK [0][-]{chapter.7}{Beispiele}{}% 87
+\BOOKMARK [1][-]{subsection.7.0.1}{Stage 00}{chapter.7}% 88
+\BOOKMARK [2][-]{subsection.7.0.2}{Stage 01}{subsection.7.0.1}% 89
+\BOOKMARK [2][-]{subsection.7.0.3}{Stage 02}{subsection.7.0.1}% 90
+\BOOKMARK [2][-]{subsection.7.0.4}{Stage 03}{subsection.7.0.1}% 91
+\BOOKMARK [2][-]{subsection.7.0.5}{Stage 04}{subsection.7.0.1}% 92
+\BOOKMARK [2][-]{subsection.7.0.6}{Stage 05}{subsection.7.0.1}% 93
+\BOOKMARK [2][-]{subsection.7.0.7}{Stage 06}{subsection.7.0.1}% 94
+\BOOKMARK [2][-]{subsection.7.0.8}{Stage 07}{subsection.7.0.1}% 95
+\BOOKMARK [2][-]{subsection.7.0.9}{Stage 08}{subsection.7.0.1}% 96
+\BOOKMARK [2][-]{subsection.7.0.10}{Stage 09}{subsection.7.0.1}% 97
+\BOOKMARK [0][-]{chapter.8}{Anwendungsszenarien}{}% 98
+\BOOKMARK [0][-]{chapter.9}{Zusammenfassung und Ausblick}{}% 99
+\BOOKMARK [0][-]{appendix.A}{Glossar}{}% 100
+\BOOKMARK [0][-]{appendix.B}{Selbstst\344ndigkeitserkl\344rung}{}% 101

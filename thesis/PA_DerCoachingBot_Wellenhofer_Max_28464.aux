@@ -26,7 +26,7 @@
 \@writefile{toc}{\contentsline {chapter}{\numberline {1}Einleitung und Problemstellung}{1}{chapter.1}\protected@file@percent }
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
-\@writefile{loa}{\addvspace {10\p@ }}
+\@writefile{lopytx}{\addvspace {10\p@ }}
 \@writefile{toc}{\contentsline {section}{\numberline {1.1}Motivation}{1}{section.1.1}\protected@file@percent }
 \@writefile{toc}{\contentsline {paragraph}{Warum einen Coaching Bot bauen?}{1}{section*.8}\protected@file@percent }
 \citation{telegramAPI}
@@ -36,7 +36,7 @@
 \@writefile{toc}{\contentsline {chapter}{\numberline {2}VerwandteArbeiten}{2}{chapter.2}\protected@file@percent }
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
-\@writefile{loa}{\addvspace {10\p@ }}
+\@writefile{lopytx}{\addvspace {10\p@ }}
 \@writefile{toc}{\contentsline {paragraph}{Im Folgenden werden 2 etablierte Coaching-Bots betrachtet, die keinen monetären Zweck verfolgen.}{2}{section*.9}\protected@file@percent }
 \@writefile{toc}{\contentsline {section}{\numberline {2.1}CoachPTBS - der Chatbot der Bundeswehr}{2}{section.2.1}\protected@file@percent }
 \@writefile{toc}{\contentsline {section}{\numberline {2.2}Telegram Chat Bots}{3}{section.2.2}\protected@file@percent }
@@ -50,7 +50,7 @@
 \@writefile{toc}{\contentsline {chapter}{\numberline {3}Grundlagen}{4}{chapter.3}\protected@file@percent }
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
-\@writefile{loa}{\addvspace {10\p@ }}
+\@writefile{lopytx}{\addvspace {10\p@ }}
 \@writefile{toc}{\contentsline {section}{\numberline {3.1}Python}{4}{section.3.1}\protected@file@percent }
 \@writefile{toc}{\contentsline {section}{\numberline {3.2}Telegram API}{4}{section.3.2}\protected@file@percent }
 \@writefile{toc}{\contentsline {section}{\numberline {3.3}SQLite}{4}{section.3.3}\protected@file@percent }
@@ -66,7 +66,7 @@
 \@writefile{toc}{\contentsline {chapter}{\numberline {4}Konzept}{6}{chapter.4}\protected@file@percent }
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
-\@writefile{loa}{\addvspace {10\p@ }}
+\@writefile{lopytx}{\addvspace {10\p@ }}
 \@writefile{toc}{\contentsline {section}{\numberline {4.1}Grundkonzept}{6}{section.4.1}\protected@file@percent }
 \@writefile{toc}{\contentsline {paragraph}{Der Telegram Bot als Herzstück}{6}{section*.10}\protected@file@percent }
 \@writefile{lof}{\contentsline {figure}{\numberline {4.1}{\ignorespaces Architektur für das Projekt "Der Coaching Bot" auf hohem Abstraktionsniveau\relax }}{6}{figure.caption.11}\protected@file@percent }
@@ -80,7 +80,7 @@
 \@writefile{toc}{\contentsline {chapter}{\numberline {5}Realisierung}{7}{chapter.5}\protected@file@percent }
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
-\@writefile{loa}{\addvspace {10\p@ }}
+\@writefile{lopytx}{\addvspace {10\p@ }}
 \@writefile{toc}{\contentsline {section}{\numberline {5.1}Telegram Bot Framwork}{7}{section.5.1}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {5.1.1}Generierung Telegram Bot}{7}{subsection.5.1.1}\protected@file@percent }
 \@writefile{toc}{\contentsline {section}{\numberline {5.2}Vanilla Bot Implementierung}{7}{section.5.2}\protected@file@percent }
@@ -111,90 +111,133 @@
 \@writefile{toc}{\contentsline {chapter}{\numberline {6}Implementierung}{12}{chapter.6}\protected@file@percent }
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
-\@writefile{loa}{\addvspace {10\p@ }}
+\@writefile{lopytx}{\addvspace {10\p@ }}
 \@writefile{toc}{\contentsline {section}{\numberline {6.1}Setup}{12}{section.6.1}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {6.1.1}Entwicklungsumgebung}{12}{subsection.6.1.1}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {6.1.2}Microsoft Visual Studio Code}{12}{subsection.6.1.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.1.3}pipenv}{12}{subsection.6.1.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.1.3}pipenv \- Python Package Manager}{12}{subsection.6.1.3}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {6.1.4}Konstanten und Schlüssel}{12}{subsection.6.1.4}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.1.5}Dispatcher}{12}{subsection.6.1.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {6.2}Coaching Bot Herzstück \- main.py \- State Machine}{12}{section.6.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.2.1}Dispatcher}{13}{subsection.6.2.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.2.2}ConversationHandlers}{13}{subsection.6.2.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.2.3}CommandHandler}{13}{subsection.6.2.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.2.4}start und cancel \- Konversation starten und stoppen}{13}{subsection.6.2.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.2.5}delete \- Nutzerdaten löschen}{13}{subsection.6.2.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.2.6}help \- Hilfe ausgeben}{13}{subsection.6.2.6}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.2.7}summary \- Zusammenfassung ausgeben}{13}{subsection.6.2.7}\protected@file@percent }
 \citation{repo}
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.1.6}ConversationHandlers}{13}{subsection.6.1.6}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.1.7}CommandHandler}{13}{subsection.6.1.7}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {6.2}Coaching Bot Herzstück - main.py - State Machine}{13}{section.6.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.2.1}start und cancel - Konversation starten und stoppen}{13}{subsection.6.2.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.2.2}delete - Nutzerdaten löschen}{13}{subsection.6.2.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.2.3}help - Hilfe ausgeben}{13}{subsection.6.2.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.2.4}summary - Zusammenfassung ausgeben}{13}{subsection.6.2.4}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.2.5}status - Status Quo ausgeben}{14}{subsection.6.2.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.2.8}status \- Status Quo ausgeben}{14}{subsection.6.2.8}\protected@file@percent }
 \@writefile{toc}{\contentsline {section}{\numberline {6.3}Handler Funktionen}{14}{section.6.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.3.1}start.py}{15}{subsection.6.3.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.3.2}birthdate.py}{15}{subsection.6.3.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.3.3}bio.py}{15}{subsection.6.3.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.3.4}cancel}{15}{subsection.6.3.4}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.3.5}confirmation_mail.py}{15}{subsection.6.3.5}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.3.6}email.py}{15}{subsection.6.3.6}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.3.7}gender.py}{15}{subsection.6.3.7}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.3.8}help.py}{15}{subsection.6.3.8}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.3.9}location.py}{15}{subsection.6.3.9}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.3.10}photo.py}{15}{subsection.6.3.10}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.3.11}states.py}{15}{subsection.6.3.11}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.3.12}status.py}{15}{subsection.6.3.12}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.3.13}summary.py}{15}{subsection.6.3.13}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.3.14}telephone.py}{15}{subsection.6.3.14}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.3.15}validation.py}{15}{subsection.6.3.15}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {6.4}Datenbank}{15}{section.6.4}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {6.5}E-Mail-Versand}{15}{section.6.5}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {6.6}Tests}{15}{section.6.6}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {6.7}}{15}{section.6.7}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {6.8}}{15}{section.6.8}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {6.9}}{15}{section.6.9}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {6.10}}{15}{section.6.10}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {6.11}}{15}{section.6.11}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {6.12}Kalender}{15}{section.6.12}\protected@file@percent }
-\@writefile{toc}{\contentsline {chapter}{\numberline {7}Beispiele}{16}{chapter.7}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.3.1}start.py}{14}{subsection.6.3.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.3.2}bio.py}{15}{subsection.6.3.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Methode bio}{15}{section*.14}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Methode skip\_bio}{16}{section*.15}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.3.3}gender.py}{16}{subsection.6.3.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Methode gender}{16}{section*.16}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Methode skip\_gender}{16}{section*.17}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.3.4}birthdate.py}{16}{subsection.6.3.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Methode birthdate}{16}{section*.18}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.3.5}email.py}{17}{subsection.6.3.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Methode email}{17}{section*.19}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Methode skip\_email}{17}{section*.20}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.3.6}telephone.py}{17}{subsection.6.3.6}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Methode telephone}{17}{section*.21}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Methode skip\_telephone}{17}{section*.22}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.3.7}location.py}{17}{subsection.6.3.7}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Methode location}{17}{section*.23}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Methode skip\_location}{17}{section*.24}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.3.8}photo.py}{18}{subsection.6.3.8}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Methode photo}{18}{section*.25}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Methode skip\_photo}{18}{section*.26}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.3.9}summary.py}{18}{subsection.6.3.9}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Methode summary}{18}{section*.27}\protected@file@percent }
+\citation{mime}
+\citation{smtplib}
+\citation{conversationBot}
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.3.10}confirmation\_mail.py}{19}{subsection.6.3.10}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Methode confirmation\_mail}{19}{section*.28}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.3.11}help.py}{19}{subsection.6.3.11}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Methode help}{19}{section*.29}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.3.12}states.py}{19}{subsection.6.3.12}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{STATES}{19}{section*.30}\protected@file@percent }
+\citation{datetime}
+\@writefile{toc}{\contentsline {paragraph}{MESSAGES}{20}{section*.31}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{KEYBOARD\_MARKUPS}{20}{section*.32}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.3.13}status.py}{20}{subsection.6.3.13}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Methode status}{20}{section*.33}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.3.14}validation.py}{20}{subsection.6.3.14}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{validate\_birthdate}{20}{section*.34}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{validate\_email}{20}{section*.35}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{validate\_telephone}{21}{section*.36}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.3.15}cancel}{21}{subsection.6.3.15}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Methode cancel}{21}{section*.37}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Methode delte}{21}{section*.38}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {6.4}Datenbank}{21}{section.6.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.4.1}create\_db.py}{22}{subsection.6.4.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Methode create\_db}{22}{section*.39}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.4.2}select\_db.py}{22}{subsection.6.4.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Methode user\_search}{22}{section*.40}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Methode get\_all\_data}{22}{section*.41}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Methode get\_customers}{22}{section*.42}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{get\_value}{22}{section*.43}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.4.3}insert\_value\_db.py}{22}{subsection.6.4.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Methode insert\_update}{22}{section*.44}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.4.4}insert\_update\_db.py}{23}{subsection.6.4.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Methode insert\_update}{23}{section*.45}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.4.5}delete\_record.py}{23}{subsection.6.4.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Methode delete\_record}{23}{section*.46}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Methode delete\_value}{23}{section*.47}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {6.5}E\-Mail\-Versand}{23}{section.6.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {6.6}}{23}{section.6.6}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {6.7}}{23}{section.6.7}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {6.8}}{23}{section.6.8}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {6.9}}{23}{section.6.9}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {6.10}}{23}{section.6.10}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {6.11}Kalender}{23}{section.6.11}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Tests}{23}{section*.48}\protected@file@percent }
+\@writefile{toc}{\contentsline {chapter}{\numberline {7}Beispiele}{24}{chapter.7}\protected@file@percent }
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
-\@writefile{loa}{\addvspace {10\p@ }}
-\@writefile{toc}{\contentsline {subsection}{\numberline {7.0.1}Stage 00}{16}{subsection.7.0.1}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {7.1}{\ignorespaces Bezeichnung der Abbildung\relax }}{16}{figure.caption.14}\protected@file@percent }
-\newlabel{a1}{{7.1}{16}{Bezeichnung der Abbildung\relax }{figure.caption.14}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {7.0.2}Stage 01}{16}{subsection.7.0.2}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {7.2}{\ignorespaces Bezeichnung der Abbildung\relax }}{16}{figure.caption.15}\protected@file@percent }
-\newlabel{a1}{{7.2}{16}{Bezeichnung der Abbildung\relax }{figure.caption.15}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {7.3}{\ignorespaces Bezeichnung der Abbildung\relax }}{17}{figure.caption.16}\protected@file@percent }
-\newlabel{a1}{{7.3}{17}{Bezeichnung der Abbildung\relax }{figure.caption.16}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {7.4}{\ignorespaces Bezeichnung der Abbildung\relax }}{17}{figure.caption.17}\protected@file@percent }
-\newlabel{a1}{{7.4}{17}{Bezeichnung der Abbildung\relax }{figure.caption.17}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {7.5}{\ignorespaces Bezeichnung der Abbildung\relax }}{17}{figure.caption.18}\protected@file@percent }
-\newlabel{a1}{{7.5}{17}{Bezeichnung der Abbildung\relax }{figure.caption.18}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {7.6}{\ignorespaces Bezeichnung der Abbildung\relax }}{17}{figure.caption.19}\protected@file@percent }
-\newlabel{a1}{{7.6}{17}{Bezeichnung der Abbildung\relax }{figure.caption.19}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {7.0.3}Stage 02}{17}{subsection.7.0.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {7.0.4}Stage 03}{17}{subsection.7.0.4}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {7.0.5}Stage 04}{17}{subsection.7.0.5}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {7.0.6}Stage 05}{17}{subsection.7.0.6}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {7.0.7}Stage 06}{17}{subsection.7.0.7}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {7.0.8}Stage 07}{17}{subsection.7.0.8}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {7.0.9}Stage 08}{17}{subsection.7.0.9}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {7.0.10}Stage 09}{17}{subsection.7.0.10}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {7.7}{\ignorespaces Bezeichnung der Abbildung\relax }}{18}{figure.caption.20}\protected@file@percent }
-\newlabel{a1}{{7.7}{18}{Bezeichnung der Abbildung\relax }{figure.caption.20}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {7.8}{\ignorespaces Bezeichnung der Abbildung\relax }}{18}{figure.caption.21}\protected@file@percent }
-\newlabel{a1}{{7.8}{18}{Bezeichnung der Abbildung\relax }{figure.caption.21}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {7.9}{\ignorespaces Bezeichnung der Abbildung\relax }}{18}{figure.caption.22}\protected@file@percent }
-\newlabel{a1}{{7.9}{18}{Bezeichnung der Abbildung\relax }{figure.caption.22}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {7.10}{\ignorespaces Bezeichnung der Abbildung\relax }}{18}{figure.caption.23}\protected@file@percent }
-\newlabel{a1}{{7.10}{18}{Bezeichnung der Abbildung\relax }{figure.caption.23}{}}
-\@writefile{toc}{\contentsline {chapter}{\numberline {8}Anwendungsszenarien}{19}{chapter.8}\protected@file@percent }
+\@writefile{lopytx}{\addvspace {10\p@ }}
+\@writefile{toc}{\contentsline {subsection}{\numberline {7.0.1}Stage 00}{24}{subsection.7.0.1}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {7.1}{\ignorespaces Bezeichnung der Abbildung\relax }}{24}{figure.caption.49}\protected@file@percent }
+\newlabel{a1}{{7.1}{24}{Bezeichnung der Abbildung\relax }{figure.caption.49}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {7.0.2}Stage 01}{24}{subsection.7.0.2}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {7.2}{\ignorespaces Bezeichnung der Abbildung\relax }}{24}{figure.caption.50}\protected@file@percent }
+\newlabel{a1}{{7.2}{24}{Bezeichnung der Abbildung\relax }{figure.caption.50}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {7.3}{\ignorespaces Bezeichnung der Abbildung\relax }}{25}{figure.caption.51}\protected@file@percent }
+\newlabel{a1}{{7.3}{25}{Bezeichnung der Abbildung\relax }{figure.caption.51}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {7.4}{\ignorespaces Bezeichnung der Abbildung\relax }}{25}{figure.caption.52}\protected@file@percent }
+\newlabel{a1}{{7.4}{25}{Bezeichnung der Abbildung\relax }{figure.caption.52}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {7.5}{\ignorespaces Bezeichnung der Abbildung\relax }}{25}{figure.caption.53}\protected@file@percent }
+\newlabel{a1}{{7.5}{25}{Bezeichnung der Abbildung\relax }{figure.caption.53}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {7.6}{\ignorespaces Bezeichnung der Abbildung\relax }}{25}{figure.caption.54}\protected@file@percent }
+\newlabel{a1}{{7.6}{25}{Bezeichnung der Abbildung\relax }{figure.caption.54}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {7.0.3}Stage 02}{25}{subsection.7.0.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {7.0.4}Stage 03}{25}{subsection.7.0.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {7.0.5}Stage 04}{25}{subsection.7.0.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {7.0.6}Stage 05}{25}{subsection.7.0.6}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {7.0.7}Stage 06}{25}{subsection.7.0.7}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {7.0.8}Stage 07}{25}{subsection.7.0.8}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {7.0.9}Stage 08}{25}{subsection.7.0.9}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {7.0.10}Stage 09}{25}{subsection.7.0.10}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {7.7}{\ignorespaces Bezeichnung der Abbildung\relax }}{26}{figure.caption.55}\protected@file@percent }
+\newlabel{a1}{{7.7}{26}{Bezeichnung der Abbildung\relax }{figure.caption.55}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {7.8}{\ignorespaces Bezeichnung der Abbildung\relax }}{26}{figure.caption.56}\protected@file@percent }
+\newlabel{a1}{{7.8}{26}{Bezeichnung der Abbildung\relax }{figure.caption.56}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {7.9}{\ignorespaces Bezeichnung der Abbildung\relax }}{26}{figure.caption.57}\protected@file@percent }
+\newlabel{a1}{{7.9}{26}{Bezeichnung der Abbildung\relax }{figure.caption.57}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {7.10}{\ignorespaces Bezeichnung der Abbildung\relax }}{26}{figure.caption.58}\protected@file@percent }
+\newlabel{a1}{{7.10}{26}{Bezeichnung der Abbildung\relax }{figure.caption.58}{}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {8}Anwendungsszenarien}{27}{chapter.8}\protected@file@percent }
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
-\@writefile{loa}{\addvspace {10\p@ }}
-\@writefile{toc}{\contentsline {paragraph}{Ausbaupotenzial}{19}{section*.24}\protected@file@percent }
-\@writefile{toc}{\contentsline {chapter}{\numberline {9}Zusammenfassung und Ausblick}{20}{chapter.9}\protected@file@percent }
+\@writefile{lopytx}{\addvspace {10\p@ }}
+\@writefile{toc}{\contentsline {paragraph}{Ausbaupotenzial}{27}{section*.59}\protected@file@percent }
+\@writefile{toc}{\contentsline {chapter}{\numberline {9}Zusammenfassung und Ausblick}{28}{chapter.9}\protected@file@percent }
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
-\@writefile{loa}{\addvspace {10\p@ }}
+\@writefile{lopytx}{\addvspace {10\p@ }}
 \bibdata{coaching_bot_group}
 \@input{chapters/Glossar.aux}
 \@input{chapters/Selbststaendigkeitserklaerung.aux}

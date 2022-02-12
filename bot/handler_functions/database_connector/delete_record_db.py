@@ -6,13 +6,15 @@ import sqlite3
 from handler_functions.database_connector.select_db import user_search
 from logEnabler import logger;
 
+db = 'coachingBotDB.db'
+
 # delete all data of a specific user
 def delete_record(user_id):
     
     if user_search(user_id):
         try:
             # connect to db
-            connection = sqlite3.connect("coachingBotDB.db")
+            connection = sqlite3.connect(db)
 
             # cursor
             cursor = connection.cursor()
@@ -40,7 +42,7 @@ def delete_value(user_id, column):
     if user_search(user_id):
         try:
             # connect to db
-            connection = sqlite3.connect("coachingBotDB.db")
+            connection = sqlite3.connect(db)
 
             # cursor
             cursor = connection.cursor()

@@ -1,8 +1,6 @@
 """Define states, state transition messages and keyboards."""
 
-from tabnanny import check
-from telegram import ReplyKeyboardMarkup, InlineKeyboardMarkup
-from handler_functions.calendar.calendar_manager import check_availability
+from telegram import ReplyKeyboardMarkup
 
 # STATE DEFINITIONS
 MAX_STATES = 9
@@ -48,12 +46,6 @@ MESSAGES = {
         'If you would like to reset your request and delete all your data, just enter /delete.'
     ,
 
-    # COMPLETED: 'Congratulations! \n\n'
-    #     'You\'re all set for your first session. We are looking forward to it! \n'
-    #     'Until then - have a good one!\n\n'
-    #     'Cheers, your wavehoover Team'
-    # ,
-
 }
 
 # custom keyboards for next state
@@ -67,28 +59,31 @@ KEYBOARD_MARKUPS = {
             input_field_placeholder='Lady? Gentleman? Unicorn? ... here you can be whatever you want.'
     ),
     
-    BIRTHDATE: ReplyKeyboardMarkup(
-            [
-            ['7', '8', '9'],
-            ['4', '5', '6'],
-            ['1', '2', '3'],
-            ['/', '0', '.']
-            ],
-            input_field_placeholder='DD.MM.YYYY'
-    ),
-        
+    BIRTHDATE: None,
+    
+    # ReplyKeyboardMarkup(
+    #         [
+    #         ['7', '8', '9'],
+    #         ['4', '5', '6'],
+    #         ['1', '2', '3'],
+    #         ['/', '0', '.']
+    #         ],
+    #         input_field_placeholder='DD.MM.YYYY'
+    # ),
     
     EMAIL: None,
     
-    TELEPHONE: ReplyKeyboardMarkup(
-            [
-            ['7', '8', '9'],
-            ['4', '5', '6'],
-            ['1', '2', '3'],
-            ['+', '0', '#']
-            ],
-            input_field_placeholder='+00 000000000'
-    ),
+    TELEPHONE: None,
+    
+    # ReplyKeyboardMarkup(
+    #         [
+    #         ['7', '8', '9'],
+    #         ['4', '5', '6'],
+    #         ['1', '2', '3'],
+    #         ['+', '0', '#']
+    #         ],
+    #         input_field_placeholder='+00 000000000'
+    # ),
     
     LOCATION: None,
     

@@ -95,7 +95,9 @@ def summary(update: Update, context: CallbackContext) -> int:
             'Otherwise, we are looking forward to our call.',
             reply_markup=ReplyKeyboardRemove(),
         )
-        
+
+        return ConversationHandler.END
+
 
     # trigger confirmation email
     confirmation_mail(first_name, summary, email)

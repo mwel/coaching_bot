@@ -2,7 +2,7 @@
 
 # imports
 from telegram import Update
-from telegram.ext import CallbackContext
+from telegram.ext import ConversationHandler, CallbackContext
 
 import collections
 from handler_functions.cancel import cancel
@@ -35,3 +35,4 @@ def help(update: Update, context: CallbackContext):
     # send help text
     context.bot.send_message(chat_id=update.effective_user.id, text=text, parse_mode='Markdown')
     
+    return ConversationHandler.END

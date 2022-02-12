@@ -5,11 +5,12 @@
 import sqlite3
 from logEnabler import logger
 
+db = 'coachingBotDB.db'
 
 # check, if a record exists in the db and return a boolean
 def user_search(user_id): # I'm sure there is a better solution for this, but this is mine.
     # connect to db
-    connection = sqlite3.connect("coachingBotDB.db")
+    connection = sqlite3.connect(db)
     # cursor
     cursor = connection.cursor()
 
@@ -28,11 +29,10 @@ def user_search(user_id): # I'm sure there is a better solution for this, but th
     # get result from db, parse it as string, trim it and pase it as boolean
     result = bool(int((str(cursor.fetchone())).lstrip('(').rstrip(',)')))
 
-    logger.info(f'+++++ RECORD REQUESTED for user_id: {user_id} +++++')
     if result == True:
-        logger.info(f'+++++ RECORD FOUND +++++')
+        logger.info(f'>>>>> RECORD FOUND for {user_id} >>>>>')
     else:
-        logger.info(f'+++++ NO RECORD FOUND +++++')
+        logger.info(f'>>>>> NO RECORD FOUND for {user_id} >>>>>')
 
     return result
 
@@ -40,7 +40,7 @@ def user_search(user_id): # I'm sure there is a better solution for this, but th
 # get all data available for one single user
 def get_all_data(user_id):
     # connect to db
-    connection = sqlite3.connect("coachingBotDB.db")
+    connection = sqlite3.connect(db)
     # cursor
     cursor = connection.cursor()
 
@@ -51,15 +51,13 @@ def get_all_data(user_id):
         """
 
     # fetch all data from table users
-    logger.info(f'+++++ RECORD FOUND FOR: {user_id} +++++')
     cursor.execute(selection)
 
     # store all data from selection in table_data
     table_data = cursor.fetchall()
 
-
     # print table
-    logger.info(f'+++++ RECORD REQUESTED for user_id: {user_id} +++++')
+    logger.info(f'>>>>> FULL RECORD for user_id: {user_id} >>>>>')
     for i in table_data:
         print(i)
 
@@ -69,7 +67,7 @@ def get_all_data(user_id):
 # get all data available for one single user
 def get_customers():
     # connect to db
-    connection = sqlite3.connect("coachingBotDB.db")
+    connection = sqlite3.connect(db)
     # cursor
     cursor = connection.cursor()
 
@@ -94,7 +92,7 @@ def get_customers():
 # get a specific value of a user
 def get_value(user_id, column):
     # connect to db
-    connection = sqlite3.connect("coachingBotDB.db")
+    connection = sqlite3.connect(db)
 
     # cursor
     cursor = connection.cursor()
@@ -111,7 +109,6 @@ def get_value(user_id, column):
     table_value = (str(cursor.fetchone())).lstrip("('").rstrip("',)")
 
     # print value
-    logger.info(f'+++++ RECORD REQUESTED for user_id: {user_id} +++++')
-    logger.info(f'+++++ DB RESPONSE: {table_value} +++++')
+    logger.info(f'>>>>> {column} FOUND for user_id: {user_id} >>>>> {table_value}')
 
     return table_value

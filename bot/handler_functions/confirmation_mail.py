@@ -16,6 +16,7 @@ smtp_port =         MAIL_constant.port
 sender_address =    MAIL_constant.mail_user_in
 password =          MAIL_constant.MAIL_ACCOUNT_PW
 
+
 # send summary email to user after completion of bot questions
 def confirmation_mail(recipient_name, summary, recipient_address):
 

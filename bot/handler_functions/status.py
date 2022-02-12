@@ -14,9 +14,11 @@ from handler_functions import states
 # check db for user data and return sign up status
 def status(update: Update, context: CallbackContext) -> int:
 
-    if select_db.user_search(update.message.from_user.id):
+    user_id = update.message.from_user.id
 
-        state = int(select_db.get_value(update.message.from_user.id, 'state')) + 1 # states begin at 0, but STAGES start at 1
+    if select_db.user_search(user_id):
+
+        state = int(select_db.get_value(user_id, 'state')) + 1 # states begin at 0, but STAGES start at 1
 
         # return message, if user had been found in db
         update.message.reply_text(

@@ -51,55 +51,94 @@
 \contentsline {section}{\numberline {6.1}Setup}{12}{section.6.1}%
 \contentsline {subsection}{\numberline {6.1.1}Entwicklungsumgebung}{12}{subsection.6.1.1}%
 \contentsline {subsection}{\numberline {6.1.2}Microsoft Visual Studio Code}{12}{subsection.6.1.2}%
-\contentsline {subsection}{\numberline {6.1.3}pipenv}{12}{subsection.6.1.3}%
+\contentsline {subsection}{\numberline {6.1.3}pipenv \- Python Package Manager}{12}{subsection.6.1.3}%
 \contentsline {subsection}{\numberline {6.1.4}Konstanten und Schlüssel}{12}{subsection.6.1.4}%
-\contentsline {subsection}{\numberline {6.1.5}Dispatcher}{12}{subsection.6.1.5}%
-\contentsline {subsection}{\numberline {6.1.6}ConversationHandlers}{13}{subsection.6.1.6}%
-\contentsline {subsection}{\numberline {6.1.7}CommandHandler}{13}{subsection.6.1.7}%
-\contentsline {section}{\numberline {6.2}Coaching Bot Herzstück - main.py - State Machine}{13}{section.6.2}%
-\contentsline {subsection}{\numberline {6.2.1}start und cancel - Konversation starten und stoppen}{13}{subsection.6.2.1}%
-\contentsline {subsection}{\numberline {6.2.2}delete - Nutzerdaten löschen}{13}{subsection.6.2.2}%
-\contentsline {subsection}{\numberline {6.2.3}help - Hilfe ausgeben}{13}{subsection.6.2.3}%
-\contentsline {subsection}{\numberline {6.2.4}summary - Zusammenfassung ausgeben}{13}{subsection.6.2.4}%
-\contentsline {subsection}{\numberline {6.2.5}status - Status Quo ausgeben}{14}{subsection.6.2.5}%
+\contentsline {section}{\numberline {6.2}Coaching Bot Herzstück \- main.py \- State Machine}{12}{section.6.2}%
+\contentsline {subsection}{\numberline {6.2.1}Dispatcher}{13}{subsection.6.2.1}%
+\contentsline {subsection}{\numberline {6.2.2}ConversationHandlers}{13}{subsection.6.2.2}%
+\contentsline {subsection}{\numberline {6.2.3}CommandHandler}{13}{subsection.6.2.3}%
+\contentsline {subsection}{\numberline {6.2.4}start und cancel \- Konversation starten und stoppen}{13}{subsection.6.2.4}%
+\contentsline {subsection}{\numberline {6.2.5}delete \- Nutzerdaten löschen}{13}{subsection.6.2.5}%
+\contentsline {subsection}{\numberline {6.2.6}help \- Hilfe ausgeben}{13}{subsection.6.2.6}%
+\contentsline {subsection}{\numberline {6.2.7}summary \- Zusammenfassung ausgeben}{13}{subsection.6.2.7}%
+\contentsline {subsection}{\numberline {6.2.8}status \- Status Quo ausgeben}{14}{subsection.6.2.8}%
 \contentsline {section}{\numberline {6.3}Handler Funktionen}{14}{section.6.3}%
-\contentsline {subsection}{\numberline {6.3.1}start.py}{15}{subsection.6.3.1}%
-\contentsline {subsection}{\numberline {6.3.2}birthdate.py}{15}{subsection.6.3.2}%
-\contentsline {subsection}{\numberline {6.3.3}bio.py}{15}{subsection.6.3.3}%
-\contentsline {subsection}{\numberline {6.3.4}cancel}{15}{subsection.6.3.4}%
-\contentsline {subsection}{\numberline {6.3.5}confirmation_mail.py}{15}{subsection.6.3.5}%
-\contentsline {subsection}{\numberline {6.3.6}email.py}{15}{subsection.6.3.6}%
-\contentsline {subsection}{\numberline {6.3.7}gender.py}{15}{subsection.6.3.7}%
-\contentsline {subsection}{\numberline {6.3.8}help.py}{15}{subsection.6.3.8}%
-\contentsline {subsection}{\numberline {6.3.9}location.py}{15}{subsection.6.3.9}%
-\contentsline {subsection}{\numberline {6.3.10}photo.py}{15}{subsection.6.3.10}%
-\contentsline {subsection}{\numberline {6.3.11}states.py}{15}{subsection.6.3.11}%
-\contentsline {subsection}{\numberline {6.3.12}status.py}{15}{subsection.6.3.12}%
-\contentsline {subsection}{\numberline {6.3.13}summary.py}{15}{subsection.6.3.13}%
-\contentsline {subsection}{\numberline {6.3.14}telephone.py}{15}{subsection.6.3.14}%
-\contentsline {subsection}{\numberline {6.3.15}validation.py}{15}{subsection.6.3.15}%
-\contentsline {section}{\numberline {6.4}Datenbank}{15}{section.6.4}%
-\contentsline {section}{\numberline {6.5}E-Mail-Versand}{15}{section.6.5}%
-\contentsline {section}{\numberline {6.6}Tests}{15}{section.6.6}%
-\contentsline {section}{\numberline {6.7}}{15}{section.6.7}%
-\contentsline {section}{\numberline {6.8}}{15}{section.6.8}%
-\contentsline {section}{\numberline {6.9}}{15}{section.6.9}%
-\contentsline {section}{\numberline {6.10}}{15}{section.6.10}%
-\contentsline {section}{\numberline {6.11}}{15}{section.6.11}%
-\contentsline {section}{\numberline {6.12}Kalender}{15}{section.6.12}%
-\contentsline {chapter}{\numberline {7}Beispiele}{16}{chapter.7}%
-\contentsline {subsection}{\numberline {7.0.1}Stage 00}{16}{subsection.7.0.1}%
-\contentsline {subsection}{\numberline {7.0.2}Stage 01}{16}{subsection.7.0.2}%
-\contentsline {subsection}{\numberline {7.0.3}Stage 02}{17}{subsection.7.0.3}%
-\contentsline {subsection}{\numberline {7.0.4}Stage 03}{17}{subsection.7.0.4}%
-\contentsline {subsection}{\numberline {7.0.5}Stage 04}{17}{subsection.7.0.5}%
-\contentsline {subsection}{\numberline {7.0.6}Stage 05}{17}{subsection.7.0.6}%
-\contentsline {subsection}{\numberline {7.0.7}Stage 06}{17}{subsection.7.0.7}%
-\contentsline {subsection}{\numberline {7.0.8}Stage 07}{17}{subsection.7.0.8}%
-\contentsline {subsection}{\numberline {7.0.9}Stage 08}{17}{subsection.7.0.9}%
-\contentsline {subsection}{\numberline {7.0.10}Stage 09}{17}{subsection.7.0.10}%
-\contentsline {chapter}{\numberline {8}Anwendungsszenarien}{19}{chapter.8}%
-\contentsline {paragraph}{Ausbaupotenzial}{19}{section*.24}%
-\contentsline {chapter}{\numberline {9}Zusammenfassung und Ausblick}{20}{chapter.9}%
-\contentsline {chapter}{Glossar}{22}{appendix.A}%
-\contentsline {chapter}{Selbstständigkeitserklärung}{23}{appendix.B}%
+\contentsline {subsection}{\numberline {6.3.1}start.py}{14}{subsection.6.3.1}%
+\contentsline {subsection}{\numberline {6.3.2}bio.py}{15}{subsection.6.3.2}%
+\contentsline {paragraph}{Methode bio}{15}{section*.14}%
+\contentsline {paragraph}{Methode skip\_bio}{16}{section*.15}%
+\contentsline {subsection}{\numberline {6.3.3}gender.py}{16}{subsection.6.3.3}%
+\contentsline {paragraph}{Methode gender}{16}{section*.16}%
+\contentsline {paragraph}{Methode skip\_gender}{16}{section*.17}%
+\contentsline {subsection}{\numberline {6.3.4}birthdate.py}{16}{subsection.6.3.4}%
+\contentsline {paragraph}{Methode birthdate}{16}{section*.18}%
+\contentsline {subsection}{\numberline {6.3.5}email.py}{17}{subsection.6.3.5}%
+\contentsline {paragraph}{Methode email}{17}{section*.19}%
+\contentsline {paragraph}{Methode skip\_email}{17}{section*.20}%
+\contentsline {subsection}{\numberline {6.3.6}telephone.py}{17}{subsection.6.3.6}%
+\contentsline {paragraph}{Methode telephone}{17}{section*.21}%
+\contentsline {paragraph}{Methode skip\_telephone}{17}{section*.22}%
+\contentsline {subsection}{\numberline {6.3.7}location.py}{17}{subsection.6.3.7}%
+\contentsline {paragraph}{Methode location}{17}{section*.23}%
+\contentsline {paragraph}{Methode skip\_location}{17}{section*.24}%
+\contentsline {subsection}{\numberline {6.3.8}photo.py}{18}{subsection.6.3.8}%
+\contentsline {paragraph}{Methode photo}{18}{section*.25}%
+\contentsline {paragraph}{Methode skip\_photo}{18}{section*.26}%
+\contentsline {subsection}{\numberline {6.3.9}summary.py}{18}{subsection.6.3.9}%
+\contentsline {paragraph}{Methode summary}{18}{section*.27}%
+\contentsline {subsection}{\numberline {6.3.10}confirmation\_mail.py}{19}{subsection.6.3.10}%
+\contentsline {paragraph}{Methode confirmation\_mail}{19}{section*.28}%
+\contentsline {subsection}{\numberline {6.3.11}help.py}{19}{subsection.6.3.11}%
+\contentsline {paragraph}{Methode help}{19}{section*.29}%
+\contentsline {subsection}{\numberline {6.3.12}states.py}{19}{subsection.6.3.12}%
+\contentsline {paragraph}{STATES}{19}{section*.30}%
+\contentsline {paragraph}{MESSAGES}{20}{section*.31}%
+\contentsline {paragraph}{KEYBOARD\_MARKUPS}{20}{section*.32}%
+\contentsline {subsection}{\numberline {6.3.13}status.py}{20}{subsection.6.3.13}%
+\contentsline {paragraph}{Methode status}{20}{section*.33}%
+\contentsline {subsection}{\numberline {6.3.14}validation.py}{20}{subsection.6.3.14}%
+\contentsline {paragraph}{validate\_birthdate}{20}{section*.34}%
+\contentsline {paragraph}{validate\_email}{20}{section*.35}%
+\contentsline {paragraph}{validate\_telephone}{21}{section*.36}%
+\contentsline {subsection}{\numberline {6.3.15}cancel}{21}{subsection.6.3.15}%
+\contentsline {paragraph}{Methode cancel}{21}{section*.37}%
+\contentsline {paragraph}{Methode delte}{21}{section*.38}%
+\contentsline {section}{\numberline {6.4}Datenbank}{21}{section.6.4}%
+\contentsline {subsection}{\numberline {6.4.1}create\_db.py}{22}{subsection.6.4.1}%
+\contentsline {paragraph}{Methode create\_db}{22}{section*.39}%
+\contentsline {subsection}{\numberline {6.4.2}select\_db.py}{22}{subsection.6.4.2}%
+\contentsline {paragraph}{Methode user\_search}{22}{section*.40}%
+\contentsline {paragraph}{Methode get\_all\_data}{22}{section*.41}%
+\contentsline {paragraph}{Methode get\_customers}{22}{section*.42}%
+\contentsline {paragraph}{get\_value}{22}{section*.43}%
+\contentsline {subsection}{\numberline {6.4.3}insert\_value\_db.py}{22}{subsection.6.4.3}%
+\contentsline {paragraph}{Methode insert\_update}{22}{section*.44}%
+\contentsline {subsection}{\numberline {6.4.4}insert\_update\_db.py}{23}{subsection.6.4.4}%
+\contentsline {paragraph}{Methode insert\_update}{23}{section*.45}%
+\contentsline {subsection}{\numberline {6.4.5}delete\_record.py}{23}{subsection.6.4.5}%
+\contentsline {paragraph}{Methode delete\_record}{23}{section*.46}%
+\contentsline {paragraph}{Methode delete\_value}{23}{section*.47}%
+\contentsline {section}{\numberline {6.5}E\-Mail\-Versand}{23}{section.6.5}%
+\contentsline {section}{\numberline {6.6}}{23}{section.6.6}%
+\contentsline {section}{\numberline {6.7}}{23}{section.6.7}%
+\contentsline {section}{\numberline {6.8}}{23}{section.6.8}%
+\contentsline {section}{\numberline {6.9}}{23}{section.6.9}%
+\contentsline {section}{\numberline {6.10}}{23}{section.6.10}%
+\contentsline {section}{\numberline {6.11}Kalender}{23}{section.6.11}%
+\contentsline {paragraph}{Tests}{23}{section*.48}%
+\contentsline {chapter}{\numberline {7}Beispiele}{24}{chapter.7}%
+\contentsline {subsection}{\numberline {7.0.1}Stage 00}{24}{subsection.7.0.1}%
+\contentsline {subsection}{\numberline {7.0.2}Stage 01}{24}{subsection.7.0.2}%
+\contentsline {subsection}{\numberline {7.0.3}Stage 02}{25}{subsection.7.0.3}%
+\contentsline {subsection}{\numberline {7.0.4}Stage 03}{25}{subsection.7.0.4}%
+\contentsline {subsection}{\numberline {7.0.5}Stage 04}{25}{subsection.7.0.5}%
+\contentsline {subsection}{\numberline {7.0.6}Stage 05}{25}{subsection.7.0.6}%
+\contentsline {subsection}{\numberline {7.0.7}Stage 06}{25}{subsection.7.0.7}%
+\contentsline {subsection}{\numberline {7.0.8}Stage 07}{25}{subsection.7.0.8}%
+\contentsline {subsection}{\numberline {7.0.9}Stage 08}{25}{subsection.7.0.9}%
+\contentsline {subsection}{\numberline {7.0.10}Stage 09}{25}{subsection.7.0.10}%
+\contentsline {chapter}{\numberline {8}Anwendungsszenarien}{27}{chapter.8}%
+\contentsline {paragraph}{Ausbaupotenzial}{27}{section*.59}%
+\contentsline {chapter}{\numberline {9}Zusammenfassung und Ausblick}{28}{chapter.9}%
+\contentsline {chapter}{Glossar}{30}{appendix.A}%
+\contentsline {chapter}{Selbstständigkeitserklärung}{31}{appendix.B}%

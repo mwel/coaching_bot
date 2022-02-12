@@ -13,15 +13,17 @@ from handler_functions.database_connector.insert_value_db import insert_update
 # Stores the information received and continues on to the next state
 def gender(update: Update, context: CallbackContext) -> int:
 
-    logger.info(f'Gender choice of {update.message.from_user.first_name} {update.message.from_user.last_name}: {update.message.text}')
+    user_id = update.message.from_user.id
+
+    logger.info(f'+++++ Gender choice of user {user_id}: {update.message.text} +++++')
 
     # write data to db
     if update.message.text == 'Gentleman':
-        insert_update(update.message.from_user.id, 'gender', 'male')
+        insert_update(user_id, 'gender', 'male')
     elif update.message.text == 'Lady':
-        insert_update(update.message.from_user.id, 'gender', 'female')
+        insert_update(user_id, 'gender', 'female')
     else:
-        insert_update(update.message.from_user.id, 'gender', 'diverse')
+        insert_update(user_id, 'gender', 'diverse')
 
     update.message.reply_text(
         f'Alright, {update.message.from_user.first_name}! ' + \
@@ -31,17 +33,20 @@ def gender(update: Update, context: CallbackContext) -> int:
         )
 
     # save state to DB
-    insert_update(update.message.from_user.id, 'state', states.BIRTHDATE)
+    insert_update(user_id, 'state', states.BIRTHDATE)
     return states.BIRTHDATE
 
 
 # Skips this information and continues on to the next state
 def skip_gender(update: Update, context: CallbackContext) -> int:
-    logger.info(f'No gender submitted by {update.message.from_user.first_name} {update.message.from_user.last_name}.')
+
+    user_id = update.message.from_user.id
+
+    logger.info(f'00000 No gender submitted by {user_id} 00000')
 
     update.message.reply_text(
         'Alright. It\'s just for the letter head. \n'
-        'Here, nobody cares about what you are anyway. Instead, want to help you get to where you wanna be!',
+        'Here, you can be whatever you like. Instead, we want to help you get to where you wanna be!',
         reply_markup=ReplyKeyboardRemove(),
         )
 

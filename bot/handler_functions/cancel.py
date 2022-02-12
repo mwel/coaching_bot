@@ -24,8 +24,8 @@ def cancel(update: Update, context: CallbackContext) -> int:
 
         update.message.reply_text(
             '- - - SUCCESS - - -\n'
-            f'APPLICATION TERMINATED by {update.message.from_user.id}\n\n'
-            'All your previously submitted data has been deleted.\n\n' 
+            f'APPLICATION TERMINATED for: {update.message.from_user.first_name} {update.message.from_user.last_name}\n\n'
+            'All your previously submitted data has been deleted and your history has been reset.\n\n' 
             'Now you can close this chat\n-OR-\n/start over.',
             reply_markup=ReplyKeyboardRemove(),
         )

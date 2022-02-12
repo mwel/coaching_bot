@@ -12,13 +12,14 @@ from handler_functions.database_connector.insert_value_db import insert_update
 
 # Stores the information received and continues on to the next state
 def bio(update: Update, context: CallbackContext) -> int:
-    logger.info(f'+++++ Bio of {update.message.from_user.first_name} {update.message.from_user.last_name}: {update.message.text} +++++')
-
-    # input validation
     
+    user_id = update.message.from_user.id
+    bio_message = update.message.text
+    
+    logger.info(f'+++++ Bio of user {user_id}: {bio_message} +++++')
 
     # write bio to DB
-    insert_update(update.message.from_user.id, 'bio', update.message.text)
+    insert_update(user_id, 'bio', bio_message)
 
     # reply keyboard for next state
     update.message.reply_text(
@@ -29,24 +30,29 @@ def bio(update: Update, context: CallbackContext) -> int:
         )
 
     # save state to DB
-    insert_update(update.message.from_user.id, 'state', states.GENDER)
+    insert_update(user_id, 'state', states.GENDER)
     return states.GENDER
 
 
 # Skips this information and continues on to the next state
 def skip_bio(update: Update, context: CallbackContext) -> int:
-    logger.info(f'No bio submitted by {update.message.from_user.first_name} {update.message.from_user.last_name}.')
+    
+    user_id = update.message.from_user.id
 
+    logger.info(f'00000 No bio submitted by {user_id} 00000')
+
+    # alternative message
     update.message.reply_text(
-        'Ok, maybe we can have a quick phone call later in order to get to know each other instead.',
+        'Alright. No problem. I know, it can be uneasy to share at first. If you would like, I can offer you a free "gettin to know each other" phone call once you have finished the sign up.',
         reply_markup=ReplyKeyboardRemove(),
         )
 
+    # reply keyboard for next state
     update.message.reply_text(
         states.MESSAGES[states.GENDER],
         reply_markup=states.KEYBOARD_MARKUPS[states.GENDER],
         )    
 
     # save state to DB
-    insert_update(update.message.from_user.id, 'state', states.GENDER)
+    insert_update(user_id, 'state', states.GENDER)
     return states.GENDER

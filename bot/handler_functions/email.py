@@ -14,14 +14,16 @@ from handler_functions.database_connector.insert_value_db import insert_update
 # Stores the information received and continues on to the next state
 def email(update: Update, context: CallbackContext) -> int:
     
+    user_id = update.message.from_user.id
+
     if validate_email(update.message.text): # if entry is valid, continue.
 
-        logger.info(f'Email address of {update.message.from_user.first_name} {update.message.from_user.last_name}: {update.message.text}')
+        logger.info(f'Email address of user {user_id}: {update.message.text}')
 
-        insert_update(update.message.from_user.id, 'email', update.message.text)
+        insert_update(user_id, 'email', update.message.text)
 
         update.message.reply_text(
-            'Ok - I will send you a summary, once we have completed sign up.',
+            'Ok - I will send you a summary, once we have completed the sign up.',
             reply_markup=ReplyKeyboardRemove(),
             )
 
@@ -32,7 +34,7 @@ def email(update: Update, context: CallbackContext) -> int:
             )
         
         # save state to DB
-        insert_update(update.message.from_user.id, 'state', states.TELEPHONE)
+        insert_update(user_id, 'state', states.TELEPHONE)
         return states.TELEPHONE
 
     else: # else, tell user and stay in current state until correct entry is provided.
@@ -44,7 +46,9 @@ def email(update: Update, context: CallbackContext) -> int:
 # Skips this information and continues on to the next state
 def skip_email(update: Update, context: CallbackContext) -> int:
 
-    logger.info(f'No email address submitted by {update.message.from_user.first_name} {update.message.from_user.last_name}.')
+    user_id = update.message.from_user.id
+
+    logger.info(f'No email address submitted by {user_id}.')
 
     update.message.reply_text(
         'Sorry, you cannot skip that one. We need a valid email address for future correspondance. Without an email address, the onboarding cannot be completed.\n\n'

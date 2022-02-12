@@ -4,10 +4,13 @@
 import sqlite3
 from logEnabler import logger
 
+
+db = 'coachingBotDB.db'
+
 # build a new db, if none exists yet
 def create_db ():
     # connect to db
-    connection = sqlite3.connect("coachingBotDB.db")
+    connection = sqlite3.connect(db)
     # cursor
     cursor = connection.cursor()
 
