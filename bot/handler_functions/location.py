@@ -1,7 +1,7 @@
 """ location handler function. called, when user arrives at location state """
 
 # imports
-from telegram import Update, ReplyKeyboardRemove
+from telegram import Update, ReplyKeyboardRemove, InputMediaPhoto
 from telegram.ext import CallbackContext
 from logEnabler import logger;
 
@@ -30,6 +30,10 @@ def location(update: Update, context: CallbackContext) -> int:
         states.MESSAGES[states.PHOTO],
         reply_markup=states.KEYBOARD_MARKUPS[states.PHOTO],
         )
+    # TODO: send a picture
+    bot_image = f'/ressources/cyberpunk.jpg'
+    context.bot.sendMedia(bot_image)
+
     
     # save state to DB
     insert_update(update.message.from_user.id, 'state', states.PHOTO)

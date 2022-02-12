@@ -1,44 +1,36 @@
 \chapter{Grundlagen}
 
-Die folgenden Sprachen und Systeme dienen als Grundlage für die im Rahmen dieses Projekts entwickelte Applikation.
-
+Die folgenden Sprachen und Systeme dienen als Grundlage für die im Rahmen dieses Projekts entwickelte Applikation. Eine Liste aller eingebundenen Bibliotheken kann dem Pipfile des Projets entnommen werden. 
 
 \section{Python}
-
 Der größte Teil der Applikation ist in Python 3.8.6 \cite{python3.8.6} geschrieben. Das war zum Stand des Entwicklungsbeginns 2021 die aktuell stabile Python-Version.
 
-
 \section{Telegram API}
-
 Die Applikation basiert auf der API des Instant Messaging Dienstes Telegram \cite{telegramAPI} sowie deren Extension \cite{telegramAPIext}.
-Als Grundgerüst der für den Bot erforderlichen State Machine wurde der ConversationBot von Leandro Toledo et. al. genutzt. \cite{conversationBot} Das Repository enthält eine Vielzahl basaler Bot-Implementierungen, die als Startpunkt für jegliche Bot-Implementierung einen guten Überblick über das Grundgerüst ein die Funktionsweise eines Bot geben.
-
+Als Grundgerüst der für den Bot erforderlichen State Machine wurde der ConversationBot von Leandro Toledo et. al. genutzt. \cite{conversationBot} Das Repository enthält eine Vielzahl basaler Bot-Implementierungen, die als Startpunkt für jegliche Bot-Implementierung einen guten Überblick über das Grundgerüst und die Funktionsweise eines Bot geben.
 
 \section{SQLite}
-
-Zur Speicherung von Nutzerdaten wird eine simple SQLite Datenbank \cite{sqlite} genutzt.
-
+Zur Speicherung von Nutzerdaten wird eine SQLite Datenbank \cite{sqlite} genutzt.
 
 \section{SQLite3 API}
-
 Als Schnittstelle zwischen dem Python basierten Backend und der SQLite Datenbank nutzt die Applikation den sqlite3 Database-Connector \cite{sqlite3API}.
 
+% \section{Mailing}
+% Die Applikation versendet als Zusammenfassung aller eingereichten Informationen eine E-Mail von einem Mail-Server. 
 
 \section{HMTL}
-
 HTML bietet uns die Möglichkeit die grafische Oberfläche in einem Standard Webbrowser auszugeben. \cite{HTML}
 
+\section{CSS}
+Zur Aufbereitung der Web-GUI wird ein CSS-File genutzt.
 
-\section{PHP}
-
-Die HTML-GUI wird via PHP \cite{php} an die Datenbank gebunden.
+\section{Flask}
+Die HTML-GUI wird via Flask \cite{flask} an einen lokalen Web-Server übermittelt und kann so einfach mittels Python in gängigen Browsern präsentiert werden.
 
 
 \section{Google Calendar API}
-
-Die Applikation bindet die Google Calendar API \cite{googleCalAPI} an, um es dem User zu ermöglichen, einen Termin mit dem Anbieter zu vereinbaren: 
+Die Applikation bindet die Google Calendar API \cite{googleCalAPI} an, um es dem User zu ermöglichen, einen Termin mit dem Anbieter zu vereinbaren.
 
 
 \section{TheCoachingBot}
-
 Schließlich findet sich der gesamte Source-Code inklusive aller Abhängigkeiten in einem öffentlichen GitHub Repository: \cite{repo} 

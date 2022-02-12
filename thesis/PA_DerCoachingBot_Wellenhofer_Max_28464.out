@@ -1,76 +1,97 @@
 \BOOKMARK [0][-]{chapter.1}{Einleitung und Problemstellung}{}% 1
 \BOOKMARK [1][-]{section.1.1}{Motivation}{chapter.1}% 2
 \BOOKMARK [0][-]{chapter.2}{VerwandteArbeiten}{}% 3
-\BOOKMARK [0][-]{chapter.3}{Grundlagen}{}% 4
-\BOOKMARK [1][-]{section.3.1}{Python}{chapter.3}% 5
-\BOOKMARK [1][-]{section.3.2}{Telegram API}{chapter.3}% 6
-\BOOKMARK [1][-]{section.3.3}{SQLite}{chapter.3}% 7
-\BOOKMARK [1][-]{section.3.4}{SQLite3 API}{chapter.3}% 8
-\BOOKMARK [1][-]{section.3.5}{HMTL}{chapter.3}% 9
-\BOOKMARK [1][-]{section.3.6}{PHP}{chapter.3}% 10
-\BOOKMARK [1][-]{section.3.7}{Google Calendar API}{chapter.3}% 11
-\BOOKMARK [1][-]{section.3.8}{TheCoachingBot}{chapter.3}% 12
-\BOOKMARK [0][-]{chapter.4}{Konzept}{}% 13
-\BOOKMARK [0][-]{chapter.5}{Realisierung}{}% 14
-\BOOKMARK [1][-]{section.5.1}{Telegram Bot Framwork}{chapter.5}% 15
-\BOOKMARK [1][-]{section.5.2}{Generierung Telegram Bot}{chapter.5}% 16
-\BOOKMARK [1][-]{section.5.3}{Vanilla Bot Implementierung}{chapter.5}% 17
-\BOOKMARK [1][-]{section.5.4}{Endlicher Automat und Zust\344nde}{chapter.5}% 18
-\BOOKMARK [1][-]{section.5.5}{Erstellung Datenbank}{chapter.5}% 19
-\BOOKMARK [1][-]{section.5.6}{Anbindung Datenbank an Python}{chapter.5}% 20
-\BOOKMARK [1][-]{section.5.7}{}{chapter.5}% 21
-\BOOKMARK [0][-]{chapter.6}{Implementierung}{}% 22
-\BOOKMARK [1][-]{section.6.1}{Setup}{chapter.6}% 23
-\BOOKMARK [2][-]{subsection.6.1.1}{Entwicklungsumgebung}{section.6.1}% 24
-\BOOKMARK [2][-]{subsection.6.1.2}{Microsoft Visual Studio Code}{section.6.1}% 25
-\BOOKMARK [2][-]{subsection.6.1.3}{pipenv}{section.6.1}% 26
-\BOOKMARK [2][-]{subsection.6.1.4}{Konstanten und Schl\374ssel}{section.6.1}% 27
-\BOOKMARK [2][-]{subsection.6.1.5}{Dispatcher}{section.6.1}% 28
-\BOOKMARK [2][-]{subsection.6.1.6}{ConversationHandlers}{section.6.1}% 29
-\BOOKMARK [2][-]{subsection.6.1.7}{CommandHandler}{section.6.1}% 30
-\BOOKMARK [1][-]{section.6.2}{Coaching Bot Herzst\374ck - main.py - State Machine}{chapter.6}% 31
-\BOOKMARK [2][-]{subsection.6.2.1}{start und cancel - Konversation starten und stoppen}{section.6.2}% 32
-\BOOKMARK [2][-]{subsection.6.2.2}{delete - Nutzerdaten l\366schen}{section.6.2}% 33
-\BOOKMARK [2][-]{subsection.6.2.3}{help - Hilfe ausgeben}{section.6.2}% 34
-\BOOKMARK [2][-]{subsection.6.2.4}{summary - Zusammenfassung ausgeben}{section.6.2}% 35
-\BOOKMARK [2][-]{subsection.6.2.5}{status - Status Quo ausgeben}{section.6.2}% 36
-\BOOKMARK [1][-]{section.6.3}{Handler Funktionen}{chapter.6}% 37
-\BOOKMARK [2][-]{subsection.6.3.1}{start.py}{section.6.3}% 38
-\BOOKMARK [2][-]{subsection.6.3.2}{birthdate.py}{section.6.3}% 39
-\BOOKMARK [2][-]{subsection.6.3.3}{bio.py}{section.6.3}% 40
-\BOOKMARK [2][-]{subsection.6.3.4}{cancel}{section.6.3}% 41
-\BOOKMARK [2][-]{subsection.6.3.5}{confirmationmail.py}{section.6.3}% 42
-\BOOKMARK [2][-]{subsection.6.3.6}{email.py}{section.6.3}% 43
-\BOOKMARK [2][-]{subsection.6.3.7}{gender.py}{section.6.3}% 44
-\BOOKMARK [2][-]{subsection.6.3.8}{help.py}{section.6.3}% 45
-\BOOKMARK [2][-]{subsection.6.3.9}{location.py}{section.6.3}% 46
-\BOOKMARK [2][-]{subsection.6.3.10}{photo.py}{section.6.3}% 47
-\BOOKMARK [2][-]{subsection.6.3.11}{states.py}{section.6.3}% 48
-\BOOKMARK [2][-]{subsection.6.3.12}{status.py}{section.6.3}% 49
-\BOOKMARK [2][-]{subsection.6.3.13}{summary.py}{section.6.3}% 50
-\BOOKMARK [2][-]{subsection.6.3.14}{telephone.py}{section.6.3}% 51
-\BOOKMARK [2][-]{subsection.6.3.15}{validation.py}{section.6.3}% 52
-\BOOKMARK [1][-]{section.6.4}{Datenbank}{chapter.6}% 53
-\BOOKMARK [1][-]{section.6.5}{E-Mail-Versand}{chapter.6}% 54
-\BOOKMARK [1][-]{section.6.6}{Tests}{chapter.6}% 55
-\BOOKMARK [1][-]{section.6.7}{}{chapter.6}% 56
-\BOOKMARK [1][-]{section.6.8}{}{chapter.6}% 57
-\BOOKMARK [1][-]{section.6.9}{}{chapter.6}% 58
-\BOOKMARK [1][-]{section.6.10}{}{chapter.6}% 59
-\BOOKMARK [1][-]{section.6.11}{}{chapter.6}% 60
-\BOOKMARK [1][-]{section.6.12}{Kalender}{chapter.6}% 61
-\BOOKMARK [0][-]{chapter.7}{Beispiele}{}% 62
-\BOOKMARK [1][-]{subsection.7.0.1}{Stage 00}{chapter.7}% 63
-\BOOKMARK [2][-]{subsection.7.0.2}{Stage 01}{subsection.7.0.1}% 64
-\BOOKMARK [2][-]{subsection.7.0.3}{Stage 02}{subsection.7.0.1}% 65
-\BOOKMARK [2][-]{subsection.7.0.4}{Stage 03}{subsection.7.0.1}% 66
-\BOOKMARK [2][-]{subsection.7.0.5}{Stage 04}{subsection.7.0.1}% 67
-\BOOKMARK [2][-]{subsection.7.0.6}{Stage 05}{subsection.7.0.1}% 68
-\BOOKMARK [2][-]{subsection.7.0.7}{Stage 06}{subsection.7.0.1}% 69
-\BOOKMARK [2][-]{subsection.7.0.8}{Stage 07}{subsection.7.0.1}% 70
-\BOOKMARK [2][-]{subsection.7.0.9}{Stage 08}{subsection.7.0.1}% 71
-\BOOKMARK [2][-]{subsection.7.0.10}{Stage 09}{subsection.7.0.1}% 72
-\BOOKMARK [0][-]{chapter.8}{Anwendungsszenarien}{}% 73
-\BOOKMARK [0][-]{chapter.9}{Zusammenfassung und Ausblick}{}% 74
-\BOOKMARK [0][-]{appendix.A}{Glossar}{}% 75
-\BOOKMARK [0][-]{appendix.B}{Selbstst\344ndigkeitserkl\344rung}{}% 76
+\BOOKMARK [1][-]{section.2.1}{CoachPTBS - der Chatbot der Bundeswehr}{chapter.2}% 4
+\BOOKMARK [1][-]{section.2.2}{Telegram Chat Bots}{chapter.2}% 5
+\BOOKMARK [0][-]{chapter.3}{Grundlagen}{}% 6
+\BOOKMARK [1][-]{section.3.1}{Python}{chapter.3}% 7
+\BOOKMARK [1][-]{section.3.2}{Telegram API}{chapter.3}% 8
+\BOOKMARK [1][-]{section.3.3}{SQLite}{chapter.3}% 9
+\BOOKMARK [1][-]{section.3.4}{SQLite3 API}{chapter.3}% 10
+\BOOKMARK [1][-]{section.3.5}{HMTL}{chapter.3}% 11
+\BOOKMARK [1][-]{section.3.6}{CSS}{chapter.3}% 12
+\BOOKMARK [1][-]{section.3.7}{Flask}{chapter.3}% 13
+\BOOKMARK [1][-]{section.3.8}{Google Calendar API}{chapter.3}% 14
+\BOOKMARK [1][-]{section.3.9}{TheCoachingBot}{chapter.3}% 15
+\BOOKMARK [0][-]{chapter.4}{Konzept}{}% 16
+\BOOKMARK [1][-]{section.4.1}{Grundkonzept}{chapter.4}% 17
+\BOOKMARK [0][-]{chapter.5}{Realisierung}{}% 18
+\BOOKMARK [1][-]{section.5.1}{Telegram Bot Framwork}{chapter.5}% 19
+\BOOKMARK [2][-]{subsection.5.1.1}{Generierung Telegram Bot}{section.5.1}% 20
+\BOOKMARK [1][-]{section.5.2}{Vanilla Bot Implementierung}{chapter.5}% 21
+\BOOKMARK [1][-]{section.5.3}{Meta-Funktionen}{chapter.5}% 22
+\BOOKMARK [2][-]{subsection.5.3.1}{Start: Eine Konversation beginnen}{section.5.3}% 23
+\BOOKMARK [2][-]{subsection.5.3.2}{Ende: Konversation manuell beenden}{section.5.3}% 24
+\BOOKMARK [2][-]{subsection.5.3.3}{Pers\366nliche Daten l\366schen}{section.5.3}% 25
+\BOOKMARK [2][-]{subsection.5.3.4}{Hilfe-Funktion aufrufen}{section.5.3}% 26
+\BOOKMARK [2][-]{subsection.5.3.5}{\334berspringen}{section.5.3}% 27
+\BOOKMARK [1][-]{section.5.4}{Hauptfunktionen}{chapter.5}% 28
+\BOOKMARK [2][-]{subsection.5.4.1}{Abfragen des Geburtsdatums}{section.5.4}% 29
+\BOOKMARK [2][-]{subsection.5.4.2}{Hintergrund des Nutzers}{section.5.4}% 30
+\BOOKMARK [2][-]{subsection.5.4.3}{Abfragen des Geschlechts des Nutzers}{section.5.4}% 31
+\BOOKMARK [2][-]{subsection.5.4.4}{Abfragen der E-Mail Adresse des Nutzers}{section.5.4}% 32
+\BOOKMARK [2][-]{subsection.5.4.5}{Abfragen der Telefonnummer des Nutzers}{section.5.4}% 33
+\BOOKMARK [2][-]{subsection.5.4.6}{Abfragen des Standorts des Nutzers}{section.5.4}% 34
+\BOOKMARK [2][-]{subsection.5.4.7}{Abfragen des Bilds des Nutzers}{section.5.4}% 35
+\BOOKMARK [2][-]{subsection.5.4.8}{Zusammenfassungs-Funktion}{section.5.4}% 36
+\BOOKMARK [1][-]{section.5.5}{Support-Funktionen}{chapter.5}% 37
+\BOOKMARK [2][-]{subsection.5.5.1}{Eingabe-Validierung}{section.5.5}% 38
+\BOOKMARK [2][-]{subsection.5.5.2}{E-Mail zusammenbauen}{section.5.5}% 39
+\BOOKMARK [1][-]{section.5.6}{Datenbank}{chapter.5}% 40
+\BOOKMARK [1][-]{section.5.7}{Anbindung Datenbank an Python}{chapter.5}% 41
+\BOOKMARK [1][-]{section.5.8}{Kalender}{chapter.5}% 42
+\BOOKMARK [0][-]{chapter.6}{Implementierung}{}% 43
+\BOOKMARK [1][-]{section.6.1}{Setup}{chapter.6}% 44
+\BOOKMARK [2][-]{subsection.6.1.1}{Entwicklungsumgebung}{section.6.1}% 45
+\BOOKMARK [2][-]{subsection.6.1.2}{Microsoft Visual Studio Code}{section.6.1}% 46
+\BOOKMARK [2][-]{subsection.6.1.3}{pipenv}{section.6.1}% 47
+\BOOKMARK [2][-]{subsection.6.1.4}{Konstanten und Schl\374ssel}{section.6.1}% 48
+\BOOKMARK [2][-]{subsection.6.1.5}{Dispatcher}{section.6.1}% 49
+\BOOKMARK [2][-]{subsection.6.1.6}{ConversationHandlers}{section.6.1}% 50
+\BOOKMARK [2][-]{subsection.6.1.7}{CommandHandler}{section.6.1}% 51
+\BOOKMARK [1][-]{section.6.2}{Coaching Bot Herzst\374ck - main.py - State Machine}{chapter.6}% 52
+\BOOKMARK [2][-]{subsection.6.2.1}{start und cancel - Konversation starten und stoppen}{section.6.2}% 53
+\BOOKMARK [2][-]{subsection.6.2.2}{delete - Nutzerdaten l\366schen}{section.6.2}% 54
+\BOOKMARK [2][-]{subsection.6.2.3}{help - Hilfe ausgeben}{section.6.2}% 55
+\BOOKMARK [2][-]{subsection.6.2.4}{summary - Zusammenfassung ausgeben}{section.6.2}% 56
+\BOOKMARK [2][-]{subsection.6.2.5}{status - Status Quo ausgeben}{section.6.2}% 57
+\BOOKMARK [1][-]{section.6.3}{Handler Funktionen}{chapter.6}% 58
+\BOOKMARK [2][-]{subsection.6.3.1}{start.py}{section.6.3}% 59
+\BOOKMARK [2][-]{subsection.6.3.2}{birthdate.py}{section.6.3}% 60
+\BOOKMARK [2][-]{subsection.6.3.3}{bio.py}{section.6.3}% 61
+\BOOKMARK [2][-]{subsection.6.3.4}{cancel}{section.6.3}% 62
+\BOOKMARK [2][-]{subsection.6.3.5}{confirmationmail.py}{section.6.3}% 63
+\BOOKMARK [2][-]{subsection.6.3.6}{email.py}{section.6.3}% 64
+\BOOKMARK [2][-]{subsection.6.3.7}{gender.py}{section.6.3}% 65
+\BOOKMARK [2][-]{subsection.6.3.8}{help.py}{section.6.3}% 66
+\BOOKMARK [2][-]{subsection.6.3.9}{location.py}{section.6.3}% 67
+\BOOKMARK [2][-]{subsection.6.3.10}{photo.py}{section.6.3}% 68
+\BOOKMARK [2][-]{subsection.6.3.11}{states.py}{section.6.3}% 69
+\BOOKMARK [2][-]{subsection.6.3.12}{status.py}{section.6.3}% 70
+\BOOKMARK [2][-]{subsection.6.3.13}{summary.py}{section.6.3}% 71
+\BOOKMARK [2][-]{subsection.6.3.14}{telephone.py}{section.6.3}% 72
+\BOOKMARK [2][-]{subsection.6.3.15}{validation.py}{section.6.3}% 73
+\BOOKMARK [1][-]{section.6.4}{Datenbank}{chapter.6}% 74
+\BOOKMARK [1][-]{section.6.5}{E-Mail-Versand}{chapter.6}% 75
+\BOOKMARK [1][-]{section.6.6}{Tests}{chapter.6}% 76
+\BOOKMARK [1][-]{section.6.7}{}{chapter.6}% 77
+\BOOKMARK [1][-]{section.6.8}{}{chapter.6}% 78
+\BOOKMARK [1][-]{section.6.9}{}{chapter.6}% 79
+\BOOKMARK [1][-]{section.6.10}{}{chapter.6}% 80
+\BOOKMARK [1][-]{section.6.11}{}{chapter.6}% 81
+\BOOKMARK [1][-]{section.6.12}{Kalender}{chapter.6}% 82
+\BOOKMARK [0][-]{chapter.7}{Beispiele}{}% 83
+\BOOKMARK [1][-]{subsection.7.0.1}{Stage 00}{chapter.7}% 84
+\BOOKMARK [2][-]{subsection.7.0.2}{Stage 01}{subsection.7.0.1}% 85
+\BOOKMARK [2][-]{subsection.7.0.3}{Stage 02}{subsection.7.0.1}% 86
+\BOOKMARK [2][-]{subsection.7.0.4}{Stage 03}{subsection.7.0.1}% 87
+\BOOKMARK [2][-]{subsection.7.0.5}{Stage 04}{subsection.7.0.1}% 88
+\BOOKMARK [2][-]{subsection.7.0.6}{Stage 05}{subsection.7.0.1}% 89
+\BOOKMARK [2][-]{subsection.7.0.7}{Stage 06}{subsection.7.0.1}% 90
+\BOOKMARK [2][-]{subsection.7.0.8}{Stage 07}{subsection.7.0.1}% 91
+\BOOKMARK [2][-]{subsection.7.0.9}{Stage 08}{subsection.7.0.1}% 92
+\BOOKMARK [2][-]{subsection.7.0.10}{Stage 09}{subsection.7.0.1}% 93
+\BOOKMARK [0][-]{chapter.8}{Anwendungsszenarien}{}% 94
+\BOOKMARK [0][-]{chapter.9}{Zusammenfassung und Ausblick}{}% 95
+\BOOKMARK [0][-]{appendix.A}{Glossar}{}% 96
+\BOOKMARK [0][-]{appendix.B}{Selbstst\344ndigkeitserkl\344rung}{}% 97

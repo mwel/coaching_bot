@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2021.1.31)  29 JAN 2022 16:22
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2021.1.31)  12 FEB 2022 15:37
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -662,89 +662,125 @@ l.1 \chapter
 
 ]
 Kapitel 2.
-) (/Users/mwellenhofer/Git/coaching_bot/thesis/chapters/03_Grundlagen.tex [2
+
+Overfull \hbox (16.39182pt too wide) in paragraph at lines 11--12
+\OT1/cmr/m/n/12 Seit je-her ha-ben Sol-da-ten mit post-trau-ma-thi-schen Be-las-tungs-sysn-dro-men zu k[]ampfen.
+ []
 
 
-]
+LaTeX Warning: Citation `telegramAPI' on page 2 undefined on input line 22.
+
+
+LaTeX Warning: Citation `telegram' on page 2 undefined on input line 22.
+
+
+LaTeX Warning: Citation `Nutzerzahlen' on page 2 undefined on input line 22.
+
+
+LaTeX Warning: Citation `telegramVergleich' on page 2 undefined on input line 22.
+
+[2
+
+
+]) (/Users/mwellenhofer/Git/coaching_bot/thesis/chapters/03_Grundlagen.tex [3]
 Kapitel 3.
 
-LaTeX Warning: Citation `python3.8.6' on page 3 undefined on input line 8.
+LaTeX Warning: Citation `python3.8.6' on page 4 undefined on input line 6.
 
 
-LaTeX Warning: Citation `telegramAPI' on page 3 undefined on input line 13.
+LaTeX Warning: Citation `telegramAPI' on page 4 undefined on input line 9.
 
 
-LaTeX Warning: Citation `telegramAPIext' on page 3 undefined on input line 13.
+LaTeX Warning: Citation `telegramAPIext' on page 4 undefined on input line 9.
 
 
-LaTeX Warning: Citation `conversationBot' on page 3 undefined on input line 14.
+LaTeX Warning: Citation `conversationBot' on page 4 undefined on input line 10.
 
 
-LaTeX Warning: Citation `sqlite' on page 3 undefined on input line 19.
+LaTeX Warning: Citation `sqlite' on page 4 undefined on input line 13.
 
 
-LaTeX Warning: Citation `sqlite3API' on page 3 undefined on input line 24.
+LaTeX Warning: Citation `sqlite3API' on page 4 undefined on input line 16.
 
 
-LaTeX Warning: Citation `HTML' on page 3 undefined on input line 29.
+LaTeX Warning: Citation `HTML' on page 4 undefined on input line 22.
 
-
-LaTeX Warning: Citation `php' on page 3 undefined on input line 34.
-
-[3
+[4
 
 
 ]
 
-LaTeX Warning: Citation `googleCalAPI' on page 4 undefined on input line 39.
+LaTeX Warning: Citation `flask' on page 5 undefined on input line 28.
 
 
-LaTeX Warning: Citation `repo' on page 4 undefined on input line 44.
+LaTeX Warning: Citation `googleCalAPI' on page 5 undefined on input line 32.
 
-) (/Users/mwellenhofer/Git/coaching_bot/thesis/chapters/04_Konzept.tex [4]
+
+LaTeX Warning: Citation `repo' on page 5 undefined on input line 36.
+
+) (/Users/mwellenhofer/Git/coaching_bot/thesis/chapters/04_Konzept.tex [5]
 Kapitel 4.
 
-LaTeX Warning: File `concept and fancy drawings/PA_Architecture.svg' not found on input line 14.
+LaTeX Warning: File `concept and fancy drawings/PA_Architecture.svg' not found on input line 19.
 
 
-/Users/mwellenhofer/Git/coaching_bot/thesis/chapters/04_Konzept.tex:14: LaTeX Error: Unknown graphics extension: .svg.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.14 ...pt and fancy drawings/PA_Architecture.svg}
-                                                  
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-
-LaTeX Warning: File `concept and fancy drawings/PA_Conversation_Flow.svg' not found on input line 22.
-
-
-/Users/mwellenhofer/Git/coaching_bot/thesis/chapters/04_Konzept.tex:22: LaTeX Error: Unknown graphics extension: .svg.
+/Users/mwellenhofer/Git/coaching_bot/thesis/chapters/04_Konzept.tex:19: LaTeX Error: Unknown graphics extension: .svg.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.22 ...d fancy drawings/PA_Conversation_Flow.svg}
+l.19 ...pt and fancy drawings/PA_Architecture.svg}
                                                   
 Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
-) (/Users/mwellenhofer/Git/coaching_bot/thesis/chapters/05_Realisierung.tex [5
+
+LaTeX Warning: File `concept and fancy drawings/PA_Conversation_Flow.svg' not found on input line 27.
+
+
+/Users/mwellenhofer/Git/coaching_bot/thesis/chapters/04_Konzept.tex:27: LaTeX Error: Unknown graphics extension: .svg.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.27 ...d fancy drawings/PA_Conversation_Flow.svg}
+                                                  
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+) (/Users/mwellenhofer/Git/coaching_bot/thesis/chapters/05_Realisierung.tex [6
 
 
 ]
 Kapitel 5.
-) (/Users/mwellenhofer/Git/coaching_bot/thesis/chapters/06_Implementierung.tex [6
+
+LaTeX Warning: Citation `coreTelegram' on page 7 undefined on input line 11.
 
 
-]
+LaTeX Warning: Citation `Bot' on page 7 undefined on input line 11.
+
+
+LaTeX Warning: Citation `conversationBot' on page 7 undefined on input line 15.
+
+
+Overfull \hbox (7.8143pt too wide) in paragraph at lines 17--18
+[]\OT1/cmr/m/n/12 Die Kom-mu-ni-ka-ti-ons-lo-gik des Bots ba-siert auf ei-ner State Ma-chi-ne. Die Zust[]ande,
+ []
+
+
+Overfull \hbox (7.48637pt too wide) in paragraph at lines 21--22
+\OT1/cmr/m/n/12 Neben den Haupt-funk-tio-nen des Bots (Funk-tio-nen, die zum Ge-spr[]achsfluss geh[]oren),
+ []
+
+[7
+
+
+] [8] [9] [10]) (/Users/mwellenhofer/Git/coaching_bot/thesis/chapters/06_Implementierung.tex [11]
 Kapitel 6.
 
-LaTeX Warning: Citation `pipenv' on page 7 undefined on input line 15.
+LaTeX Warning: Citation `pipenv' on page 12 undefined on input line 15.
 
 /Users/mwellenhofer/Git/coaching_bot/thesis/chapters/06_Implementierung.tex:15: Missing $ inserted.
 <inserted text> 
@@ -768,7 +804,7 @@ Overfull \hbox (218.67012pt too wide) in paragraph at lines 14--16
  []
 
 
-LaTeX Warning: Citation `repo' on page 7 undefined on input line 19.
+LaTeX Warning: Citation `repo' on page 12 undefined on input line 19.
 
 /Users/mwellenhofer/Git/coaching_bot/thesis/chapters/06_Implementierung.tex:29: Missing $ inserted.
 <inserted text> 
@@ -791,7 +827,7 @@ Overfull \hbox (100.01903pt too wide) in paragraph at lines 29--30
 \OT1/cmr/m/n/12 hat aber nut einen - den "conv$[]\OML/cmm/m/it/12 andler\OT1/cmr/m/n/12 "\OML/cmm/m/it/12 :DerConversationHandlerkoordiniertalleCommandHandler:$ 
  []
 
-[7
+[12
 
 
 ]
@@ -808,7 +844,7 @@ I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
 
 
-LaTeX Warning: Citation `repo' on page 8 undefined on input line 61.
+LaTeX Warning: Citation `repo' on page 13 undefined on input line 61.
 
 
 LaTeX Warning: Command \" invalid in math mode on input line 61.
@@ -860,7 +896,7 @@ Overfull \hbox (37.8767pt too wide) in paragraph at lines 61--62
 \OML/cmm/m/it/12 Funktionenein; beschreibenderenUmfangundAufbauunderkl[]$ 
  []
 
-[8]
+[13]
 /Users/mwellenhofer/Git/coaching_bot/thesis/chapters/06_Implementierung.tex:71: Missing $ inserted.
 <inserted text> 
                 $
@@ -901,7 +937,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 120--1
 
  []
 
-[9] [10]
+[14] [15]
 Kapitel 7.
 
 Package hyperref Warning: Difference (2) between bookmark levels is greater 
@@ -1012,7 +1048,7 @@ l.63 	\includegraphics{images/stage06.png}
 Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
-[11
+[16
 
 
 ]
@@ -1061,20 +1097,20 @@ l.90 	\includegraphics{images/stage09.png}
 Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
-) (/Users/mwellenhofer/Git/coaching_bot/thesis/chapters/08_Anwendungsszenarien.tex [12] [13]
+) (/Users/mwellenhofer/Git/coaching_bot/thesis/chapters/08_Anwendungsszenarien.tex [17] [18]
 Kapitel 8.
-) (/Users/mwellenhofer/Git/coaching_bot/thesis/chapters/09_ZusammenfassungAusblick.tex [14
+) (/Users/mwellenhofer/Git/coaching_bot/thesis/chapters/09_ZusammenfassungAusblick.tex [19
 
 
 ]
 Kapitel 9.
-) [15
+) [20
 
 
 ]
 No file PA_DerCoachingBot_Wellenhofer_Max_28464.bbl.
 No file PA_DerCoachingBot_Wellenhofer_Max_28464.ind.
-[16
+[21
 
 
 ]
@@ -1082,7 +1118,7 @@ No file PA_DerCoachingBot_Wellenhofer_Max_28464.ind.
 
  (/Users/mwellenhofer/Git/coaching_bot/thesis/chapters/Glossar.tex
 
-LaTeX Warning: Citation `Gottwald:03' on page 17 undefined on input line 3.
+LaTeX Warning: Citation `Gottwald:03' on page 22 undefined on input line 3.
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 3--4
@@ -1099,7 +1135,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 7--126
 
  []
 
-[17
+[22
 
 
 
@@ -1116,7 +1152,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 7--8
 
  []
 
-) [18
+) [23
 
 
 
@@ -1135,7 +1171,7 @@ Package rerunfilecheck Warning: File `PA_DerCoachingBot_Wellenhofer_Max_28464.ou
 
 Package rerunfilecheck Info: Checksums for `PA_DerCoachingBot_Wellenhofer_Max_28464.out':
 (rerunfilecheck)             Before: <no file>
-(rerunfilecheck)             After:  4758768D12280F2525A820EF209CD86D;4809.
+(rerunfilecheck)             After:  CC8794BB63474B612DDB52D983848A85;6419.
 
 LaTeX Warning: There were undefined references.
 
@@ -1145,18 +1181,18 @@ LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 131.
  ) 
 Here is how much of TeX's memory you used:
- 12376 strings out of 480608
- 191585 string characters out of 5903630
+ 12412 strings out of 480608
+ 192073 string characters out of 5903630
  492560 words of memory out of 5000000
- 27838 multiletter control sequences out of 15000+600000
+ 27845 multiletter control sequences out of 15000+600000
  541778 words of font info for 58 fonts, out of 8000000 for 9000
  1146 hyphenation exceptions out of 8191
- 41i,9n,42p,713b,525s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 41i,9n,42p,1119b,525s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmmib10.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmmib8.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb>
-Output written on /Users/mwellenhofer/Git/coaching_bot/thesis/PA_DerCoachingBot_Wellenhofer_Max_28464.pdf (25 pages, 552850 bytes).
+Output written on /Users/mwellenhofer/Git/coaching_bot/thesis/PA_DerCoachingBot_Wellenhofer_Max_28464.pdf (30 pages, 571551 bytes).
 PDF statistics:
- 293 PDF objects out of 1000 (max. 8388607)
- 249 compressed objects within 3 object streams
- 124 named destinations out of 1000 (max. 500000)
+ 343 PDF objects out of 1000 (max. 8388607)
+ 294 compressed objects within 3 object streams
+ 153 named destinations out of 1000 (max. 500000)
  6 words of extra memory for PDF output out of 10000 (max. 10000000)
 
