@@ -1,24 +1,22 @@
 \chapter{VerwandteArbeiten}
 
-Schauen Sie nach – ob es bereits existierende Arbeiten und Systeme, die ähnliche Probleme bearbeiten gibt. Dies ist eigentlich das „Herzstück“ einer wissenschaftlichen Arbeit, weil man seine eigenen Beiträge zum aktuellen State-of-the-Art in  
-Verbindung setzt.  
-Beschreiben Sie (wenn möglich) mindestens 2 dieser Arbeiten. Danach, sozusagen als Resümee können Sie dann sagen, was Sie anders (besser!) machen wollen (also hier kommen Argumente hin, warum Sie nicht ein existierendes System nehmen, sondern selber eins programmieren und was Sie an Ideen übernehmen).  
+Analysiert man den Hintergrund der meisten Bots, so wird schnell klar \- es besteht in einer überwältigenden Mehrheit der Fälle ein monetärer Beweggrund, einen Bot anzubieten. Neben Coaching-Bots zur Optimierung des eigenen Investment-Portfolios oder diversen Bezahlmodellen für Gesundheits\- und Personal Training Programme, existiert auf Social Media Portalen eine Vielzahl an Chatbots, die technisch sehr umfangreich und mächtig sind, aber fast keine quelloffenen und kostenlosen Beispiele, die unserem Zweck genügen. \\
 
-Analysiert man den Hintergrund der meisten Bots, so wird schnell klar - es besteht in einer überwältigenden Mehrheit der Fälle ein monetärer Beweggrund, einen Bot zu erstellen. Neben Coaching Bots zur Optimierung des eigenen Investment-Portfolios sowie diversen Bezahlmodellen für Gesundheits- und Personal Training Programme, existiert auf Social Media Portalen eine Vielzahl an Chatbots, die technisch sehr umfangreich und mächtig sind, aber fast keine quelloffenen und kostenlosen Beispiele, die unserem Zweck genügen.
-\paragraph{Im Folgenden werden 2 etablierte Coaching-Bots betrachtet, die keinen monetären Zweck verfolgen.}
+    \paragraph{Im Folgenden werden 2 etablierte Coaching-Bots betrachtet, die keinen monetären Zweck verfolgen.}
 
-\section{CoachPTBS - der Chatbot der Bundeswehr}
-Seit jeher haben Soldaten mit posttraumathischen Belastungssysndromen zu kämpfen. Die Bundeswehr hat mit dem CoachPTBS ein digitales Experiment gewagt, das versucht, Betroffenen eine möglichst niedrige Einstiegshürde zu bieten, sich mit ihren Problemen auseinanderzusetzen. Auch für den Coaching-Bot benötigen wir eine niedrige Hemmschwelle, damit möglichst viele junge Menschen teilnehmen und sich um einen Platz im Programm bewerben.
+    \section{CoachPTBS - der Chatbot der Bundeswehr}
+    Seit jeher haben Soldaten mit posttraumathischen Belastungssysndromen zu kämpfen. Die Bundeswehr hat mit dem CoachPTBS ein digitales Experiment gewagt, das versucht, Betroffenen eine möglichst niedrige Einstiegshürde zu bieten, sich mit ihren Problemen auseinanderzusetzen. Auch für den Coaching-Bot benötigen wir eine niedrige Hemmschwelle, damit möglichst viele junge Menschen teilnehmen und sich um einen Platz im Programm bewerben.
 
-% bisschen erzählen über den Bot.
-% Was macht er richtig?
-% Was können wir übernehmen?
-% Was wollen wir anders haben?
+    % bisschen erzählen über den Bot.
+    % Was macht er richtig?
+    % Was können wir übernehmen?
+    % Was wollen wir anders haben?
 
-Die Technologie hinter der CoachPTBS ist sicherlich weit fortgeschritten, jedoch erhalten wir als gemeinnützige Organisation ohne finanzielle Mittel aus einem nicht quelloffenen Projekt - so wegweisend es auch sein mag - keinen direkten Startvorteil. Allerdings berstärkt uns der CoachBot der Bundeswehr in unserer Annahme, dass Individuen einen Bot als einfachen Weg sehen, eine erste Kontaktaufnahme mit einem Coachee zu etablieren - vor allem in Situationen, in denen Menschen noch nicht bereit sind, direkt mit jemandem zu sprechen.
+    Die Technologie hinter der CoachPTBS App ist sicherlich weit fortgeschritten, jedoch erhalten wir aus einem nicht quelloffenen Projekt - so wegweisend es auch sein mag - keinen Vorteil. Allerdings berstärkt uns der CoachBot der Bundeswehr in unserer Annahme, dass Individuen einen Bot als einfachen Weg sehen, eine erste Kontaktaufnahme mit einem Coachee zu etablieren - vor allem in Situationen, in denen Menschen noch nicht bereit sind, direkt mit einem Menschen direkt zu sprechen.
 
 
-\section{Telegram Chat Bots}
-Telegram Chat Bots sind Applikationen, die auf einer quelloffenen API \cite{telegramAPI} basieren, auf allen Komplexitätsstufen adaptierbar sind und es jedermann ermöglichen, einen Chatbot zu bauen. Die einzige suboptimale Einschränkung besteht im Vendor Lock-In der Telegram-App. (Der Bot ist nur in Verbindung mit der Telegram-App \cite{telegram} nutzbar.) Die meisten Menschen in Deutschland und der DACH-Region verwenden immer noch WhatsApp \cite{Nutzerzahlen} und doch bietet uns der populärste Messenger nicht die Freiheiten und den Funktionsumfang, den wir uns für unseren CoachingBot wünschen. Telegram jedoch hält genau diese Offenheit für uns bereit. \cite{telegramVergleich}. So bietet der Dienst, die Möglichkeit, via einer API direkt in die Entwicklung einzusteigen und hält sogar basale State-Mashines für uns bereit, die uns die Komplexität für den Kern des Bots nicht komplett abnehmen, aber als Gerüst für einen ChatBot dienen können.
+    \section{Telegram Chat Bots}
+    Telegram Chat Bots sind Applikationen, die auf einer quelloffenen API \cite{telegramAPI} basieren, auf allen Komplexitätsstufen adaptierbar sind und es jedermann ermöglichen, einen Chatbot zu bauen. Die einzige suboptimale Einschränkung besteht im Vendor Lock-In der Telegram-App. (Der Bot ist nur in Verbindung mit der Telegram-App \cite{telegram} nutzbar.) Aufgrund der technischen Vorteile, die dieses Framework bietet, ist dieser Nachteil jedoch in Kauf zu nehmen. Vor Allem im Hinblick auf einen Proof of Concept, ist ein Bot auf einer Plattform hinreichend. Sollte das Prinzip Erfolg versprechen, so kann die Logik auf andere Umgebungen erweitert werden. \\
+    Die meisten Menschen in Deutschland und der DACH-Region verwenden immer noch WhatsApp \cite{Nutzerzahlen} und doch bietet uns der populärste Messenger nicht die Freiheiten und den Funktionsumfang, den wir uns für unseren CoachingBot wünschen. Telegram jedoch hält genau diese Offenheit für uns bereit. \cite{telegramVergleich}. So bietet der Dienst, die Möglichkeit, via einer API direkt in die Entwicklung einzusteigen und hält sogar basale State-Mashines für uns bereit, die uns die Komplexität für den Kern des Bots nicht komplett abnehmen, aber als Gerüst für einen ChatBot dienen können.
 
 
