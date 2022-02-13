@@ -14,7 +14,7 @@ from googleapiclient.errors import HttpError
 # custom imports
 import os.path
 from pathlib import Path
-import time
+# import time
 from handler_functions.database_connector.select_db import get_value
 from logEnabler import logger;
 
@@ -187,7 +187,7 @@ def find_slots():
         # Create date object for today's year, month, day at 8 AM
         dt8 = datetime.datetime(datenow.year, datenow.month, datenow.day, 8, 0, 0, 0)
 
-    # If today is past 6 AM, increment date by 1 day
+    # If today is past 8 AM, increment date by 1 day
     else:
 
         # Get 1 day duration to add
@@ -196,11 +196,11 @@ def find_slots():
         # Generate tomorrow's datetime
         tomorrow = datenow + day
 
-        # Create new datetime object using tomorrow's year, month, day at 6 AM
+        # Create new datetime object using tomorrow's year, month, day at 8 AM
         dt8 = datetime.datetime(tomorrow.year, tomorrow.month, tomorrow.day, 8, 0, 0, 0)
 
     # Create timestamp from datetime object
-    timestamp = time.mktime(dt8.timetuple())
+    # timestamp = time.mktime(dt8.timetuple())
     
     # within the business hours, find 3 free time slots to suggest to the user
     free_slots = []

@@ -1,0 +1,89 @@
+\begin{thebibliography}{{Goo}22b}
+
+\bibitem[eaK02]{datetime}
+{\sc Klyne~et.~al.}: {\em {Date and Time on the Internet: Timestamps}}.
+\newblock 2002.
+
+\bibitem[Fou]{sqlite3API}
+{\sc Foundation, Python~Software}: {\em {sqlite3 — DB-API 2.0 interface for
+  SQLite databases}}.
+\newblock https://docs.python.org/3/library/sqlite3.html.
+
+\bibitem[Fou21a]{pipenv}
+{\sc Foundation, Python~Software}: {\em pipenv}.
+\newblock https://pypi.org/project/pipenv/, 2021.
+
+\bibitem[Fou21b]{python3.8.6}
+{\sc Foundation, Python~Software}: {\em {Python 3.8.6}}.
+\newblock https://docs.python.org/3.8/, 2021.
+
+\bibitem[{Goo}22a]{pythonQuickstart}
+{\sc {Google LLC}}: {\em {Google Calendar API - Python Quickstart}}.
+\newblock https://developers.google.com/calendar/api/quickstart/python, 2022.
+
+\bibitem[{Goo}22b]{GoogleCloudConsole}
+{\sc {Google LLC}}: {\em {Google Cloud Platform}}.
+\newblock https://console.cloud.google.com/, 2022.
+
+\bibitem[{Goo}22c]{googleCalAPI}
+{\sc {Google LLC}}: {\em {GoogleCalendarAPI}}.
+\newblock
+  https://googleapis.github.io/google-api-python-client/docs/dyn/calendar{\_}v3.html,
+  2022.
+
+\bibitem[Kre21]{telegramVergleich}
+{\sc Kremming, Katharina}: {\em {Telegram Messenger – Alles was Du wissen
+  musst!}}
+\newblock
+  https://www.messengerpeople.com/de/messaging-apps-brands-der-telegram-messenger/,
+  2021.
+
+\bibitem[{Lea}21a]{telegramAPI}
+{\sc {Leandro Toledo}}: {\em {Telegram API Documentation}}.
+\newblock https://python-telegram-bot.readthedocs.io/en/stable/index.html{\#},
+  2021.
+
+\bibitem[{Lea}21b]{telegramAPIext}
+{\sc {Leandro Toledo}}: {\em telegram.ext package}.
+\newblock
+  https://python-telegram-bot.readthedocs.io/en/stable/telegram.ext.html, 2021.
+
+\bibitem[{Lea}21c]{conversationBot}
+{\sc {Leandro Toledo et. al.}}: {\em python-telegram-bot}.
+\newblock
+  https://github.com/python-telegram-bot/python-telegram-bot/blob/master/examples/conversationbot.py,
+  2021.
+
+\bibitem[Meh22]{Nutzerzahlen}
+{\sc Mehner, Matthias}: {\em {Nutzerzahlen Messenger Apps Deutschland und
+  Weltweit}}.
+\newblock
+  https://www.messengerpeople.com/de/weltweite-nutzer-statistik-fuer-whatsapp-wechat-und-andere-messenger/,
+  2022.
+
+\bibitem[{Pyt}21]{smtplib}
+{\sc {Python Software Foundation}}: {\em {smtplib — SMTP protocol client}}.
+\newblock https://docs.python.org/3.8/library/smtplib.html{\#}module-smtplib,
+  2021.
+
+\bibitem[Tel21a]{coreTelegram}
+{\sc Telegram.org}: {\em {Bots: An introduction for developers}}.
+\newblock https://core.telegram.org/bots, 2021.
+
+\bibitem[Tel21b]{telegram}
+{\sc Telegram.org}: {\em {Telegram App}}.
+\newblock https://telegram.org/, 2021.
+
+\bibitem[{The}21]{sqlite}
+{\sc {The SQLite Consortium}}: {\em {SQLite}}.
+\newblock https://sqlite.org, 2021.
+
+\bibitem[W3C19]{HTML}
+{\sc W3CSchools}: {\em {HTML Documentation}}.
+\newblock https://www.w3schools.com/html/html{\_}intro.asp, 2019.
+
+\bibitem[Wel21]{repo}
+{\sc Wellenhofer, Max}: {\em {The Coaching Bot Repository}}.
+\newblock https://github.com/mwel/coaching{\_}bot, 2021.
+
+\end{thebibliography}

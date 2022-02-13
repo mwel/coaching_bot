@@ -1,0 +1,63 @@
+This is BibTeX, Version 0.99d (TeX Live 2020)
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
+The top-level auxiliary file: PA_DerCoachingBot_Wellenhofer_Max_28464.aux
+The style file: geralpha.bst
+Case mismatch error between cite keys DateTime and datetime
+---line 196 of file PA_DerCoachingBot_Wellenhofer_Max_28464.aux
+ : \citation{DateTime
+ :                   }
+I'm skipping whatever remains of this command
+A level-1 auxiliary file: chapters/Glossar.aux
+A level-1 auxiliary file: chapters/Selbststaendigkeitserklaerung.aux
+Database file #1: coaching_bot_group.bib
+Repeated entry---line 99 of file coaching_bot_group.bib
+ : @misc{datetime
+ :               ,
+I'm skipping whatever remains of this entry
+Warning--I didn't find a database entry for "flask"
+Warning--I didn't find a database entry for "Bot"
+Warning--I didn't find a database entry for "mime"
+Warning--I didn't find a database entry for "Gottwald:03"
+Warning--empty note in datetime
+You've used 18 entries,
+            2768 wiz_defined-function locations,
+            702 strings with 7523 characters,
+and the built_in function-call counts, 5239 in all, are:
+= -- 537
+> -- 144
+< -- 18
++ -- 42
+- -- 36
+* -- 291
+:= -- 798
+add.period$ -- 36
+call.type$ -- 18
+change.case$ -- 72
+chr.to.int$ -- 12
+cite$ -- 19
+duplicate$ -- 233
+empty$ -- 494
+format.name$ -- 71
+if$ -- 1175
+int.to.chr$ -- 7
+int.to.str$ -- 0
+missing$ -- 0
+newline$ -- 75
+num.names$ -- 54
+pop$ -- 157
+preamble$ -- 1
+purify$ -- 108
+quote$ -- 0
+skip$ -- 223
+stack$ -- 0
+substring$ -- 126
+swap$ -- 53
+text.length$ -- 18
+text.prefix$ -- 17
+top$ -- 0
+type$ -- 144
+warning$ -- 1
+while$ -- 36
+width$ -- 25
+write$ -- 198
+(There were 2 error messages)

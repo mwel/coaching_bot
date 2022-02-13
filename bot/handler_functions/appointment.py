@@ -72,7 +72,7 @@ def appointment(update: Update, context: CallbackContext) -> int:
     make_appointment(user_id, slot_start, event) # hand over user info to make appointment
     insert_update(user_id, 'appointment', slot_start)
     # insert_update(user_id, 'event_id', uuid)
-    logger.info(f'+++++ User {update.message.from_user.first_name} MADE APPOINTMENT AT: {slot_start} +++++')
+    logger.info(f'+++++ User {user_id} MADE APPOINTMENT at: {slot_start} +++++')
     
     update.message.reply_text(
         'Splendid! You should receive a calendar appointment shortly.\n' 
@@ -97,7 +97,7 @@ def skip_appointment(update: Update, context: CallbackContext) -> int:
 
     user_id = update.message.from_user.id
 
-    logger.info(f'User {update.message.from_user.first_name} {update.message.from_user.last_name} does not want to make an appointment.')
+    logger.info(f'User {user_id} does not want to make an appointment.')
     insert_update(user_id, 'appointment', 'None')
     
     update.message.reply_text(
