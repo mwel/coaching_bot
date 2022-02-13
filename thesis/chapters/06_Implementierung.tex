@@ -330,26 +330,41 @@ Generell für 5. Und 6.: Wenig Quellcode (wenn überhaupt)! Maximal 2/3 Seite un
                 Die Methode ist mit der Methode delete\_record fast identisch. Hier wird zusätzlich eine Spaltenbezeichnung übergeben, die es ermöglicht, einen einzelnen Wert zu löschen.
 
 
-
-    \section{E\-Mail\-Versand}
-
-
-
-    
-    
-    \section{}
-    
-    \section{}
-    
-    \section{}
-    
-    \section{}
-    
-    \section{}
-    
-    
-    
     \section{Kalender}
+        \paragraph{Google Calendar API}
+            Zur Terminfindung ist die Google Calendar API angebunden. \cite{GoogleCloudConsole} Sie erlaubt es dem aufrufenden System, abzufragen, ob eine Zeitspanne verfügbar ist und Termine zwischen einer festgelegten Veranstalter\-Adresse und beliebig vielen Teilnehmer\-Adressen zu erstellen und zu versenden. \cite{googleCalAPI} Im Folgenden werden die dazu erforderlichen Methoden und Schritte detailliert erklärt.
+
+        \subsection{calendar\_manager.py}
+            Der Kalender Manager basiert auf der quickstart.py \cite{pythonQuickstart}, die von Google als Basis für gängige Programmiersprachen angeboten wird. Sie stellt den Rahmen für die Authentifizierung gegenüber dem Google Open-Authorization (oauth2) Protokoll und bindet erste Bibliotheken ein. Eine genaue Dokumentation zu Aufbau und Nutzung der quickstart.py findet sich hier: 
+
+            \paragraph{Methode main}
+
+            
+            \paragraph{Methode authenticate}
+      
+
+            \paragraph{Methode check\_availability}
+
+
+            \paragraph{Methode find\_slots}
+
+
+            \paragraph{Methode make\_appointment}
+
+
+            
+
+        
+        \subsection{send\_invitation.py}
+        
+        
+        % \subsection{generate\_ics.py}
+        
+        
+        \subsection{}
+
+
+
     Google Cloud Console: https://console.cloud.google.com/apis/credentials/consent?project=coaching-bot-339115 
     Calendar API Python Quickstart Guide: https://developers.google.com/calendar/api/quickstart/python 
     Verify own website: https://www.google.com/webmasters/verification/home?hl=en
