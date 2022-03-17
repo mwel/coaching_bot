@@ -1,4 +1,4 @@
-\begin{thebibliography}{{Goo}22b}
+\begin{thebibliography}{{Goo}22d}
 
 \bibitem[eaK02]{datetime}
 {\sc Klyne~et.~al.}: {\em {Date and Time on the Internet: Timestamps}}.
@@ -17,15 +17,19 @@
 {\sc Foundation, Python~Software}: {\em {Python 3.8.6}}.
 \newblock https://docs.python.org/3.8/, 2021.
 
-\bibitem[{Goo}22a]{pythonQuickstart}
+\bibitem[{Goo}22a]{apiExplorer}
+{\sc {Google LLC}}: {\em {Google APIs Explorer overview}}.
+\newblock https://developers.google.com/explorer-help/, 2022.
+
+\bibitem[{Goo}22b]{pythonQuickstart}
 {\sc {Google LLC}}: {\em {Google Calendar API - Python Quickstart}}.
 \newblock https://developers.google.com/calendar/api/quickstart/python, 2022.
 
-\bibitem[{Goo}22b]{GoogleCloudConsole}
+\bibitem[{Goo}22c]{GoogleCloudConsole}
 {\sc {Google LLC}}: {\em {Google Cloud Platform}}.
 \newblock https://console.cloud.google.com/, 2022.
 
-\bibitem[{Goo}22c]{googleCalAPI}
+\bibitem[{Goo}22d]{googleCalAPI}
 {\sc {Google LLC}}: {\em {GoogleCalendarAPI}}.
 \newblock
   https://googleapis.github.io/google-api-python-client/docs/dyn/calendar{\_}v3.html,

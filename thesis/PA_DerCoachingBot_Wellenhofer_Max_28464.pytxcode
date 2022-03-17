@@ -1,4 +1,4 @@
-=>PYTHONTEX#py#default#defaultverb#0#verbatim####06_Implementierung.tex#89#
+=>PYTHONTEX#py#default#defaultverb#0#verbatim####06_Implementierung.tex#92#
 
                 # Stores the information received and continues on to the next state
                 def bio(update: Update, context: CallbackContext) -> int:
@@ -23,7 +23,7 @@
                     insert_update(user_id, 'state', states.GENDER)
                     return states.GENDER
 
-=>PYTHONTEX#py#default#defaultverb#1#verbatim####06_Implementierung.tex#127#
+=>PYTHONTEX#py#default#defaultverb#1#verbatim####06_Implementierung.tex#130#
                 # Skips this information and continues on to the next state
                 def skip_bio(update: Update, context: CallbackContext) -> int:
 
