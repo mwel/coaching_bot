@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2021.1.31)  17 MAR 2022 19:40
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2021.1.31)  17 MAR 2022 20:07
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -715,7 +715,7 @@ bibgerm.sty: babel.sty detected
 
 
 pdfTeX warning: pdflatex (file ./images/logo-fb-informatik.pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<images/logo-fb-informatik.pdf, id=401, 811.81792pt x 157.11497pt>
+<images/logo-fb-informatik.pdf, id=365, 811.81792pt x 157.11497pt>
 File: images/logo-fb-informatik.pdf Graphic file (type pdf)
 <use images/logo-fb-informatik.pdf>
 Package pdftex.def Info: images/logo-fb-informatik.pdf  used on input line 92.
@@ -800,16 +800,9 @@ Overfull \hbox (16.39182pt too wide) in paragraph at lines 8--9
  []
 
 
-LaTeX Warning: Citation `telegramAPI' on page 3 undefined on input line 19.
-
-
-LaTeX Warning: Citation `telegram' on page 3 undefined on input line 19.
-
-
-LaTeX Warning: Citation `Nutzerzahlen' on page 3 undefined on input line 20.
-
-
-LaTeX Warning: Citation `telegramVergleich' on page 3 undefined on input line 20.
+Overfull \hbox (6.0433pt too wide) in paragraph at lines 19--21
+\OT1/cmr/m/n/12 sie-ren, auf al-len Kom-ple-xit[]atsstufen ad-ap-tier-bar sind und es je-der-mann erm[]oglichen,
+ []
 
 [3
 
@@ -817,25 +810,9 @@ LaTeX Warning: Citation `telegramVergleich' on page 3 undefined on input line 20
 ]) (./chapters/03_Grundlagen.tex [4]
 Kapitel 3.
 
-LaTeX Warning: Citation `python3.8.6' on page 5 undefined on input line 6.
-
-
-LaTeX Warning: Citation `telegramAPI' on page 5 undefined on input line 9.
-
-
-LaTeX Warning: Citation `telegramAPIext' on page 5 undefined on input line 9.
-
-
-LaTeX Warning: Citation `conversationBot' on page 5 undefined on input line 10.
-
-
-LaTeX Warning: Citation `sqlite' on page 5 undefined on input line 13.
-
-
-LaTeX Warning: Citation `sqlite3API' on page 5 undefined on input line 16.
-
-
-LaTeX Warning: Citation `HTML' on page 5 undefined on input line 22.
+Overfull \hbox (8.51137pt too wide) in paragraph at lines 9--11
+\OT1/cmr/m/n/12 nutzt. [[]] Das Re-po-si-to-ry enth[]alt ei-ne Viel-zahl ba-sa-ler Bot-Implementierungen,
+ []
 
 [5
 
@@ -843,12 +820,6 @@ LaTeX Warning: Citation `HTML' on page 5 undefined on input line 22.
 ]
 
 LaTeX Warning: Citation `flask' on page 6 undefined on input line 28.
-
-
-LaTeX Warning: Citation `googleCalAPI' on page 6 undefined on input line 32.
-
-
-LaTeX Warning: Citation `repo' on page 6 undefined on input line 36.
 
 ) (./chapters/04_Konzept.tex [6]
 Kapitel 4.
@@ -862,29 +833,23 @@ Underfull \hbox (badness 10000) in paragraph at lines 11--14
 
  []
 
-<images/220213_PA28464_Architecture.png, id=608, 1315.91624pt x 785.93625pt>
+<images/220213_PA28464_Architecture.png, id=588, 1315.91624pt x 785.93625pt>
 File: images/220213_PA28464_Architecture.png Graphic file (type png)
 <use images/220213_PA28464_Architecture.png>
 Package pdftex.def Info: images/220213_PA28464_Architecture.png  used on input line 20.
-(pdftex.def)             Requested size: 657.95651pt x 392.96716pt.
-<images/220213_PA28464_Conversation_Flow.png, id=610, 5613.97375pt x 2566.58875pt>
+(pdftex.def)             Requested size: 418.25368pt x 249.80182pt.
+<images/220213_PA28464_Conversation_Flow.png, id=590, 5613.97375pt x 2566.58875pt>
 File: images/220213_PA28464_Conversation_Flow.png Graphic file (type png)
 <use images/220213_PA28464_Conversation_Flow.png>
 Package pdftex.def Info: images/220213_PA28464_Conversation_Flow.png  used on input line 28.
-(pdftex.def)             Requested size: 2806.98007pt x 1283.29124pt.
+(pdftex.def)             Requested size: 418.25368pt x 191.19347pt.
 ) (./chapters/05_Realisierung.tex [7
 
 
 ] [8 <./images/220213_PA28464_Architecture.png> <./images/220213_PA28464_Conversation_Flow.png>]
 Kapitel 5.
 
-LaTeX Warning: Citation `coreTelegram' on page 9 undefined on input line 11.
-
-
 LaTeX Warning: Citation `Bot' on page 9 undefined on input line 11.
-
-
-LaTeX Warning: Citation `conversationBot' on page 9 undefined on input line 15.
 
 
 Overfull \hbox (7.8143pt too wide) in paragraph at lines 17--18
@@ -902,17 +867,6 @@ Overfull \hbox (7.48637pt too wide) in paragraph at lines 21--22
 ] [10] [11] [12]) (./chapters/06_Implementierung.tex [13]
 Kapitel 6.
 
-LaTeX Warning: Citation `pipenv' on page 14 undefined on input line 17.
-
-
-Overfull \hbox (17.9802pt too wide) in paragraph at lines 16--18
-\OT1/cmr/m/n/12 Um al-le Abh[]angigkeiten ein-zu-se-hen, pi-penv [[]] in-stal-lie-ren und das coa-ching[]botPipfile
- []
-
-
-LaTeX Warning: Citation `repo' on page 14 undefined on input line 21.
-
-
 Underfull \hbox (badness 10000) in paragraph at lines 25--27
 
  []
@@ -921,10 +875,6 @@ Underfull \hbox (badness 10000) in paragraph at lines 25--27
 
 
 ] [15]
-
-LaTeX Warning: Citation `repo' on page 16 undefined on input line 63.
-
-
 Underfull \hbox (badness 10000) in paragraph at lines 63--66
 
  []
@@ -957,7 +907,15 @@ Underfull \hbox (badness 10000) in paragraph at lines 79--86
 [16]
 \openout3 = `PA_DerCoachingBot_Wellenhofer_Max_28464.pyg'.
 
- (./_minted-PA_DerCoachingBot_Wellenhofer_Max_28464/default-pyg-prefix.pygstyle) (./_minted-PA_DerCoachingBot_Wellenhofer_Max_28464/manni.pygstyle) (./_minted-PA_DerCoachingBot_Wellenhofer_Max_28464/0127064A661FDD72C4D40D2937FB64F85A8F30BC04436C937C580C819B59383C.pygtex
+runsystem(pygmentize -S default -f latex -P commandprefix=PYG > _minted-PA_DerCoachingBot_Wellenhofer_Max_28464/default-pyg-prefix.pygstyle)...executed.
+
+ (./_minted-PA_DerCoachingBot_Wellenhofer_Max_28464/default-pyg-prefix.pygstyle)
+runsystem(pygmentize -S manni -f latex -P commandprefix=PYGmanni > _minted-PA_DerCoachingBot_Wellenhofer_Max_28464/manni.pygstyle)...executed.
+
+ (./_minted-PA_DerCoachingBot_Wellenhofer_Max_28464/manni.pygstyle)
+runsystem(pygmentize -l python -f latex -P commandprefix=PYG -F tokenmerge -o _minted-PA_DerCoachingBot_Wellenhofer_Max_28464/0127064A661FDD72C4D40D2937FB64F85A8F30BC04436C937C580C819B59383C.pygtex PA_DerCoachingBot_Wellenhofer_Max_28464.pyg)...executed.
+
+ (./_minted-PA_DerCoachingBot_Wellenhofer_Max_28464/0127064A661FDD72C4D40D2937FB64F85A8F30BC04436C937C580C819B59383C.pygtex
 LaTeX Font Info:    Font shape `OT1/cmtt/bx/n' in size <12> not available
 (Font)              Font shape `OT1/cmtt/m/n' tried instead on input line 3.
  [17])
@@ -966,6 +924,8 @@ Underfull \hbox (badness 10000) in paragraph at lines 127--128
  []
 
 \openout3 = `PA_DerCoachingBot_Wellenhofer_Max_28464.pyg'.
+
+runsystem(pygmentize -l python -f latex -P commandprefix=PYG -F tokenmerge -o _minted-PA_DerCoachingBot_Wellenhofer_Max_28464/75DB2033F1A61D399817FF59BCC033805A8F30BC04436C937C580C819B59383C.pygtex PA_DerCoachingBot_Wellenhofer_Max_28464.pyg)...executed.
 
 (./_minted-PA_DerCoachingBot_Wellenhofer_Max_28464/75DB2033F1A61D399817FF59BCC033805A8F30BC04436C937C580C819B59383C.pygtex [18])
 Overfull \hbox (18.95985pt too wide) in paragraph at lines 155--158
@@ -985,9 +945,6 @@ LaTeX Warning: Reference `Kalender' on page 21 undefined on input line 216.
 LaTeX Warning: Citation `mime' on page 22 undefined on input line 229.
 
 
-LaTeX Warning: Citation `smtplib' on page 22 undefined on input line 229.
-
-
 Underfull \hbox (badness 10000) in paragraph at lines 229--230
 
  []
@@ -1002,18 +959,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 231--239
 
  []
 
-
-LaTeX Warning: Citation `apiExplorer' on page 22 undefined on input line 245.
-
-[22]
-
-LaTeX Warning: Citation `conversationBot' on page 23 undefined on input line 259.
-
-[23]
-
-LaTeX Warning: Citation `datetime' on page 24 undefined on input line 281.
-
-
+[22] [23]
 Underfull \hbox (badness 10000) in paragraph at lines 285--291
 
  []
@@ -1029,16 +975,6 @@ Overfull \hbox (15.09581pt too wide) in paragraph at lines 293--296
  []
 
 [24] [25] [26]
-
-LaTeX Warning: Citation `GoogleCloudConsole' on page 27 undefined on input line 350.
-
-
-LaTeX Warning: Citation `googleCalAPI' on page 27 undefined on input line 350.
-
-
-LaTeX Warning: Citation `pythonQuickstart' on page 27 undefined on input line 353.
-
-
 Overfull \hbox (25.82228pt too wide) in paragraph at lines 357--359
 \OT1/cmr/m/n/12 Der Bot nutzt den um-fang-reichs-ten Sco-pe: []https://www.googleapis.com/auth/calendar[].
  []
@@ -1114,130 +1050,76 @@ Overfull \hbox (5.65164pt too wide) in paragraph at lines 436--439
 
 ) (./chapters/07_Beispiele.tex [30]
 Kapitel 7.
-
-Package hyperref Warning: Difference (2) between bookmark levels is greater 
-(hyperref)                than one, level fixed on input line 5.
-
-<images/coaching_bot_dummy_screenshot.jpeg, id=786, 1174.3875pt x 2420.04124pt>
+<images/coaching_bot_dummy_screenshot.jpeg, id=785, 1174.3875pt x 2420.04124pt>
 File: images/coaching_bot_dummy_screenshot.jpeg Graphic file (type jpg)
 <use images/coaching_bot_dummy_screenshot.jpeg>
 Package pdftex.def Info: images/coaching_bot_dummy_screenshot.jpeg  used on input line 9.
-(pdftex.def)             Requested size: 1174.38464pt x 2420.03535pt.
+(pdftex.def)             Requested size: 418.25368pt x 861.87172pt.
 
-Overfull \hbox (756.13097pt too wide) in paragraph at lines 9--10
- [][] 
- []
-
-
-LaTeX Warning: Float too large for page by 1793.84853pt on input line 12.
+LaTeX Warning: Float too large for page by 235.68489pt on input line 12.
 
 File: images/coaching_bot_dummy_screenshot.jpeg Graphic file (type jpg)
 <use images/coaching_bot_dummy_screenshot.jpeg>
 Package pdftex.def Info: images/coaching_bot_dummy_screenshot.jpeg  used on input line 18.
-(pdftex.def)             Requested size: 1174.38464pt x 2420.03535pt.
+(pdftex.def)             Requested size: 418.25368pt x 861.87172pt.
 
-Overfull \hbox (756.13097pt too wide) in paragraph at lines 18--19
- [][] 
- []
-
-
-LaTeX Warning: Float too large for page by 1793.84853pt on input line 21.
+LaTeX Warning: Float too large for page by 235.68489pt on input line 21.
 
 File: images/coaching_bot_dummy_screenshot.jpeg Graphic file (type jpg)
 <use images/coaching_bot_dummy_screenshot.jpeg>
 Package pdftex.def Info: images/coaching_bot_dummy_screenshot.jpeg  used on input line 27.
-(pdftex.def)             Requested size: 1174.38464pt x 2420.03535pt.
+(pdftex.def)             Requested size: 418.25368pt x 861.87172pt.
 
-Overfull \hbox (756.13097pt too wide) in paragraph at lines 27--28
- [][] 
- []
-
-
-LaTeX Warning: Float too large for page by 1793.84853pt on input line 30.
+LaTeX Warning: Float too large for page by 235.68489pt on input line 30.
 
 File: images/coaching_bot_dummy_screenshot.jpeg Graphic file (type jpg)
 <use images/coaching_bot_dummy_screenshot.jpeg>
 Package pdftex.def Info: images/coaching_bot_dummy_screenshot.jpeg  used on input line 36.
-(pdftex.def)             Requested size: 1174.38464pt x 2420.03535pt.
+(pdftex.def)             Requested size: 418.25368pt x 861.87172pt.
 
-Overfull \hbox (756.13097pt too wide) in paragraph at lines 36--37
- [][] 
- []
-
-
-LaTeX Warning: Float too large for page by 1793.84853pt on input line 39.
+LaTeX Warning: Float too large for page by 235.68489pt on input line 39.
 
 File: images/coaching_bot_dummy_screenshot.jpeg Graphic file (type jpg)
 <use images/coaching_bot_dummy_screenshot.jpeg>
 Package pdftex.def Info: images/coaching_bot_dummy_screenshot.jpeg  used on input line 45.
-(pdftex.def)             Requested size: 1174.38464pt x 2420.03535pt.
+(pdftex.def)             Requested size: 418.25368pt x 861.87172pt.
 
-Overfull \hbox (756.13097pt too wide) in paragraph at lines 45--46
- [][] 
- []
-
-
-LaTeX Warning: Float too large for page by 1793.84853pt on input line 48.
+LaTeX Warning: Float too large for page by 235.68489pt on input line 48.
 
 File: images/coaching_bot_dummy_screenshot.jpeg Graphic file (type jpg)
 <use images/coaching_bot_dummy_screenshot.jpeg>
 Package pdftex.def Info: images/coaching_bot_dummy_screenshot.jpeg  used on input line 54.
-(pdftex.def)             Requested size: 1174.38464pt x 2420.03535pt.
+(pdftex.def)             Requested size: 418.25368pt x 861.87172pt.
 
-Overfull \hbox (756.13097pt too wide) in paragraph at lines 54--55
- [][] 
- []
-
-
-LaTeX Warning: Float too large for page by 1793.84853pt on input line 57.
+LaTeX Warning: Float too large for page by 235.68489pt on input line 57.
 
 File: images/coaching_bot_dummy_screenshot.jpeg Graphic file (type jpg)
 <use images/coaching_bot_dummy_screenshot.jpeg>
 Package pdftex.def Info: images/coaching_bot_dummy_screenshot.jpeg  used on input line 63.
-(pdftex.def)             Requested size: 1174.38464pt x 2420.03535pt.
+(pdftex.def)             Requested size: 418.25368pt x 861.87172pt.
 
-Overfull \hbox (756.13097pt too wide) in paragraph at lines 63--64
- [][] 
- []
-
-
-LaTeX Warning: Float too large for page by 1793.84853pt on input line 66.
+LaTeX Warning: Float too large for page by 235.68489pt on input line 66.
 
 File: images/coaching_bot_dummy_screenshot.jpeg Graphic file (type jpg)
 <use images/coaching_bot_dummy_screenshot.jpeg>
 Package pdftex.def Info: images/coaching_bot_dummy_screenshot.jpeg  used on input line 72.
-(pdftex.def)             Requested size: 1174.38464pt x 2420.03535pt.
+(pdftex.def)             Requested size: 418.25368pt x 861.87172pt.
 
-Overfull \hbox (756.13097pt too wide) in paragraph at lines 72--73
- [][] 
- []
-
-
-LaTeX Warning: Float too large for page by 1793.84853pt on input line 75.
+LaTeX Warning: Float too large for page by 235.68489pt on input line 75.
 
 File: images/coaching_bot_dummy_screenshot.jpeg Graphic file (type jpg)
 <use images/coaching_bot_dummy_screenshot.jpeg>
 Package pdftex.def Info: images/coaching_bot_dummy_screenshot.jpeg  used on input line 81.
-(pdftex.def)             Requested size: 1174.38464pt x 2420.03535pt.
+(pdftex.def)             Requested size: 418.25368pt x 861.87172pt.
 
-Overfull \hbox (756.13097pt too wide) in paragraph at lines 81--82
- [][] 
- []
-
-
-LaTeX Warning: Float too large for page by 1793.84853pt on input line 84.
+LaTeX Warning: Float too large for page by 235.68489pt on input line 84.
 
 File: images/coaching_bot_dummy_screenshot.jpeg Graphic file (type jpg)
 <use images/coaching_bot_dummy_screenshot.jpeg>
 Package pdftex.def Info: images/coaching_bot_dummy_screenshot.jpeg  used on input line 90.
-(pdftex.def)             Requested size: 1174.38464pt x 2420.03535pt.
+(pdftex.def)             Requested size: 418.25368pt x 861.87172pt.
 
-Overfull \hbox (756.13097pt too wide) in paragraph at lines 90--91
- [][] 
- []
-
-
-LaTeX Warning: Float too large for page by 1793.84853pt on input line 93.
+LaTeX Warning: Float too large for page by 235.68489pt on input line 93.
 
 ) (./chapters/08_Anwendungsszenarien.tex [31
 
@@ -1317,9 +1199,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 90--92
 []\OT1/cmr/m/sc/12 Wellenhofer, Max\OT1/cmr/m/n/12 : \OT1/cmr/m/it/12 The Coa-ching Bot Re-po-si-to-ry\OT1/cmr/m/n/12 .  htt-
  []
 
-)
-No file PA_DerCoachingBot_Wellenhofer_Max_28464.ind.
-[45]
+) (./PA_DerCoachingBot_Wellenhofer_Max_28464.ind) [45]
 \openout2 = `chapters/Glossar.aux'.
 
  (./chapters/Glossar.tex
@@ -1364,38 +1244,29 @@ Package atveryend Info: Empty hook `AfterLastShipout' on input line 131.
  (./PA_DerCoachingBot_Wellenhofer_Max_28464.aux (./chapters/Glossar.aux) (./chapters/Selbststaendigkeitserklaerung.aux))
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 131.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 131.
+Package rerunfilecheck Info: File `PA_DerCoachingBot_Wellenhofer_Max_28464.out' has not changed.
+(rerunfilecheck)             Checksum: E0BD4963DF43DDC0C4803B91767788ED;6149.
 
-
-Package rerunfilecheck Warning: File `PA_DerCoachingBot_Wellenhofer_Max_28464.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `PA_DerCoachingBot_Wellenhofer_Max_28464.out':
-(rerunfilecheck)             Before: B84DB759F4BE935B222E65AC0F13BA87;6755
-(rerunfilecheck)             After:  2A6DA396FE038DC0D2FB81F769EC5249;6814.
 
 LaTeX Warning: There were undefined references.
-
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
 
 runsystem(rm PA_DerCoachingBot_Wellenhofer_Max_28464.pyg)...executed.
 
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 131.
  ) 
 Here is how much of TeX's memory you used:
- 15651 strings out of 480608
- 254958 string characters out of 5903630
- 607772 words of memory out of 5000000
- 30919 multiletter control sequences out of 15000+600000
+ 15634 strings out of 480608
+ 254857 string characters out of 5903630
+ 608495 words of memory out of 5000000
+ 30910 multiletter control sequences out of 15000+600000
  539785 words of font info for 52 fonts, out of 8000000 for 9000
  1146 hyphenation exceptions out of 8191
  41i,9n,42p,1164b,841s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmitt10.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb>
-Output written on PA_DerCoachingBot_Wellenhofer_Max_28464.pdf (56 pages, 1948805 bytes).
+Output written on PA_DerCoachingBot_Wellenhofer_Max_28464.pdf (56 pages, 1948992 bytes).
 PDF statistics:
- 976 PDF objects out of 1000 (max. 8388607)
- 893 compressed objects within 9 object streams
- 267 named destinations out of 1000 (max. 500000)
- 813 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 953 PDF objects out of 1000 (max. 8388607)
+ 870 compressed objects within 9 object streams
+ 257 named destinations out of 1000 (max. 500000)
+ 741 words of extra memory for PDF output out of 10000 (max. 10000000)
 
