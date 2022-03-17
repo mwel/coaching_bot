@@ -89,8 +89,7 @@ Generell für 5. Und 6.: Wenig Quellcode (wenn überhaupt)! Maximal 2/3 Seite un
             \paragraph{Methode bio}
                 Die Methode bio in der bio.py speichert die Text\-Eingabe eines Nutzers als erste Nutzereingabe nach dem /start\-Befehl. Sie repräsentiert besonders gut den Aufbau der Handler\-Funktionen, weil sie über das Speichern und weiterleiten keine weiteren Features besitzt. Daher erläutern wir hier den Aufbau der Handler\-Funktionen hier beispielhaft für alle anderen Handler\-Funktionen:
 
-                \begin{pyverbatim} 
-
+                \begin{minted}{python}
                 # Stores the information received and continues on to the next state
                 def bio(update: Update, context: CallbackContext) -> int:
                     
@@ -114,7 +113,7 @@ Generell für 5. Und 6.: Wenig Quellcode (wenn überhaupt)! Maximal 2/3 Seite un
                     insert_update(user_id, 'state', states.GENDER)
                     return states.GENDER
                 
-                \end{pyverbatim} 
+                \end{minted} 
 
                 Zunächst werden ein Update\- und ein CallbackContext\-Objekt an die Handler\-Methode übergeben. Zurückgegeben wird der Datentyp int, da die State\-Machine am Ende der Methode wissen muss, in welchen Zustand der Nutzer als nächstes geschickt werden soll. \\
                 Innerhalb der Methode werden user\_id und bio\_message aus dem Update\-Objekt gespeichert, da man diese beiden informationen gleich weiterverwenden möchte. Die bio\_message ist in diesem Fall die Text\-Eingabe, die an den Bot nach der letzten Stufe (start) übermittelt wurde. Die user\_id ist die Telegram\-ID des jeweiligen Nutzers. \\
@@ -127,8 +126,8 @@ Generell für 5. Und 6.: Wenig Quellcode (wenn überhaupt)! Maximal 2/3 Seite un
             \paragraph{Methode skip\_bio}
                 Die Methode skip\_bio in der bio.py wird durch den Befehl /skip ausgelöst. Dieser Befehl ist in jedem Zustand spezifisch für den CommandHandler einer Stufe definiert und hat in jedem Zustand einen anderen Effekt. In diesem Fall, wird die Methode skip\_bio aus der bio.py aufgerufen. Auch für die Methode skip\_bio gilt, dass sie den Aufbau der skip\-Methoden gut repräsentiert. Daher auch hier wieder eine detaillierte Erklärung:\\
 
-                \begin{pyverbatim} 
-                # Skips this information and continues on to the next state
+                \begin{minted}{python}
+                    # Skips this information and continues on to the next state
                 def skip_bio(update: Update, context: CallbackContext) -> int:
                     
                     user_id = update.message.from_user.id
@@ -151,7 +150,7 @@ Generell für 5. Und 6.: Wenig Quellcode (wenn überhaupt)! Maximal 2/3 Seite un
                     insert_update(user_id, 'state', states.GENDER)
                     return states.GENDER
                 
-                \end{pyverbatim} 
+                \end{minted} 
 
                 Der Aufbau ähnelt der bio\-Methode. Allerdings liegt hier ein reduzierter Umfang und natürlich eine andere Nachricht an den Nutzer vor. So gibt der Logger nur aus, dass keine Nachricht eingegangen ist. Ein Update der Datenbank fällt weg, da der Nutzer keine neuen Informationen angegeben hat. Hier werden zwei reply\_text\-Methoden verwendet. \\
                 Die Erste dient dazu, eine auf diese skip\-Methode individuelle Nachricht zu übermitteln. \\
