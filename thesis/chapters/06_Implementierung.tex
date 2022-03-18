@@ -89,7 +89,7 @@ Generell für 5. Und 6.: Wenig Quellcode (wenn überhaupt)! Maximal 2/3 Seite un
             \paragraph{Methode bio}
                 Die Methode bio in der bio.py speichert die Text\-Eingabe eines Nutzers als erste Nutzereingabe nach dem /start\-Befehl. Sie repräsentiert besonders gut den Aufbau der Handler\-Funktionen, weil sie über das Speichern und weiterleiten keine weiteren Features besitzt. Daher erläutern wir hier den Aufbau der Handler\-Funktionen hier beispielhaft für alle anderen Handler\-Funktionen:
 
-                \begin{minted}{python}
+                \begin{minted}[breaklines]{python}
                 # Stores the information received and continues on to the next state
                 def bio(update: Update, context: CallbackContext) -> int:
                     
@@ -126,7 +126,7 @@ Generell für 5. Und 6.: Wenig Quellcode (wenn überhaupt)! Maximal 2/3 Seite un
             \paragraph{Methode skip\_bio}
                 Die Methode skip\_bio in der bio.py wird durch den Befehl /skip ausgelöst. Dieser Befehl ist in jedem Zustand spezifisch für den CommandHandler einer Stufe definiert und hat in jedem Zustand einen anderen Effekt. In diesem Fall, wird die Methode skip\_bio aus der bio.py aufgerufen. Auch für die Methode skip\_bio gilt, dass sie den Aufbau der skip\-Methoden gut repräsentiert. Daher auch hier wieder eine detaillierte Erklärung:\\
 
-                \begin{minted}{python}
+                \begin{minted}[breaklines]{python}
                     # Skips this information and continues on to the next state
                 def skip_bio(update: Update, context: CallbackContext) -> int:
                     
