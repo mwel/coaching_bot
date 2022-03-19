@@ -9,11 +9,16 @@
   SQLite databases}}.
 \newblock https://docs.python.org/3/library/sqlite3.html.
 
-\bibitem[Fou21a]{pipenv}
+\bibitem[Fou21a]{mime}
+{\sc Foundation, Python~Software}: {\em {email.mime: Creating email and MIME
+  objects from scratch}}.
+\newblock https://docs.python.org/3.8/library/email.mime.html, 2021.
+
+\bibitem[Fou21b]{pipenv}
 {\sc Foundation, Python~Software}: {\em pipenv}.
 \newblock https://pypi.org/project/pipenv/, 2021.
 
-\bibitem[Fou21b]{python3.8.6}
+\bibitem[Fou21c]{python3.8.6}
 {\sc Foundation, Python~Software}: {\em {Python 3.8.6}}.
 \newblock https://docs.python.org/3.8/, 2021.
 
@@ -34,6 +39,10 @@
 \newblock
   https://googleapis.github.io/google-api-python-client/docs/dyn/calendar{\_}v3.html,
   2022.
+
+\bibitem[IBM20]{apiIBM2020}
+{\sc IBM}: {\em {Application Programming Interface (API)}}.
+\newblock https://www.ibm.com/cloud/learn/api, 2020.
 
 \bibitem[Kre21]{telegramVergleich}
 {\sc Kremming, Katharina}: {\em {Telegram Messenger – Alles was Du wissen
@@ -64,6 +73,10 @@
 \newblock
   https://www.messengerpeople.com/de/weltweite-nutzer-statistik-fuer-whatsapp-wechat-und-andere-messenger/,
   2022.
+
+\bibitem[Pal22]{flask}
+{\sc Pallets}: {\em {Flask Documentation}}.
+\newblock https://flask.palletsprojects.com/en/2.0.x/, 2022.
 
 \bibitem[{Pyt}21]{smtplib}
 {\sc {Python Software Foundation}}: {\em {smtplib — SMTP protocol client}}.

@@ -213,7 +213,7 @@ Generell für 5. Und 6.: Wenig Quellcode (wenn überhaupt)! Maximal 2/3 Seite un
                 \item Option A:  Der Nutzer ist bis zum Zustand \emph{SUMMARY} gekommen, hat die Zusammenfassung ausgegeben bekommen, dann aber keinen Termin vereinbart und den Chat verlassen. Der Nutzer kehrt nun zum Chat zurück und gibt erneut /start ein, um seine Konversation wieder aufzunehmen. Der Bot findet den Nutzer in der Datenbank und leitet an die Stufe \emph{SUMMARY} weiter. \\
                 Diesen Fall behandelt der Bot wie folgt:
                     \begin{enumerate}
-                        \item Ist dem nicht der Fall, möchte er dem Nutzer jetzt drei mögliche Terminvorschläge unterbreiten und startet dazu die Terminfindung (siehe Abschnitt \ref*{Kalender}). % Verlinken auf anderen Abschnitt
+                        \item Ist dem nicht der Fall, möchte er dem Nutzer jetzt drei mögliche Terminvorschläge unterbreiten und startet dazu die Terminfindung (siehe Abschnitt \ref{Kalender}).
                         \item Sobald die Termine zurückkommen, präsentiert der Bot diese dem Nutzer in Form eines entsprechenden Tastatur-Layouts. Das Layout ist dabei dynamisch und generiert sich bei jeder Abfrage neu.
                     \end{enumerate}
                 \item Option B: Der Nutzer ist bis zum Zustand \emph{SUMMARY} gekommen und hat bereits einen Termin vereinbart.
@@ -226,16 +226,16 @@ Generell für 5. Und 6.: Wenig Quellcode (wenn überhaupt)! Maximal 2/3 Seite un
                     
         \subsection{confirmation\_mail.py}
             \paragraph{Methode confirmation\_mail}
-                Um dem Nutzer die Zusammenfassung in Form einer E-Mail zukommen zu lassen, muss diese zunächst zusammengesetzt werden. Das einfach zu bewerkstelligung, bietet uns die Bibliothek mime. \cite{mime} Daneben wird die smtplib-Bibliothek genutzt, um eine sichere Verbindung zu einem Mail-Server aufzubauen. \cite{smtplib}\\
+                Um dem Nutzer die Zusammenfassung in Form einer E-Mail zukommen zu lassen, muss diese zunächst zusammengesetzt werden. Die Möglichkeit, dies zu bewerkstelligen, bietet die Bibliothek mime. \cite{email.mime} Daneben wird die smtplib-Bibliothek genutzt, um eine sichere Verbindung zu einem Mail-Server aufzubauen, über den die fertige E-Mail versenden werden kann. \cite{smtplib}\\
 
                 Erforderliche Zugangsdaten werden außerhalb der Methode confirmation\_mail aus den constants abgefragt und für die Verwendung innerhalb der Methode gespeichert. So werden diese nicht bei jedem Methodenaufruf erneut abgerufen.\\
                 \\
                 Die Methode bekommt Empfänger\-Name sowie \-Adresse und die Zusammenfassung aus der Methode summary übergeben. Über die smtplib wird ein Server\-Objekt erstellt. Gegenüber diesem Server authentifiziert sich der Bot nun via Benutzername und Passwort.\\
                 War die Authentifizierung erfolgreich, wird die eigentliche Nachricht zusammengesetzt. Dazu benötigt werden vier Bauteile: Sender\-Adresse, Empfänger\-Adresse, der Betreff und die Nachricht selbst.\\
-                Die Nachricht wird zuerst via der Methode attache() zusammengesetzt, um dann aus dem vordefinierten String ein message\-Objekt zu bauen.\\
-                Schließlich kann die E\-Mail via der Methode sendmail() unter Verwendung des zuvor angesprochenen Mail\-Servers verschickt werden.\\
+                Die Nachricht wird zuerst via der Methode attache() zusammengesetzt, um dann aus dem vordefinierten String ein message\-Objekt zu konstruieren.\\
+                Schließlich kann die E\-Mail via der Methode sendmail() unter Verwendung des zuvor beschriebenen Mail\-Servers versendet werden.\\
                 \\
-                Die Verbindung zum Server wird getrennt.
+                Schließlich wird die Verbindung zum Server wieder getrennt.
 
 
         \subsection{appointment.py}
@@ -345,7 +345,8 @@ Generell für 5. Und 6.: Wenig Quellcode (wenn überhaupt)! Maximal 2/3 Seite un
                 Die Methode ist mit der Methode delete\_record fast identisch. Hier wird zusätzlich eine Spaltenbezeichnung übergeben, die es ermöglicht, einen einzelnen Wert zu löschen.
 
 
-    \section{Kalender}
+    \section{Kalender} 
+        \label{Kalender}
         \paragraph{Google Calendar API}
             Zur Terminfindung ist die Google Calendar API angebunden. \cite{GoogleCloudConsole} Sie erlaubt es dem aufrufenden System, abzufragen, ob eine Zeitspanne verfügbar ist und Termine zwischen einer festgelegten Veranstalter\-Adresse und beliebig vielen Teilnehmer\-Adressen zu erstellen und zu versenden. \cite{googleCalAPI} Im Folgenden werden die dazu erforderlichen Methoden und Schritte detailliert erklärt.
 
@@ -394,7 +395,7 @@ Generell für 5. Und 6.: Wenig Quellcode (wenn überhaupt)! Maximal 2/3 Seite un
                 \\
                 \verb/2022-02-28T10:05:00.00Z/ \\
                 \\
-                Weitere Informationen zum RFC3339\-Format finden sich im offiziellen Standard: \cite{DateTime} \\
+                Weitere Informationen zum RFC3339\-Format finden sich im offiziellen Standard: \cite{date_time} \\
 
                 Die beiden Zeitstempel werden in einer Anfrage an die Calendar API eingebaut, an diese übergeben. Die Methode versucht darauf, die Methode freebusy() der API abzufragen. Ist dies erfolgreich, gibt die API eine Antwort im JSON-Format zurück, das Python als Dictionary interpretiert und in mehreren geschachtelten Schleifen auslegen kann. Ist das Feld \"busy: []\" leer, so wird True zurückgegeben. Das Zeitfenster ist frei. Ist das Feld nicht leer, gibt es einen Terminkonflikt. Die Methode gibt False zurück. \\
                 \\
