@@ -1,26 +1,24 @@
 \begin{thebibliography}{{Goo}22d}
 
-\bibitem[eaK02]{datetime}
+\bibitem[ea21a]{conversationBot}
+{\sc al., Toledo~et.}: {\em python-telegram-bot}.
+\newblock
+  https://github.com/python-telegram-bot/python-telegram-bot/blob/master/examples/conversationbot.py,
+  2021.
+
+\bibitem[ea21b]{telegramAPI}
+{\sc al., Toledo~et.}: {\em {Telegram API Documentation}}.
+\newblock https://python-telegram-bot.readthedocs.io/en/stable/index.html{\#},
+  2021.
+
+\bibitem[eA21c]{telegramAPIext}
+{\sc Al., Toledo~et.}: {\em telegram.ext package}.
+\newblock
+  https://python-telegram-bot.readthedocs.io/en/stable/telegram.ext.html, 2021.
+
+\bibitem[eaK02]{date_time}
 {\sc Klyne~et.~al.}: {\em {Date and Time on the Internet: Timestamps}}.
 \newblock 2002.
-
-\bibitem[Fou]{sqlite3API}
-{\sc Foundation, Python~Software}: {\em {sqlite3 — DB-API 2.0 interface for
-  SQLite databases}}.
-\newblock https://docs.python.org/3/library/sqlite3.html.
-
-\bibitem[Fou21a]{mime}
-{\sc Foundation, Python~Software}: {\em {email.mime: Creating email and MIME
-  objects from scratch}}.
-\newblock https://docs.python.org/3.8/library/email.mime.html, 2021.
-
-\bibitem[Fou21b]{pipenv}
-{\sc Foundation, Python~Software}: {\em pipenv}.
-\newblock https://pypi.org/project/pipenv/, 2021.
-
-\bibitem[Fou21c]{python3.8.6}
-{\sc Foundation, Python~Software}: {\em {Python 3.8.6}}.
-\newblock https://docs.python.org/3.8/, 2021.
 
 \bibitem[{Goo}22a]{apiExplorer}
 {\sc {Google LLC}}: {\em {Google APIs Explorer overview}}.
@@ -51,22 +49,6 @@
   https://www.messengerpeople.com/de/messaging-apps-brands-der-telegram-messenger/,
   2021.
 
-\bibitem[{Lea}21a]{telegramAPI}
-{\sc {Leandro Toledo}}: {\em {Telegram API Documentation}}.
-\newblock https://python-telegram-bot.readthedocs.io/en/stable/index.html{\#},
-  2021.
-
-\bibitem[{Lea}21b]{telegramAPIext}
-{\sc {Leandro Toledo}}: {\em telegram.ext package}.
-\newblock
-  https://python-telegram-bot.readthedocs.io/en/stable/telegram.ext.html, 2021.
-
-\bibitem[{Lea}21c]{conversationBot}
-{\sc {Leandro Toledo et. al.}}: {\em python-telegram-bot}.
-\newblock
-  https://github.com/python-telegram-bot/python-telegram-bot/blob/master/examples/conversationbot.py,
-  2021.
-
 \bibitem[Meh22]{Nutzerzahlen}
 {\sc Mehner, Matthias}: {\em {Nutzerzahlen Messenger Apps Deutschland und
   Weltweit}}.
@@ -78,17 +60,40 @@
 {\sc Pallets}: {\em {Flask Documentation}}.
 \newblock https://flask.palletsprojects.com/en/2.0.x/, 2022.
 
-\bibitem[{Pyt}21]{smtplib}
+\bibitem[{Pyt}]{sqlite3API}
+{\sc {Python Software Foundation}}: {\em {sqlite3 — DB-API 2.0 interface for
+  SQLite databases}}.
+\newblock https://docs.python.org/3/library/sqlite3.html.
+
+\bibitem[{Pyt}21a]{datetime}
+{\sc {Python Software Foundation}}: {\em {datetime — Basic date and time
+  types}}.
+\newblock https://docs.python.org/3.8/library/datetime.html, 2021.
+
+\bibitem[{Pyt}21b]{email.mime}
+{\sc {Python Software Foundation}}: {\em {email.mime: Creating email and MIME
+  objects from scratch}}.
+\newblock https://docs.python.org/3.8/library/email.mime.html, 2021.
+
+\bibitem[{Pyt}21c]{pipenv}
+{\sc {Python Software Foundation}}: {\em pipenv}.
+\newblock https://pypi.org/project/pipenv/, 2021.
+
+\bibitem[{Pyt}21d]{python3.8.6}
+{\sc {Python Software Foundation}}: {\em {Python 3.8.6}}.
+\newblock https://docs.python.org/3.8/, 2021.
+
+\bibitem[{Pyt}21e]{smtplib}
 {\sc {Python Software Foundation}}: {\em {smtplib — SMTP protocol client}}.
 \newblock https://docs.python.org/3.8/library/smtplib.html{\#}module-smtplib,
   2021.
 
-\bibitem[Tel21a]{coreTelegram}
-{\sc Telegram.org}: {\em {Bots: An introduction for developers}}.
+\bibitem[{Tel}21a]{coreTelegram}
+{\sc {Telegram Messenger Inc.}}: {\em {Bots: An introduction for developers}}.
 \newblock https://core.telegram.org/bots, 2021.
 
-\bibitem[Tel21b]{telegram}
-{\sc Telegram.org}: {\em {Telegram App}}.
+\bibitem[{Tel}21b]{telegram}
+{\sc {Telegram Messenger Inc.}}: {\em {Telegram App}}.
 \newblock https://telegram.org/, 2021.
 
 \bibitem[{The}21]{sqlite}

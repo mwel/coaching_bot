@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2021.1.31)  19 MAR 2022 11:33
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2021.1.31)  19 MAR 2022 13:47
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -715,7 +715,7 @@ bibgerm.sty: babel.sty detected
 
 
 pdfTeX warning: pdflatex (file ./images/logo-fb-informatik.pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<images/logo-fb-informatik.pdf, id=365, 811.81792pt x 157.11497pt>
+<images/logo-fb-informatik.pdf, id=426, 811.81792pt x 157.11497pt>
 File: images/logo-fb-informatik.pdf Graphic file (type pdf)
 <use images/logo-fb-informatik.pdf>
 Package pdftex.def Info: images/logo-fb-informatik.pdf  used on input line 92.
@@ -794,34 +794,30 @@ Underfull \hbox (badness 10000) in paragraph at lines 3--4
 
  []
 
-
-Overfull \hbox (16.39182pt too wide) in paragraph at lines 8--9
-\OT1/cmr/m/n/12 Seit je-her ha-ben Sol-da-ten mit post-trau-ma-thi-schen Be-las-tungs-sysn-dro-men zu k[]ampfen.
- []
-
-
-Overfull \hbox (6.0433pt too wide) in paragraph at lines 19--21
-\OT1/cmr/m/n/12 sie-ren, auf al-len Kom-ple-xit[]atsstufen ad-ap-tier-bar sind und es je-der-mann erm[]oglichen,
- []
-
 [3
 
 
-]) (./chapters/03_Grundlagen.tex [4]
-Kapitel 3.
-
-Overfull \hbox (8.51137pt too wide) in paragraph at lines 9--11
-\OT1/cmr/m/n/12 nutzt. [[]] Das Re-po-si-to-ry enth[]alt ei-ne Viel-zahl ba-sa-ler Bot-Implementierungen,
+] [4]
+Overfull \hbox (6.0413pt too wide) in paragraph at lines 53--55
+[]$\OT1/cmtt/m/n/12 https : / / github . com / botman / botman$[] \OT1/cmr/m/n/12 Als das po-pul[]arste Bot-Framework der Welt,
  []
 
-[5
+[5]
+Overfull \hbox (11.61438pt too wide) in paragraph at lines 65--67
+[]$\OT1/cmtt/m/n/12 https : / / ai . facebook . com / blog / state-[]of-[]the-[]art-[]open-[]source-[]chatbot/$[] \OT1/cmr/m/n/12 Als
+ []
+
+) (./chapters/03_Grundlagen.tex [6]
+Kapitel 3.
+
+Overfull \hbox (6.0433pt too wide) in paragraph at lines 13--15
+\OT1/cmr/m/n/12 sie-ren, auf al-len Kom-ple-xit[]atsstufen ad-ap-tier-bar sind und es je-der-mann erm[]oglichen,
+ []
+
+[7
 
 
-]
-
-LaTeX Warning: Citation `flask' on page 6 undefined on input line 28.
-
-) (./chapters/04_Konzept.tex [6]
+]) (./chapters/04_Konzept.tex [8]
 Kapitel 4.
 
 Underfull \hbox (badness 10000) in paragraph at lines 11--14
@@ -833,20 +829,20 @@ Underfull \hbox (badness 10000) in paragraph at lines 11--14
 
  []
 
-<images/220213_PA28464_Architecture.png, id=588, 1315.91624pt x 785.93625pt>
+<images/220213_PA28464_Architecture.png, id=707, 1315.91624pt x 785.93625pt>
 File: images/220213_PA28464_Architecture.png Graphic file (type png)
 <use images/220213_PA28464_Architecture.png>
 Package pdftex.def Info: images/220213_PA28464_Architecture.png  used on input line 20.
 (pdftex.def)             Requested size: 418.25368pt x 249.80182pt.
-<images/220213_PA28464_Conversation_Flow.png, id=590, 5613.97375pt x 2566.58875pt>
+<images/220213_PA28464_Conversation_Flow.png, id=709, 5613.97375pt x 2566.58875pt>
 File: images/220213_PA28464_Conversation_Flow.png Graphic file (type png)
 <use images/220213_PA28464_Conversation_Flow.png>
 Package pdftex.def Info: images/220213_PA28464_Conversation_Flow.png  used on input line 28.
 (pdftex.def)             Requested size: 418.25368pt x 191.19347pt.
-) (./chapters/05_Realisierung.tex [7
+) (./chapters/05_Realisierung.tex [9
 
 
-] [8 <./images/220213_PA28464_Architecture.png> <./images/220213_PA28464_Conversation_Flow.png>]
+] [10 <./images/220213_PA28464_Architecture.png> <./images/220213_PA28464_Conversation_Flow.png>]
 Kapitel 5.
 
 Overfull \hbox (7.8143pt too wide) in paragraph at lines 17--18
@@ -858,20 +854,20 @@ Overfull \hbox (7.48637pt too wide) in paragraph at lines 21--22
 \OT1/cmr/m/n/12 Neben den Haupt-funk-tio-nen des Bots (Funk-tio-nen, die zum Ge-spr[]achsfluss geh[]oren),
  []
 
-[9
+[11
 
 
-] [10] [11] [12]) (./chapters/06_Implementierung.tex [13]
+] [12] [13] [14]) (./chapters/06_Implementierung.tex [15]
 Kapitel 6.
 
 Underfull \hbox (badness 10000) in paragraph at lines 25--27
 
  []
 
-[14
+[16
 
 
-] [15]
+] [17]
 Underfull \hbox (badness 10000) in paragraph at lines 63--66
 
  []
@@ -901,21 +897,13 @@ Underfull \hbox (badness 10000) in paragraph at lines 79--86
 
  []
 
-[16]
+[18]
 \openout3 = `PA_DerCoachingBot_Wellenhofer_Max_28464.pyg'.
 
-runsystem(pygmentize -S default -f latex -P commandprefix=PYG > _minted-PA_DerCoachingBot_Wellenhofer_Max_28464/default-pyg-prefix.pygstyle)...executed.
-
- (./_minted-PA_DerCoachingBot_Wellenhofer_Max_28464/default-pyg-prefix.pygstyle)
-runsystem(pygmentize -S manni -f latex -P commandprefix=PYGmanni > _minted-PA_DerCoachingBot_Wellenhofer_Max_28464/manni.pygstyle)...executed.
-
- (./_minted-PA_DerCoachingBot_Wellenhofer_Max_28464/manni.pygstyle)
-runsystem(pygmentize -l python -f latex -P commandprefix=PYG -F tokenmerge -o _minted-PA_DerCoachingBot_Wellenhofer_Max_28464/0127064A661FDD72C4D40D2937FB64F85A8F30BC04436C937C580C819B59383C.pygtex PA_DerCoachingBot_Wellenhofer_Max_28464.pyg)...executed.
-
- (./_minted-PA_DerCoachingBot_Wellenhofer_Max_28464/0127064A661FDD72C4D40D2937FB64F85A8F30BC04436C937C580C819B59383C.pygtex
+ (./_minted-PA_DerCoachingBot_Wellenhofer_Max_28464/default-pyg-prefix.pygstyle) (./_minted-PA_DerCoachingBot_Wellenhofer_Max_28464/manni.pygstyle) (./_minted-PA_DerCoachingBot_Wellenhofer_Max_28464/0127064A661FDD72C4D40D2937FB64F85A8F30BC04436C937C580C819B59383C.pygtex
 LaTeX Font Info:    Font shape `OT1/cmtt/bx/n' in size <12> not available
 (Font)              Font shape `OT1/cmtt/m/n' tried instead on input line 3.
- [17]
+ [19]
 Overfull \hbox (75.74657pt too wide) in paragraph at lines 18--18
 \OT1/cmtt/m/n/12 reply_markup[]=[]states[].[]KEYBOARD_MARKUPS[states[].[]GENDER],|  
  []
@@ -927,9 +915,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 127--128
 
 \openout3 = `PA_DerCoachingBot_Wellenhofer_Max_28464.pyg'.
 
-runsystem(pygmentize -l python -f latex -P commandprefix=PYG -F tokenmerge -o _minted-PA_DerCoachingBot_Wellenhofer_Max_28464/75DB2033F1A61D399817FF59BCC033805A8F30BC04436C937C580C819B59383C.pygtex PA_DerCoachingBot_Wellenhofer_Max_28464.pyg)...executed.
-
-(./_minted-PA_DerCoachingBot_Wellenhofer_Max_28464/75DB2033F1A61D399817FF59BCC033805A8F30BC04436C937C580C819B59383C.pygtex [18]
+(./_minted-PA_DerCoachingBot_Wellenhofer_Max_28464/75DB2033F1A61D399817FF59BCC033805A8F30BC04436C937C580C819B59383C.pygtex [20]
 Overfull \hbox (75.74657pt too wide) in paragraph at lines 18--18
 \OT1/cmtt/m/n/12 reply_markup[]=[]states[].[]KEYBOARD_MARKUPS[states[].[]GENDER],|  
  []
@@ -939,22 +925,12 @@ Overfull \hbox (18.95985pt too wide) in paragraph at lines 155--158
 \OT1/cmr/m/n/12 Die Ers-te dient da-zu, ei-ne auf die-se skip-Methode in-di-vi-du-el-le Nach-richt zu []ubermitteln. 
  []
 
-[19] [20]
+[21] [22]
 Underfull \hbox (badness 10000) in paragraph at lines 208--211
 
  []
 
-[21]
-
-LaTeX Warning: Reference `Kalender' on page 22 undefined on input line 216.
-
-
-LaTeX Warning: Reference `Kalender' on page 22 undefined on input line 216.
-
-
-LaTeX Warning: Citation `mime' on page 22 undefined on input line 229.
-
-
+[23]
 Underfull \hbox (badness 10000) in paragraph at lines 229--230
 
  []
@@ -969,7 +945,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 231--239
 
  []
 
-[22] [23]
+[24] [25]
 Underfull \hbox (badness 10000) in paragraph at lines 285--291
 
  []
@@ -979,88 +955,84 @@ Underfull \hbox (badness 10000) in paragraph at lines 285--291
 
  []
 
-[24]
+[26]
 Overfull \hbox (15.09581pt too wide) in paragraph at lines 293--296
 \OT1/cmr/m/n/12 Auch Te-le-fon-num-mern wer-den via re-gul[]arem Aus-druck ge-pr[]uft: [][]\OT1/cmtt/m/n/12 ^\+4[139]\d{9,12}$
  []
 
-[25] [26] [27]
-Overfull \hbox (25.82228pt too wide) in paragraph at lines 357--359
+[27] [28] [29]
+Overfull \hbox (25.82228pt too wide) in paragraph at lines 358--360
 \OT1/cmr/m/n/12 Der Bot nutzt den um-fang-reichs-ten Sco-pe: []https://www.googleapis.com/auth/calendar[].
  []
 
-[28]
-
-LaTeX Warning: Citation `DateTime' on page 29 undefined on input line 397.
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 389--398
+[30]
+Underfull \hbox (badness 10000) in paragraph at lines 390--399
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 389--398
+Underfull \hbox (badness 10000) in paragraph at lines 390--399
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 389--398
+Underfull \hbox (badness 10000) in paragraph at lines 390--399
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 389--398
+Underfull \hbox (badness 10000) in paragraph at lines 390--399
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 389--398
+Underfull \hbox (badness 10000) in paragraph at lines 390--399
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 399--402
+Underfull \hbox (badness 10000) in paragraph at lines 400--403
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 405--414
+Underfull \hbox (badness 10000) in paragraph at lines 406--415
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 405--414
+Underfull \hbox (badness 10000) in paragraph at lines 406--415
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 405--414
+Underfull \hbox (badness 10000) in paragraph at lines 406--415
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 405--414
+Underfull \hbox (badness 10000) in paragraph at lines 406--415
 
  []
 
-[29]
-Overfull \hbox (97.25487pt too wide) in paragraph at lines 436--439
+[31]
+Overfull \hbox (97.25487pt too wide) in paragraph at lines 437--440
 \OT1/cmr/m/n/12 Google Cloud Con-so-le: https://console.cloud.google.com/apis/credentials/consent?project=coaching-
  []
 
 
-Overfull \hbox (171.20004pt too wide) in paragraph at lines 436--439
+Overfull \hbox (171.20004pt too wide) in paragraph at lines 437--440
 \OT1/cmr/m/n/12 bot-339115 Ca-len-dar API Py-thon Quick-start Gui-de: htt-ps://developers.google.com/calendar/api/quickstart/python
  []
 
 
-Overfull \hbox (5.65164pt too wide) in paragraph at lines 436--439
+Overfull \hbox (5.65164pt too wide) in paragraph at lines 437--440
 \OT1/cmr/m/n/12 Ve-rify own web-si-te: htt-ps://www.google.com/webmasters/verification/home?hl=en 
  []
 
-) (./chapters/07_Beispiele.tex [30]
+) (./chapters/07_Beispiele.tex [32]
 Kapitel 7.
-<images/coaching_bot_dummy_screenshot.jpeg, id=788, 1174.3875pt x 2420.04124pt>
+<images/coaching_bot_dummy_screenshot.jpeg, id=911, 1174.3875pt x 2420.04124pt>
 File: images/coaching_bot_dummy_screenshot.jpeg Graphic file (type jpg)
 <use images/coaching_bot_dummy_screenshot.jpeg>
 Package pdftex.def Info: images/coaching_bot_dummy_screenshot.jpeg  used on input line 9.
@@ -1101,92 +1073,105 @@ File: images/coaching_bot_dummy_screenshot.jpeg Graphic file (type jpg)
 <use images/coaching_bot_dummy_screenshot.jpeg>
 Package pdftex.def Info: images/coaching_bot_dummy_screenshot.jpeg  used on input line 90.
 (pdftex.def)             Requested size: 292.77629pt x 603.3102pt.
-) (./chapters/08_Anwendungsszenarien.tex [31
+) (./chapters/08_Anwendungsszenarien.tex [33
 
 
-] [32 <./images/coaching_bot_dummy_screenshot.jpeg>] [33] [34] [35] [36] [37] [38] [39] [40] [41]
+] [34 <./images/coaching_bot_dummy_screenshot.jpeg>] [35] [36] [37] [38] [39] [40] [41] [42] [43]
 Kapitel 8.
-) (./chapters/09_ZusammenfassungAusblick.tex [42
+) (./chapters/09_ZusammenfassungAusblick.tex [44
 
 
 ]
 Kapitel 9.
-) [43
+) [45
 
 
 ] (./PA_DerCoachingBot_Wellenhofer_Max_28464.bbl
-Underfull \hbox (badness 10000) in paragraph at lines 13--15
-[]\OT1/cmr/m/sc/12 Foundation, Py-thon Soft-wa-re\OT1/cmr/m/n/12 : \OT1/cmr/m/it/12 pi-penv\OT1/cmr/m/n/12 .  htt-
+Underfull \hbox (badness 10000) in paragraph at lines 4--8
+[]\OT1/cmr/m/sc/12 al., To-le-do et.\OT1/cmr/m/n/12 : \OT1/cmr/m/it/12 python-telegram-bot\OT1/cmr/m/n/12 .
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 17--19
-[]\OT1/cmr/m/sc/12 Foundation, Py-thon Soft-wa-re\OT1/cmr/m/n/12 : \OT1/cmr/m/it/12 Py-thon 3.8.6\OT1/cmr/m/n/12 .  htt-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 21--23
-[]\OT1/cmr/m/sc/12 Google LLC\OT1/cmr/m/n/12 : \OT1/cmr/m/it/12 Goo-gle APIs Ex-plo-rer over-view\OT1/cmr/m/n/12 .
- []
-
-
-Underfull \hbox (badness 1199) in paragraph at lines 25--27
-[]\OT1/cmr/m/sc/12 Google LLC\OT1/cmr/m/n/12 : \OT1/cmr/m/it/12 Goo-gle Ca-len-dar API - Py-thon Quick-start\OT1/cmr/m/n/12 .  htt-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 29--31
-[]\OT1/cmr/m/sc/12 Google LLC\OT1/cmr/m/n/12 : \OT1/cmr/m/it/12 Goo-gle Cloud Plat-form\OT1/cmr/m/n/12 .  htt-
- []
-
-
-Overfull \hbox (2.88782pt too wide) in paragraph at lines 33--37
-[]\OT1/cmr/m/sc/12 Google LLC\OT1/cmr/m/n/12 : \OT1/cmr/m/it/12 Goo-gle-Ca-len-dar-API\OT1/cmr/m/n/12 .  https://googleapis.github.io/google-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 56--60
-[]\OT1/cmr/m/sc/12 Leandro To-le-do et. al.\OT1/cmr/m/n/12 : \OT1/cmr/m/it/12 python-telegram-bot\OT1/cmr/m/n/12 .
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 56--60
+Underfull \hbox (badness 10000) in paragraph at lines 4--8
 \OT1/cmr/m/n/12 https://github.com/python-telegram-bot/python-telegram-
  []
 
 
-Underfull \hbox (badness 3746) in paragraph at lines 62--67
+Underfull \hbox (badness 10000) in paragraph at lines 24--26
+[]\OT1/cmr/m/sc/12 Google LLC\OT1/cmr/m/n/12 : \OT1/cmr/m/it/12 Goo-gle APIs Ex-plo-rer over-view\OT1/cmr/m/n/12 .
+ []
+
+
+Underfull \hbox (badness 1199) in paragraph at lines 28--30
+[]\OT1/cmr/m/sc/12 Google LLC\OT1/cmr/m/n/12 : \OT1/cmr/m/it/12 Goo-gle Ca-len-dar API - Py-thon Quick-start\OT1/cmr/m/n/12 .  htt-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 32--34
+[]\OT1/cmr/m/sc/12 Google LLC\OT1/cmr/m/n/12 : \OT1/cmr/m/it/12 Goo-gle Cloud Plat-form\OT1/cmr/m/n/12 .  htt-
+ []
+
+
+Overfull \hbox (2.88782pt too wide) in paragraph at lines 36--40
+[]\OT1/cmr/m/sc/12 Google LLC\OT1/cmr/m/n/12 : \OT1/cmr/m/it/12 Goo-gle-Ca-len-dar-API\OT1/cmr/m/n/12 .  https://googleapis.github.io/google-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 42--44
+[]\OT1/cmr/m/sc/12 IBM\OT1/cmr/m/n/12 : \OT1/cmr/m/it/12 Ap-p-li-ca-ti-on Pro-gram-ming In-ter-face (API)\OT1/cmr/m/n/12 .  htt-
+ []
+
+
+Underfull \hbox (badness 3746) in paragraph at lines 53--58
 []\OT1/cmr/m/sc/12 Mehner, Matt-hi-as\OT1/cmr/m/n/12 : \OT1/cmr/m/it/12 Nutzer-zah-len Mes-sen-ger Ap-ps Deutsch-land
  []
 
 
-Underfull \hbox (badness 7344) in paragraph at lines 74--76
-[]\OT1/cmr/m/sc/12 Telegram.org\OT1/cmr/m/n/12 : \OT1/cmr/m/it/12 Bots: An in-tro-duc-ti-on for de-vel-opers\OT1/cmr/m/n/12 .  htt-
+Underfull \hbox (badness 10000) in paragraph at lines 60--62
+[]\OT1/cmr/m/sc/12 Pallets\OT1/cmr/m/n/12 : \OT1/cmr/m/it/12 Flask Do-cu-men-ta-ti-on\OT1/cmr/m/n/12 .  htt-
  []
 
-[44
+
+Underfull \hbox (badness 10000) in paragraph at lines 74--77
+[]\OT1/cmr/m/sc/12 Python Soft-wa-re Foun-da-ti-on\OT1/cmr/m/n/12 : \OT1/cmr/m/it/12 email.mime: Crea-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 74--77
+\OT1/cmr/m/it/12 ting email and MI-ME ob-jects from scratch\OT1/cmr/m/n/12 .  htt-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 79--81
+[]\OT1/cmr/m/sc/12 Python Soft-wa-re Foun-da-ti-on\OT1/cmr/m/n/12 : \OT1/cmr/m/it/12 pi-penv\OT1/cmr/m/n/12 .  htt-
+ []
+
+[46
 
 
 
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 86--88
+Underfull \hbox (badness 10000) in paragraph at lines 83--85
+[]\OT1/cmr/m/sc/12 Python Soft-wa-re Foun-da-ti-on\OT1/cmr/m/n/12 : \OT1/cmr/m/it/12 Py-thon 3.8.6\OT1/cmr/m/n/12 .  htt-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 104--106
 []\OT1/cmr/m/sc/12 W3CSchools\OT1/cmr/m/n/12 : \OT1/cmr/m/it/12 HTML Do-cu-men-ta-ti-on\OT1/cmr/m/n/12 .  htt-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 90--92
+Underfull \hbox (badness 10000) in paragraph at lines 108--110
 []\OT1/cmr/m/sc/12 Wellenhofer, Max\OT1/cmr/m/n/12 : \OT1/cmr/m/it/12 The Coa-ching Bot Re-po-si-to-ry\OT1/cmr/m/n/12 .  htt-
  []
 
-) (./PA_DerCoachingBot_Wellenhofer_Max_28464.ind) [45]
+)
+No file PA_DerCoachingBot_Wellenhofer_Max_28464.ind.
+[47]
 \openout2 = `chapters/Glossar.aux'.
 
  (./chapters/Glossar.tex
-
-LaTeX Warning: Citation `apiIBM2020' on page 46 undefined on input line 3.
-
-
 Underfull \hbox (badness 6032) in paragraph at lines 11--11
 []|\OT1/cmr/m/n/12 CREATE, READ, UP-DA-TE, DE-LE-TE: Standard-
  []
@@ -1196,7 +1181,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 3--13
 
  []
 
-) [46
+) [48
 
 
 
@@ -1213,7 +1198,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 7--8
 
  []
 
-) [47
+) [49
 
 
 
@@ -1225,31 +1210,24 @@ Package atveryend Info: Empty hook `AfterLastShipout' on input line 131.
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 131.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 131.
 Package rerunfilecheck Info: File `PA_DerCoachingBot_Wellenhofer_Max_28464.out' has not changed.
-(rerunfilecheck)             Checksum: E0BD4963DF43DDC0C4803B91767788ED;6149.
-
-
-LaTeX Warning: There were undefined references.
-
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
+(rerunfilecheck)             Checksum: C7691D7EB0CC0B62C750AF241CBBD7E3;6981.
 runsystem(rm PA_DerCoachingBot_Wellenhofer_Max_28464.pyg)...executed.
 
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 131.
  ) 
 Here is how much of TeX's memory you used:
- 15642 strings out of 480608
- 254947 string characters out of 5903630
- 608495 words of memory out of 5000000
- 30915 multiletter control sequences out of 15000+600000
+ 15696 strings out of 480608
+ 255458 string characters out of 5903630
+ 608716 words of memory out of 5000000
+ 30935 multiletter control sequences out of 15000+600000
  540598 words of font info for 56 fonts, out of 8000000 for 9000
  1146 hyphenation exceptions out of 8191
  41i,10n,42p,1164b,841s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmitt10.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb>
-Output written on PA_DerCoachingBot_Wellenhofer_Max_28464.pdf (56 pages, 1963734 bytes).
+Output written on PA_DerCoachingBot_Wellenhofer_Max_28464.pdf (58 pages, 1974088 bytes).
 PDF statistics:
- 962 PDF objects out of 1000 (max. 8388607)
- 877 compressed objects within 9 object streams
- 257 named destinations out of 1000 (max. 500000)
- 741 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1095 PDF objects out of 1200 (max. 8388607)
+ 1006 compressed objects within 11 object streams
+ 293 named destinations out of 1000 (max. 500000)
+ 861 words of extra memory for PDF output out of 10000 (max. 10000000)
 

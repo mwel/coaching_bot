@@ -1,22 +1,73 @@
-\chapter{VerwandteArbeiten}
+\chapter{Verwandte Arbeiten}
 
-Analysiert man den Hintergrund der meisten Bots, so wird schnell klar \- es besteht in einer überwältigenden Mehrheit der Fälle ein monetärer Beweggrund, einen Bot anzubieten. Neben Coaching-Bots zur Optimierung des eigenen Investment-Portfolios oder diversen Bezahlmodellen für Gesundheits\- und Personal Training Programme, existiert auf Social Media Portalen eine Vielzahl an Chatbots, die technisch sehr umfangreich und mächtig sind, aber fast keine quelloffenen und kostenlosen Beispiele, die unserem Zweck genügen. \\
+    Ziel der Recherche war es, einen kleinen, selbst wartbaren open source Chatbot zu finden, der von angehenden Coaches mit minimalen Kenntnissen und einer einfach verständlichen Dokumentation ohne monetäre Mittel auf die eigenen Bedürfnisse angepasst, an einem beliebigen Ort gehostet und eine einfache, geskriptete OnBoarding-Phase durchlaufen kann. Analysiert man den Hintergrund der meisten Bots, so wird schnell klar: Die meisten Fraeworks sind zu mächtig, bieten zu umfangreiche und komplexe Feature-Sets, die für Enterprise-Grade-Software bestens geeignet sind, aber für die in der Problemstellung beschriebenen Zwecke zu weitreichend sind. Daneben sind ansonsten valable Optionen teilweise nicht direkt, aber in zweiter Instanz zu eng mit zu bezahlenden Systemen verknüpft, als dass diese ohne Weiteres genutzt werden könnten. Nach umfangreicher Recherche hat man sich ergo dazu entschieden, die Anforderungen selbst auf Basis der in \ref{Grundlagen} aufgeschlüsselten Systeme zu erfüllen. \\
 
-    \paragraph{Im Folgenden werden 2 etablierte Coaching-Bots betrachtet, die keinen monetären Zweck verfolgen.}
+    Analysierte Frameworks:
+    \begin{enumerate}
+        \item Microsoft Bot Framework
+        \item Botkit
+        \item Botpress
+        \item Rasa
+        \item Wit.ai
+        \item OpenDialog
+        \item Botonic
+        \item Claudia Bot Builder
+        \item Tock
+        \item BotMan
+        \item Bottender
+        \item DeepPavlov
+        \item Golem
+        \item ParlAI by Facebook AI
+        \item Ana
+        \item Bot Libre
+    \end{enumerate}
 
-    \section{CoachPTBS - der Chatbot der Bundeswehr}
-    Seit jeher haben Soldaten mit posttraumathischen Belastungssysndromen zu kämpfen. Die Bundeswehr hat mit dem CoachPTBS ein digitales Experiment gewagt, das versucht, Betroffenen eine möglichst niedrige Einstiegshürde zu bieten, sich mit ihren Problemen auseinanderzusetzen. Auch für den Coaching-Bot benötigen wir eine niedrige Hemmschwelle, damit möglichst viele junge Menschen teilnehmen und sich um einen Platz im Programm bewerben.
 
-    % bisschen erzählen über den Bot.
-    % Was macht er richtig?
-    % Was können wir übernehmen?
-    % Was wollen wir anders haben?
+\section{Microsoft Bot Framework} \url{https://github.com/microsoft/botframework-sdk}
+Als Corporate ist eine Nutzung des von Microsoft bereitgestellten Frameworks sicher aufgrund vielerlei Plug-and-play-Integrationen sinnvoll. Allerdings bindet man sich damit an die mit Kosten verbundene Cloud Plattform Azure. Das Open Source Kriterium ist also nicht erfüllt. 
 
-    Die Technologie hinter der CoachPTBS App ist sicherlich weit fortgeschritten, jedoch erhalten wir aus einem nicht quelloffenen Projekt - so wegweisend es auch sein mag - keinen Vorteil. Allerdings berstärkt uns der CoachBot der Bundeswehr in unserer Annahme, dass Individuen einen Bot als einfachen Weg sehen, eine erste Kontaktaufnahme mit einem Coachee zu etablieren - vor allem in Situationen, in denen Menschen noch nicht bereit sind, direkt mit einem Menschen direkt zu sprechen.
+\section{Botkit} \url{https://github.com/howdyai/botkit-cms}
+Botkit ist im Microsoft Bot Framework aufgegangen. 
 
+\section{Botpress} \url{https://botpress.com/}
+Botpress ist ein sehr mächtiges Bot Framework, das grundsätzlich den oben genannten Anforderungen entspricht. Schnell wird aber klar, dass man als Laie umfangreiche Einarbeitung benötigt und, dass das Natural Language Understanding, das für fortgeschrittene Chatbos eines der Hauptfeatures ist, die hier geforderten Zwecke weit übersteigt.
 
-    \section{Telegram Chat Bots}
-    Telegram Chat Bots sind Applikationen, die auf einer quelloffenen API \cite{telegramAPI} basieren, auf allen Komplexitätsstufen adaptierbar sind und es jedermann ermöglichen, einen Chatbot zu bauen. Die einzige suboptimale Einschränkung besteht im Vendor Lock-In der Telegram-App. (Der Bot ist nur in Verbindung mit der Telegram-App \cite{telegram} nutzbar.) Aufgrund der technischen Vorteile, die dieses Framework bietet, ist dieser Nachteil jedoch in Kauf zu nehmen. Vor Allem im Hinblick auf einen Proof of Concept, ist ein Bot auf einer Plattform hinreichend. Sollte das Prinzip Erfolg versprechen, so kann die Logik auf andere Umgebungen erweitert werden. \\
-    Die meisten Menschen in Deutschland und der DACH-Region verwenden immer noch WhatsApp \cite{Nutzerzahlen} und doch bietet uns der populärste Messenger nicht die Freiheiten und den Funktionsumfang, den wir uns für unseren CoachingBot wünschen. Telegram jedoch hält genau diese Offenheit für uns bereit. \cite{telegramVergleich}. So bietet der Dienst, die Möglichkeit, via einer API direkt in die Entwicklung einzusteigen und hält sogar basale State-Mashines für uns bereit, die uns die Komplexität für den Kern des Bots nicht komplett abnehmen, aber als Gerüst für einen ChatBot dienen können.
+\section{Rasa} \url{https://github.com/RasaHQ/rasa}
+Rasa bietet mit seinem Story-Feature genau das, was man sich als Coach wünscht. Nämlich, den potenziellen Coachee mit auf seine persönliche Reise zu nehmen. Allerdings bedarf Rasa, um gut zu funktionieren eines umfangreichen Datensatzes, anhand dessen die AI lernen kann und das liegt uns leider nicht vor.
 
+\section{Wit.ai} \url{https://github.com/wit-ai}
+Wit.ai gehört Facebook (inzwischen Meta) und entspricht damit nicht unserer Vorstellung von freier Software.
+
+\section{OpenDialog} \url{https://www.opendialog.ai/}
+Open Dialog ist zwar open source, die Nutzung ist aber mit Lizenzgebühren verbunden.
+
+\section{Botonic} \url{https://github.com/hubtype/botonic}
+Botonic bietet genau das, was wir gesucht haben: Eine Kombination aus Text- und grafischen Schnittstellen. Allerdings sind wie auch für die Nutzung von Botonic, wie für Botpress, umfangreiche Vorkenntnisse erforderlich. Eine Weiterverwendung und Individualisierung durch weitere Coaches ist daher unwahrscheinlich.
+
+\section{Claudia Bot Builder} \url{https://github.com/claudiajs/claudia-bot-builder}
+Claudia Bot Builder reduziert die Komplexität, einen Bot selbst zu bauen und zu konfigurieren erheblich und bietet somit genau die Features, die eine einfache Adaption ermöglichen. Leider ist die Software aber ausschließlich auf AWS Lambda ausführbar und somit mit regelmäßigen Kosten verbunden. 
+
+\section{Tock} \url{https://github.com/theopenconversationkit/tock}
+Tock ist eine valable Stand Alone Lösung für Chat Bots. Allerdings ist die Kompatibilität mit Plattformen, die ausschließlich kommerziellen Corporationen gehören, nicht mit den Zielen des Coaching Bots vereinbar. 
+
+\section{BotMan} \url{https://github.com/botman/botman}
+Als das populärste Bot-Framework der Welt, stellt BotMan einen soliden Kandidaten für unseren Coaching Bot dar.
+
+\section{Bottender} \url{https://github.com/yoctol/bottender}
+Auch Bottender erfüllt auf den ersten Blick alle Anforderungen, die an das Framework gestellt wurden. Allerdings scheint es, als wären die Features, die für die Zwecke des Coaching-Bots benötigt werden, nicht einfacher zu implementieren als auf einer Chatbot Boiler Plate. Durch Bottender wären aber Komplexität und Gewicht der Applikation erheblich erhöht.
+
+\section{DeepPavlov} \url{https://github.com/deepmipt/deeppavlov}
+Das auf mächtige und qualitativ hochwertiges NLP ausgelegte Framework DeepPavlov ist weitaus zu mächtig und entspricht nicht dem geskripteten OnBoarding-Prozess, der für den CoachingBot verfolgt werden soll.
+
+\section{Golem} \url{https://github.com/prihoda/golem}
+Aus den gleichen Gründen wie bei Bottender und DeepPavlov ist uns auch Golem nicht dienlich. Weder werden für die erste Version des Bots NLU benötigt, noch bietet Golem mehr relevante Features, als die Vanilla-Version des Telegram-Bots.
+
+\section{ParlAI by Facebook AI} \url{https://ai.facebook.com/blog/state-of-the-art-open-source-chatbot/}
+Als Teil des Facebook- / Meta-Universums bietet ParlAI wahrscheinlich eines der besten NLPs, die aktuell verfügbar sind. Allerdings befindet sich das Framework noch in Produktion und das Feature wird nicht benötigt.
+
+\section{Ana} \url{https://www.ana.chat/}
+Ana bietet ein SDK, über das ein Chatbot in Applikationen integriert werden kann. Da wir aber bestehende Messenger Applikationen nutzen möchten, schließen wir Ana aus.
+
+\section{Bot Libre} \url{https://www.botlibre.com/}
+Bot Libre ist auf Android beschränkt. Ein dignifikanter Anteil aller Mobile-User wäre dadurch von unserer Zielgruppe ausgeschlossen.
 
