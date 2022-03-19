@@ -1,40 +1,75 @@
-\label{Grundlagen}
-\chapter{Grundlagen}
+\chapter{Grundlagen} \label{Grundlagen}
     Die folgenden Sprachen und Systeme dienen als Grundlage für die im Rahmen dieses Projekts entwickelte Applikation. Eine Liste aller eingebundenen Bibliotheken kann dem Pipfile des Projets entnommen werden. 
+
 
     \section{Python}
         Der größte Teil der Applikation ist in Python 3.8.6 \cite{python3.8.6} geschrieben. Das war zum Stand des Entwicklungsbeginns 2021 die aktuell stabile Python-Version.
+
 
     \section{Telegram API}
         Die Applikation basiert auf der API des Instant Messaging Dienstes Telegram \cite{telegramAPI} sowie deren Extension \cite{telegramAPIext}.
         Als Grundgerüst der für den Bot erforderlichen State Machine wurde der ConversationBot von Leandro Toledo et. al. genutzt. \cite{conversationBot} Das Repository enthält eine Vielzahl basaler Bot-Implementierungen, die als Startpunkt für jegliche Bot-Implementierung einen guten Überblick über das Grundgerüst und die Funktionsweise eines Bot geben.
 
+
     \section{Telegram Chat Bots}
-        Telegram Chat Bots sind Applikationen, die auf einer quelloffenen API \cite{telegramAPI} basieren, auf allen Komplexitätsstufen adaptierbar sind und es jedermann ermöglichen, einen Chatbot zu bauen. Die einzige suboptimale Einschränkung besteht im Vendor Lock-In der Telegram-App. (Der Bot ist nur in Verbindung mit der Telegram-App \cite{telegram} nutzbar.) Aufgrund der technischen Vorteile, die dieses Framework bietet, ist dieser Nachteil jedoch in Kauf zu nehmen. Vor Allem im Hinblick auf einen Proof of Concept, ist ein Bot auf einer Plattform hinreichend. Sollte das Prinzip Erfolg versprechen, so kann die Logik auf andere Umgebungen erweitert werden. \\
-        Die meisten Menschen in Deutschland und der DACH-Region verwenden immer noch WhatsApp \cite{Nutzerzahlen} und doch bietet uns der populärste Messenger nicht die Freiheiten und den Funktionsumfang, den wir uns für unseren CoachingBot wünschen. Telegram jedoch hält genau diese Offenheit für uns bereit. \cite{telegramVergleich}. So bietet der Dienst, die Möglichkeit, via einer API direkt in die Entwicklung einzusteigen und hält sogar basale State-Mashines für uns bereit, die uns die Komplexität für den Kern des Bots nicht komplett abnehmen, aber als Gerüst für einen ChatBot dienen können.
+        Telegram Chat Bots sind Applikationen, die auf einer quelloffenen API \cite{telegramAPI} basieren, auf allen Komplexitätsstufen adaptierbar sind und es jedermann ermöglichen, einen Chatbot zu bauen. Die einzige suboptimale Einschränkung besteht im Vendor Lock-In der Telegram-App. (Der Bot ist nur in Verbindung mit der Telegram-App \cite{telegram} nutzbar.) Aufgrund der technischen Vorteile, die dieses Framework bietet, ist dieser Nachteil jedoch in einer ersten Version in Kauf zu nehmen. Sollte das Prinzip Erfolg versprechen, so kann die Logik mittels Frameworks wie \ref{BotMan} Botman auf andere Umgebungen erweitert werden. \\
+        Die meisten Menschen in Deutschland und der DACH-Region verwenden immer noch WhatsApp \cite{Nutzerzahlen} und doch bietet uns der populärste Messenger nicht die Freiheiten und den Funktionsumfang, den wir uns für unseren CoachingBot wünschen. Telegram jedoch hält genau diese Offenheit für uns bereit. \cite{telegramVergleich} So bietet der Dienst, die Möglichkeit, via einer API direkt in die Entwicklung einzusteigen und hält sogar basale State-Machines für uns bereit, die uns die Komplexität für den Kern des Bots nicht komplett abnehmen, aber als Gerüst für den CoachingBot dienen können.
+
 
     \section{SQLite}
         Zur Speicherung von Nutzerdaten wird eine SQLite Datenbank \cite{sqlite} genutzt.
 
+
     \section{SQLite3 API}
-        Als Schnittstelle zwischen dem Python basierten Backend und der SQLite Datenbank nutzt die Applikation den sqlite3 Database-Connector \cite{sqlite3API}.
+        Als Schnittstelle zwischen dem Python-basierten Backend und der SQLite-Datenbank nutzt die Applikation den sqlite3 Database-Connector. \cite{sqlite3API}
 
     % \section{Mailing}
         % Die Applikation versendet als Zusammenfassung aller eingereichten Informationen eine E-Mail von einem Mail-Server. 
 
+
     \section{HMTL}
-        HTML bietet uns die Möglichkeit die grafische Oberfläche in einem Standard Webbrowser auszugeben. \cite{HTML}
+        HTML bietet uns die Möglichkeit die grafische Oberfläche für den Coach in einem Standard Webbrowser auszugeben. \cite{HTML}
+
 
     \section{CSS}
-        Zur Aufbereitung der Web-GUI wird ein CSS-File genutzt.
+        Zur Aufbereitung der Web-GUI wird CSS genutzt.
+
 
     \section{Flask}
         Die HTML-GUI wird via Flask \cite{flask} an einen lokalen Web-Server übermittelt und kann so einfach mittels Python in gängigen Browsern präsentiert werden.
 
 
     \section{Google Calendar API}
-        Die Applikation bindet die Google Calendar API \cite{googleCalAPI} an, um es dem User zu ermöglichen, einen Termin mit dem Anbieter zu vereinbaren.
+        Die Applikation bindet die Google Calendar API \cite{googleCalAPI} an, um es dem User zu ermöglichen, einen Termin mit dem Anbieter zu vereinbaren und diesen später auch wieder in der eigegen Kalender\-Applikation abzulehnen.
+        Um die API nutzen zu können, bedarf es der Installation der API (via pipenv) und der Einrichtung der quickstart.py. Sie stellt den Rahmen für die Authentifizierung gegenüber dem Google Open\-Authorization (oauth2) Protokoll und bindet erste Bibliotheken ein.
+        \footnote{Eine genaue Dokumentation zu Aufbau und Nutzung der quickstart.py findet sich hier: \url{https://developers.google.com/calendar/api/quickstart/python}}
+        Für den CoachingBot ist die quickstart.py bereits konfiguriert und wurde durch einige Erweiterungen zum Calendar Manager weiterentwickelt (siehe \ref{calendar_manager.py} calendar\_manager.py). Zur Nutzung durch Dritte bedarf es dabei individueller Schlüssel sowie Zugangsberechtigungen, durch deren Setup nun geführt wird. Vorgängig ist die Dokumentation zur Google Cloud Console zu sichten. 
+        \footnote{\url{https://console.cloud.google.com/}}
+        
+            \subsection{Scope}
+                Die API kann auf verschiedene sog. \glq Scope\grq (z.dt. Umfang oder Reichweite) eingestellt werden. So wird festgelegt, welche Rechte dem Kalender Manager gegenüber der API zur Verfügung stehen und welche Methoden, die die API bietet, genutzt werden können. So wäre bspw. der Scope \glqq.../readonly\grqq verfügbar, über den ein Kalender nur abgefragt, aber keine Termine erstellt werden können.\\
+                Der Bot nutzt den umfangreichsten Scope: \glqq\url{https://www.googleapis.com/auth/calendar}\grqq. Über ihn stehen alle Operationen der API zur Verfügung.
+
+            \subsection{Zugangsdaten}
+                Um sich via OAuth zu authentifizieren, bedarf es folgender Schritte in der Google Cloud Console. Obwohl diese Schritte bereits durchgeführt wurden, so sind diese bei einer Fremdimplementierung dennoch erneut erforderlich - damit die erforderlichen Schlüssel erstellt werden. 
+                \begin{enumerate}
+                    \item Erstellung eines Google Accounts
+                    \item Registrierung dieses Accounts als Google Developer Account
+                    \item Anlegen eines Projekts in diesem Google Developer Account
+                    \item Deklaration des Projekts als Testprojekt
+                    \item Eintragen eines Testers (das Gleiche oder ein anderes Google-Konto kann verwendet werden.)
+                    \item Generierung eines Schlüsselpaares zur Authentifizierung
+                    \item Verifizierung der eigenen Website \footnote{https://www.google.com/webmasters/verification/home?hl=en}
+                    \item Freigabe der Redirect-URI für dieses Schlüsselpaar
+                    \item Generierung und Herunterladen der Zugangsdaten (credentials.json)
+                    \item Installation der quickstart.py im eigenen Repository
+                    \item Anpassung der quickstart.py (Angabe des Pfads zum credentials.json)
+                    \item Ausführen der quickstart.py zur Generierung des lokalen Partner\-Tokens für die Authentifizierung
+                    \item Anpassung der quickstart.py (Angabe des Pfads zum Sicherheits\-Token)
+                    \item Erneutes Ausführen der quickstart.py, um zu testen, ob die ersten 10 Events des angegebenen Kalenders abgefragt werden konnten.                    
+                \end{enumerate}
+                Bei Erfolg kann die quickstart.py als Testskript bestehen bleiben, wird aber für den Bot nicht mehr benötigt.
 
 
     \section{TheCoachingBot}
-        Schließlich findet sich der gesamte Source-Code inklusive aller Abhängigkeiten in einem öffentlichen GitHub Repository: \cite{repo} 
+        Schließlich findet sich der gesamte Source-Code inklusive aller Abhängigkeiten in einem öffentlichen GitHub Repository: \url{https://github.com/mwel/coaching_bot}

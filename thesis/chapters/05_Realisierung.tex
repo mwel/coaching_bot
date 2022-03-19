@@ -1,8 +1,7 @@
+\label{Realisierung}
 \chapter{Realisierung}
 
 Hier kommt hin, wie es gemacht haben.  
-
-
 
     \section{Telegram Bot Framwork}
 
@@ -12,9 +11,9 @@ Hier kommt hin, wie es gemacht haben.
 
 
         \section{Vanilla Bot Implementierung}
-            Als Basis (boiler plate) für den Coaching Bot (fortan "Bot") nutzen wir die breit in der Community abgestütze Implementierung "Conversation Bot" \cite{conversationBot}. Sie stellt uns die basale Anbindung an die State Machine zur Verfügung und ist einfach genug, um als Einstieg in einen vordefinierten Bot zu fungieren. Im Gegensatz dazu ist der "Nested Converation Bot" schon zu umfangreich und zu mächtig für unsere Zwecke.
+            Als Basis (boiler plate) für den Coaching Bot (fortan \glqq Bot\grqq) nutzen wir die breit in der Community abgestütze Implementierung \textbf{Conversation Bot} \cite{conversationBot}. Sie stellt uns die basale Anbindung an die State Machine zur Verfügung und ist einfach genug, um als Einstieg in einen vordefinierten Bot zu fungieren. Im Gegensatz dazu ist der \glqq Nested Converation Bot\grqq  schon zu umfangreich und zu mächtig für unsere Zwecke.
 
-            Die Kommunikationslogik des Bots basiert auf einer State Machine. Die Zustände, in denen der Bot sich befinden kann, sind vordefiniert und immer mit einer Aktion und einer Reaktion verbunden. Aktionen werden meist von Seiten des Benutzers durch eine Eingabe oder einen Befehl ausgelöst. Reaktionen sind in Funktionen vordefiniert. Deren Umfang wird im Folgenden funktional und im Kapitel "Implementierung" technisch beschrieben.
+            Die Kommunikationslogik des Bots basiert auf einer State Machine. Die Zustände, in denen der Bot sich befinden kann, sind vordefiniert und immer mit einer Aktion und einer Reaktion verbunden. Aktionen werden meist von Seiten des Benutzers durch eine Eingabe oder einen Befehl ausgelöst. Reaktionen sind in Funktionen vordefiniert. Deren Umfang wird im Folgenden funktional und in \ref{Implementierung} Implementierung technisch beschrieben.
 
     
     \section{Meta-Funktionen}
@@ -27,16 +26,16 @@ Hier kommt hin, wie es gemacht haben.
                 Eine der großen Herausforderungen für den Bot besteht darin, einen Nutzer wiederzuerkennen und ihn am richtigen Punkt zurück in den Konversationsfluss zu platzieren. Diese Erfahrung soll für den Nutzer nicht angestrengt wirken, sondern so, als würde der Bot ihn schon kennen und einfach da weitermachen, wo man aufgehört hat. Die technische Komplexität besteht darin, dass das Feature besonders dann funktionieren soll, wenn der Bot neu gestartet wurde.
 
         \subsection{Ende: Konversation manuell beenden}
-            Hat der Nutzer eine Konversation gestartet, so kann er diese auch wieder beenden. Die Konversation muss nicht zuende geführt worden sein. Über einen kurzen Befehl "/cancel" wird der Bot beendet und personenbezogene Daten werden aus der Datenbank gelöscht. Dabei ist darauf zu achten, dass der Nutzer nur seine eigenen Daten löschen kann. Hat der Nutzer seine Konversation bereits beendet, so ist "/cancel" nicht mehr verfügbar. Möchte der Nutzer seine Daten dennoch löschen, so steht ihm stattdessen der Befehl "/delete" zur Verfügung.
+            Hat der Nutzer eine Konversation gestartet, so kann er diese auch wieder beenden. Die Konversation muss nicht zuende geführt worden sein. Über einen kurzen Befehl \verb|/cancel| wird der Bot beendet und personenbezogene Daten werden aus der Datenbank gelöscht. Dabei ist darauf zu achten, dass der Nutzer nur seine eigenen Daten löschen kann. Hat der Nutzer seine Konversation bereits beendet, so ist \verb|/cancel| nicht mehr verfügbar. Möchte der Nutzer seine Daten dennoch löschen, so steht ihm stattdessen der Befehl \verb|/delete| zur Verfügung.
 
         \subsection{Persönliche Daten löschen}
-            Zu jeder Zeit hat der Nutzer die Möglichkeit, die eigenen Daten via dem Befehl "/delete" zu löschen. Die Funktion ist mit einem "Reset-Knopf" zu vergleichen. Das Resultat ist nämlich, dass der Bot den Benutzer nicht mehr kennt. Er weiß nicht, dass er schon einmal da war und auch nicht, welche Angaben er gemacht hat oder nicht. So kann man den Bot nach fehlerhafter Eingabe oder, falls man neu anfangen möchte, einfach zurücksetzen.
+            Zu jeder Zeit hat der Nutzer die Möglichkeit, die eigenen Daten via dem Befehl \verb|/delete| zu löschen. Die Funktion ist mit einem \glqq Reset-Knopf\grqq  zu vergleichen. Das Resultat ist nämlich, dass der Bot den Benutzer nicht mehr kennt. Er weiß nicht, dass er schon einmal da war und auch nicht, welche Angaben er gemacht hat oder nicht. So kann man den Bot nach fehlerhafter Eingabe oder, falls man neu anfangen möchte, einfach zurücksetzen.
 
         \subsection{Hilfe-Funktion aufrufen}
             Die Hilfe-Funktion gibt eine Beschreibung der Interaktionen-Optionen aus, die es gegeneüber dem Bot gibt. So werden alle Befehle einfach erklärt und können auch direkt aus der Hilfe heraus aufgerufen werden. 
 
         \subsection{Überspringen}
-            Die meisten Zustände des Bots erlauben es dem Benutzer, die aktuelle Frage zu überspringen. Vor allem, wenn es um personenbezogene oder private Informationen geht, die der Nutzer preisgibt, ist der Befehl "/skip" verfügbar. Für jeden Zustand, in dem "/skip" verfügbar ist, ist eine individuelle Reaktion auf das Überspringen vorgesehen, die den Nutzer trotzdem abholt um in den nächsten Zustand leitet. Die einzelnen Übersprunkgsfunktionen werden im Kapitel "Implementierung" genauer erklärt.
+            Die meisten Zustände des Bots erlauben es dem Benutzer, die aktuelle Frage zu überspringen. Vor allem, wenn es um personenbezogene oder private Informationen geht, die der Nutzer preisgibt, ist der Befehl \verb|/skip| verfügbar. Für jeden Zustand, in dem \verb|/skip| verfügbar ist, ist eine individuelle Reaktion auf das Überspringen vorgesehen, die den Nutzer trotzdem abholt um in den nächsten Zustand leitet. Die einzelnen Übersprunkgsfunktionen werden in \ref{Implementierung} Implementierung genauer erklärt.
 
     \section{Hauptfunktionen}
 
