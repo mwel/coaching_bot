@@ -33,73 +33,78 @@
 \BOOKMARK [1][-]{section.3.10}{TheCoachingBot}{chapter.3}% 33
 \BOOKMARK [0][-]{chapter.4}{Konzept}{}% 34
 \BOOKMARK [1][-]{section.4.1}{Grundkonzept}{chapter.4}% 35
-\BOOKMARK [0][-]{chapter.5}{Realisierung}{}% 36
-\BOOKMARK [1][-]{section.5.1}{Telegram Bot Framwork}{chapter.5}% 37
-\BOOKMARK [2][-]{subsection.5.1.1}{Generierung Telegram Bot}{section.5.1}% 38
-\BOOKMARK [1][-]{section.5.2}{Vanilla Bot Implementierung}{chapter.5}% 39
-\BOOKMARK [1][-]{section.5.3}{Meta-Funktionen}{chapter.5}% 40
-\BOOKMARK [2][-]{subsection.5.3.1}{Start: Eine Konversation beginnen}{section.5.3}% 41
-\BOOKMARK [2][-]{subsection.5.3.2}{Ende: Konversation manuell beenden}{section.5.3}% 42
-\BOOKMARK [2][-]{subsection.5.3.3}{Pers\366nliche Daten l\366schen}{section.5.3}% 43
-\BOOKMARK [2][-]{subsection.5.3.4}{Hilfe-Funktion aufrufen}{section.5.3}% 44
-\BOOKMARK [2][-]{subsection.5.3.5}{\334berspringen}{section.5.3}% 45
-\BOOKMARK [1][-]{section.5.4}{Hauptfunktionen}{chapter.5}% 46
-\BOOKMARK [2][-]{subsection.5.4.1}{Abfragen des Geburtsdatums}{section.5.4}% 47
-\BOOKMARK [2][-]{subsection.5.4.2}{Hintergrund des Nutzers}{section.5.4}% 48
-\BOOKMARK [2][-]{subsection.5.4.3}{Abfragen des Geschlechts des Nutzers}{section.5.4}% 49
-\BOOKMARK [2][-]{subsection.5.4.4}{Abfragen der E-Mail Adresse des Nutzers}{section.5.4}% 50
-\BOOKMARK [2][-]{subsection.5.4.5}{Abfragen der Telefonnummer des Nutzers}{section.5.4}% 51
-\BOOKMARK [2][-]{subsection.5.4.6}{Abfragen des Standorts des Nutzers}{section.5.4}% 52
-\BOOKMARK [2][-]{subsection.5.4.7}{Abfragen des Bilds des Nutzers}{section.5.4}% 53
-\BOOKMARK [2][-]{subsection.5.4.8}{Zusammenfassungs-Funktion}{section.5.4}% 54
-\BOOKMARK [1][-]{section.5.5}{Support-Funktionen}{chapter.5}% 55
-\BOOKMARK [2][-]{subsection.5.5.1}{Eingabe-Validierung}{section.5.5}% 56
-\BOOKMARK [2][-]{subsection.5.5.2}{Konstruktion E-Mail}{section.5.5}% 57
-\BOOKMARK [1][-]{section.5.6}{Datenbank}{chapter.5}% 58
-\BOOKMARK [1][-]{section.5.7}{Anbindung Datenbank an Python}{chapter.5}% 59
-\BOOKMARK [1][-]{section.5.8}{Kalender}{chapter.5}% 60
-\BOOKMARK [1][-]{section.5.9}{Web-GUI}{chapter.5}% 61
-\BOOKMARK [0][-]{chapter.6}{Implementierung}{}% 62
-\BOOKMARK [1][-]{section.6.1}{Setup}{chapter.6}% 63
-\BOOKMARK [2][-]{subsection.6.1.1}{pipenv - Python Package Manager}{section.6.1}% 64
-\BOOKMARK [2][-]{subsection.6.1.2}{Konstanten und Schl\374ssel}{section.6.1}% 65
-\BOOKMARK [1][-]{section.6.2}{main.py - State Machine}{chapter.6}% 66
-\BOOKMARK [2][-]{subsection.6.2.1}{Dispatcher}{section.6.2}% 67
-\BOOKMARK [2][-]{subsection.6.2.2}{Conversation Handlers}{section.6.2}% 68
-\BOOKMARK [2][-]{subsection.6.2.3}{CommandHandler}{section.6.2}% 69
-\BOOKMARK [2][-]{subsection.6.2.4}{start und cancel - Konversation starten und stoppen}{section.6.2}% 70
-\BOOKMARK [2][-]{subsection.6.2.5}{delete - Nutzerdaten l\366schen}{section.6.2}% 71
-\BOOKMARK [2][-]{subsection.6.2.6}{help - Hilfe ausgeben}{section.6.2}% 72
-\BOOKMARK [2][-]{subsection.6.2.7}{summary - Zusammenfassung ausgeben}{section.6.2}% 73
-\BOOKMARK [2][-]{subsection.6.2.8}{status - Status Quo ausgeben}{section.6.2}% 74
-\BOOKMARK [1][-]{section.6.3}{Handler Funktionen}{chapter.6}% 75
-\BOOKMARK [2][-]{subsection.6.3.1}{start.py}{section.6.3}% 76
-\BOOKMARK [2][-]{subsection.6.3.2}{bio.py}{section.6.3}% 77
-\BOOKMARK [2][-]{subsection.6.3.3}{gender.py}{section.6.3}% 78
-\BOOKMARK [2][-]{subsection.6.3.4}{birthdate.py}{section.6.3}% 79
-\BOOKMARK [2][-]{subsection.6.3.5}{email.py}{section.6.3}% 80
-\BOOKMARK [2][-]{subsection.6.3.6}{telephone.py}{section.6.3}% 81
-\BOOKMARK [2][-]{subsection.6.3.7}{location.py}{section.6.3}% 82
-\BOOKMARK [2][-]{subsection.6.3.8}{photo.py}{section.6.3}% 83
-\BOOKMARK [2][-]{subsection.6.3.9}{summary.py}{section.6.3}% 84
-\BOOKMARK [2][-]{subsection.6.3.10}{confirmation\137mail.py}{section.6.3}% 85
-\BOOKMARK [2][-]{subsection.6.3.11}{appointment.py}{section.6.3}% 86
-\BOOKMARK [2][-]{subsection.6.3.12}{help.py}{section.6.3}% 87
-\BOOKMARK [2][-]{subsection.6.3.13}{states.py}{section.6.3}% 88
-\BOOKMARK [2][-]{subsection.6.3.14}{status.py}{section.6.3}% 89
-\BOOKMARK [2][-]{subsection.6.3.15}{validation.py}{section.6.3}% 90
-\BOOKMARK [2][-]{subsection.6.3.16}{cancel}{section.6.3}% 91
-\BOOKMARK [1][-]{section.6.4}{Datenbank}{chapter.6}% 92
-\BOOKMARK [2][-]{subsection.6.4.1}{create\137db.py}{section.6.4}% 93
-\BOOKMARK [2][-]{subsection.6.4.2}{select\137db.py}{section.6.4}% 94
-\BOOKMARK [2][-]{subsection.6.4.3}{insert\137value\137db.py}{section.6.4}% 95
-\BOOKMARK [2][-]{subsection.6.4.4}{insert\137update\137db.py}{section.6.4}% 96
-\BOOKMARK [2][-]{subsection.6.4.5}{delete\137record.py}{section.6.4}% 97
-\BOOKMARK [1][-]{section.6.5}{Kalender}{chapter.6}% 98
-\BOOKMARK [2][-]{subsection.6.5.1}{calendar\137manager.py}{section.6.5}% 99
-\BOOKMARK [0][-]{chapter.7}{Beispiele}{}% 100
-\BOOKMARK [0][-]{chapter.8}{Anwendungsszenarien}{}% 101
-\BOOKMARK [0][-]{chapter.9}{Zusammenfassung und Ausblick}{}% 102
-\BOOKMARK [0][-]{chapter*.64}{Literaturverzeichnis}{}% 103
-\BOOKMARK [0][-]{appendix.A}{Glossar}{}% 104
-\BOOKMARK [0][-]{appendix.B}{Selbstst\344ndigkeitserkl\344rung}{}% 105
+\BOOKMARK [1][-]{section.4.2}{Zust\344nde \046 Konversationsfluss}{chapter.4}% 36
+\BOOKMARK [0][-]{chapter.5}{Realisierung}{}% 37
+\BOOKMARK [1][-]{section.5.1}{Telegram Bot Framwork}{chapter.5}% 38
+\BOOKMARK [2][-]{subsection.5.1.1}{Generierung Telegram Bot}{section.5.1}% 39
+\BOOKMARK [1][-]{section.5.2}{Vanilla Bot Implementierung}{chapter.5}% 40
+\BOOKMARK [1][-]{section.5.3}{Meta-Funktionen}{chapter.5}% 41
+\BOOKMARK [2][-]{subsection.5.3.1}{Start: Eine Konversation beginnen}{section.5.3}% 42
+\BOOKMARK [2][-]{subsection.5.3.2}{Ende: Konversation manuell beenden}{section.5.3}% 43
+\BOOKMARK [2][-]{subsection.5.3.3}{Pers\366nliche Daten l\366schen}{section.5.3}% 44
+\BOOKMARK [2][-]{subsection.5.3.4}{Hilfe-Funktion aufrufen}{section.5.3}% 45
+\BOOKMARK [2][-]{subsection.5.3.5}{\334berspringen}{section.5.3}% 46
+\BOOKMARK [1][-]{section.5.4}{Hauptfunktionen}{chapter.5}% 47
+\BOOKMARK [2][-]{subsection.5.4.1}{Abfragen des Geburtsdatums}{section.5.4}% 48
+\BOOKMARK [2][-]{subsection.5.4.2}{Hintergrund des Nutzers}{section.5.4}% 49
+\BOOKMARK [2][-]{subsection.5.4.3}{Abfragen des Geschlechts des Nutzers}{section.5.4}% 50
+\BOOKMARK [2][-]{subsection.5.4.4}{Abfragen der E-Mail Adresse des Nutzers}{section.5.4}% 51
+\BOOKMARK [2][-]{subsection.5.4.5}{Abfragen der Telefonnummer des Nutzers}{section.5.4}% 52
+\BOOKMARK [2][-]{subsection.5.4.6}{Abfragen des Standorts des Nutzers}{section.5.4}% 53
+\BOOKMARK [2][-]{subsection.5.4.7}{Abfragen des Bilds des Nutzers}{section.5.4}% 54
+\BOOKMARK [2][-]{subsection.5.4.8}{Zusammenfassungs-Funktion}{section.5.4}% 55
+\BOOKMARK [1][-]{section.5.5}{Support-Funktionen}{chapter.5}% 56
+\BOOKMARK [2][-]{subsection.5.5.1}{Eingabe-Validierung}{section.5.5}% 57
+\BOOKMARK [2][-]{subsection.5.5.2}{Konstruktion E-Mail}{section.5.5}% 58
+\BOOKMARK [1][-]{section.5.6}{Datenbank}{chapter.5}% 59
+\BOOKMARK [1][-]{section.5.7}{Anbindung Datenbank an Python}{chapter.5}% 60
+\BOOKMARK [1][-]{section.5.8}{Kalender}{chapter.5}% 61
+\BOOKMARK [1][-]{section.5.9}{Web-GUI}{chapter.5}% 62
+\BOOKMARK [0][-]{chapter.6}{Implementierung}{}% 63
+\BOOKMARK [1][-]{section.6.1}{Setup}{chapter.6}% 64
+\BOOKMARK [2][-]{subsection.6.1.1}{pipenv - Python Package Manager}{section.6.1}% 65
+\BOOKMARK [2][-]{subsection.6.1.2}{Konstanten und Schl\374ssel}{section.6.1}% 66
+\BOOKMARK [1][-]{section.6.2}{main.py - State Machine}{chapter.6}% 67
+\BOOKMARK [2][-]{subsection.6.2.1}{Dispatcher}{section.6.2}% 68
+\BOOKMARK [2][-]{subsection.6.2.2}{Conversation Handlers}{section.6.2}% 69
+\BOOKMARK [2][-]{subsection.6.2.3}{CommandHandler}{section.6.2}% 70
+\BOOKMARK [2][-]{subsection.6.2.4}{start und cancel - Konversation starten und stoppen}{section.6.2}% 71
+\BOOKMARK [2][-]{subsection.6.2.5}{delete - Nutzerdaten l\366schen}{section.6.2}% 72
+\BOOKMARK [2][-]{subsection.6.2.6}{help - Hilfe ausgeben}{section.6.2}% 73
+\BOOKMARK [2][-]{subsection.6.2.7}{summary - Zusammenfassung ausgeben}{section.6.2}% 74
+\BOOKMARK [2][-]{subsection.6.2.8}{status - Status Quo ausgeben}{section.6.2}% 75
+\BOOKMARK [1][-]{section.6.3}{Handler Funktionen}{chapter.6}% 76
+\BOOKMARK [2][-]{subsection.6.3.1}{start.py}{section.6.3}% 77
+\BOOKMARK [2][-]{subsection.6.3.2}{bio.py}{section.6.3}% 78
+\BOOKMARK [2][-]{subsection.6.3.3}{gender.py}{section.6.3}% 79
+\BOOKMARK [2][-]{subsection.6.3.4}{birthdate.py}{section.6.3}% 80
+\BOOKMARK [2][-]{subsection.6.3.5}{email.py}{section.6.3}% 81
+\BOOKMARK [2][-]{subsection.6.3.6}{telephone.py}{section.6.3}% 82
+\BOOKMARK [2][-]{subsection.6.3.7}{location.py}{section.6.3}% 83
+\BOOKMARK [2][-]{subsection.6.3.8}{photo.py}{section.6.3}% 84
+\BOOKMARK [2][-]{subsection.6.3.9}{summary.py}{section.6.3}% 85
+\BOOKMARK [2][-]{subsection.6.3.10}{confirmation\137mail.py}{section.6.3}% 86
+\BOOKMARK [2][-]{subsection.6.3.11}{appointment.py}{section.6.3}% 87
+\BOOKMARK [2][-]{subsection.6.3.12}{help.py}{section.6.3}% 88
+\BOOKMARK [2][-]{subsection.6.3.13}{states.py}{section.6.3}% 89
+\BOOKMARK [2][-]{subsection.6.3.14}{status.py}{section.6.3}% 90
+\BOOKMARK [2][-]{subsection.6.3.15}{validation.py}{section.6.3}% 91
+\BOOKMARK [2][-]{subsection.6.3.16}{cancel}{section.6.3}% 92
+\BOOKMARK [1][-]{section.6.4}{Datenbank}{chapter.6}% 93
+\BOOKMARK [2][-]{subsection.6.4.1}{create\137db.py}{section.6.4}% 94
+\BOOKMARK [2][-]{subsection.6.4.2}{select\137db.py}{section.6.4}% 95
+\BOOKMARK [2][-]{subsection.6.4.3}{insert\137value\137db.py}{section.6.4}% 96
+\BOOKMARK [2][-]{subsection.6.4.4}{insert\137update\137db.py}{section.6.4}% 97
+\BOOKMARK [2][-]{subsection.6.4.5}{delete\137record.py}{section.6.4}% 98
+\BOOKMARK [1][-]{section.6.5}{Kalender}{chapter.6}% 99
+\BOOKMARK [2][-]{subsection.6.5.1}{calendar\137manager.py}{section.6.5}% 100
+\BOOKMARK [1][-]{section.6.6}{Web-GUI}{chapter.6}% 101
+\BOOKMARK [2][-]{subsection.6.6.1}{app.py}{section.6.6}% 102
+\BOOKMARK [2][-]{subsection.6.6.2}{home.html}{section.6.6}% 103
+\BOOKMARK [2][-]{subsection.6.6.3}{main.css}{section.6.6}% 104
+\BOOKMARK [0][-]{chapter.7}{Beispiele}{}% 105
+\BOOKMARK [0][-]{chapter.8}{Anwendungsszenarien}{}% 106
+\BOOKMARK [0][-]{chapter.9}{Zusammenfassung und Ausblick}{}% 107
+\BOOKMARK [0][-]{chapter*.62}{Literaturverzeichnis}{}% 108
+\BOOKMARK [0][-]{appendix.A}{Glossar}{}% 109
+\BOOKMARK [0][-]{appendix.B}{Selbstst\344ndigkeitserkl\344rung}{}% 110

@@ -390,5 +390,23 @@
                 Falls bei dieser Operation ein Fehler passiert, wird ein \verb|HTTP|-Error auf der Konsole ausgegeben.
 
     
-            \paragraph{Tests}
-            Das Haupt-Test-Instrument ist die Telegram-App selbst. Daneben wurden 2 Testskripte zum einfachen Testen verschiedener Teile der App geschrieben. Tests sind getrennt und entsprechend ein- oder auskommentiert. 
+    \section{Web-GUI}
+        Die Web-GUI wird komplett mit Flask erstellt. Dazu benötigt werden die Applikation für den Web-Server sowie das Templating selbst (app.py), ein HTML- (home.html) und ein CSS-File (main.css), über das Inhalt und Style definiert werden sowie wenige Ressourcen. Alle anderen Elemente liegen bereits vor.
+        
+        \subsection{app.py} \label{app.py}
+            Die \verb|app.py| instanziiert via der Flask Bibliothek einen Webserver und konstruiert den darzustellenden Inhalt in Form eines sog. Templates. Dieses wird aus Nutzerinformationen zusammengesetzt, die bei Aufrufen der entsprechenden URL aus der Datenbank abgefragt werden sowie aus den von Nutzern eingereichten Bildern. 
+            Das fertige Template wird dann an den Webserver zurückgegeben.
+
+        \subsection{home.html} \label{home.html}
+            Die \verb|home.html| besteht aus drei Teilen. Zunächst wird eine Tabelle erstellt und mit den für die Darstellung der Daten aus der Datenbank erforderlichen Spalten versehen. Daraufhin werden die Daten aus der Datenabank, die eine andere Spaltenreihenfolge haben, als die, in der sie hier dargestellt werden sollen, den entsprechenden Spalten zugeordnet.
+            Schließlich wird eine Google Calendar View via iframe eingebunden.
+            Die Ansicht aktualisiert sich nicht in Echtzeit, sondern nur auf Anfrage, da eine Veränderung der Daten nur selten zu erwarten ist.
+
+        \subsection{main.css} \label{main.css}
+            Es kommt ein minimalistisches CSS-Template zum Einsatz, das den Ansprüchen, Nutzerdaten einzusehen leicht genügt.\\ \\
+
+        Über die IP-Adresse \verb|127.0.0.1| und Port \verb|5000| ist die GUI als Admin zu erreichen: \url{http://127.0.0.1:5000/}
+
+
+    % \section{Tests}
+    %         Das Haupt-Test-Instrument ist die Telegram-App selbst. Daneben wurden 2 Testskripte zum einfachen Testen verschiedener Teile der App geschrieben. Tests sind getrennt und entsprechend ein- oder auskommentiert. 
