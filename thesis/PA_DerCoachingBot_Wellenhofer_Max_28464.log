@@ -1,9 +1,9 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2021.1.31)  20 MAR 2022 19:52
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2021.1.31)  20 MAR 2022 20:00
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**/Users/mwellenhofer/Git/coaching_bot/thesis/PA_DerCoachingBot_Wellenhofer_Max_28464.tex
+**/Users/mwellenhofer/Git/coaching_bot/thesis/PA_DerCoachingBot_Wellenhofer_Max_28464
 (/Users/mwellenhofer/Git/coaching_bot/thesis/PA_DerCoachingBot_Wellenhofer_Max_28464.tex
 LaTeX2e <2020-02-02> patch level 5
 L3 programming layer <2020-03-06> (./i-studis.cls
@@ -836,7 +836,22 @@ File: images/220320_PA28464_State-Machine.png Graphic file (type png)
 <use images/220320_PA28464_State-Machine.png>
 Package pdftex.def Info: images/220320_PA28464_State-Machine.png  used on input line 38.
 (pdftex.def)             Requested size: 418.25368pt x 552.79268pt.
-) (./chapters/05_Realisierung.tex [13 <./images/220320_PA28464_Architecture.png>] [14 <./images/220320_PA28464_State-Machine.png>] [15]
+ [13 <./images/220320_PA28464_Architecture.png>] [14 <./images/220320_PA28464_State-Machine.png>]
+Underfull \hbox (badness 2134) in paragraph at lines 68--68
+[][][]\OT1/cmr/m/n/9 Der Kon-ver-sa-ti-ons-fluss ist in ei-ner sehr de-tail-lier-te-ren An-sicht verf[]ugbar, in der der Un-
+ []
+
+
+Underfull \hbox (badness 2547) in paragraph at lines 68--68
+\OT1/cmr/m/n/9 ter-schied zwi-schen dem ho-hen Ab-strak-ti-ons-ni-veau des Au-to-ma-ten und der Rea-lit[]at sicht-
+ []
+
+
+Underfull \hbox (badness 1132) in paragraph at lines 68--68
+\OT1/cmr/m/n/9 bar wird. So l[]asst sich leicht er-ken-nen, wo die Kon-ver-sa-ti-on be-ginnt und wel-che Zust[]ande
+ []
+
+) (./chapters/05_Realisierung.tex [15]
 Kapitel 5.
 
 Overfull \hbox (7.8143pt too wide) in paragraph at lines 16--17
@@ -867,10 +882,6 @@ Underfull \hbox (badness 10000) in paragraph at lines 16--18
 
 
 ]
-
-LaTeX Warning: Reference `delete.py' on page 23 undefined on input line 38.
-
-
 Underfull \hbox (badness 10000) in paragraph at lines 54--57
 
  []
@@ -1035,7 +1046,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 406--407
 
 ) (./chapters/07_Beispiele.tex [38]
 Kapitel 7.
-<images/coaching_bot_dummy_screenshot.jpeg, id=1045, 1174.3875pt x 2420.04124pt>
+<images/coaching_bot_dummy_screenshot.jpeg, id=1047, 1174.3875pt x 2420.04124pt>
 File: images/coaching_bot_dummy_screenshot.jpeg Graphic file (type jpg)
 <use images/coaching_bot_dummy_screenshot.jpeg>
 Package pdftex.def Info: images/coaching_bot_dummy_screenshot.jpeg  used on input line 10.
@@ -1174,7 +1185,9 @@ Underfull \hbox (badness 10000) in paragraph at lines 100--102
 []\OT1/cmr/m/sc/12 Wellenhofer, Max\OT1/cmr/m/n/12 : \OT1/cmr/m/it/12 The Coa-ching Bot Re-po-si-to-ry\OT1/cmr/m/n/12 .  htt-
  []
 
-) (./PA_DerCoachingBot_Wellenhofer_Max_28464.ind) [54]
+)
+No file PA_DerCoachingBot_Wellenhofer_Max_28464.ind.
+[54]
 \openout2 = `chapters/Glossar.aux'.
 
  (./chapters/Glossar.tex
@@ -1217,27 +1230,23 @@ Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 131.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 131.
 Package rerunfilecheck Info: File `PA_DerCoachingBot_Wellenhofer_Max_28464.out' has not changed.
 (rerunfilecheck)             Checksum: 563AAFA39089D608C94C451813C0092A;7217.
-
-
-LaTeX Warning: There were undefined references.
-
 runsystem(rm PA_DerCoachingBot_Wellenhofer_Max_28464.pyg)...executed.
 
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 131.
  ) 
 Here is how much of TeX's memory you used:
- 15756 strings out of 480608
- 255988 string characters out of 5903630
+ 15753 strings out of 480608
+ 255889 string characters out of 5903630
  610269 words of memory out of 5000000
- 30943 multiletter control sequences out of 15000+600000
+ 30942 multiletter control sequences out of 15000+600000
  542011 words of font info for 62 fonts, out of 8000000 for 9000
  1146 hyphenation exceptions out of 8191
- 41i,10n,42p,1327b,841s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 41i,10n,42p,1323b,841s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmitt10.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt9.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb>
-Output written on PA_DerCoachingBot_Wellenhofer_Max_28464.pdf (64 pages, 1504801 bytes).
+Output written on PA_DerCoachingBot_Wellenhofer_Max_28464.pdf (64 pages, 1506314 bytes).
 PDF statistics:
- 1256 PDF objects out of 1440 (max. 8388607)
- 1157 compressed objects within 12 object streams
+ 1258 PDF objects out of 1440 (max. 8388607)
+ 1159 compressed objects within 12 object streams
  342 named destinations out of 1000 (max. 500000)
  901 words of extra memory for PDF output out of 10000 (max. 10000000)
 
