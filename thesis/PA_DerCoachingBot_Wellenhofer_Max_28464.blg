@@ -1,0 +1,50 @@
+This is BibTeX, Version 0.99d (TeX Live 2020)
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
+The top-level auxiliary file: PA_DerCoachingBot_Wellenhofer_Max_28464.aux
+The style file: geralpha.bst
+A level-1 auxiliary file: chapters/Glossar.aux
+A level-1 auxiliary file: chapters/Selbststaendigkeitserklaerung.aux
+Database file #1: coaching_bot_group.bib
+Warning--empty note in date_time
+You've used 21 entries,
+            2768 wiz_defined-function locations,
+            707 strings with 7733 characters,
+and the built_in function-call counts, 6106 in all, are:
+= -- 627
+> -- 168
+< -- 21
++ -- 50
+- -- 42
+* -- 339
+:= -- 925
+add.period$ -- 42
+call.type$ -- 21
+change.case$ -- 84
+chr.to.int$ -- 13
+cite$ -- 22
+duplicate$ -- 272
+empty$ -- 578
+format.name$ -- 80
+if$ -- 1373
+int.to.chr$ -- 9
+int.to.str$ -- 0
+missing$ -- 0
+newline$ -- 87
+num.names$ -- 63
+pop$ -- 181
+preamble$ -- 1
+purify$ -- 126
+quote$ -- 0
+skip$ -- 265
+stack$ -- 0
+substring$ -- 147
+swap$ -- 62
+text.length$ -- 21
+text.prefix$ -- 17
+top$ -- 0
+type$ -- 168
+warning$ -- 1
+while$ -- 42
+width$ -- 28
+write$ -- 231
+(There was 1 warning)

@@ -1,0 +1,103 @@
+\begin{thebibliography}{{Goo}22b}
+
+\bibitem[ea21a]{conversationBot}
+{\sc al., Toledo~et.}: {\em python-telegram-bot}.
+\newblock
+  https://github.com/python-telegram-bot/python-telegram-bot/blob/master/examples/conversationbot.py,
+  2021.
+
+\bibitem[ea21b]{telegramAPI}
+{\sc al., Toledo~et.}: {\em {Telegram API Documentation}}.
+\newblock https://python-telegram-bot.readthedocs.io/en/stable/index.html{\#},
+  2021.
+
+\bibitem[eA21c]{telegramAPIext}
+{\sc Al., Toledo~et.}: {\em telegram.ext package}.
+\newblock
+  https://python-telegram-bot.readthedocs.io/en/stable/telegram.ext.html, 2021.
+
+\bibitem[eaK02]{date_time}
+{\sc Klyne~et.~al.}: {\em {Date and Time on the Internet: Timestamps}}.
+\newblock 2002.
+
+\bibitem[{Goo}22a]{apiExplorer}
+{\sc {Google LLC}}: {\em {Google APIs Explorer overview}}.
+\newblock https://developers.google.com/explorer-help/, 2022.
+
+\bibitem[{Goo}22b]{googleCalAPI}
+{\sc {Google LLC}}: {\em {GoogleCalendarAPI}}.
+\newblock
+  https://googleapis.github.io/google-api-python-client/docs/dyn/calendar{\_}v3.html,
+  2022.
+
+\bibitem[IBM20]{apiIBM2020}
+{\sc IBM}: {\em {Application Programming Interface (API)}}.
+\newblock https://www.ibm.com/cloud/learn/api, 2020.
+
+\bibitem[Kre21]{telegramVergleich}
+{\sc Kremming, Katharina}: {\em {Telegram Messenger – Alles was Du wissen
+  musst!}}
+\newblock
+  https://www.messengerpeople.com/de/messaging-apps-brands-der-telegram-messenger/,
+  2021.
+
+\bibitem[Meh22]{Nutzerzahlen}
+{\sc Mehner, Matthias}: {\em {Nutzerzahlen Messenger Apps Deutschland und
+  Weltweit}}.
+\newblock
+  https://www.messengerpeople.com/de/weltweite-nutzer-statistik-fuer-whatsapp-wechat-und-andere-messenger/,
+  2022.
+
+\bibitem[Pal22]{flask}
+{\sc Pallets}: {\em {Flask Documentation}}.
+\newblock https://flask.palletsprojects.com/en/2.0.x/, 2022.
+
+\bibitem[{Pyt}]{sqlite3API}
+{\sc {Python Software Foundation}}: {\em {sqlite3 — DB-API 2.0 interface for
+  SQLite databases}}.
+\newblock https://docs.python.org/3/library/sqlite3.html.
+
+\bibitem[{Pyt}21a]{datetime}
+{\sc {Python Software Foundation}}: {\em {datetime — Basic date and time
+  types}}.
+\newblock https://docs.python.org/3.8/library/datetime.html, 2021.
+
+\bibitem[{Pyt}21b]{email.mime}
+{\sc {Python Software Foundation}}: {\em {email.mime: Creating email and MIME
+  objects from scratch}}.
+\newblock https://docs.python.org/3.8/library/email.mime.html, 2021.
+
+\bibitem[{Pyt}21c]{pipenv}
+{\sc {Python Software Foundation}}: {\em pipenv}.
+\newblock https://pypi.org/project/pipenv/, 2021.
+
+\bibitem[{Pyt}21d]{python3.8.6}
+{\sc {Python Software Foundation}}: {\em {Python 3.8.6}}.
+\newblock https://docs.python.org/3.8/, 2021.
+
+\bibitem[{Pyt}21e]{smtplib}
+{\sc {Python Software Foundation}}: {\em {smtplib — SMTP protocol client}}.
+\newblock https://docs.python.org/3.8/library/smtplib.html{\#}module-smtplib,
+  2021.
+
+\bibitem[{Tel}21a]{coreTelegram}
+{\sc {Telegram Messenger Inc.}}: {\em {Bots: An introduction for developers}}.
+\newblock https://core.telegram.org/bots, 2021.
+
+\bibitem[{Tel}21b]{telegram}
+{\sc {Telegram Messenger Inc.}}: {\em {Telegram App}}.
+\newblock https://telegram.org/, 2021.
+
+\bibitem[{The}21]{sqlite}
+{\sc {The SQLite Consortium}}: {\em {SQLite}}.
+\newblock https://sqlite.org, 2021.
+
+\bibitem[W3C19]{HTML}
+{\sc W3CSchools}: {\em {HTML Documentation}}.
+\newblock https://www.w3schools.com/html/html{\_}intro.asp, 2019.
+
+\bibitem[Wel21]{repo}
+{\sc Wellenhofer, Max}: {\em {The Coaching Bot Repository}}.
+\newblock https://github.com/mwel/coaching{\_}bot, 2021.
+
+\end{thebibliography}

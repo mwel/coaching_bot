@@ -323,7 +323,7 @@
                 Die Methode hat keine Input-Parameter, sondern gibt die gesamte Nutzertabelle aus und diese als Liste zurück.
 
             \paragraph{get\_value}
-                An \verb|get_value| werden eine Nutzer-ID sowie eine Spaltenbezeichnung übergeben. So kann ein spezifischer Wert aus der Datenbank abgerufen werden.\footnote{Die meisten Handler-Functions bedienen sich dieser Funktion.} 
+                An \verb|get_value| werden eine Nutzer-ID sowie eine Spaltenbezeichnung übergeben. So kann ein spezifischer Wert aus der Datenbank abgerufen werden. \footnote{Die meisten Handler-Functions bedienen sich dieser Funktion.} 
 
         \subsection{insert\_value\_db.py} \label{insert_value_db.py}
             \paragraph{Methode insert\_update}
@@ -359,13 +359,13 @@
             \paragraph{Methode check\_availability}
                 Die Methode \verb|check_availability| nimmt einen Start- und einen Endzeitpunkt entgegen und formatiert diese so um, dass sie dem RFC3339-Format entsprechen. Das Format setzt sich zusammen wie folgt: \\
                 \\
-                YYYY-MM-DD, Buchstabe \'T\', HH:MM:SS.ms, Buchstabe \'Z\' \\
+                YYYY-MM-DD, \glq T\grq, HH:MM:SS.ms, Buchstabe \glq Z\grq \\
                 \\
                 Beispiel für 10:05 Uhr vormittags am 28.02.2022, koordinierte Weltzeit (UTC): \\
                 \\
                 \verb/2022-02-28T10:05:00.00Z/ \\
                 \\
-                Weitere Informationen zum RFC3339-Format finden sich im offiziellen Standard: \cite{date_time} \\
+                Weitere Informationen zum RFC3339-Format finden sich im offiziellen Standard. \cite{date_time} \\
 
                 Die beiden Zeitstempel werden in einer Anfrage an die Calendar API eingebaut, an diese übergeben. Die Methode versucht darauf, die Methode \verb|freebusy| der API abzufragen. Ist dies erfolgreich, gibt die API eine Antwort im \verb|JSON|-Format zurück, das Python als Dictionary interpretiert und in mehreren geschachtelten Schleifen auslegen kann. Ist das Feld \verb|busy: []| leer, so wird \verb|True| zurückgegeben. Das Zeitfenster ist frei. Ist das Feld nicht leer, gibt es einen Terminkonflikt. Die Methode gibt \verb|False| zurück. \\
                 \\

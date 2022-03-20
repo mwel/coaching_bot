@@ -69,7 +69,7 @@ Hier kommt hin, wie es gemacht haben.
         \subsection{Eingabe-Validierung}
         Bei einigen Angaben ist es besonders wichtig, dass Eingaben auf korrekte Formate geprüft werden. So müssen bspw. E-Mail-Adresse sowie Telefonnummer des Nutzers stimmen, um weitere Funktionen des Bots zu nutzen. Um die Wahrscheinlichkeit dafür, dass diese Eingaben korrekt sind, zu steigern, werden ausgewählte Eingaben auf Formatfehler geprüft und der Nutzer bei falscher Eingabe um eine erneute Eingabe gebeten.
         
-        \subsection{E-Mail zusammenbauen}
+        \subsection{Konstruktion E-Mail}
         Die E-Mail, die am Ende des Konversationsflusses ausgegeben wird, wird separat aus verschiedenen Bausteinen zusammengesetzt. Dafür kommen Informationsabfragen gegen die Datenbank mit der Ansprache eines Mail-Servers zusammen.
         
     
@@ -87,3 +87,6 @@ Hier kommt hin, wie es gemacht haben.
         Um am Ende des Konversationsflusses einen ersten Termin mit einem Coach vereinbaren zu können, muss der Nutzer einen freien Termin auswählen können und für diesen eine Einladung beantragen. Zu diesem Zweck wurde die Google Calendar API angebunden. Der Nutzer wird zunächst gefragt, ob er überhaupt einen Termin vereinbaren möchte. Daraufhin wird die API abgefragt und dem Nutzer werden drei Termine vorgeschlagen. Mit einem Klick kann der gewünschte Termin dann ausgewählt werden. Kurz darauf erhält der Nutzer eine Termineinladung an die zuvor angegebene E-Mail-Adresse und kann diese im persönlichen Kalender-Client annehmen oder ablehnen. \\
         Eine Kennenlern-Sitzung dauert 50 Minuten. Vorschläge sollen über eine Spanne von 10 Tagen verteilt sein und nur an Wochentagen und zu Geschäftszeiten möglich sein. Da sich Geschäftszeiten ändern können und dazu keine Anpassung am Programmcode notwendig sein soll, werden Geschäftszeiten direkt im entsprechenden Kalender festgelegt.
 
+    
+    \section{Web-GUI}
+        Um gesammelte Daten und vereinbarte Termine am Ende anzeigen zu können, wird eine einfach Web-GUI mittels HTML und CSS erstellt und auf einem lokalen Flask Web-Server deployed. Die Anbindung an die Datenbank ist bereits über den Database Connector implementiert, der auch für die Web-GUI die Daten liefert. Für eine einfache, direkte Einsicht in vereinbarte Termine, wird eine Google-Calendar View eingebunden. 
