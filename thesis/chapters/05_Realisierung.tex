@@ -21,9 +21,7 @@ Hier kommt hin, wie es gemacht haben.
 
         \subsection{Start: Eine Konversation beginnen}
             Der Bot kann gestartet werden (Aktion) und gibt eine Begrüßungsnachricht zurück. Gleichzeitig erfasst er grundsätzliche Informationen des Nutzers und schreibt diese in eine Datenbank. Aber diesem Zeitpunkt, kennt die Applikation den Benutzer und kann weitere Informationen über ihn speichern oder individuell auf Eingaben reagieren.
-
-            \paragraph{Die Loop-Back-Funktion}
-                Eine der großen Herausforderungen für den Bot besteht darin, einen Nutzer wiederzuerkennen und ihn am richtigen Punkt zurück in den Konversationsfluss zu platzieren. Diese Erfahrung soll für den Nutzer nicht angestrengt wirken, sondern so, als würde der Bot ihn schon kennen und einfach da weitermachen, wo man aufgehört hat. Die technische Komplexität besteht darin, dass das Feature besonders dann funktionieren soll, wenn der Bot neu gestartet wurde.
+            Eine der großen Herausforderungen für den Bot besteht darin, einen Nutzer wiederzuerkennen und ihn am richtigen Punkt zurück in den Konversationsfluss zu platzieren. Diese Erfahrung soll für den Nutzer nicht angestrengt wirken, sondern so, als würde der Bot ihn schon kennen und einfach da weitermachen, wo man aufgehört hat. Die technische Komplexität besteht darin, dass das Feature besonders dann funktionieren soll, wenn der Bot neu gestartet wurde. Diese Memory-Funktion muss am Beginn der Konversation stattfinden.
 
         \subsection{Ende: Konversation manuell beenden}
             Hat der Nutzer eine Konversation gestartet, so kann er diese auch wieder beenden. Die Konversation muss nicht zuende geführt worden sein. Über einen kurzen Befehl \verb|/cancel| wird der Bot beendet und personenbezogene Daten werden aus der Datenbank gelöscht. Dabei ist darauf zu achten, dass der Nutzer nur seine eigenen Daten löschen kann. Hat der Nutzer seine Konversation bereits beendet, so ist \verb|/cancel| nicht mehr verfügbar. Möchte der Nutzer seine Daten dennoch löschen, so steht ihm stattdessen der Befehl \verb|/delete| zur Verfügung.
