@@ -23,8 +23,9 @@
     \section{SQLite3 API}
         Als Schnittstelle zwischen dem Python-basierten Backend und der SQLite-Datenbank nutzt die Applikation den sqlite3 Database-Connector. \cite{sqlite3API}
 
-    % \section{Mailing}
-        % Die Applikation versendet als Zusammenfassung aller eingereichten Informationen eine E-Mail von einem Mail-Server. 
+
+    \section{Mailing}
+        Die Applikation versendet als Zusammenfassung aller eingereichten Informationen und als Bestätigung der Anmeldung eine E-Mail von einem Mail-Server. 
 
 
     \section{HMTL}
@@ -41,14 +42,13 @@
 
     \section{Google Calendar API}
         Die Applikation bindet die Google Calendar API \cite{googleCalAPI} an, um es dem User zu ermöglichen, einen Termin mit dem Anbieter zu vereinbaren und diesen später auch wieder in der eigegen Kalender\-Applikation abzulehnen.
-        Um die API nutzen zu können, bedarf es der Installation der API (via pipenv) und der Einrichtung der quickstart.py. Sie stellt den Rahmen für die Authentifizierung gegenüber dem Google Open\-Authorization (oauth2) Protokoll und bindet erste Bibliotheken ein.
-        \footnote{Eine genaue Dokumentation zu Aufbau und Nutzung der quickstart.py findet sich hier: \url{https://developers.google.com/calendar/api/quickstart/python}}
+        Um die API nutzen zu können, bedarf es der Installation der API (via pipenv) und der Einrichtung der quickstart.py. Sie stellt den Rahmen für die Authentifizierung gegenüber dem Google Open\-Authorization (oauth2) Protokoll und bindet erste Bibliotheken ein.\footnote{Eine genaue Dokumentation zu Aufbau und Nutzung der quickstart.py findet sich hier: \url{https://developers.google.com/calendar/api/quickstart/python}}
         Für den CoachingBot ist die quickstart.py bereits konfiguriert und wurde durch einige Erweiterungen zum Calendar Manager weiterentwickelt (siehe \ref{calendar_manager.py} calendar\_manager.py). Zur Nutzung durch Dritte bedarf es dabei individueller Schlüssel sowie Zugangsberechtigungen, durch deren Setup nun geführt wird. Vorgängig ist die Dokumentation zur Google Cloud Console zu sichten. 
         \footnote{\url{https://console.cloud.google.com/}}
         
             \subsection{Scope}
                 Die API kann auf verschiedene sog. \glq Scope\grq (z.dt. Umfang oder Reichweite) eingestellt werden. So wird festgelegt, welche Rechte dem Kalender Manager gegenüber der API zur Verfügung stehen und welche Methoden, die die API bietet, genutzt werden können. So wäre bspw. der Scope \glqq.../readonly\grqq verfügbar, über den ein Kalender nur abgefragt, aber keine Termine erstellt werden können.\\
-                Der Bot nutzt den umfangreichsten Scope: \glqq\url{https://www.googleapis.com/auth/calendar}\grqq. Über ihn stehen alle Operationen der API zur Verfügung.
+                Der Bot nutzt den umfangreichsten Scope.\footnote{\url{https://www.googleapis.com/auth/calendar}}. Über ihn stehen alle Operationen der API zur Verfügung.
 
             \subsection{Zugangsdaten}
                 Um sich via OAuth zu authentifizieren, bedarf es folgender Schritte in der Google Cloud Console. Obwohl diese Schritte bereits durchgeführt wurden, so sind diese bei einer Fremdimplementierung dennoch erneut erforderlich - damit die erforderlichen Schlüssel erstellt werden. 
@@ -59,7 +59,7 @@
                     \item Deklaration des Projekts als Testprojekt
                     \item Eintragen eines Testers (das Gleiche oder ein anderes Google-Konto kann verwendet werden.)
                     \item Generierung eines Schlüsselpaares zur Authentifizierung
-                    \item Verifizierung der eigenen Website \footnote{https://www.google.com/webmasters/verification/home?hl=en}
+                    \item Verifizierung der eigenen Website \footnote{\url{https://www.google.com/webmasters/verification/home?hl=en}}
                     \item Freigabe der Redirect-URI für dieses Schlüsselpaar
                     \item Generierung und Herunterladen der Zugangsdaten (credentials.json)
                     \item Installation der quickstart.py im eigenen Repository
@@ -72,4 +72,4 @@
 
 
     \section{TheCoachingBot}
-        Schließlich findet sich der gesamte Source-Code inklusive aller Abhängigkeiten in einem öffentlichen GitHub Repository: \url{https://github.com/mwel/coaching_bot}
+        Der gesamte Source-Code inklusive aller Abhängigkeiten findet sich in einem öffentlichen GitHub-Repository.\footnote{\url{https://github.com/mwel/coaching_bot}}

@@ -26,13 +26,14 @@
 \contentsline {section}{\numberline {3.3}Telegram Chat Bots}{8}{section.3.3}%
 \contentsline {section}{\numberline {3.4}SQLite}{9}{section.3.4}%
 \contentsline {section}{\numberline {3.5}SQLite3 API}{9}{section.3.5}%
-\contentsline {section}{\numberline {3.6}HMTL}{9}{section.3.6}%
-\contentsline {section}{\numberline {3.7}CSS}{9}{section.3.7}%
-\contentsline {section}{\numberline {3.8}Flask}{9}{section.3.8}%
-\contentsline {section}{\numberline {3.9}Google Calendar API}{9}{section.3.9}%
-\contentsline {subsection}{\numberline {3.9.1}Scope}{10}{subsection.3.9.1}%
-\contentsline {subsection}{\numberline {3.9.2}Zugangsdaten}{10}{subsection.3.9.2}%
-\contentsline {section}{\numberline {3.10}TheCoachingBot}{11}{section.3.10}%
+\contentsline {section}{\numberline {3.6}Mailing}{9}{section.3.6}%
+\contentsline {section}{\numberline {3.7}HMTL}{9}{section.3.7}%
+\contentsline {section}{\numberline {3.8}CSS}{9}{section.3.8}%
+\contentsline {section}{\numberline {3.9}Flask}{9}{section.3.9}%
+\contentsline {section}{\numberline {3.10}Google Calendar API}{9}{section.3.10}%
+\contentsline {subsection}{\numberline {3.10.1}Scope}{10}{subsection.3.10.1}%
+\contentsline {subsection}{\numberline {3.10.2}Zugangsdaten}{10}{subsection.3.10.2}%
+\contentsline {section}{\numberline {3.11}TheCoachingBot}{11}{section.3.11}%
 \contentsline {chapter}{\numberline {4}Konzept}{12}{chapter.4}%
 \contentsline {section}{\numberline {4.1}Grundkonzept}{12}{section.4.1}%
 \contentsline {section}{\numberline {4.2}Zustände \& Konversationsfluss}{13}{section.4.2}%
@@ -79,76 +80,35 @@
 \contentsline {section}{\numberline {6.3}Handler Funktionen}{24}{section.6.3}%
 \contentsline {subsection}{\numberline {6.3.1}start.py}{24}{subsection.6.3.1}%
 \contentsline {subsection}{\numberline {6.3.2}bio.py}{25}{subsection.6.3.2}%
-\contentsline {paragraph}{Methode bio}{25}{section*.11}%
-\contentsline {paragraph}{Methode skip\_bio}{26}{section*.12}%
-\contentsline {subsection}{\numberline {6.3.3}gender.py}{28}{subsection.6.3.3}%
-\contentsline {paragraph}{Methode gender}{28}{section*.13}%
-\contentsline {paragraph}{Methode skip\_gender}{28}{section*.14}%
-\contentsline {subsection}{\numberline {6.3.4}birthdate.py}{28}{subsection.6.3.4}%
-\contentsline {paragraph}{Methode birthdate}{28}{section*.15}%
-\contentsline {subsection}{\numberline {6.3.5}email.py}{28}{subsection.6.3.5}%
-\contentsline {paragraph}{Methode email}{28}{section*.16}%
-\contentsline {paragraph}{Methode skip\_email}{28}{section*.17}%
+\contentsline {subsection}{\numberline {6.3.3}gender.py}{27}{subsection.6.3.3}%
+\contentsline {subsection}{\numberline {6.3.4}birthdate.py}{27}{subsection.6.3.4}%
+\contentsline {subsection}{\numberline {6.3.5}email.py}{27}{subsection.6.3.5}%
 \contentsline {subsection}{\numberline {6.3.6}telephone.py}{28}{subsection.6.3.6}%
-\contentsline {paragraph}{Methode telephone}{28}{section*.18}%
-\contentsline {paragraph}{Methode skip\_telephone}{29}{section*.19}%
-\contentsline {subsection}{\numberline {6.3.7}location.py}{29}{subsection.6.3.7}%
-\contentsline {paragraph}{Methode location}{29}{section*.20}%
-\contentsline {paragraph}{Methode skip\_location}{29}{section*.21}%
-\contentsline {subsection}{\numberline {6.3.8}photo.py}{29}{subsection.6.3.8}%
-\contentsline {paragraph}{Methode photo}{29}{section*.22}%
-\contentsline {paragraph}{Methode skip\_photo}{29}{section*.23}%
-\contentsline {subsection}{\numberline {6.3.9}summary.py}{29}{subsection.6.3.9}%
-\contentsline {paragraph}{Methode summary}{29}{section*.24}%
-\contentsline {subsection}{\numberline {6.3.10}confirmation\_mail.py}{30}{subsection.6.3.10}%
-\contentsline {paragraph}{Methode confirmation\_mail}{30}{section*.25}%
-\contentsline {subsection}{\numberline {6.3.11}appointment.py}{31}{subsection.6.3.11}%
-\contentsline {paragraph}{Methode appointment}{31}{section*.26}%
-\contentsline {paragraph}{Methode skip\_appointment}{31}{section*.27}%
-\contentsline {subsection}{\numberline {6.3.12}help.py}{32}{subsection.6.3.12}%
-\contentsline {paragraph}{Methode help}{32}{section*.28}%
-\contentsline {subsection}{\numberline {6.3.13}states.py}{32}{subsection.6.3.13}%
-\contentsline {paragraph}{STATES}{32}{section*.29}%
-\contentsline {paragraph}{MESSAGES}{32}{section*.30}%
-\contentsline {paragraph}{KEYBOARD\_MARKUPS}{32}{section*.31}%
-\contentsline {subsection}{\numberline {6.3.14}status.py}{32}{subsection.6.3.14}%
-\contentsline {paragraph}{Methode status}{32}{section*.32}%
-\contentsline {subsection}{\numberline {6.3.15}validation.py}{33}{subsection.6.3.15}%
-\contentsline {paragraph}{validate\_birthdate}{33}{section*.33}%
-\contentsline {paragraph}{validate\_email}{33}{section*.34}%
-\contentsline {paragraph}{validate\_telephone}{33}{section*.35}%
-\contentsline {subsection}{\numberline {6.3.16}cancel}{33}{subsection.6.3.16}%
-\contentsline {paragraph}{Methode cancel}{33}{section*.36}%
-\contentsline {paragraph}{Methode delte}{34}{section*.37}%
-\contentsline {section}{\numberline {6.4}Datenbank}{34}{section.6.4}%
-\contentsline {subsection}{\numberline {6.4.1}create\_db.py}{34}{subsection.6.4.1}%
-\contentsline {paragraph}{Methode create\_db}{34}{section*.38}%
-\contentsline {subsection}{\numberline {6.4.2}select\_db.py}{34}{subsection.6.4.2}%
-\contentsline {paragraph}{Methode user\_search}{34}{section*.39}%
-\contentsline {paragraph}{Methode get\_all\_data}{34}{section*.40}%
-\contentsline {paragraph}{Methode get\_customers}{35}{section*.41}%
-\contentsline {paragraph}{get\_value}{35}{section*.42}%
-\contentsline {subsection}{\numberline {6.4.3}insert\_value\_db.py}{35}{subsection.6.4.3}%
-\contentsline {paragraph}{Methode insert\_update}{35}{section*.43}%
-\contentsline {subsection}{\numberline {6.4.4}insert\_update\_db.py}{35}{subsection.6.4.4}%
-\contentsline {paragraph}{Methode insert\_update}{35}{section*.44}%
-\contentsline {subsection}{\numberline {6.4.5}delete\_record.py}{35}{subsection.6.4.5}%
-\contentsline {paragraph}{Methode delete\_record}{35}{section*.45}%
-\contentsline {paragraph}{Methode delete\_value}{35}{section*.46}%
-\contentsline {section}{\numberline {6.5}Kalender}{36}{section.6.5}%
-\contentsline {subsection}{\numberline {6.5.1}calendar\_manager.py}{36}{subsection.6.5.1}%
-\contentsline {paragraph}{Methode main}{36}{section*.47}%
-\contentsline {paragraph}{Methode authenticate}{36}{section*.48}%
-\contentsline {paragraph}{Methode check\_availability}{36}{section*.49}%
-\contentsline {paragraph}{Methode find\_slots}{37}{section*.50}%
-\contentsline {paragraph}{Methode make\_appointment}{37}{section*.51}%
-\contentsline {section}{\numberline {6.6}Web-GUI}{37}{section.6.6}%
-\contentsline {subsection}{\numberline {6.6.1}app.py}{38}{subsection.6.6.1}%
-\contentsline {subsection}{\numberline {6.6.2}home.html}{38}{subsection.6.6.2}%
-\contentsline {subsection}{\numberline {6.6.3}main.css}{38}{subsection.6.6.3}%
-\contentsline {chapter}{\numberline {7}Beispiele}{39}{chapter.7}%
-\contentsline {chapter}{\numberline {8}Anwendungsszenarien}{50}{chapter.8}%
-\contentsline {chapter}{\numberline {9}Zusammenfassung und Ausblick}{51}{chapter.9}%
-\contentsline {chapter}{Literaturverzeichnis}{53}{chapter*.62}%
-\contentsline {chapter}{Glossar}{55}{appendix.A}%
-\contentsline {chapter}{Selbstständigkeitserklärung}{56}{appendix.B}%
+\contentsline {subsection}{\numberline {6.3.7}location.py}{28}{subsection.6.3.7}%
+\contentsline {subsection}{\numberline {6.3.8}photo.py}{28}{subsection.6.3.8}%
+\contentsline {subsection}{\numberline {6.3.9}summary.py}{28}{subsection.6.3.9}%
+\contentsline {subsection}{\numberline {6.3.10}confirmation\_mail.py}{29}{subsection.6.3.10}%
+\contentsline {subsection}{\numberline {6.3.11}appointment.py}{30}{subsection.6.3.11}%
+\contentsline {subsection}{\numberline {6.3.12}help.py}{30}{subsection.6.3.12}%
+\contentsline {subsection}{\numberline {6.3.13}states.py}{30}{subsection.6.3.13}%
+\contentsline {subsection}{\numberline {6.3.14}status.py}{31}{subsection.6.3.14}%
+\contentsline {subsection}{\numberline {6.3.15}validation.py}{31}{subsection.6.3.15}%
+\contentsline {subsection}{\numberline {6.3.16}cancel}{32}{subsection.6.3.16}%
+\contentsline {section}{\numberline {6.4}Datenbank}{32}{section.6.4}%
+\contentsline {subsection}{\numberline {6.4.1}create\_db.py}{32}{subsection.6.4.1}%
+\contentsline {subsection}{\numberline {6.4.2}select\_db.py}{33}{subsection.6.4.2}%
+\contentsline {subsection}{\numberline {6.4.3}insert\_value\_db.py}{33}{subsection.6.4.3}%
+\contentsline {subsection}{\numberline {6.4.4}insert\_update\_db.py}{33}{subsection.6.4.4}%
+\contentsline {subsection}{\numberline {6.4.5}delete\_record.py}{33}{subsection.6.4.5}%
+\contentsline {section}{\numberline {6.5}Kalender}{34}{section.6.5}%
+\contentsline {subsection}{\numberline {6.5.1}calendar\_manager.py}{34}{subsection.6.5.1}%
+\contentsline {section}{\numberline {6.6}Web-GUI}{35}{section.6.6}%
+\contentsline {subsection}{\numberline {6.6.1}app.py}{35}{subsection.6.6.1}%
+\contentsline {subsection}{\numberline {6.6.2}home.html}{36}{subsection.6.6.2}%
+\contentsline {subsection}{\numberline {6.6.3}main.css}{36}{subsection.6.6.3}%
+\contentsline {chapter}{\numberline {7}Beispiele}{37}{chapter.7}%
+\contentsline {chapter}{\numberline {8}Anwendungsszenarien}{48}{chapter.8}%
+\contentsline {chapter}{\numberline {9}Zusammenfassung und Ausblick}{49}{chapter.9}%
+\contentsline {chapter}{Literaturverzeichnis}{51}{chapter*.21}%
+\contentsline {chapter}{Glossar}{53}{appendix.A}%
+\contentsline {chapter}{Selbstständigkeitserklärung}{54}{appendix.B}%
