@@ -8,8 +8,8 @@ Database file #1: coaching_bot_group.bib
 Warning--empty note in date_time
 You've used 21 entries,
             2768 wiz_defined-function locations,
-            707 strings with 7733 characters,
-and the built_in function-call counts, 6106 in all, are:
+            706 strings with 7719 characters,
+and the built_in function-call counts, 6112 in all, are:
 = -- 627
 > -- 168
 < -- 21
@@ -24,23 +24,23 @@ chr.to.int$ -- 13
 cite$ -- 22
 duplicate$ -- 272
 empty$ -- 578
-format.name$ -- 80
+format.name$ -- 83
 if$ -- 1373
 int.to.chr$ -- 9
 int.to.str$ -- 0
 missing$ -- 0
 newline$ -- 87
 num.names$ -- 63
-pop$ -- 181
+pop$ -- 184
 preamble$ -- 1
 purify$ -- 126
 quote$ -- 0
-skip$ -- 265
+skip$ -- 262
 stack$ -- 0
 substring$ -- 147
 swap$ -- 62
 text.length$ -- 21
-text.prefix$ -- 17
+text.prefix$ -- 20
 top$ -- 0
 type$ -- 168
 warning$ -- 1

@@ -16,6 +16,61 @@
         Die \verb|main.py| beinhaltet die Instanz der State Machine des Coaching Bots.\\
         Sie importiert alle Handler-Funktionen, authentifiziert sich durch den entsprechenden API-Schlüssel und beinhaltet den Dispatcher, an dem wiederum Conversation- sowie CommandHandler hängen. Darüber hinaus startet sie den Bot und aktualisiert die Handler in regelmäßigen Abständen via dem Updater.\\
 
+        \begin{lstlisting}[language=Python, caption={bot\/main.py - state machine, Conversation- \& Command Handler}\label{code: bot/main.py}]
+def main() -> None:
+    # Creates the updater and passes the API_TOKEN to it.
+    updater = Updater(API_KEY)
+
+    # Gets the dispatcher to register handlers
+    dispatcher = updater.dispatcher
+
+    # bot state machine and main conversation handler
+    conv_handler = ConversationHandler(
+        entry_points=[CommandHandler('start', start)],
+        states={
+            states.BIO:         [MessageHandler
+                (Filters.text& ~Filters.command, bio), 
+                CommandHandler('skip', skip_bio)],
+            states.GENDER:      [MessageHandler
+                (Filters.regex('^(Gentleman|Lady|Unicorn)$'),gender), 
+                CommandHandler('skip', skip_gender)],
+            states.BIRTHDATE:   [MessageHandler
+                (Filters.text& ~Filters.command, birthdate), 
+                CommandHandler('skip', skip_birthdate)],
+            states.EMAIL:       [MessageHandler
+                (Filters.text& ~Filters.command, email), 
+                CommandHandler('skip', skip_email)],
+            states.TELEPHONE:   [MessageHandler
+                (Filters.text& ~Filters.command, telephone), 
+                CommandHandler('skip', skip_telephone)],
+            states.LOCATION:    [MessageHandler
+                (Filters.location& ~Filters.command, location), 
+                CommandHandler('skip', skip_location)],
+            states.PHOTO:       [MessageHandler
+                (Filters.photo   & ~Filters.command, photo), 
+                CommandHandler('skip', skip_photo)],
+            states.SUMMARY:     [MessageHandler
+                (Filters.regex('^(COMPLETE SIGN UP)$'),  summary)],
+            states.APPOINTMENT: [MessageHandler
+                (Filters.text& ~Filters.command, appointment), 
+                CommandHandler('skip', skip_appointment)],
+            # more states here...
+            },
+            fallbacks = [CommandHandler('cancel', cancel)],
+    )
+
+    # more conversation handlers for secondary commands
+    dispatcher.add_handler(conv_handler)
+    dispatcher.add_handler(CommandHandler('summary', summary))
+    dispatcher.add_handler(CommandHandler('delete', delete))
+    dispatcher.add_handler(CommandHandler('status', status))
+
+    # Start the Bot
+    updater.start_polling()
+
+    updater.idle()
+        \end{lstlisting}
+
         Im Folgenden werden die CommandHandler für den Coaching Bot kurz aufgeführt:
         
         \subsection{Dispatcher}
@@ -56,6 +111,111 @@
         Im Folgenden gehen wir detailliert auf die einzelnen Handler-Funktionen ein, beschreiben deren Umfang und Aufbau und erklären ihre Funktionsweise. 
 
         \subsection{start.py} \label{start.py}
+
+        \begin{lstlisting}[language=Python, caption={start.py - Start-Funktion und Einstieg in den Konversationsfluss}\label{code: start.py}]
+def start(update: Update, context: CallbackContext) -> int:
+    # CREATE DB, IF NOT EXISTS
+    create_db()
+
+    user_id = update.message.from_user.id
+
+    user_exists = select_db.user_search(user_id)
+    if user_exists:
+        # get user's state from db
+        state = int(select_db.get_value(user_id, 'state'))
+
+        update.message.reply_text(
+            f'Welcome back {update.message.from_user.first_name},\n'
+            'Let\'s continue where we left off...',
+            reply_markup=ReplyKeyboardRemove(),
+            )
+
+        if state == states.SUMMARY:  
+        # sign up was apparently already completed for this user
+            reply_keyboard = [
+                ['/status'], 
+                ['/summary'],
+                ['/delete']]
+            update.message.reply_text(
+            'Ah! I see, you have already completed 
+            the sign up.\nYou now have multiple options below:\n'
+            'If you have not made an appointment yet 
+            and would like to do so, enter /summary.\n\n'
+            'If you want to /delete your record entirely, 
+            press /delete.',
+            reply_markup=ReplyKeyboardMarkup(
+            reply_keyboard, one_time_keyboard=True, 
+            input_field_placeholder='SIGN UP COMPLETE'
+                )
+            )
+
+        elif state == states.APPOINTMENT and select_db.get_value(user_id, 'appointment') == 'None':
+            reply_keyboard = [
+                ['/status'], 
+                ['/delete']]
+            update.message.reply_text(
+            'If you have not made an appointment yet 
+            and would like to do so, enter /summary.\n\n',
+            reply_markup=ReplyKeyboardMarkup(
+            reply_keyboard, one_time_keyboard=True, 
+            input_field_placeholder='SIGN UP COMPLETE'
+            )
+        )
+            return ConversationHandler.END
+
+        elif state == states.APPOINTMENT:
+            appointment_made = select_db.get_value(user_id, 
+            'appointment')
+            reply_keyboard = [
+                ['/status'], 
+                ['/delete']]
+            update.message.reply_text(
+            f'Cool. You already have an appointment on 
+            {appointment_made} \n\n'
+            'In case you would like to cancel, 
+            you can do that via your calendar app.\n\n'
+            'Otherwise, we are looking forward to our call.',
+            reply_markup=ReplyKeyboardMarkup(
+            reply_keyboard, one_time_keyboard=True, 
+            input_field_placeholder='SIGN UP COMPLETE'
+            )
+        )
+            return ConversationHandler.END
+        
+        # call next function for user
+        update.message.reply_text(states.MESSAGES[state], reply_markup=states.KEYBOARD_MARKUPS[state])
+        return state
+
+    logger.info(f'+++++ NEW USER: {update.message.from_user.first_name} 
+    {update.message.from_user.last_name} +++++')
+
+    # write user info to db
+    insert_update(user_id, 'first_name', update.message.from_user.first_name) 
+    insert_update(user_id, 'last_name', update.message.from_user.last_name)
+    insert_update(user_id, 'appointment', 'None')
+    insert_update(user_id, 'event_id', '0')
+
+    update.message.reply_text(
+        f'Hi {update.message.from_user.first_name},\n'
+        'I am a coaching bot by wavehoover. You have 
+        taken the first step on your journey to success 
+        by contacting me. I will guide you through the 
+        application process for your first coaching session. '
+        'It\'s super easy. Just follow the questions, answer 
+        or skip them - that\'s it.\n\n'
+        '[You can send /cancel at any time, if you are 
+        no longer interested in a conversation.]\n\n'
+        f'Now, {update.message.from_user.first_name} - 
+        {states.MESSAGES[states.BIO]}',
+        reply_markup=ReplyKeyboardRemove(),
+        )
+
+    # save state to DB
+    insert_update(user_id, 'time_stamp', datetime.now())
+    insert_update(user_id, 'state', states.BIO)
+    return states.BIO
+        \end{lstlisting}
+
             Die Methode \verb|start| in der \verb|start.py| fungiert als Eingangstor für jeden User. Wann immer der Befehl \verb|/start| an den Bot schickt wird, löst der CommandHandler die Methode \verb|start| aus.\\
             \\
             Zunächst wird geprüft, ob es eine Datenbank gibt. Ist dies der Fall, wird geprüft, ob der Nutzer, der die Methode ausgelöst hat, bereits in der Datenbank existiert. \\
@@ -127,9 +287,11 @@ def skip_bio(update: Update, context: CallbackContext) -> int:
 
     # alternative message
     update.message.reply_text(
-        'Alright. No problem. I know, it can be uneasy to share at first. 
-        If you would like, I can offer you a free "gettin to know each other" 
-        phone call once you have finished the sign up.',
+        'Alright. No problem. I know, 
+        it can be uneasy to share at first. 
+        If you would like, I can offer you a free 
+        "gettin to know each other" phone call once 
+        you have finished the sign up.',
         reply_markup=ReplyKeyboardRemove(),
         )
 
@@ -198,6 +360,88 @@ def skip_bio(update: Update, context: CallbackContext) -> int:
 
         \subsection{summary.py} \label{summary.py}
             %\subsubsection{Methode summary}
+
+            \begin{lstlisting}[language=Python, caption={summary.py - Zusammenfassung für den Nutzer direkt im Messenger}\label{code: summary.py}]
+def summary(update: Update, context: CallbackContext) -> int:
+    
+    user_id = update.message.from_user.id    
+
+    logger.info(f'+++++ User {update.message.from_user.first_name} 
+    COMPLETED SIGN UP. +++++')
+
+    first_name = get_value(user_id, 'first_name')
+    last_name = get_value(user_id, 'last_name')
+    gender = get_value(user_id, 'gender')
+    birthdate = get_value(user_id, 'birthdate')
+    email = get_value(user_id, 'email')
+    telephone = get_value(user_id, 'telephone')
+
+    summary = f"""
+        Given Name:\t\t{first_name}
+        Last Name:\t\t{last_name}
+        Gender choice:\t\t{gender}
+        Birthdate:\t\t\t{birthdate}
+        Email address:\t\t{email}
+        Phone number:\t{telephone}
+        """
+
+    # confirmation message
+    update.message.reply_text(
+        f'Thanks for signing up, {update.message.from_user.first_name}!\n\n'
+        f'SUMMARY for {update.message.from_user.first_name} 
+        {update.message.from_user.last_name}:\n\n{summary}',
+        reply_markup=ReplyKeyboardRemove(),
+    )
+    
+    # check, if the user already made an appointment. 
+    appointment_made = get_value(user_id, 'appointment')
+    
+    # If yes, inform. Else, make one.
+    if appointment_made == 'None':
+        
+        update.message.reply_text(
+            'Ok. We will look for 3 appointment options 
+            you can choose from for your phone call. \n\n'
+            '... SEARCHING ...',
+            reply_markup=ReplyKeyboardRemove(),
+        )
+
+        free_slots = find_slots()
+
+        slot1 = str(free_slots[0])
+        slot2 = str(free_slots[1])
+        slot3 = str(free_slots[2])
+
+        # next step message
+        update.message.reply_text(
+            states.MESSAGES[states.APPOINTMENT],
+            reply_markup=ReplyKeyboardMarkup(
+                [[slot1], [slot2], [slot3]], ['/skip'], 
+                one_time_keyboard=True, 
+                input_field_placeholder='Choose your slot...'
+                )
+            )
+
+    else:
+        update.message.reply_text(
+            f'Cool. You already have an appointment: {appointment_made} \n\n'
+            'In case you would like to cancel, you can do so via your calendar app.\n\n'
+            'Otherwise, we are looking forward to our call.',
+            reply_markup=ReplyKeyboardRemove(),
+        )
+
+        return ConversationHandler.END
+
+
+    # trigger confirmation email
+    confirmation_mail(first_name, summary, email)
+    insert_update(user_id, 'mail_sent', '1')
+
+    # save state to DB
+    insert_update(user_id, 'state', states.APPOINTMENT)
+    return states.APPOINTMENT
+            \end{lstlisting}
+
                 In der Methode \verb|summary| kommt alles zusammen. Der Nutzer hat nun alle Angaben gemacht oder übersprungen. Die Methode beginnt damit, eine Reihe von Informationen von der Datenbank abzufragen und in Variablen zu speichern. Es werden nur Informationen abgefragt, die auch in der auszugebenden Nachricht genutzt werden sollen. Direkt darauf wird ein String für die zu versendende Nachricht zusammengebaut und gespeichert. Es folgt eine einfache \glqq Danke-Nachricht\grqq an den Nutzer, bevor die eigentliche Logik der Methode beginnt.\\
                 \\
                 Nun gibt es aus Nutzersicht mehrere Szenarien: Der Bot prüft, ob der Nutzer bereits einen Termin vereinbart hat.
@@ -219,6 +463,39 @@ def skip_bio(update: Update, context: CallbackContext) -> int:
 
                     
         \subsection{confirmation\_mail.py} \label{confirmation_mail.py}
+
+        \begin{lstlisting}[language=Python, caption={confirmation\_mail.py - Bestätigung und Zusammenfassung für den Nutzer per E-Mail}\label{code: confirmation_mail.py}]
+def confirmation_mail(recipient_name, summary, recipient_address):
+
+    # open connection to mail server and authenticate
+    server = smtplib.SMTP_SSL(smtp_address, smtp_port)
+    server.login(sender_address, password)
+
+    # create multipart object, the email consists of
+    message = MIMEMultipart()
+
+    # defined from address, to address and subject of the email
+    message['From'] = sender_address
+    message['To'] = recipient_address
+
+    subject = 'Coaching Bot | Confirmation - sign up complete'
+    message['Subject'] = subject
+
+    # email body
+    body =   f"""Hi {recipient_name}, \t
+        thanks for signing up. This is the confirmation for your 
+        sign up with the coaching program by wavehoover. \n 
+        {summary}\n
+        Looking forward to meeting you!\n
+        Your wavehoover Team"""
+    
+    # create the text object for the email
+    message.attach(MIMEText(body, 'plain'))
+
+    server.sendmail(message['From'], message['To'], message.as_string())
+    server.quit()
+        \end{lstlisting}
+
             %\subsubsection{Methode confirmation\_mail}
                 Um dem Nutzer die Zusammenfassung in Form einer E-Mail zukommen zu lassen, muss diese zunächst zusammengesetzt werden. Die Möglichkeit, dies zu bewerkstelligen, bietet die Bibliothek \verb|mime|. \cite{email.mime} Daneben wird die \verb|smtplib|-Bibliothek genutzt, um eine sichere Verbindung zu einem Mail-Server aufzubauen, über den die fertige E-Mail versenden werden kann. \cite{smtplib}\\
 
@@ -239,6 +516,63 @@ def skip_bio(update: Update, context: CallbackContext) -> int:
 
 
         \subsection{appointment.py} \label{appointment.py}
+
+        \begin{lstlisting}[language=Python, caption={appointment.py - Konstruktion des Kalender-Events}\label{code: appointment.py}]
+def appointment(update: Update, context: CallbackContext) -> int:
+
+    user_id = update.message.from_user.id
+
+    # first_name = get_value(user_id, 'first_name')
+    # last_name = get_value(user_id, 'last_name')
+    email = get_value(user_id, 'email')
+    telephone = get_value(user_id, 'telephone')
+
+    summary = 'wavehoover | Coaching Session'
+    
+    slot_start = update.message.text
+    dt_slot_start = datetime.strptime(slot_start, '%Y-%m-%d %H:%M:%S')
+    iso_slot_start = str(dt_slot_start.isoformat('T') + '+01:00')
+    logger.info(f'>>>>> ISO_SLOT_START: {iso_slot_start}')
+
+    slot_end = str(dt_slot_start + timedelta(minutes=50))
+    dt_slot_end = datetime.strptime(slot_end, '%Y-%m-%d %H:%M:%S')
+    iso_slot_end = str(dt_slot_end.isoformat('T') + '+01:00')
+    logger.info(f'>>>>> ISO_SLOT_END: {iso_slot_end}')
+
+    # uuid = str(str(user_id) + str(randint(10000, 99999)))
+    # logger.info(f'>>>>> UUID for user_id {user_id}: {uuid}')
+
+    # build the event data into the event object
+    event = {
+        f'summary': summary,
+        'location': 'Phone Call',
+        'description': f'Your coach will call you 
+        under the following number: {telephone}',
+        'start': {
+            'dateTime': iso_slot_start,
+            'timeZone': 'Europe/Berlin',
+        },
+        'end': {
+            'dateTime': iso_slot_end,
+            'timeZone': 'Europe/Berlin',
+        },
+        # 'id': uuid,
+        # 'recurrence': [
+            #'RRULE:FREQ=DAILY;COUNT=2'
+        # ],
+        'attendees': [
+            {'email': email},
+        ],
+        'reminders': {
+            'useDefault': False,
+            'overrides': [
+            {'method': 'email', 'minutes': 24 * 60},
+            {'method': 'popup', 'minutes': 60},
+            ],
+        },
+        }
+        \end{lstlisting}
+
             %\subsubsection{Methode appointment}
                 Ziel der Methode \verb|appointment| ist es, den Zeitstempel vom Nutzer entgegenzunehmen, ein Kalender-Event zu bauen und dieses an die Methode \verb|make_appointment| zu übergeben. \\
                 Dazu fragt sie zunächst alle erforderlichen Informationen bei der Datenbank ab. Der erhaltene Zeitstempel für den Beginn des Zeitfensters wird dann in ein Format übersetzt, das die Google Calendar API akzeptiert: \\ 
@@ -326,10 +660,66 @@ def skip_bio(update: Update, context: CallbackContext) -> int:
 
             %\subsubsection{get\_value}
                 An \verb|get_value| werden eine Nutzer-ID sowie eine Spaltenbezeichnung übergeben. So kann ein spezifischer Wert aus der Datenbank abgerufen werden. \footnote{Die meisten Handler-Functions bedienen sich dieser Funktion.} 
+                \begin{lstlisting}[language=Python, caption={select\_db.py - Datenbankabfrage einzelner Nutzerinformationen}\label{code: select_db.py}]
+# get a specific value of a user
+def get_value(user_id, column):
+    # connect to db
+    connection = sqlite3.connect(db)
+
+    # cursor
+    cursor = connection.cursor()
+
+    selection = f"""SELECT {column}
+        FROM users
+        WHERE user_id = {user_id}
+        """
+
+    # execute command to fetch all data from table users
+    cursor.execute(selection)
+
+    # store all data from selection in table_data
+    table_value = (str(cursor.fetchone())).lstrip("('").rstrip("',)")
+
+    # print value
+    logger.info(f'>>>>> {column} FOUND for user_id: {user_id} >>>>> {table_value}')
+
+    return table_value
+                \end{lstlisting}
 
         \subsection{insert\_value\_db.py} \label{insert_value_db.py}
             %\subsubsection{Methode insert\_update}
-                Um sicherzustellen, dass eine Datebank existiert, wird zunächste \verb|create_db| aufgerufen. Diese kommt schnell zurück, da die Datenbank in den meisten Fällen bereits existiert. Nun wird in einem \verb|try/except|-Block versucht, einen existierenden Datenbankeintrag zu aktualisieren. Das funktioniert meistens, weil der Datensatz für einen Nutzer bereits bei der Eingabe von \verb|/start| durchgeführt wird. So kann ein Eintrag bereits von Beginn an immer weiter angereichert werden. Nachdem der Eintrag erfolgreich aktualisiert wurde, gibt es noch einen Log-Eintrag auf der Konsole.  
+                Um sicherzustellen, dass eine Datebank existiert, wird zunächste \verb|create_db| aufgerufen. Diese kommt schnell zurück, da die Datenbank in den meisten Fällen bereits existiert. Nun wird in einem \verb|try/except|-Block versucht, einen existierenden Datenbankeintrag zu aktualisieren. Das funktioniert meistens, weil der Datensatz für einen Nutzer bereits bei der Eingabe von \verb|/start| durchgeführt wird. So kann ein Eintrag bereits von Beginn an immer weiter angereichert werden. Nachdem der Eintrag erfolgreich aktualisiert wurde, gibt es noch einen Log-Eintrag auf der Konsole.
+
+                \begin{lstlisting}[language=Python, caption={select\_db.py - Datenbankabfrage einzelner Nutzerinformationen}\label{code: select_db.py}]
+def insert_update (user_id, column, value):
+
+    # create db if non-existent
+    create_db()
+
+    # connect to db
+    connection = sqlite3.connect("coachingBotDB.db")
+    # cursor
+    cursor = connection.cursor()
+
+    try:
+        cursor.execute('INSERT INTO users (user_id) VALUES (?)', (user_id,))
+        logger.info (f'+++++ CREATED record {user_id}: {cursor.lastrowid} +++++')
+    except sqlite3.IntegrityError:
+        logger.info("+++++ FOUND record... UPDATING... +++++")
+
+    # sql command to UPDATE an existing record
+    update_command = f"UPDATE users SET {column} = ? WHERE user_id = ?"
+    update_args = (value, user_id)
+
+    cursor.execute(update_command, update_args)
+    logger.info (f'+++++ UPDATED record {user_id}: {column} >> {value} +++++')
+
+    # commit changes to db
+    connection.commit()
+    # close connection
+    connection.close()
+
+                \end{lstlisting}
         
         \subsection{insert\_update\_db.py} \label{insert_update_db.py}
             %\subsubsection{Methode insert\_update}
@@ -348,30 +738,76 @@ def skip_bio(update: Update, context: CallbackContext) -> int:
         \subsection{calendar\_manager.py} \label{calendar_manager.py}
         Der Kalender Manager basiert auf der \verb|quickstart.py|, die von Google als Starter-Kit für einige gängige Programmiersprachen angeboten wird. (Setup beschrieben in \ref{Grundlagen} Grundlagen) Daneben nutzt der Kalender Manager Pythons native Bibliotheken zum Zusammenfügen von Dateipfaden sowie die Mathode \verb|get_value| aus dem Database Connector. Er erlaubt es dem aufrufenden System, abzufragen, ob eine Zeitspanne verfügbar ist und Termine zwischen einer festgelegten Veranstalter-Adresse und beliebig vielen Teilnehmer-Adressen zu erstellen und zu versenden. Im Folgenden werden die dazu erforderlichen Methoden und Schritte erklärt. 
 
-
             %\subsubsection{Methode main}
-                Die \verb|main|-Methode des Kalender Managers authentifiziert sich gegenüber der Google Calendar API und versucht daraufhin, die nächsten zehn Elemente des Kalenders auszugeben. Ist die Authentifizierung nicht erfolgreich, wird ein \verb|HTTP|-Error ausgegeben. 
+                Die \verb|main|-Methode des Kalender Managers authentifiziert sich gegenüber der Google Calendar API und versucht daraufhin, die nächsten zehn Elemente des Kalenders auszugeben. Ist die Authentifizierung nicht erfolgreich, wird ein \verb|HTTP|-Error ausgegeben. (siehe \ref{Google Calendar API} Google Calendar API)
 
-            
             %\subsubsection{Methode authenticate}
                 \verb|authenticate| ist eine reduzierte Version der \verb|main|-Methode. Sie gibt ein \verb|service|-Objekt zurück, das genutzt werden kann, um die Methoden der Google Calendar API anzusprechen und auszuführen. 
-      
-
+    
             %\subsubsection{Methode check\_availability}
-                Die Methode \verb|check_availability| nimmt einen Start- und einen Endzeitpunkt entgegen und formatiert diese so um, dass sie dem RFC3339-Format entsprechen. Das Format setzt sich zusammen wie folgt: \\
-                \\
-                YYYY-MM-DD, \glq T\grq, HH:MM:SS.ms, Buchstabe \glq Z\grq \\
-                \\
-                Beispiel für 10:05 Uhr vormittags am 28.02.2022, koordinierte Weltzeit (UTC): \\
-                \\
-                \verb/2022-02-28T10:05:00.00Z/ \\
-                \\
-                Weitere Informationen zum RFC3339-Format finden sich im offiziellen Standard. \cite{date_time} \\
 
-                Die beiden Zeitstempel werden in einer Anfrage an die Calendar API eingebaut, an diese übergeben. Die Methode versucht darauf, die Methode \verb|freebusy| der API abzufragen. Ist dies erfolgreich, gibt die API eine Antwort im \verb|JSON|-Format zurück, das Python als Dictionary interpretiert und in mehreren geschachtelten Schleifen auslegen kann. Ist das Feld \verb|busy: []| leer, so wird \verb|True| zurückgegeben. Das Zeitfenster ist frei. Ist das Feld nicht leer, gibt es einen Terminkonflikt. Die Methode gibt \verb|False| zurück. \\
-                \\
-                Erzeugt dieser Vorgang einen Fehler, wird ein \verb|HTTP|-Error auf der Konsole ausgegeben. 
+            
+            Die Methode \verb|check_availability| nimmt einen Start- und einen Endzeitpunkt entgegen und formatiert diese so um, dass sie dem RFC3339-Format entsprechen. Das Format setzt sich zusammen wie folgt: \\
+            \\
+            YYYY-MM-DD, \glq T\grq, HH:MM:SS.ms, Buchstabe \glq Z\grq \\
+            \\
+            Beispiel für 10:05 Uhr vormittags am 28.02.2022, koordinierte Weltzeit (UTC): \\
+            \\
+            \verb/2022-02-28T10:05:00.00Z/ \\
+            \\
+            Weitere Informationen zum RFC3339-Format finden sich im offiziellen Standard. \cite{date_time} \\
+            
+            Die beiden Zeitstempel werden in einer Anfrage an die Calendar API eingebaut, an diese übergeben. Die Methode versucht darauf, die Methode \verb|freebusy| der API abzufragen. Ist dies erfolgreich, gibt die API eine Antwort im \verb|JSON|-Format zurück, das Python als Dictionary interpretiert und in mehreren geschachtelten Schleifen auslegen kann. Ist das Feld \verb|busy: []| leer, so wird \verb|True| zurückgegeben. Das Zeitfenster ist frei. Ist das Feld nicht leer, gibt es einen Terminkonflikt. Die Methode gibt \verb|False| zurück. \\
+            \\
+            Erzeugt dieser Vorgang einen Fehler, wird ein \verb|HTTP|-Error auf der Konsole ausgegeben. \\
+            \begin{lstlisting}[language=Python, caption={check\_availability - Anfrage an Google Calendar API}\label{code: check_availability}]
+def check_availability(start, end):
 
+    service = authenticate()
+    
+    logger.info(f'+++++ SLOT START: {start}') # must be in format RFC3339
+    logger.info(f'+++++ SLOT END: {end}')
+
+    start_iso = str(start.isoformat('T')+'+01:00') # convert UTC to CET
+    logger.info(f'+++++ start_iso: {start_iso}')
+
+    end_iso = str(end.isoformat('T')+'+01:00') # same for end time
+    logger.info(f'+++++ end_iso: {end_iso}')
+
+    request = {
+        "timeMin": start_iso,
+        "timeMax": end_iso,
+        "timeZone": "Europe/Berlin", 
+        "items": [
+            {
+            "id": coaching_calendar_ID #put ID incl. the @domain...
+            }
+        ]
+        }
+
+    print (request)
+    
+    try:
+        
+        response = service.freebusy().query(body=request).execute()
+        logger.info('+++++ CAL: AVAILABILITY CHECKED +++++')
+        print('>>>>> HTTP Response' + str(response))
+    
+        # climb down the dict latter and read the busy response 
+        from the HTTP-Response object
+        calendars = response.get('calendars')
+        print(f'>>>>> CALENDARS: {calendars}')
+        calendar_temp = calendars.get(coaching_calendar_ID)
+        print(f'>>>>> CALENDAR_TEMP: {calendar_temp}')
+        availability = calendar_temp.get('busy')
+        print(f'>>>>> AVAILABILITY: {availability}')
+        if availability == []:
+            return True
+
+
+    except HttpError as error:
+        logger.info('ERROR: %s' % error)
+                \end{lstlisting}
 
             %\subsubsection{Methode find\_slots}
                 Die Methode \verb|find_slots| sucht nach drei Zeitfenstern innerhalb der vordefinierten Geschäftszeiten und gibt diese, in Form einer Liste zurück. \\
@@ -384,11 +820,83 @@ def skip_bio(update: Update, context: CallbackContext) -> int:
                 \\
                 Wochenenden und Zeiten vor 08:00 sowie nach 18:00 Uhr werden übersprungen, da die Methode \verb|check_availability| für diese Zeiten immer \verb|False| zurückgibt.\footnote{Welche Zeiten als busy zurückgegeben werden kann einfach im eigenen Kalender-Client angepasst werden. Eine Anpassung im Code ist nicht erforderlich.}
 
+                \begin{lstlisting}[language=Python, caption={find\_slots - Sucht drei Terminvorschläge heraus}\label{code: find_slots}]
+def find_slots():
+
+    # Get today's datetime
+    datenow = datetime.datetime.now()
+
+    # Create datetime variable for 8 AM
+    dt8 = None
+
+    # If today's hour is < 8 AM
+    if datenow.hour < 8:
+
+        # Create date object for today's year, month, day at 8 AM
+        dt8 = datetime.datetime(datenow.year, datenow.month, datenow.day, 8, 0, 0, 0)
+
+    # If today is past 8 AM, increment date by 1 day
+    else:
+
+        # Get 1 day duration to add
+        day = datetime.timedelta(days=1)
+
+        # Generate tomorrow's datetime
+        tomorrow = datenow + day
+
+        # Create new datetime object using tomorrow's year, month, day at 8 AM
+        dt8 = datetime.datetime(tomorrow.year, tomorrow.month, tomorrow.day, 8, 0, 0, 0)
+
+    # Create timestamp from datetime object
+    # timestamp = time.mktime(dt8.timetuple())
+    
+    # within the business hours, find 3 free time slots to suggest to the user
+    free_slots = []
+    slots = 0
+    start = dt8
+    round = 0
+    while slots < 3:
+        round += 1
+        end = start + datetime.timedelta(minutes=50)
+        
+        if (check_availability(start, end)): 
+            free_slots.append(str(start))
+            slots += 1;
+
+            print(f'>>>>> Slot found at: {start} <<<<<')
+            start = dt8 + datetime.timedelta(days=3*slots)
+
+        else: 
+            logger.info ('##### NO SLOT FOUND #####')
+            start = start + datetime.timedelta(hours=1)
+        
+        print (f'##### {slots} slots found in {round} rounds. #####') 
+        # tell me, how many rounds the while loop has to run to get 3 slots
+
+    print(f'>> FREE SLOTS: {free_slots}')
+    return free_slots
+                \end{lstlisting}
+
 
             %\subsubsection{Methode make\_appointment}
-                Der Nutzer hat die Möglichkeit, einen der drei Vorschläge auszuwählen. Dieser Vorschlag wird neben der Nutzer-ID in zweierlei Form an die Methode \\\verb|make_appointment| übergeben - einmal als \verb|String| und einmal als \verb|Calender|-Event. \\
+                Abschließend hat der Nutzer die Möglichkeit, einen der drei Vorschläge auszuwählen. Dieser Vorschlag wird neben der Nutzer-ID in zweierlei Form an die Methode \\\verb|make_appointment| übergeben - einmal als \verb|String| und einmal als \verb|Calender|-Event. \\
                 Das Event wird inkl. der Kalender-ID an die API via der Methode \verb|insert| übergeben und so in den entsprechenden Kalender eingefügt. \\
                 Falls bei dieser Operation ein Fehler passiert, wird ein \verb|HTTP|-Error auf der Konsole ausgegeben.
+
+                \begin{lstlisting}[language=Python, caption={make\_appointment - Terminvereinbarung und Erstellung Kalender Event in Google Calendar}\label{code: make_appointment}]
+def make_appointment(user_id, slot_start, event):
+
+    service = authenticate()
+
+    try:
+        service.events().insert(calendarId=coaching_calendar_ID, body=event).execute()
+        logger.info(f'+++++ APPOINTMENT MADE for {user_id} at {slot_start}')
+
+    except HttpError as error:
+        logger.info('ERROR: %s' % error)
+
+    return
+                \end{lstlisting}
 
     
     \section{Web-GUI}

@@ -1,21 +1,5 @@
 \begin{thebibliography}{{Goo}22b}
 
-\bibitem[ea21a]{conversationBot}
-{\sc al., Toledo~et.}: {\em python-telegram-bot}.
-\newblock
-  https://github.com/python-telegram-bot/python-telegram-bot/blob/master/examples/conversationbot.py,
-  2021.
-
-\bibitem[ea21b]{telegramAPI}
-{\sc al., Toledo~et.}: {\em {Telegram API Documentation}}.
-\newblock https://python-telegram-bot.readthedocs.io/en/stable/index.html{\#},
-  2021.
-
-\bibitem[eA21c]{telegramAPIext}
-{\sc Al., Toledo~et.}: {\em telegram.ext package}.
-\newblock
-  https://python-telegram-bot.readthedocs.io/en/stable/telegram.ext.html, 2021.
-
 \bibitem[eaK02]{date_time}
 {\sc Klyne~et.~al.}: {\em {Date and Time on the Internet: Timestamps}}.
 \newblock 2002.
@@ -91,6 +75,22 @@
 \bibitem[{The}21]{sqlite}
 {\sc {The SQLite Consortium}}: {\em {SQLite}}.
 \newblock https://sqlite.org, 2021.
+
+\bibitem[Tol21a]{conversationBot}
+{\sc Toledo, Leandro}: {\em python-telegram-bot}.
+\newblock
+  https://github.com/python-telegram-bot/python-telegram-bot/blob/master/examples/conversationbot.py,
+  2021.
+
+\bibitem[Tol21b]{telegramAPI}
+{\sc Toledo, Leandro}: {\em {Telegram API Documentation}}.
+\newblock https://python-telegram-bot.readthedocs.io/en/stable/index.html{\#},
+  2021.
+
+\bibitem[Tol21c]{telegramAPIext}
+{\sc Toledo, Leandro}: {\em telegram.ext package}.
+\newblock
+  https://python-telegram-bot.readthedocs.io/en/stable/telegram.ext.html, 2021.
 
 \bibitem[W3C19]{HTML}
 {\sc W3CSchools}: {\em {HTML Documentation}}.

@@ -32,7 +32,7 @@ def insert_update (user_id, column, value):
     cursor.execute(update_command, update_args)
     logger.info (f'+++++ UPDATED record {user_id}: {column} >> {value} +++++')
 
-    #commit changes to db
+    # commit changes to db
     connection.commit()
     # close connection
     connection.close()

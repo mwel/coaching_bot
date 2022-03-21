@@ -1,9 +1,9 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2021.1.31)  21 MAR 2022 16:02
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2021.1.31)  21 MAR 2022 19:00
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**/Users/mwellenhofer/Git/coaching_bot/thesis/PA_DerCoachingBot_Wellenhofer_Max_28464.tex
+**/Users/mwellenhofer/Git/coaching_bot/thesis/PA_DerCoachingBot_Wellenhofer_Max_28464
 (/Users/mwellenhofer/Git/coaching_bot/thesis/PA_DerCoachingBot_Wellenhofer_Max_28464.tex
 LaTeX2e <2020-02-02> patch level 5
 L3 programming layer <2020-03-06> (./i-studis.cls
@@ -498,7 +498,11 @@ Writing index file PA_DerCoachingBot_Wellenhofer_Max_28464.idx
 File: l3backend-pdfmode.def 2020-03-12 L3 backend support: PDF mode
 \l__kernel_color_stack_int=\count297
 \l__pdf_internal_box=\box105
-) (./PA_DerCoachingBot_Wellenhofer_Max_28464.aux (./chapters/Glossar.aux) (./chapters/Selbststaendigkeitserklaerung.aux))
+) (./PA_DerCoachingBot_Wellenhofer_Max_28464.aux
+
+LaTeX Warning: Label `code: select_db.py' multiply defined.
+
+(./chapters/Glossar.aux) (./chapters/Selbststaendigkeitserklaerung.aux))
 \openout1 = `PA_DerCoachingBot_Wellenhofer_Max_28464.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 72.
@@ -640,6 +644,13 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
  [8
 
 
+] (./PA_DerCoachingBot_Wellenhofer_Max_28464.lol)
+\tf@lol=\write8
+\openout8 = `PA_DerCoachingBot_Wellenhofer_Max_28464.lol'.
+
+ [9
+
+
 ] (./chapters/01_EinleitungProblemstellung.tex
 Kapitel 1.
 
@@ -679,6 +690,11 @@ Underfull \hbox (badness 10000) in paragraph at lines 95--1
 [6] [7]
 Kapitel 3.
 
+Overfull \hbox (7.3711pt too wide) in paragraph at lines 10--12
+\OT1/cmr/m/n/12 nutzt. [[]] Das Re-po-si-to-ry enth[]alt ei-ne Viel-zahl ba-sa-ler Bot-Implementierungen,
+ []
+
+
 Overfull \hbox (6.0433pt too wide) in paragraph at lines 15--17
 \OT1/cmr/m/n/12 sie-ren, auf al-len Kom-ple-xit[]atsstufen ad-ap-tier-bar sind und es je-der-mann erm[]oglichen,
  []
@@ -693,7 +709,7 @@ Overfull \hbox (11.84467pt too wide) in paragraph at lines 24--25
 
 [9] [10]) (./chapters/04_Konzept.tex [11]
 Kapitel 4.
-<images/220320_PA28464_Architecture.png, id=809, 981.6675pt x 972.63374pt>
+<images/220320_PA28464_Architecture.png, id=840, 981.6675pt x 972.63374pt>
 File: images/220320_PA28464_Architecture.png Graphic file (type png)
 <use images/220320_PA28464_Architecture.png>
 Package pdftex.def Info: images/220320_PA28464_Architecture.png  used on input line 8.
@@ -712,7 +728,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 29--30
 
 
 ]
-<images/220320_PA28464_State-Machine.png, id=824, 889.3225pt x 1175.39125pt>
+<images/220320_PA28464_State-Machine.png, id=855, 889.3225pt x 1175.39125pt>
 File: images/220320_PA28464_State-Machine.png Graphic file (type png)
 <use images/220320_PA28464_State-Machine.png>
 Package pdftex.def Info: images/220320_PA28464_State-Machine.png  used on input line 38.
@@ -759,200 +775,289 @@ Underfull \hbox (badness 10000) in paragraph at lines 16--18
 
  []
 
-[22
+(/usr/local/texlive/2020/texmf-dist/tex/latex/listings/lstlang1.sty
+File: lstlang1.sty 2020/03/24 1.8d listings language file
+) [22
 
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 54--57
+LaTeX Font Info:    Trying to load font information for TS1+cmtt on input line 35.
+ (/usr/local/texlive/2020/texmf-dist/tex/latex/base/ts1cmtt.fd
+File: ts1cmtt.fd 2019/12/16 v2.5j Standard LaTeX font definitions
+) [23]
+Underfull \hbox (badness 10000) in paragraph at lines 109--112
 
  []
 
-[23]
-Underfull \hbox (badness 10000) in paragraph at lines 59--64
+[24]
+Overfull \hbox (123.64424pt too wide) in paragraph at lines 152--153
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
+ []
 
+[25]
+Overfull \hbox (138.94458pt too wide) in paragraph at lines 186--187
+[][][][][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 59--64
-
+Overfull \hbox (11.44176pt too wide) in paragraph at lines 193--194
+[][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 70--77
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 70--77
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 70--77
-
- []
-
-[24] (/usr/local/texlive/2020/texmf-dist/tex/latex/listings/lstlang1.sty
-File: lstlang1.sty 2020/03/24 1.8d listings language file
-) [25]
-Overfull \hbox (11.44176pt too wide) in paragraph at lines 131--132
-[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
- []
-
-[26] [27]
-Underfull \hbox (badness 10000) in paragraph at lines 201--204
+Underfull \hbox (badness 10000) in paragraph at lines 219--224
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 207--208
+Underfull \hbox (badness 10000) in paragraph at lines 219--224
 
  []
 
-[28]
-Underfull \hbox (badness 10000) in paragraph at lines 223--224
+[26]
+Underfull \hbox (badness 10000) in paragraph at lines 230--237
 
  []
 
 
-Overfull \hbox (2.54465pt too wide) in paragraph at lines 225--229
+Underfull \hbox (badness 10000) in paragraph at lines 230--237
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 230--237
+
+ []
+
+[27] [28] [29] [30]
+Overfull \hbox (6.34164pt too wide) in paragraph at lines 390--391
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+[31]
+Overfull \hbox (11.44176pt too wide) in paragraph at lines 427--428
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (67.543pt too wide) in paragraph at lines 428--429
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 445--448
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 451--452
+
+ []
+
+[32]
+Underfull \hbox (badness 10000) in paragraph at lines 500--501
+
+ []
+
+
+Overfull \hbox (2.54465pt too wide) in paragraph at lines 502--506
 []\OT1/cmr/m/n/12 Erforderliche Zu-gangs-da-ten wer-den au-^^Yer-halb der Me-tho-de [][]\OT1/cmtt/m/n/12 confirmation_mail
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 225--229
+Underfull \hbox (badness 10000) in paragraph at lines 502--506
 
  []
 
-[29]
-Underfull \hbox (badness 10000) in paragraph at lines 235--239
+[33]
+Underfull \hbox (badness 10000) in paragraph at lines 512--516
 
  []
 
+[34]
+Overfull \hbox (8.84714pt too wide) in paragraph at lines 577--582
+\OT1/cmr/m/n/12 neh-men, ein Kalender-Event zu bau-en und die-ses an die Me-tho-de [][]\OT1/cmtt/m/n/12 make_appointment
+ []
 
-Overfull \hbox (38.3692pt too wide) in paragraph at lines 250--251
+
+Overfull \hbox (38.3692pt too wide) in paragraph at lines 584--585
 [][]\OT1/cmr/m/n/12 Uberspringt der Nut-zer die-sen letz-ten Schritt, gibt ihm die Me-tho-de [][]\OT1/cmtt/m/n/12 skip_appointment
  []
 
-[30]
-Underfull \hbox (badness 10000) in paragraph at lines 285--290
+[35]
+Underfull \hbox (badness 10000) in paragraph at lines 619--624
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 285--290
+Underfull \hbox (badness 10000) in paragraph at lines 619--624
 
  []
 
-[31] [32] [33]
-Underfull \hbox (badness 10000) in paragraph at lines 361--370
+[36] [37]
+Overfull \hbox (42.04243pt too wide) in paragraph at lines 684--686
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
+ []
 
+[38]
+Overfull \hbox (6.34164pt too wide) in paragraph at lines 705--706
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 361--370
-
+Overfull \hbox (31.84221pt too wide) in paragraph at lines 706--707
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 361--370
-
+Overfull \hbox (16.54187pt too wide) in paragraph at lines 715--717
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 361--370
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 361--370
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 371--374
+[39]
+Underfull \hbox (badness 10000) in paragraph at lines 750--759
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 377--386
+Underfull \hbox (badness 10000) in paragraph at lines 750--759
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 377--386
+Underfull \hbox (badness 10000) in paragraph at lines 750--759
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 377--386
+Underfull \hbox (badness 10000) in paragraph at lines 750--759
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 377--386
-
- []
-
-[34] [35]
-Underfull \hbox (badness 10000) in paragraph at lines 407--408
+Underfull \hbox (badness 10000) in paragraph at lines 750--759
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 407--408
+Underfull \hbox (badness 10000) in paragraph at lines 760--763
 
  []
 
-) (./chapters/07_Beispiele.tex [36]
+
+Underfull \hbox (badness 10000) in paragraph at lines 760--763
+
+ []
+
+[40]
+Underfull \hbox (badness 10000) in paragraph at lines 813--822
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 813--822
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 813--822
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 813--822
+
+ []
+
+[41]
+Overfull \hbox (52.24266pt too wide) in paragraph at lines 836--838
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (16.54187pt too wide) in paragraph at lines 847--848
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (67.543pt too wide) in paragraph at lines 848--850
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (16.54187pt too wide) in paragraph at lines 853--854
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+[42]
+Overfull \hbox (57.34277pt too wide) in paragraph at lines 892--893
+[][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (6.34164pt too wide) in paragraph at lines 893--895
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+[43]
+Underfull \hbox (badness 10000) in paragraph at lines 915--916
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 915--916
+
+ []
+
+) (./chapters/07_Beispiele.tex [44]
 Kapitel 7.
-<images/coaching_bot_dummy_screenshot.jpeg, id=1050, 1174.3875pt x 2420.04124pt>
+<images/coaching_bot_dummy_screenshot.jpeg, id=1596, 1174.3875pt x 2420.04124pt>
 File: images/coaching_bot_dummy_screenshot.jpeg Graphic file (type jpg)
 <use images/coaching_bot_dummy_screenshot.jpeg>
 Package pdftex.def Info: images/coaching_bot_dummy_screenshot.jpeg  used on input line 10.
-(pdftex.def)             Requested size: 292.77629pt x 603.3102pt.
+(pdftex.def)             Requested size: 167.2989pt x 344.74869pt.
 File: images/coaching_bot_dummy_screenshot.jpeg Graphic file (type jpg)
 <use images/coaching_bot_dummy_screenshot.jpeg>
 Package pdftex.def Info: images/coaching_bot_dummy_screenshot.jpeg  used on input line 19.
-(pdftex.def)             Requested size: 292.77629pt x 603.3102pt.
+(pdftex.def)             Requested size: 167.2989pt x 344.74869pt.
 File: images/coaching_bot_dummy_screenshot.jpeg Graphic file (type jpg)
 <use images/coaching_bot_dummy_screenshot.jpeg>
 Package pdftex.def Info: images/coaching_bot_dummy_screenshot.jpeg  used on input line 28.
-(pdftex.def)             Requested size: 292.77629pt x 603.3102pt.
+(pdftex.def)             Requested size: 167.2989pt x 344.74869pt.
 File: images/coaching_bot_dummy_screenshot.jpeg Graphic file (type jpg)
 <use images/coaching_bot_dummy_screenshot.jpeg>
 Package pdftex.def Info: images/coaching_bot_dummy_screenshot.jpeg  used on input line 37.
-(pdftex.def)             Requested size: 292.77629pt x 603.3102pt.
+(pdftex.def)             Requested size: 167.2989pt x 344.74869pt.
 File: images/coaching_bot_dummy_screenshot.jpeg Graphic file (type jpg)
 <use images/coaching_bot_dummy_screenshot.jpeg>
 Package pdftex.def Info: images/coaching_bot_dummy_screenshot.jpeg  used on input line 46.
-(pdftex.def)             Requested size: 292.77629pt x 603.3102pt.
+(pdftex.def)             Requested size: 167.2989pt x 344.74869pt.
 File: images/coaching_bot_dummy_screenshot.jpeg Graphic file (type jpg)
 <use images/coaching_bot_dummy_screenshot.jpeg>
 Package pdftex.def Info: images/coaching_bot_dummy_screenshot.jpeg  used on input line 55.
-(pdftex.def)             Requested size: 292.77629pt x 603.3102pt.
+(pdftex.def)             Requested size: 167.2989pt x 344.74869pt.
 File: images/coaching_bot_dummy_screenshot.jpeg Graphic file (type jpg)
 <use images/coaching_bot_dummy_screenshot.jpeg>
 Package pdftex.def Info: images/coaching_bot_dummy_screenshot.jpeg  used on input line 64.
-(pdftex.def)             Requested size: 292.77629pt x 603.3102pt.
+(pdftex.def)             Requested size: 167.2989pt x 344.74869pt.
 File: images/coaching_bot_dummy_screenshot.jpeg Graphic file (type jpg)
 <use images/coaching_bot_dummy_screenshot.jpeg>
 Package pdftex.def Info: images/coaching_bot_dummy_screenshot.jpeg  used on input line 73.
-(pdftex.def)             Requested size: 292.77629pt x 603.3102pt.
+(pdftex.def)             Requested size: 167.2989pt x 344.74869pt.
 File: images/coaching_bot_dummy_screenshot.jpeg Graphic file (type jpg)
 <use images/coaching_bot_dummy_screenshot.jpeg>
 Package pdftex.def Info: images/coaching_bot_dummy_screenshot.jpeg  used on input line 82.
-(pdftex.def)             Requested size: 292.77629pt x 603.3102pt.
+(pdftex.def)             Requested size: 167.2989pt x 344.74869pt.
 File: images/coaching_bot_dummy_screenshot.jpeg Graphic file (type jpg)
 <use images/coaching_bot_dummy_screenshot.jpeg>
 Package pdftex.def Info: images/coaching_bot_dummy_screenshot.jpeg  used on input line 91.
-(pdftex.def)             Requested size: 292.77629pt x 603.3102pt.
-) (./chapters/08_Anwendungsszenarien.tex [37
+(pdftex.def)             Requested size: 167.2989pt x 344.74869pt.
+) (./chapters/08_Anwendungsszenarien.tex [45
 
 
-] [38 <./images/coaching_bot_dummy_screenshot.jpeg>] [39] [40] [41] [42] [43] [44] [45] [46] [47]
+ <./images/coaching_bot_dummy_screenshot.jpeg>] [46] [47] [48] [49] [50] [51] [52] [53] [54]
 Kapitel 8.
-) (./chapters/09_ZusammenfassungAusblick.tex [48
+) (./chapters/09_ZusammenfassungAusblick.tex [55
 
 
 ]
@@ -972,70 +1077,70 @@ Underfull \hbox (badness 10000) in paragraph at lines 7--8
 
  []
 
-[49
+[56
 
 
-]) [50] (./PA_DerCoachingBot_Wellenhofer_Max_28464.bbl
-Underfull \hbox (badness 10000) in paragraph at lines 4--8
-[]\OT1/cmr/m/sc/12 al., To-le-do et.\OT1/cmr/m/n/12 : \OT1/cmr/m/it/12 python-telegram-bot\OT1/cmr/m/n/12 .
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 4--8
-\OT1/cmr/m/n/12 https://github.com/python-telegram-bot/python-telegram-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 24--26
+]) [57] (./PA_DerCoachingBot_Wellenhofer_Max_28464.bbl
+Underfull \hbox (badness 10000) in paragraph at lines 8--10
 []\OT1/cmr/m/sc/12 Google LLC\OT1/cmr/m/n/12 : \OT1/cmr/m/it/12 Goo-gle APIs Ex-plo-rer over-view\OT1/cmr/m/n/12 .
  []
 
 
-Overfull \hbox (2.88782pt too wide) in paragraph at lines 28--32
+Overfull \hbox (2.88782pt too wide) in paragraph at lines 12--16
 []\OT1/cmr/m/sc/12 Google LLC\OT1/cmr/m/n/12 : \OT1/cmr/m/it/12 Goo-gle-Ca-len-dar-API\OT1/cmr/m/n/12 .  https://googleapis.github.io/google-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 34--36
+Underfull \hbox (badness 10000) in paragraph at lines 18--20
 []\OT1/cmr/m/sc/12 IBM\OT1/cmr/m/n/12 : \OT1/cmr/m/it/12 Ap-p-li-ca-ti-on Pro-gram-ming In-ter-face (API)\OT1/cmr/m/n/12 .  htt-
  []
 
 
-Underfull \hbox (badness 3746) in paragraph at lines 45--50
+Underfull \hbox (badness 3746) in paragraph at lines 29--34
 []\OT1/cmr/m/sc/12 Mehner, Matt-hi-as\OT1/cmr/m/n/12 : \OT1/cmr/m/it/12 Nutzer-zah-len Mes-sen-ger Ap-ps Deutsch-land
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 52--54
+Underfull \hbox (badness 10000) in paragraph at lines 36--38
 []\OT1/cmr/m/sc/12 Pallets\OT1/cmr/m/n/12 : \OT1/cmr/m/it/12 Flask Do-cu-men-ta-ti-on\OT1/cmr/m/n/12 .  htt-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 66--69
+Underfull \hbox (badness 10000) in paragraph at lines 50--53
 []\OT1/cmr/m/sc/12 Python Soft-wa-re Foun-da-ti-on\OT1/cmr/m/n/12 : \OT1/cmr/m/it/12 email.mime: Crea-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 66--69
+Underfull \hbox (badness 10000) in paragraph at lines 50--53
 \OT1/cmr/m/it/12 ting email and MI-ME ob-jects from scratch\OT1/cmr/m/n/12 .  htt-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 71--73
+Underfull \hbox (badness 10000) in paragraph at lines 55--57
 []\OT1/cmr/m/sc/12 Python Soft-wa-re Foun-da-ti-on\OT1/cmr/m/n/12 : \OT1/cmr/m/it/12 pi-penv\OT1/cmr/m/n/12 .  htt-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 75--77
+Underfull \hbox (badness 10000) in paragraph at lines 59--61
 []\OT1/cmr/m/sc/12 Python Soft-wa-re Foun-da-ti-on\OT1/cmr/m/n/12 : \OT1/cmr/m/it/12 Py-thon 3.8.6\OT1/cmr/m/n/12 .  htt-
  []
 
-[51
+[58
 
 
 
 
 ]
+Underfull \hbox (badness 10000) in paragraph at lines 80--84
+[]\OT1/cmr/m/sc/12 Toledo, Le-an-dro\OT1/cmr/m/n/12 : \OT1/cmr/m/it/12 python-telegram-bot\OT1/cmr/m/n/12 .
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 80--84
+\OT1/cmr/m/n/12 https://github.com/python-telegram-bot/python-telegram-
+ []
+
+
 Underfull \hbox (badness 10000) in paragraph at lines 96--98
 []\OT1/cmr/m/sc/12 W3CSchools\OT1/cmr/m/n/12 : \OT1/cmr/m/it/12 HTML Do-cu-men-ta-ti-on\OT1/cmr/m/n/12 .  htt-
  []
@@ -1045,7 +1150,9 @@ Underfull \hbox (badness 10000) in paragraph at lines 100--102
 []\OT1/cmr/m/sc/12 Wellenhofer, Max\OT1/cmr/m/n/12 : \OT1/cmr/m/it/12 The Coa-ching Bot Re-po-si-to-ry\OT1/cmr/m/n/12 .  htt-
  []
 
-) (./PA_DerCoachingBot_Wellenhofer_Max_28464.ind) [52]
+)
+No file PA_DerCoachingBot_Wellenhofer_Max_28464.ind.
+[59]
 \openout2 = `chapters/Glossar.aux'.
 
  (./chapters/Glossar.tex
@@ -1058,7 +1165,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 3--13
 
  []
 
-) [53
+) [60
 
 
 
@@ -1075,7 +1182,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 7--8
 
  []
 
-) [54
+) [61
 
 
 
@@ -1087,22 +1194,26 @@ Package atveryend Info: Empty hook `AfterLastShipout' on input line 131.
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 131.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 131.
 Package rerunfilecheck Info: File `PA_DerCoachingBot_Wellenhofer_Max_28464.out' has not changed.
-(rerunfilecheck)             Checksum: 7416D69797ADA3943343CBAE4428011E;7219.
+(rerunfilecheck)             Checksum: D73F8DEE94A4D4F54B2C970550B6E164;7219.
+
+
+LaTeX Warning: There were multiply-defined labels.
+
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 131.
  ) 
 Here is how much of TeX's memory you used:
- 13031 strings out of 480608
- 195306 string characters out of 5903630
- 693500 words of memory out of 5000000
- 28281 multiletter control sequences out of 15000+600000
- 541843 words of font info for 61 fonts, out of 8000000 for 9000
+ 13710 strings out of 480608
+ 206042 string characters out of 5903630
+ 719373 words of memory out of 5000000
+ 28459 multiletter control sequences out of 15000+600000
+ 542140 words of font info for 62 fonts, out of 8000000 for 9000
  1146 hyphenation exceptions out of 8191
- 41i,10n,44p,1402b,1388s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt8.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt9.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb>
-Output written on PA_DerCoachingBot_Wellenhofer_Max_28464.pdf (62 pages, 1493784 bytes).
+ 41i,10n,44p,1398b,2097s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/local/texlive/2020/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}</usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt8.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt9.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/cm-super/sftt0800.pfb>
+Output written on PA_DerCoachingBot_Wellenhofer_Max_28464.pdf (70 pages, 1552486 bytes).
 PDF statistics:
- 1257 PDF objects out of 1440 (max. 8388607)
- 1162 compressed objects within 12 object streams
- 350 named destinations out of 1000 (max. 500000)
+ 1902 PDF objects out of 2073 (max. 8388607)
+ 1792 compressed objects within 18 object streams
+ 846 named destinations out of 1000 (max. 500000)
  901 words of extra memory for PDF output out of 10000 (max. 10000000)
 
