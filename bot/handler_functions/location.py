@@ -12,6 +12,11 @@ from pathlib import Path
 import os
 
 
+# build the path to the photo to be sent to the user
+# directory = os.path.join(str(Path(__file__).parent), 'ressources', 'cyberpunk.jpg')
+directory = 'https://github.com/mwel/coaching_bot/tree/main/bot/ressources/cyberpunk.jpg'
+
+
 # Stores the information received and continues on to the next state
 def location(update: Update, context: CallbackContext) -> int:
     
@@ -36,13 +41,8 @@ def location(update: Update, context: CallbackContext) -> int:
         reply_markup=states.KEYBOARD_MARKUPS[states.PHOTO],
         )
 
-    
-    # build the path to the file
-    directory = os.path.join(str(Path(__file__).parent), 'ressources', 'cyberpunk.jpg')
-    # get the file and store it.
-    bot_image = directory.get_file()
     # send the picture to the user
-    context.bot.send_photo(user_id, photo=bot_image)
+    context.bot.send_photo(user_id, directory)
 
     
     # save state to DB
@@ -66,6 +66,10 @@ def skip_location(update: Update, context: CallbackContext) -> int:
         states.MESSAGES[states.PHOTO],
         reply_markup=states.KEYBOARD_MARKUPS[states.PHOTO],
         )
+
+    # send the picture to the user
+    context.bot.send_photo(user_id, directory)
+
 
     # save state to DB
     insert_update(user_id, 'state', states.PHOTO)
