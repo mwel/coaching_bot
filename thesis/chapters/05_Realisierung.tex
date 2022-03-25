@@ -1,7 +1,6 @@
 \label{Realisierung}
 \chapter{Realisierung}
 
-Hier kommt hin, wie es gemacht haben.  
 
     \section{Telegram Bot Framwork}
 
@@ -73,8 +72,14 @@ Hier kommt hin, wie es gemacht haben.
     
     \section{Datenbank}
         Fast alle Informationen über den Nutzer werden in einer Datenbank gespeichert. Ausgenommen ist nur das Bild, das der Nutzer hochlädt. So können einzelne Werte jederzeit verwendet werden, um Nutzer-spezifische Reaktionen zu gestalten.
-        Dem Nutzer stehen die meisten Datenbank-Operationen implizit und wenige explizit zur Verfügung. Daten werden implizit gespeichert und abgerufen. Explizit können Daten gelöscht werden. Zur Realisierung wird eine SLQlite Datenbank genutzt. Diese sehr einfache Datenbank ist für den Zweck des Coaching-Bots vollkommen ausreichend. Weder ist mit immensen Nutzerzahlen, noch mit vielen gleichzeitigen Operationen oder einer riesigen Datemenge zu rechen, was für mächtigere Lösungen sprechen würde.
-        Da keine komplexen berechnungen auf den Daten ausgeführt werden, sondern nur basale CRUD-Operaionen geplant sind, gibt es nur eine Tabelle, in der alle Nutzerdaten gespeichert sind.
+        Dem Nutzer stehen die meisten Datenbank-Operationen implizit und wenige explizit zur Verfügung. Daten werden implizit gespeichert und abgerufen. Explizit können Daten gelöscht werden. Zur Realisierung wird eine SLQlite Datenbank genutzt. Diese einfache Datenbank ist für den Zweck des Coaching-Bots vollkommen ausreichend. Weder ist mit immensen Nutzerzahlen, noch mit vielen gleichzeitigen Operationen oder einer riesigen Datemenge zu rechen, was für mächtigere Lösungen sprechen würde.
+        Da keine komplexen berechnungen auf den Daten ausgeführt werden, sondern nur basale CRUD-Operaionen geplant sind, gibt es nur eine Tabelle (siehe Abb. \ref{fig: data base model}), in der alle Nutzerdaten gespeichert sind.
+        \begin{figure} %[hbtp]
+            \centering
+            \includegraphics[width=0.5\textwidth]{images/220325_PA28464_DataBaseModel.png}
+            \caption{coachingBot\_DB - Datenbankmodell}
+            \label{fig: data base model}
+        \end{figure}
 
 
     \section{Anbindung Datenbank an Python}

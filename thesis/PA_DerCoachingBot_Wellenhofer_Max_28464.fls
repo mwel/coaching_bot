@@ -242,6 +242,9 @@ INPUT ./images/220320_PA28464_State-Machine.png
 INPUT /usr/local/texlive/2020/texmf-dist/fonts/tfm/public/cm/cmtt12.tfm
 INPUT chapters/05_Realisierung.tex
 INPUT chapters/05_Realisierung.tex
+INPUT images/220325_PA28464_DataBaseModel.png
+INPUT ./images/220325_PA28464_DataBaseModel.png
+INPUT ./images/220325_PA28464_DataBaseModel.png
 INPUT chapters/06_Implementierung.tex
 INPUT chapters/06_Implementierung.tex
 INPUT /usr/local/texlive/2020/texmf-dist/tex/latex/listings/lstlang1.sty
