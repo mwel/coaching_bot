@@ -36,81 +36,81 @@
 \contentsline {subsection}{\numberline {3.8.2}Zugangsdaten}{11}{subsection.3.8.2}%
 \contentsline {section}{\numberline {3.9}TheCoachingBot}{12}{section.3.9}%
 \contentsline {chapter}{\numberline {4}Konzept}{13}{chapter.4}%
-\contentsline {section}{\numberline {4.1}User Journey}{13}{section.4.1}%
-\contentsline {section}{\numberline {4.2}Technisches Grundkonzept}{14}{section.4.2}%
-\contentsline {section}{\numberline {4.3}Zustände \& Konversationsfluss}{15}{section.4.3}%
-\contentsline {chapter}{\numberline {5}Realisierung}{18}{chapter.5}%
-\contentsline {section}{\numberline {5.1}Realisierung User Journey}{18}{section.5.1}%
+\contentsline {section}{\numberline {4.1}Grundkonzept, User Journey und Features}{13}{section.4.1}%
+\contentsline {section}{\numberline {4.2}Technischer Aufbau}{14}{section.4.2}%
+\contentsline {section}{\numberline {4.3}Zustände \& Konversationsfluss}{16}{section.4.3}%
+\contentsline {chapter}{\numberline {5}Realisierung}{19}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Realisierung User Journey}{19}{section.5.1}%
 \contentsline {section}{\numberline {5.2}Telegram Bot Framwork}{19}{section.5.2}%
 \contentsline {subsection}{\numberline {5.2.1}Generierung Telegram Bot}{19}{subsection.5.2.1}%
-\contentsline {subsection}{\numberline {5.2.2}Vanilla Bot Implementierung}{19}{subsection.5.2.2}%
+\contentsline {subsection}{\numberline {5.2.2}Vanilla Bot Implementierung}{20}{subsection.5.2.2}%
 \contentsline {section}{\numberline {5.3}Meta-Funktionen}{20}{section.5.3}%
 \contentsline {subsection}{\numberline {5.3.1}Start: Eine Konversation beginnen}{20}{subsection.5.3.1}%
 \contentsline {subsection}{\numberline {5.3.2}Ende: Konversation manuell beenden}{20}{subsection.5.3.2}%
-\contentsline {subsection}{\numberline {5.3.3}Persönliche Daten löschen}{20}{subsection.5.3.3}%
+\contentsline {subsection}{\numberline {5.3.3}Persönliche Daten löschen}{21}{subsection.5.3.3}%
 \contentsline {subsection}{\numberline {5.3.4}Hilfe-Funktion aufrufen}{21}{subsection.5.3.4}%
-\contentsline {subsection}{\numberline {5.3.5}Überspringen}{21}{subsection.5.3.5}%
-\contentsline {section}{\numberline {5.4}Hauptfunktionen}{21}{section.5.4}%
+\contentsline {section}{\numberline {5.4}Zustands-Funktionen}{21}{section.5.4}%
 \contentsline {subsection}{\numberline {5.4.1}Abfragen des Geburtsdatums}{21}{subsection.5.4.1}%
 \contentsline {subsection}{\numberline {5.4.2}Hintergrund des Nutzers}{21}{subsection.5.4.2}%
 \contentsline {subsection}{\numberline {5.4.3}Abfragen des Geschlechts des Nutzers}{21}{subsection.5.4.3}%
-\contentsline {subsection}{\numberline {5.4.4}Abfragen der E-Mail Adresse des Nutzers}{21}{subsection.5.4.4}%
+\contentsline {subsection}{\numberline {5.4.4}Abfragen der E-Mail Adresse des Nutzers}{22}{subsection.5.4.4}%
 \contentsline {subsection}{\numberline {5.4.5}Abfragen der Telefonnummer des Nutzers}{22}{subsection.5.4.5}%
 \contentsline {subsection}{\numberline {5.4.6}Abfragen des Standorts des Nutzers}{22}{subsection.5.4.6}%
 \contentsline {subsection}{\numberline {5.4.7}Abfragen des Bilds des Nutzers}{22}{subsection.5.4.7}%
-\contentsline {subsection}{\numberline {5.4.8}Zusammenfassungs-Funktion}{22}{subsection.5.4.8}%
-\contentsline {section}{\numberline {5.5}Support-Funktionen}{22}{section.5.5}%
-\contentsline {subsection}{\numberline {5.5.1}Eingabe-Validierung}{22}{subsection.5.5.1}%
+\contentsline {subsection}{\numberline {5.4.8}Überspringen}{22}{subsection.5.4.8}%
+\contentsline {subsection}{\numberline {5.4.9}Zusammenfassungs-Funktion}{22}{subsection.5.4.9}%
+\contentsline {section}{\numberline {5.5}Support-Funktionen}{23}{section.5.5}%
+\contentsline {subsection}{\numberline {5.5.1}Eingabe-Validierung}{23}{subsection.5.5.1}%
 \contentsline {subsection}{\numberline {5.5.2}Konstruktion E-Mail}{23}{subsection.5.5.2}%
 \contentsline {section}{\numberline {5.6}Datenbank}{23}{section.5.6}%
-\contentsline {section}{\numberline {5.7}Anbindung Datenbank an Python}{23}{section.5.7}%
-\contentsline {section}{\numberline {5.8}Kalender}{23}{section.5.8}%
-\contentsline {section}{\numberline {5.9}Web-GUI}{24}{section.5.9}%
-\contentsline {chapter}{\numberline {6}Implementierung}{25}{chapter.6}%
-\contentsline {section}{\numberline {6.1}Setup}{25}{section.6.1}%
-\contentsline {subsection}{\numberline {6.1.1}pipenv - Python Package Manager}{25}{subsection.6.1.1}%
-\contentsline {subsection}{\numberline {6.1.2}Konstanten und Schlüssel}{25}{subsection.6.1.2}%
-\contentsline {section}{\numberline {6.2}main.py - Anmeldung, Updater, Dispatcher und Handler-Konfiguration}{25}{section.6.2}%
-\contentsline {subsection}{\numberline {6.2.1}Dispatcher}{26}{subsection.6.2.1}%
-\contentsline {subsection}{\numberline {6.2.2}Conversation Handlers}{27}{subsection.6.2.2}%
-\contentsline {subsection}{\numberline {6.2.3}CommandHandler}{27}{subsection.6.2.3}%
-\contentsline {subsection}{\numberline {6.2.4}start und cancel - Konversation starten und stoppen}{27}{subsection.6.2.4}%
-\contentsline {subsection}{\numberline {6.2.5}delete - Nutzerdaten löschen}{27}{subsection.6.2.5}%
-\contentsline {subsection}{\numberline {6.2.6}help - Hilfe ausgeben}{27}{subsection.6.2.6}%
-\contentsline {subsection}{\numberline {6.2.7}summary - Zusammenfassung ausgeben}{27}{subsection.6.2.7}%
-\contentsline {subsection}{\numberline {6.2.8}status - Status Quo ausgeben}{27}{subsection.6.2.8}%
-\contentsline {section}{\numberline {6.3}Handler Funktionen}{28}{section.6.3}%
-\contentsline {subsection}{\numberline {6.3.1}start.py}{28}{subsection.6.3.1}%
-\contentsline {subsection}{\numberline {6.3.2}bio.py}{30}{subsection.6.3.2}%
-\contentsline {subsection}{\numberline {6.3.3}gender.py}{32}{subsection.6.3.3}%
-\contentsline {subsection}{\numberline {6.3.4}birthdate.py}{33}{subsection.6.3.4}%
-\contentsline {subsection}{\numberline {6.3.5}email.py}{33}{subsection.6.3.5}%
-\contentsline {subsection}{\numberline {6.3.6}telephone.py}{33}{subsection.6.3.6}%
-\contentsline {subsection}{\numberline {6.3.7}location.py}{33}{subsection.6.3.7}%
-\contentsline {subsection}{\numberline {6.3.8}photo.py}{34}{subsection.6.3.8}%
-\contentsline {subsection}{\numberline {6.3.9}summary.py}{34}{subsection.6.3.9}%
-\contentsline {subsection}{\numberline {6.3.10}confirmation\_mail.py}{36}{subsection.6.3.10}%
-\contentsline {subsection}{\numberline {6.3.11}appointment.py}{37}{subsection.6.3.11}%
-\contentsline {subsection}{\numberline {6.3.12}help.py}{38}{subsection.6.3.12}%
-\contentsline {subsection}{\numberline {6.3.13}states.py}{39}{subsection.6.3.13}%
-\contentsline {subsection}{\numberline {6.3.14}status.py}{39}{subsection.6.3.14}%
-\contentsline {subsection}{\numberline {6.3.15}validation.py}{39}{subsection.6.3.15}%
-\contentsline {subsection}{\numberline {6.3.16}cancel}{40}{subsection.6.3.16}%
-\contentsline {section}{\numberline {6.4}Datenbank}{40}{section.6.4}%
-\contentsline {subsection}{\numberline {6.4.1}create\_db.py}{40}{subsection.6.4.1}%
-\contentsline {subsection}{\numberline {6.4.2}select\_db.py}{41}{subsection.6.4.2}%
-\contentsline {subsection}{\numberline {6.4.3}insert\_value\_db.py}{41}{subsection.6.4.3}%
-\contentsline {subsection}{\numberline {6.4.4}insert\_update\_db.py}{42}{subsection.6.4.4}%
-\contentsline {subsection}{\numberline {6.4.5}delete\_record.py}{42}{subsection.6.4.5}%
-\contentsline {section}{\numberline {6.5}Kalender}{43}{section.6.5}%
-\contentsline {subsection}{\numberline {6.5.1}calendar\_manager.py}{43}{subsection.6.5.1}%
-\contentsline {section}{\numberline {6.6}Web-GUI}{46}{section.6.6}%
-\contentsline {subsection}{\numberline {6.6.1}app.py}{46}{subsection.6.6.1}%
-\contentsline {subsection}{\numberline {6.6.2}home.html}{46}{subsection.6.6.2}%
-\contentsline {subsection}{\numberline {6.6.3}main.css}{47}{subsection.6.6.3}%
-\contentsline {chapter}{\numberline {7}Beispiele}{48}{chapter.7}%
-\contentsline {chapter}{\numberline {8}Anwendungsszenarien}{58}{chapter.8}%
-\contentsline {chapter}{\numberline {9}Zusammenfassung und Ausblick}{59}{chapter.9}%
-\contentsline {chapter}{Literaturverzeichnis}{61}{chapter*.22}%
-\contentsline {chapter}{Glossar}{63}{appendix.A}%
-\contentsline {chapter}{Selbstständigkeitserklärung}{64}{appendix.B}%
+\contentsline {section}{\numberline {5.7}Anbindung Datenbank an Python}{24}{section.5.7}%
+\contentsline {section}{\numberline {5.8}Kalender}{25}{section.5.8}%
+\contentsline {section}{\numberline {5.9}Web-GUI}{26}{section.5.9}%
+\contentsline {chapter}{\numberline {6}Implementierung}{27}{chapter.6}%
+\contentsline {section}{\numberline {6.1}Setup}{27}{section.6.1}%
+\contentsline {subsection}{\numberline {6.1.1}pipenv - Python Package Manager}{27}{subsection.6.1.1}%
+\contentsline {subsection}{\numberline {6.1.2}Konstanten und Schlüssel}{27}{subsection.6.1.2}%
+\contentsline {section}{\numberline {6.2}main.py - Anmeldung, Updater, Dispatcher und Handler-Konfiguration}{27}{section.6.2}%
+\contentsline {subsection}{\numberline {6.2.1}Dispatcher}{28}{subsection.6.2.1}%
+\contentsline {subsection}{\numberline {6.2.2}Conversation Handlers}{29}{subsection.6.2.2}%
+\contentsline {subsection}{\numberline {6.2.3}CommandHandler}{29}{subsection.6.2.3}%
+\contentsline {subsection}{\numberline {6.2.4}start und cancel - Konversation starten und stoppen}{29}{subsection.6.2.4}%
+\contentsline {subsection}{\numberline {6.2.5}delete - Nutzerdaten löschen}{29}{subsection.6.2.5}%
+\contentsline {subsection}{\numberline {6.2.6}help - Hilfe ausgeben}{29}{subsection.6.2.6}%
+\contentsline {subsection}{\numberline {6.2.7}summary - Zusammenfassung ausgeben}{29}{subsection.6.2.7}%
+\contentsline {subsection}{\numberline {6.2.8}status - Status Quo ausgeben}{29}{subsection.6.2.8}%
+\contentsline {section}{\numberline {6.3}Handler Funktionen}{30}{section.6.3}%
+\contentsline {subsection}{\numberline {6.3.1}start.py}{30}{subsection.6.3.1}%
+\contentsline {subsection}{\numberline {6.3.2}bio.py}{32}{subsection.6.3.2}%
+\contentsline {subsection}{\numberline {6.3.3}gender.py}{34}{subsection.6.3.3}%
+\contentsline {subsection}{\numberline {6.3.4}birthdate.py}{35}{subsection.6.3.4}%
+\contentsline {subsection}{\numberline {6.3.5}email.py}{35}{subsection.6.3.5}%
+\contentsline {subsection}{\numberline {6.3.6}telephone.py}{35}{subsection.6.3.6}%
+\contentsline {subsection}{\numberline {6.3.7}location.py}{35}{subsection.6.3.7}%
+\contentsline {subsection}{\numberline {6.3.8}photo.py}{36}{subsection.6.3.8}%
+\contentsline {subsection}{\numberline {6.3.9}summary.py}{36}{subsection.6.3.9}%
+\contentsline {subsection}{\numberline {6.3.10}confirmation\_mail.py}{38}{subsection.6.3.10}%
+\contentsline {subsection}{\numberline {6.3.11}appointment.py}{39}{subsection.6.3.11}%
+\contentsline {subsection}{\numberline {6.3.12}help.py}{40}{subsection.6.3.12}%
+\contentsline {subsection}{\numberline {6.3.13}states.py}{41}{subsection.6.3.13}%
+\contentsline {subsection}{\numberline {6.3.14}status.py}{41}{subsection.6.3.14}%
+\contentsline {subsection}{\numberline {6.3.15}validation.py}{41}{subsection.6.3.15}%
+\contentsline {subsection}{\numberline {6.3.16}cancel}{42}{subsection.6.3.16}%
+\contentsline {section}{\numberline {6.4}Datenbank}{42}{section.6.4}%
+\contentsline {subsection}{\numberline {6.4.1}create\_db.py}{42}{subsection.6.4.1}%
+\contentsline {subsection}{\numberline {6.4.2}select\_db.py}{43}{subsection.6.4.2}%
+\contentsline {subsection}{\numberline {6.4.3}insert\_value\_db.py}{43}{subsection.6.4.3}%
+\contentsline {subsection}{\numberline {6.4.4}insert\_update\_db.py}{44}{subsection.6.4.4}%
+\contentsline {subsection}{\numberline {6.4.5}delete\_record.py}{44}{subsection.6.4.5}%
+\contentsline {section}{\numberline {6.5}Kalender}{45}{section.6.5}%
+\contentsline {subsection}{\numberline {6.5.1}calendar\_manager.py}{45}{subsection.6.5.1}%
+\contentsline {section}{\numberline {6.6}Web-GUI}{48}{section.6.6}%
+\contentsline {subsection}{\numberline {6.6.1}app.py}{48}{subsection.6.6.1}%
+\contentsline {subsection}{\numberline {6.6.2}home.html}{48}{subsection.6.6.2}%
+\contentsline {subsection}{\numberline {6.6.3}main.css}{49}{subsection.6.6.3}%
+\contentsline {chapter}{\numberline {7}Beispiele}{50}{chapter.7}%
+\contentsline {chapter}{\numberline {8}Anwendungsszenarien}{60}{chapter.8}%
+\contentsline {chapter}{\numberline {9}Zusammenfassung und Ausblick}{61}{chapter.9}%
+\contentsline {chapter}{Literaturverzeichnis}{63}{chapter*.22}%
+\contentsline {chapter}{Glossar}{65}{appendix.A}%
+\contentsline {chapter}{Selbstständigkeitserklärung}{66}{appendix.B}%

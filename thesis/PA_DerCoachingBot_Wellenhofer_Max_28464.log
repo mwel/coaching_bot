@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2021.1.31)  26 MAR 2022 14:48
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2021.1.31)  26 MAR 2022 18:51
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -715,17 +715,17 @@ Overfull \hbox (2.57947pt too wide) in paragraph at lines 71--72
  []
 
 [9] [10]
-Overfull \hbox (11.9488pt too wide) in paragraph at lines 119--121
+Overfull \hbox (11.9488pt too wide) in paragraph at lines 118--120
 \OT1/cmr/m/n/12 Der ge-sam-te Quell-co-de in-klu-si-ve al-ler Abh[]angigkeiten fin-det sich in ei-nem []offentlichen
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 119--121
+Underfull \hbox (badness 10000) in paragraph at lines 118--120
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 119--121
+Underfull \hbox (badness 10000) in paragraph at lines 118--120
 
  []
 
@@ -735,64 +735,63 @@ Kapitel 4.
 
 
 ]
-<images/220320_PA28464_Architecture.png, id=951, 981.6675pt x 972.63374pt>
+<images/220320_PA28464_Architecture.png, id=956, 981.6675pt x 972.63374pt>
 File: images/220320_PA28464_Architecture.png Graphic file (type png)
 <use images/220320_PA28464_Architecture.png>
-Package pdftex.def Info: images/220320_PA28464_Architecture.png  used on input line 24.
+Package pdftex.def Info: images/220320_PA28464_Architecture.png  used on input line 29.
 (pdftex.def)             Requested size: 418.25368pt x 414.39532pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 45--46
+Underfull \hbox (badness 10000) in paragraph at lines 49--50
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 45--46
+Underfull \hbox (badness 10000) in paragraph at lines 49--50
 
  []
 
 [14]
-<images/220320_PA28464_State-Machine.png, id=968, 889.3225pt x 1175.39125pt>
-File: images/220320_PA28464_State-Machine.png Graphic file (type png)
-<use images/220320_PA28464_State-Machine.png>
-Package pdftex.def Info: images/220320_PA28464_State-Machine.png  used on input line 54.
-(pdftex.def)             Requested size: 418.25368pt x 552.79268pt.
-
-Underfull \hbox (badness 2134) in paragraph at lines 82--82
+Underfull \hbox (badness 2134) in paragraph at lines 55--55
 [][][]\OT1/cmr/m/n/9 Der Kon-ver-sa-ti-ons-fluss ist in ei-ner sehr de-tail-lier-te-ren An-sicht verf[]ugbar, in der der Un-
  []
 
 
-Underfull \hbox (badness 2547) in paragraph at lines 82--82
+Underfull \hbox (badness 2547) in paragraph at lines 55--55
 \OT1/cmr/m/n/9 ter-schied zwi-schen dem ho-hen Ab-strak-ti-ons-ni-veau des Au-to-ma-ten und der Rea-lit[]at sicht-
  []
 
 
-Underfull \hbox (badness 1132) in paragraph at lines 82--82
+Underfull \hbox (badness 1132) in paragraph at lines 55--55
 \OT1/cmr/m/n/9 bar wird. So l[]asst sich leicht er-ken-nen, wo die Kon-ver-sa-ti-on be-ginnt und wel-che Zust[]ande
  []
 
-) (./chapters/05_Realisierung.tex [15 <./images/220320_PA28464_Architecture.png>] [16 <./images/220320_PA28464_State-Machine.png>] [17]
+
+Overfull \hbox (48.31166pt too wide) in paragraph at lines 59--75
+ [][] 
+ []
+
+[15 <./images/220320_PA28464_Architecture.png>]
+<images/220326_PA28464_State-Machine.png, id=989, 1001.7425pt x 1182.4175pt>
+File: images/220326_PA28464_State-Machine.png Graphic file (type png)
+<use images/220326_PA28464_State-Machine.png>
+Package pdftex.def Info: images/220326_PA28464_State-Machine.png  used on input line 81.
+(pdftex.def)             Requested size: 418.25368pt x 493.68913pt.
+) (./chapters/05_Realisierung.tex [16] [17] [18 <./images/220326_PA28464_State-Machine.png>]
 Kapitel 5.
-[18
+[19
 
 
 ]
-Overfull \hbox (7.8143pt too wide) in paragraph at lines 50--51
-[]\OT1/cmr/m/n/12 Die Kom-mu-ni-ka-ti-ons-lo-gik des Bots ba-siert auf ei-ner State Ma-chi-ne. Die Zust[]ande,
- []
 
-[19]
-Overfull \hbox (7.48637pt too wide) in paragraph at lines 54--55
-\OT1/cmr/m/n/12 Neben den Haupt-funk-tio-nen des Bots (Funk-tio-nen, die zum Ge-spr[]achsfluss geh[]oren),
- []
+LaTeX Warning: Reference `Zustands-Funktionen' on page 20 undefined on input line 31.
 
 [20] [21] [22]
-<images/220325_PA28464_DataBaseModel.png, id=1046, 241.90375pt x 532.99126pt>
+<images/220325_PA28464_DataBaseModel.png, id=1036, 241.90375pt x 532.99126pt>
 File: images/220325_PA28464_DataBaseModel.png Graphic file (type png)
 <use images/220325_PA28464_DataBaseModel.png>
-Package pdftex.def Info: images/220325_PA28464_DataBaseModel.png  used on input line 114.
+Package pdftex.def Info: images/220325_PA28464_DataBaseModel.png  used on input line 89.
 (pdftex.def)             Requested size: 209.12683pt x 460.79526pt.
-) (./chapters/06_Implementierung.tex [23] [24 <./images/220325_PA28464_DataBaseModel.png>]
+ [23] [24 <./images/220325_PA28464_DataBaseModel.png>]) (./chapters/06_Implementierung.tex [25] [26]
 Kapitel 6.
 
 Overfull \hbox (3.43718pt too wide) in paragraph at lines 12--13
@@ -804,24 +803,24 @@ Underfull \hbox (badness 10000) in paragraph at lines 16--18
 
  []
 
-[25
+[27
 
 
 ]
 LaTeX Font Info:    Trying to load font information for TS1+cmtt on input line 35.
  (/usr/local/texlive/2020/texmf-dist/tex/latex/base/ts1cmtt.fd
 File: ts1cmtt.fd 2019/12/16 v2.5j Standard LaTeX font definitions
-) [26]
+) [28]
 Underfull \hbox (badness 10000) in paragraph at lines 109--112
 
  []
 
-[27]
+[29]
 Overfull \hbox (123.64424pt too wide) in paragraph at lines 152--153
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
-[28]
+[30]
 Overfull \hbox (138.94458pt too wide) in paragraph at lines 186--187
 [][][][][][][][][][][][][][][][][][][][][][][][][][] 
  []
@@ -841,7 +840,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 219--224
 
  []
 
-[29]
+[31]
 Underfull \hbox (badness 10000) in paragraph at lines 230--237
 
  []
@@ -856,12 +855,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 230--237
 
  []
 
-[30] [31] [32] [33]
+[32] [33] [34] [35]
 Overfull \hbox (6.34164pt too wide) in paragraph at lines 390--391
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
-[34]
+[36]
 Overfull \hbox (11.44176pt too wide) in paragraph at lines 427--428
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
  []
@@ -881,7 +880,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 451--452
 
  []
 
-[35]
+[37]
 Underfull \hbox (badness 10000) in paragraph at lines 500--501
 
  []
@@ -896,12 +895,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 502--506
 
  []
 
-[36]
+[38]
 Underfull \hbox (badness 10000) in paragraph at lines 512--516
 
  []
 
-[37]
+[39]
 Overfull \hbox (8.84714pt too wide) in paragraph at lines 577--582
 \OT1/cmr/m/n/12 neh-men, ein Kalender-Event zu bau-en und die-ses an die Me-tho-de [][]\OT1/cmtt/m/n/12 make_appointment
  []
@@ -911,7 +910,7 @@ Overfull \hbox (38.3692pt too wide) in paragraph at lines 584--585
 [][]\OT1/cmr/m/n/12 Uberspringt der Nut-zer die-sen letz-ten Schritt, gibt ihm die Me-tho-de [][]\OT1/cmtt/m/n/12 skip_appointment
  []
 
-[38]
+[40]
 Underfull \hbox (badness 10000) in paragraph at lines 619--624
 
  []
@@ -921,12 +920,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 619--624
 
  []
 
-[39] [40]
+[41] [42]
 Overfull \hbox (42.04243pt too wide) in paragraph at lines 684--686
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
-[41]
+[43]
 Overfull \hbox (6.34164pt too wide) in paragraph at lines 705--706
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
  []
@@ -941,62 +940,62 @@ Overfull \hbox (16.54187pt too wide) in paragraph at lines 715--717
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
-[42]
-Underfull \hbox (badness 10000) in paragraph at lines 750--759
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 750--759
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 750--759
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 750--759
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 750--759
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 760--763
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 760--763
-
- []
-
-[43]
-Underfull \hbox (badness 10000) in paragraph at lines 813--822
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 813--822
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 813--822
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 813--822
-
- []
-
 [44]
+Underfull \hbox (badness 10000) in paragraph at lines 750--759
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 750--759
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 750--759
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 750--759
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 750--759
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 760--763
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 760--763
+
+ []
+
+[45]
+Underfull \hbox (badness 10000) in paragraph at lines 813--822
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 813--822
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 813--822
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 813--822
+
+ []
+
+[46]
 Overfull \hbox (52.24266pt too wide) in paragraph at lines 836--838
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
  []
@@ -1016,7 +1015,7 @@ Overfull \hbox (16.54187pt too wide) in paragraph at lines 853--854
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
-[45]
+[47]
 Overfull \hbox (57.34277pt too wide) in paragraph at lines 892--893
 [][][][][][][][][][][][][][][][][][][][][][] 
  []
@@ -1026,7 +1025,7 @@ Overfull \hbox (6.34164pt too wide) in paragraph at lines 893--895
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
-[46]
+[48]
 Underfull \hbox (badness 10000) in paragraph at lines 915--916
 
  []
@@ -1036,9 +1035,9 @@ Underfull \hbox (badness 10000) in paragraph at lines 915--916
 
  []
 
-) (./chapters/07_Beispiele.tex [47]
+) (./chapters/07_Beispiele.tex [49]
 Kapitel 7.
-<images/coaching_bot_dummy_screenshot.jpeg, id=1745, 1174.3875pt x 2420.04124pt>
+<images/coaching_bot_dummy_screenshot.jpeg, id=1772, 1174.3875pt x 2420.04124pt>
 File: images/coaching_bot_dummy_screenshot.jpeg Graphic file (type jpg)
 <use images/coaching_bot_dummy_screenshot.jpeg>
 Package pdftex.def Info: images/coaching_bot_dummy_screenshot.jpeg  used on input line 10.
@@ -1079,12 +1078,12 @@ File: images/coaching_bot_dummy_screenshot.jpeg Graphic file (type jpg)
 <use images/coaching_bot_dummy_screenshot.jpeg>
 Package pdftex.def Info: images/coaching_bot_dummy_screenshot.jpeg  used on input line 91.
 (pdftex.def)             Requested size: 167.2989pt x 344.74869pt.
-) (./chapters/08_Anwendungsszenarien.tex [48
+) (./chapters/08_Anwendungsszenarien.tex [50
 
 
- <./images/coaching_bot_dummy_screenshot.jpeg>] [49] [50] [51] [52] [53] [54] [55] [56] [57]
+ <./images/coaching_bot_dummy_screenshot.jpeg>] [51] [52] [53] [54] [55] [56] [57] [58] [59]
 Kapitel 8.
-) (./chapters/09_ZusammenfassungAusblick.tex [58
+) (./chapters/09_ZusammenfassungAusblick.tex [60
 
 
 ]
@@ -1104,10 +1103,10 @@ Underfull \hbox (badness 10000) in paragraph at lines 7--8
 
  []
 
-[59
+[61
 
 
-]) [60] (./PA_DerCoachingBot_Wellenhofer_Max_28464.bbl
+]) [62] (./PA_DerCoachingBot_Wellenhofer_Max_28464.bbl
 Underfull \hbox (badness 10000) in paragraph at lines 4--8
 \OT1/cmr/m/n/12 telegram-bot/python-telegram-bot/wiki/Extensions-{-Your-first-Bot,
  []
@@ -1157,7 +1156,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 70--72
 []\OT1/cmr/m/sc/12 Refsnes Da-ta\OT1/cmr/m/n/12 : \OT1/cmr/m/it/12 Py-thon In-tro-duc-ti-on\OT1/cmr/m/n/12 .  htt-
  []
 
-[61
+[63
 
 
 
@@ -1182,7 +1181,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 102--104
 []\OT1/cmr/m/sc/12 Wellenhofer, Max\OT1/cmr/m/n/12 : \OT1/cmr/m/it/12 The Coa-ching Bot Re-po-si-to-ry\OT1/cmr/m/n/12 .  htt-
  []
 
-) (./PA_DerCoachingBot_Wellenhofer_Max_28464.ind) [62]
+) (./PA_DerCoachingBot_Wellenhofer_Max_28464.ind) [64]
 \openout2 = `chapters/Glossar.aux'.
 
  (./chapters/Glossar.tex
@@ -1195,7 +1194,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 3--13
 
  []
 
-) [63
+) [65
 
 
 
@@ -1212,7 +1211,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 7--8
 
  []
 
-) [64
+) [66
 
 
 
@@ -1224,7 +1223,10 @@ Package atveryend Info: Empty hook `AfterLastShipout' on input line 131.
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 131.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 131.
 Package rerunfilecheck Info: File `PA_DerCoachingBot_Wellenhofer_Max_28464.out' has not changed.
-(rerunfilecheck)             Checksum: EDB3D37BD3F19B97AB031FB1EA7B49CD;7694.
+(rerunfilecheck)             Checksum: 3C9230064A928470EEA372A9F41B563B;7719.
+
+
+LaTeX Warning: There were undefined references.
 
 
 LaTeX Warning: There were multiply-defined labels.
@@ -1232,18 +1234,18 @@ LaTeX Warning: There were multiply-defined labels.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 131.
  ) 
 Here is how much of TeX's memory you used:
- 13828 strings out of 480608
- 207928 string characters out of 5903630
- 717752 words of memory out of 5000000
- 28484 multiletter control sequences out of 15000+600000
+ 13845 strings out of 480608
+ 208290 string characters out of 5903630
+ 717887 words of memory out of 5000000
+ 28489 multiletter control sequences out of 15000+600000
  542477 words of font info for 63 fonts, out of 8000000 for 9000
  1146 hyphenation exceptions out of 8191
- 41i,10n,44p,1402b,2097s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 41i,10n,44p,2414b,2097s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2020/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}</usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt8.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt9.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/cm-super/sftt0800.pfb>
-Output written on PA_DerCoachingBot_Wellenhofer_Max_28464.pdf (74 pages, 1588720 bytes).
+Output written on PA_DerCoachingBot_Wellenhofer_Max_28464.pdf (76 pages, 1629913 bytes).
 PDF statistics:
- 2074 PDF objects out of 2487 (max. 8388607)
- 1955 compressed objects within 20 object streams
- 935 named destinations out of 1000 (max. 500000)
+ 2103 PDF objects out of 2487 (max. 8388607)
+ 1982 compressed objects within 20 object streams
+ 947 named destinations out of 1000 (max. 500000)
  930 words of extra memory for PDF output out of 10000 (max. 10000000)
 
