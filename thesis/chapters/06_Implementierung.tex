@@ -1,29 +1,36 @@
 \label{Implementierung}
 \chapter{Implementierung}
 
-    \section{Setup}
-
-        \subsection{pipenv - Python Package Manager}
-            Die Applikation nutzt den Package Manager pipenv. Dieser bietet die Möglichkeit, ein projektspezifisches Dokument über alle Abhängigkeiten hinweg zu erstellen und im Projekt selbst zu speichern. So können andere Entwickler Abhängigkeiten leicht installieren und müssen dies nicht auf Systemebene tun, wo es ggf. zu Konflikten mit anderen Projekten kommen könnte.\\
-            Um alle Abhängigkeiten einzusehen, pipenv \cite{pipenv} installieren und das coaching\_bot\/Pipfile entsprechend der Dokumentation nutzen, um alle automatisch zu installieren.
-
-
-        \subsection{Konstanten und Schlüssel}
-            Der Coaching Bot hat einige Abhängigkeiten zu Umsystemen, die Zugangsdaten voraussetzen. Diese sind im Repository \cite{repo} aus Sicherheitsgründen nicht versioniert und können durch kleine Anpassungen adaptiert werden.\\ Entsprechende Vorlagen sind inkl. Anleitung für eine Anpassung unter \verb|_constants|\footnote{\url{https://github.com/mwel/coaching_bot/tree/main/bot/constants_}} zu finden.
-
+    Die im Kapitel \ref*{Realisierung} Realisierung erarbeiteten Ansätze wurden umgesetzt. Die Systeme und Ergebnisse werden im Folgenden beschrieben.
 
     \section{main.py - Anmeldung, Updater, Dispatcher und Handler-Konfiguration} \label{main.py}
-        Die \verb|main.py| beinhaltet die Instanz der State Machine des Coaching Bots.\\
-        Sie importiert alle Handler-Funktionen, authentifiziert sich durch den entsprechenden API-Schlüssel und beinhaltet den Dispatcher, an dem wiederum Conversation- sowie CommandHandler hängen. Darüber hinaus startet sie den Bot und aktualisiert die Handler in regelmäßigen Abständen via dem Updater.\\
+        Die \verb|main.py|-Methode basiert auf dem im Kapiel \ref*{Grundlagen} Grundlagen vorgestellten Conversation Bot. Sie importiert alle Zustands-Funktionen (siehe \ref*{Implementierung: Handler Functions} Handler Functions), authentifiziert sich durch den entsprechenden API-Schlüssel (Token) gegenüber der Telegram API und beinhaltet den Dispatcher. 
+        
+        \begin{lstlisting}[language=Python, caption={bot/main.py - Authentifizierung und Schlüssel-Übergabe an den Updater}\label{code: bot/main.py 1}]
+# Hand over API_TOKEN to the bot
+bot = telegram.Bot(token=API_KEY)
 
-        \begin{lstlisting}[language=Python, caption={bot\/main.py - state machine, Conversation- \& Command Handler}\label{code: bot/main.py}]
 def main() -> None:
     # Creates the updater and passes the API_TOKEN to it.
     updater = Updater(API_KEY)
+        \end{lstlisting}
+        
+        \subsection{Dispatcher} \label{Implementierung: Dispatcher}
+            Dispatcher liefern Nachrichten an den User aus. Pro Bot gibt es grundsätzlich mind. einen Dispatcher. Der Coaching Bot hat aber mehrere für mehrere Konversationsstränge. An den Dispatcher werden Conversation- sowie CommandHandler gebunden und konfiguriert.
+    
+        \subsection{Conversation-Handlers} \label{Implementierung: Conversation-Handlers}
+            Der Conversation-Handler bildet die in Abb. \ref*{fig: state machine} konzipierte State Machine ab. Als solche, kontrolliert er den Konversationsfluss zwischen dem User und dem Bot. Pro Bot kann es mehrere Conversation-Handler geben. Der CoachingBot hat aber nur Einen: den \verb|conv_handler|. Der Conversation-Handler koordiniert alle im Haupt-Konversationsfluss enthaltenen Command-Handler.
+    
+        \subsection{Command-Handler} \label{Implementierung: Command-Handler}
+            Pro Zustand aus der State Machine gibt es einen Command-Handler. Für jeden Command-Handler gibt es ein Set an Kriterien und / oder einen Befehl, der die zugeordnete Zustands-Funktion auslöst. i.e. den Befehl \verb|/start| für die Funktion \verb|start| aus \verb|start.py| im gleichnamigen Command-Handler, der hier als Einstiegspunkt definiert ist. Funktionen werden nur mittelbar vom Nutzer und unmittelbar von der State-Machine ausgelöst.
 
+        \subsection{Message-Handler} \label{Implementierung: Message-Handler}
+            Befehle werden vom Nutzer eingegeben und vom Message-Handler entgegengenommen. Ein Message-Handler prüft die Eingabe eines Nutzers auf vordefinierte Kriterien und meldet das Ergebnis an den Conversation-Handler.
+
+        \begin{lstlisting}[language=Python, caption={bot/main.py - Dispatcher, Conversation- \& Command-Handler}\label{code: bot/main.py 2}]
     # Gets the dispatcher to register handlers
     dispatcher = updater.dispatcher
-
+    
     # bot state machine and main conversation handler
     conv_handler = ConversationHandler(
         entry_points=[CommandHandler('start', start)],
@@ -59,58 +66,40 @@ def main() -> None:
             fallbacks = [CommandHandler('cancel', cancel)],
     )
 
-    # more conversation handlers for secondary commands
     dispatcher.add_handler(conv_handler)
+    # more conversation handlers for secondary commands
     dispatcher.add_handler(CommandHandler('summary', summary))
     dispatcher.add_handler(CommandHandler('delete', delete))
     dispatcher.add_handler(CommandHandler('status', status))
+        \end{lstlisting}
 
+        Über die folgenden Befehle, werden die entsprechenden, gleichnamigen Command-Handler und Funktionen aus \ref*{code: bot/main.py 2} ausgelöst. 
+
+        \begin{itemize}
+            \item \verb|/start| - startet den Konversationsfluss. Der in dieser Applikation umfangreichste Conversation-Handler umfasst zwei Befehle: \verb|/start| und \verb|/cancel|. Solange der Bot ausgeführt wird, lässt sich ein Konversationsfluss mit ihm über den Befehl \verb|/start| starten und via \verb|/cancel| beenden.
+            \item \verb|/cancel| - beendet den Konversationsfluss, löscht Nutzerdaten aus der Datenbank und informiert entsprechend
+            \item \verb|/delete| - löscht Nutzerdaten des Nutzers und informiert ihn
+            \item \verb|/help| - gibt die Hilfe aus
+            \item \verb|/summary| - gibt die Zusammenfassung für den Nutzer aus
+            \item \verb|/status| - gibt gibt den aktuellen Fortschritt für den Nutzer aus
+        \end{itemize}
+        (Zur Funktionsweise der den Befehlen zugeordneten Zustands-Funktionen siehe den entsprechden Abschnitt unter \ref{Implementierung: Handler Functions}.) \\ \\
+        
+        Schließlich wird die State Machine des Coaching Bots gestartet. Über das sog. Polling werden Aktualisierungen konstant von Telegram nachgeladen. Der Bot ist aktiv (idle) und wartet darauf, Befehle entgegenzunehmen.
+        \begin{lstlisting}[language=Python, caption={bot/main.py - Start Polling \ Idle}\label{code: bot/main.py 3}]
     # Start the Bot
     updater.start_polling()
 
     updater.idle()
         \end{lstlisting}
 
-        Im Folgenden werden die CommandHandler für den Coaching Bot kurz aufgeführt:
-        
-        \subsection{Dispatcher}
-            Dispatcher liefern Nachrichten an den User aus. Pro Bot gibt es grundsätzlich mind. einen Dispatcher. Der Coaching Bot hat aber mehrere für mehrere Konversationsstränge. Command- und ConversationHandler werden an diese übergeben.
 
-
-        \subsection{Conversation Handlers}
-            Conversation Handler kontrollieren den Konversationsfluss zwischen dem User und dem Bot. Pro Bot kann es mehrere Conversation Handler geben. Der CoachingBot hat aber nur Einen - den \verb|conv_handler|. Der Conversation Handler koordiniert alle Command Handler.
-
-
-        \subsection{CommandHandler}
-            Command Handler nehmen Nutzereingaben via Callback Context entgegen, prüfen diesen auf vordefinierte Kriterien und führen prädefinierte Funktionen - sog. Handler Functions aus.
-
-
-        \subsection{start und cancel - Konversation starten und stoppen}
-            Der in dieser Applikation umfangreichste ConversationHandler umfasst zwei Commands: \verb|/start| und \verb|/cancel|. Solange der Bot ausgeführt wird, lässt sich eine Konversation mit ihm über den Befehl \verb|/start| starten und via \verb|/cancel| beenden. Zur Funktionsweise von \verb|/start| und \verb|/cancel|, siehe \ref{start.py} start.py und \ref{cancel.py} cancel.py unter Handler Funktionen. 
-
-
-        \subsection{delete - Nutzerdaten löschen}
-            Über den Befehl \verb|/delete| wird der CommandHandler \verb|delete| ausgeführt. Zur Funktionsweise von \verb|/delete|, siehe \ref{cancel.py} cancel.py unter Handler Funktionen. 
-
-
-        \subsection{help - Hilfe ausgeben}
-            Über den Befehl \verb|/help| wird der CommandHandler \verb|help| ausgeführt. Zur Funktionsweise von \verb|/help|, siehe \ref{help.py} help.py unter Handler Funktionen. 
-
-
-        \subsection{summary - Zusammenfassung ausgeben}
-            Über den Befehl \verb|/summary| wird der CommandHandler \verb|summary| ausgeführt. Zur Funktionsweise von \verb|/summary|, siehe \ref{summary.py} summary.py unter Handler Funktionen. 
-
-
-        \subsection{status - Status Quo ausgeben}
-            Über den Befehl \verb|/status| wird der CommandHandler \verb|status| ausgeführt. Zur Funktionsweise von \verb|/status|, siehe \ref{status.py} status.py unter Handler Funktionen. 
-
-
-    \section{Handler Funktionen} \label{Handler Functions}
+    \section{Zustands-Funktionen: Handler Funktions} \label{Implementierung: Handler Functions}
         Handler-Funktionen\footnote{siehe coaching\_bot/handler\_functions unter \url{https://github.com/mwel/coaching_bot/tree/main/bot/handler_functions}} sind Funktionen, die auf Eingaben reagieren, die via CallbackContext vom User an den Bot gesendet werden und bestimmten Kriterien entsprechen. Diese Kriterien werden direkt in der main.py in einem der CommandHandler definiert. \\
         \\
         Im Folgenden gehen wir detailliert auf die einzelnen Handler-Funktionen ein, beschreiben deren Umfang und Aufbau und erklären ihre Funktionsweise. 
 
-        \subsection{start.py} \label{start.py}
+        \subsection{start.py} \label{Implementierung: start.py}
 
         \begin{lstlisting}[language=Python, caption={start.py - Start-Funktion und Einstieg in den Konversationsfluss}\label{code: start.py}]
 def start(update: Update, context: CallbackContext) -> int:
@@ -236,7 +225,7 @@ def start(update: Update, context: CallbackContext) -> int:
             Bevor der Bot den Nutzer zur nächsten Stufe weiterleitet, speichert er noch einen Zeitstempel, damit man nachvollziehen kann, wann der Nutzer seinen Prozess begonnen hat.
 
 
-        \subsection{bio.py} \label{bio.py}
+        \subsection{bio.py} \label{Implementierung: bio.py}
             %\subsubsection{Methode bio}
                 Die Methode \verb|bio| in der \verb|bio.py| speichert die Text-Eingabe eines Nutzers als erste Nutzereingabe nach dem \verb|/start|-Befehl. Sie repräsentiert besonders gut den Aufbau der Handler-Funktionen, weil sie über das Speichern und weiterleiten keine weiteren Features besitzt. Daher erläutern wir den Aufbau der Handler-Funktionen beispielhaft anhand der Methode \verb|bio| für alle anderen Handler-Funktionen:
 
@@ -268,7 +257,7 @@ def bio(update: Update, context: CallbackContext) -> int:
 
                 Zunächst werden ein Update- und ein CallbackContext-Objekt an die Handler-Methode übergeben. Zurückgegeben wird der Datentyp \verb|int|, da die State-Machine am Ende der Methode wissen muss, in welchen Zustand der Nutzer als nächstes geschickt werden soll. \\
                 Innerhalb der Methode werden \verb|user_id| und \verb|bio_message| aus dem Update-Objekt gespeichert, da man diese beiden informationen gleich weiterverwenden möchte. Die \verb|bio_message| ist in diesem Fall die Text-Eingabe, die an den Bot nach der letzten Stufe (\verb|start|) übermittelt wurde. Die \verb|user_id| ist die Telegram-ID des jeweiligen Nutzers. \\
-                Nach der Ausgabe eines einfachen Log-Eintrags dazu, welcher Nutzer gerade welche Nachricht gesendet hat, wird der Datenbankeintrag des Nutzers um die soeben empfangene Nachricht erweitert. (Funktionalität der \verb|insert_update| Methode folgt unter Abschnitt \ref{insert_update_db.py} insert\_update.py)
+                Nach der Ausgabe eines einfachen Log-Eintrags dazu, welcher Nutzer gerade welche Nachricht gesendet hat, wird der Datenbankeintrag des Nutzers um die soeben empfangene Nachricht erweitert. (Funktionalität der \verb|insert_update| Methode folgt unter Abschnitt \ref{Implementierung: insert_update_db.py} insert\_update.py)
                 Nun kann die für den Nutzer sichtbare Reaktion auf die Nachricht erfolgen. Die Methode \verb|update.message.reply_text| erlaubt es uns, dem Nutzer einen beliebigen String sowie eine für diese Nachricht individuelles Antwort-Tastatur auszugeben. Die zu übergebenden Parameter sind für die meisten reply\_text-Instanzen in der \verb|states.py| zentral gespeichert, um sich innerhalb der einzelnen Handler-Funktion soweit als möglich von Inhalten zu abstrahieren.\\
                 Ist die Ausgabe an den Nutzer erfolgt, bleibt noch die Aktualisirung des Zustands des Nutzers in der Datenbank, gefolgt von der Übergabe des nächsten Zustands an den ConversationHandler.
 
@@ -312,7 +301,7 @@ def skip_bio(update: Update, context: CallbackContext) -> int:
                 Die Zweite ähnelt der Methode aus der \verb|bio|-Funktion. Sie übermittelt die Aufforderung zur Eingabe der Information für die nächste Stufe und zeigt die entsprechende Tastatur an. Der Rest der Methode gleicht ihrer Schwester.
 
 
-        \subsection{gender.py} \label{gender.py}
+        \subsection{gender.py} \label{Implementierung: gender.py}
             %\subsubsection{Methode gender}
                 Die einzige Besonderheit der \verb|gender|-Methode aus \verb|gender.py| liegt in der Differenzierung der Datenbankoperationen, die als Resultat der vordefinierten Antwort des Nutzers ausgelöst werden. Die Optionen \glqq Gentleman\grqq, \glqq Lady\grqq und \glqq Unicorn\grqq resultieren in einem nüchternen Datenbankeintrag: \verb|male|, \verb|female|, \verb|diverse|. Die Methode leitet in den Zustand \verb|BIRTHDAY|.
             
@@ -320,20 +309,20 @@ def skip_bio(update: Update, context: CallbackContext) -> int:
                 %Keine Besonderheiten. 
         
 
-        \subsection{birthdate.py} \label{birthdate.py}
+        \subsection{birthdate.py} \label{Implementierung: birthdate.py}
             %\subsubsection{Methode birthdate}
-                Der Bot arbeitet in der Methode \verb|birthdate| erstmals mit Input-Validierung. (siehe \ref{validation.py} validation.py) Dazu wird die Nutzereingabe zunächst an die Methode \verb|validate_birthdate| übergeben und auf die Bewertung des Inputs gewartet. Entspricht der Input dem prädefinierten Format, fährt der Bot wie gewöhnlich fort und übergibt den nächsten Zustand zurück an den ConversationHandler. Ist dies jedoch nicht der Fall, so wird eine entsprechende Nachricht an den Nutzer ausgegeben. Da der ConversationHandler erst dann zur nächsten Stufe geht, wenn er von der Methode \verb|birthdate| den entsprechenden Zustand zurückerhalten hat, entsteht hier ein loop, der entweder durch eine gültige Eingabe oder eine der Meta-Funktionen gebrochen werden kann.
+                Der Bot arbeitet in der Methode \verb|birthdate| erstmals mit Input-Validierung. (siehe \ref{Implementierung: validation.py} validation.py) Dazu wird die Nutzereingabe zunächst an die Methode \verb|validate_birthdate| übergeben und auf die Bewertung des Inputs gewartet. Entspricht der Input dem prädefinierten Format, fährt der Bot wie gewöhnlich fort und übergibt den nächsten Zustand zurück an den ConversationHandler. Ist dies jedoch nicht der Fall, so wird eine entsprechende Nachricht an den Nutzer ausgegeben. Da der ConversationHandler erst dann zur nächsten Stufe geht, wenn er von der Methode \verb|birthdate| den entsprechenden Zustand zurückerhalten hat, entsteht hier ein loop, der entweder durch eine gültige Eingabe oder eine der Meta-Funktionen gebrochen werden kann.
         
         
-        \subsection{email.py} \label{email.py}
+        \subsection{email.py} \label{Implementierung: email.py}
             %\subsubsection{Methode email}
-                Wie die \verb|birthdate| auch schon, nutzt die Methode \verb|email| Input-Validation - dieses Mal, um zu prüfen, ob eine gültige E-Mail-Adresse eingegeben wurde. (siehe \ref{validation.py} validation.py)
+                Wie die \verb|birthdate| auch schon, nutzt die Methode \verb|email| Input-Validation - dieses Mal, um zu prüfen, ob eine gültige E-Mail-Adresse eingegeben wurde. (siehe \ref{Implementierung: validation.py} validation.py)
 
             %\subsubsection{Methode skip\_email}
                 Die Methode \verb|skip_email| ist die einzige Methode, die nicht übersprungen werden kann. Ohne eine gültige E-Mail-Adresse des Nutzers können wichtige Folgefunktionen des Bots nicht genutzt werden und der Sinn und Zweck (eine Terminvereinbarung) ist nicht möglich. Daher ist die Methode \verb|skip_email| so gestaltet, dass sie keinen Zustand zurückgibt, sondern den Nutzer im aktuellen Zustand belässt, bis dieser entweder eine gültige Adresse eingegeben oder einen alternativen Befehl abgesetzt hat, der ebenfalls das Ende der Konversation zufolge hat. So steht es dem Nutzer frei, die Konversation jederzeit zu beenden. 
         
             
-        \subsection{telephone.py} \label{telephone.py}
+        \subsection{telephone.py} \label{Implementierung: telephone.py}
             %\subsubsection{Methode telephone}
                 Die Methode \verb|telephone| funktioniert exakt gleich wie die Methode \verb|email|.
 
@@ -341,7 +330,7 @@ def skip_bio(update: Update, context: CallbackContext) -> int:
                 Die Methode \verb|skip_telephone| bietet dem Nutzer an, den Kontakt mit dem Anbieter alternativ via dem auf der Internetseite verfügbaren Webformular zu suchen. \footnote{Dies ist generell für alle Informationen möglich, die an den Bot übergeben werden, allerdings lag der Beweggrund für die Erstellung des Bots darin, eine Alternative zum klassischen Kommunikationsmedium Web-Formular zu bieten.}
         
         
-        \subsection{location.py} \label{location.py}
+        \subsection{location.py} \label{Implementierung: location.py}
             %\subsubsection{Methode location}
                 Der Nutzer hat hier die Möglichkeit, seinen Standort anzugeben. Dazu wird die bereits in Telegram vorhandene Funktion zur Standortfreigabe genutzt. \\
                 Am Ende der Methode, bevor der Bot zur nächsten Stufe \verb|PHOTO| weitergeht, sendet der Bot ein Bild von sich selbst, um den Nutzer dazu anzuregen, auch ein Bild von sich zu teilen. Dazu wird ein einfaches JPG verwendet, das im Repository des Bots gespeichert ist. Der Pfad kann leicht an jede andere Ressource angepasst werden.
@@ -350,7 +339,7 @@ def skip_bio(update: Update, context: CallbackContext) -> int:
                 %Keine Besonderheiten.
         
 
-        \subsection{photo.py} \label{photo.py}
+        \subsection{photo.py} \label{Implementierung: photo.py}
             %\subsubsection{Methode photo}
                 Entscheidet der Nutzer sich, ein Bild mit dem Bot zu teilen, so nimmt die Methode \verb|photo| dieses entgegen und speichert es in einem Ordner, der je nach System gewählt werden kann. Hier wurde ein Ordner im gleichen Verzeichnis gewählt, in dem der Bot existiert. Um Bilder später wieder zuordnen zu können, wird der Dateiname jedes Bildes auf die user\_ID des jeweiligen Nutzers gesetzt, bevor es gespeichert wird.
 
@@ -358,7 +347,7 @@ def skip_bio(update: Update, context: CallbackContext) -> int:
                 %Keine Besonderheiten.
         
 
-        \subsection{summary.py} \label{summary.py}
+        \subsection{summary.py} \label{Implementierung: summary.py}
             %\subsubsection{Methode summary}
 
             \begin{lstlisting}[language=Python, caption={summary.py - Zusammenfassung für den Nutzer direkt im Messenger}\label{code: summary.py}]
@@ -451,7 +440,7 @@ def summary(update: Update, context: CallbackContext) -> int:
                     \item Option A:  Der Nutzer ist bis zum Zustand \verb|SUMMARY| gekommen, hat die Zusammenfassung ausgegeben bekommen, dann aber keinen Termin vereinbart und den Chat verlassen. Der Nutzer kehrt nun zum Chat zurück und gibt erneut \verb|/start| ein, um seine Konversation wieder aufzunehmen. Der Bot findet den Nutzer in der Datenbank und leitet an die Stufe \verb|SUMMARY| weiter. Der Nutzer kann nun einen Termin vereinbaren. \\
                     
                     \begin{enumerate}
-                        \item Der Bot versucht, dem Nutzer jetzt drei mögliche Terminvorschläge zu unterbreiten und startet dazu die Terminfindung (siehe \ref{Kalender} Kalender).
+                        \item Der Bot versucht, dem Nutzer jetzt drei mögliche Terminvorschläge zu unterbreiten und startet dazu die Terminfindung (siehe \ref{Implementierung: Kalender} Kalender).
                         \item Sobald die Termine zurückkommen, präsentiert der Bot diese dem Nutzer in Form eines entsprechenden Tastatur-Layouts. Das Layout ist dabei dynamisch und generiert sich bei jeder Abfrage neu.
                     \end{enumerate}
                 
@@ -459,10 +448,10 @@ def summary(update: Update, context: CallbackContext) -> int:
                 
                 \end{enumerate}
 
-            Schließlich wird die Methode \verb|confirmation_mail| aufgerufen, die die gleiche Zusammenfassung nochmals per E-Mail an die Adresse des Nutzers sendet (siehe \ref{confirmation_mail.py} confirmation\_mail.py) und die Information darüber, dass an diesen Nutzer bereits eine E-Mail gesendet wurde wird neben den üblichen Abschlussbefehlen in der Datenbank gespeichert.
+            Schließlich wird die Methode \verb|confirmation_mail| aufgerufen, die die gleiche Zusammenfassung nochmals per E-Mail an die Adresse des Nutzers sendet (siehe \ref{Implementierung: confirmation_mail.py} confirmation\_mail.py) und die Information darüber, dass an diesen Nutzer bereits eine E-Mail gesendet wurde wird neben den üblichen Abschlussbefehlen in der Datenbank gespeichert.
 
                     
-        \subsection{confirmation\_mail.py} \label{confirmation_mail.py}
+        \subsection{confirmation\_mail.py} \label{Implementierung: confirmation_mail.py}
 
         \begin{lstlisting}[language=Python, caption={confirmation\_mail.py - Bestätigung und Zusammenfassung für den Nutzer per E-Mail}\label{code: confirmation_mail.py}]
 def confirmation_mail(recipient_name, summary, recipient_address):
@@ -515,7 +504,7 @@ def confirmation_mail(recipient_name, summary, recipient_address):
                 Schließlich wird die Verbindung zum Server wieder getrennt.
 
 
-        \subsection{appointment.py} \label{appointment.py}
+        \subsection{appointment.py} \label{Implementierung: appointment.py}
 
         \begin{lstlisting}[language=Python, caption={appointment.py - Konstruktion des Kalender-Events}\label{code: appointment.py}]
 def appointment(update: Update, context: CallbackContext) -> int:
@@ -584,12 +573,12 @@ def appointment(update: Update, context: CallbackContext) -> int:
                 Überspringt der Nutzer diesen letzten Schritt, gibt ihm die Methode \verb|skip_appointment| lediglich eine Nachricht aus, die die Option offen lässt, auf anderem Weg mit dem Anbieter in Kontakt zu treten.
 
         
-        \subsection{help.py} \label{help.py}
+        \subsection{help.py} \label{Implementierung: help.py}
             %\subsubsection{Methode help}
                 Die Methode \verb|help| setzt ein sog. Dictionary aus einer Liste an Befehlen zusammen, das flexibel befüllt und dann ausgegeben werden kann. Ein Dictionary bietet die Möglichkeit, die Hilfe jederzeit einfach anzupassen, um Elemente zu erweitern oder zu reduzieren, ohne die Logik, über die die Hilfe ausgegeben wird, zu beeinflussen. Dazu wird die \verb|collections|-Bibliothek eingebunden, die es erlaubt, ein geordnetes Dictionary zu erstellen. Nachdem der String für die Hilfe zusammengesetzt ist, wird dieser einfach via der Methode \verb|send\_message| ausgegeben.
 
 
-        \subsection{states.py} \label{states.py}
+        \subsection{states.py} \label{Implementierung: states.py}
             %\subsubsection{STATES}
                 Die State Machine muss zu jeder Zeit wissen, welche Zustände es gibt und in welcher Reihenfolge diese existieren. Dazu nutzt der \verb|python-conversation-bot| \cite{conversationBot} ein Array aus Konstanten (STATES). So lässt sich die Reihenfolge der Zustände auch ganz leicht ändern. Soll der Bot bspw. E-Mail und Telefonnummer zu Anfang abfragen oder sollen einige Schritte aus dem Konversationsfluss genommen werden, so sind diese hier einfach zu entfernen und die Nachrichten in den eizelnen Stufen leicht anzupassen.
 
@@ -599,7 +588,7 @@ def appointment(update: Update, context: CallbackContext) -> int:
             %\subsubsection{KEYBOARD\_MARKUPS}
                 Gleiches gilt für individuelle Tastaturen aus dem \verb|KEYBOARDS|-Dictionary. 
 
-        \subsection{status.py} \label{status.py}
+        \subsection{status.py} \label{Implementierung: status.py}
             %\subsubsection{Methode status}
                 Zu jedem Zeitpunkt, kann der Nutzer seinen aktuellen Status abfragen. Dazu prüft die Methode \verb|status| zunächst, ob der Nutzer überhaupt in der Datenbank existiert. Hat der Nutzer seine Informationen nämlich gelöscht, existiert er für den Bot nicht. Zwei Szenarien: 
                 \begin{enumerate}
@@ -608,7 +597,7 @@ def appointment(update: Update, context: CallbackContext) -> int:
                 \end{enumerate}
         
 
-        \subsection{validation.py} \label{validation.py}
+        \subsection{Input-Validierung: validation.py} \label{Implementierung: validation.py}
             Alle Input-Validation-Methoden sind ähnlich mit einem \verb|try/except| oder \verb|if/else| Block aufgebaut.
 
             %\subsubsection{validate\_birthdate}
@@ -616,7 +605,7 @@ def appointment(update: Update, context: CallbackContext) -> int:
                 Stimmt die Eingabe mit dem definierten Format überein, gibt die Methode \verb|True| zurück. Ansonsten wird ein \verb|ValueError| geloggt und die Methode gibt \verb|False| zurück.
 
             %\subsubsection{validate\_email}
-                Die Methode \verb|validate_email| bedient sich eines relativ einfach regulären Ausdrucks, um zu prüfen, ob die Eingabe eine E-Mail sein könnte: \\
+                Die Methode \verb|validate_email| bedient sich eines regulären Ausdrucks, um zu prüfen, ob die Eingabe eine E-Mail sein könnte: \\
                 \\
                 \verb/[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,}/\footnote{Ein vollumfänglicher regulärer Ausdruck, ein externder Dienst oder gar das versenden einer Test-E-Mail wurden aus Performance-Gründen ausgeschlossen.} \\ 
                 \\
@@ -628,7 +617,7 @@ def appointment(update: Update, context: CallbackContext) -> int:
                 Ist der Vergleich erfolgreich, gibt die Methode \verb|validate_telephone| \verb|True| zurück, ansonsten \verb|False|.
 
         
-        \subsection{cancel} \label{cancel.py}
+        \subsection{cancel} \label{Implementierung: cancel.py}
             %\subsubsection{Methode cancel}
                 Wurde eine Konversation mit dem Main-ConversationHandler gestartet, so kann diese auch manuell wieder beendet werden. So hat ein Nutzer, wann immer er sich im Konversationsfluss befindet, die Möglichkeit den Befehl \verb|/cancel| abzusetzen. Da dieser Befehl im Main-CommandHandler als Fallback definiert ist, kann der Befehl nur abgesetzt werden, solange dieser aktiv ist. Wird die Methode \verb|cancel| aufgerufen, so wird ein Log-Eintrag über den Abbruch der Konversation abgesetzt. Direkt darauf werden alle Daten des Nutzers aus der Datenbank gelöscht und eine Bestätigung an den Nutzer ausgegeben. Sollte es bei diesem Vorgang zu einem Fehler kommen, so wird der Nutzer auch darüber benachrichtigt und es werden sowohl der Fehler, als auch ein Log-Eintrag in der Konsole ausgegeben. Diese Ausnahme tritt auf, wenn der Nutzer seine Daten bereits gelöscht und den Bot noch nicht neu gestartet hat - es ihn also in der Datenbank gar nicht gibt oder (sehr selten), falls die SQL-Operation nicht erfolgreich war.
                 Schließlich beendet der Bot die Konversation.
@@ -637,7 +626,7 @@ def appointment(update: Update, context: CallbackContext) -> int:
                 Grundsätzlich handelt es sich bei der Methode \verb|delete| um fast den gleichen Funktionsumfang, wie bei der Methode \verb|cancel|. Allerdings ist sie nicht Bestandteil des Main-ConversationHandlers, sondern in ihrem eigenen Handler definiert und kann somit zu jederzeit über den Befehl \verb|/delete| aufgerufen werden. So ist dafür gesorgt, dass der Nutzer seine Daten auch löschen kann, wenn die Konversation mit dem Bot aus irgendeinem Grund unterbrochen oder bereits beendet wurde.
 
 
-    \section{Datenbank} \label{Datenbank}
+    \section{Datenbank} \label{Implementierung: Datenbank}
 
         In diesem Abschnitt wird die Funktionsweise des Database-Connectors erleutert. Alle Methoden sind ähnlich aufgebaut. Zunächst wird eine Verbindung zur Datenbank geöffnet, es finden diverse Prüfungen statt, eine CRUD-Operaion wird abgesetzt und die Antwort entweder innerhalb der Methode analysiert und ein \verb|Boolean| oder der übergebene Wert aufbereitet und im entsprechenden Format zurückgegeben.
                 
@@ -647,7 +636,7 @@ def appointment(update: Update, context: CallbackContext) -> int:
             Ist die Datenbank verfügbar und wurde eine Verbindung aufgebaut, so wird zunächst geprüft, ob es die Tabelle \verb|users| schon gibt. Ist dem so, wird die Methode mit einem Commit und dem Schließen der Verbindung zur Datenbank, beendet. Ist dem nicht so, wird die Tabelle für die Benutzer instanziiert. Aufgrund der Simplizität der gespeicherten Daten kommt der Bot mit einer Tabelle aus.
 
 
-        \subsection{select\_db.py} \label{select_db.py}
+        \subsection{select\_db.py} \label{Implementierung: select_db.py}
 
             %\subsubsection{Methode user\_search}
             An \verb|user-search| bekommt eine Nutzer-ID übergeben und prüft, ob ein Nutzer in der Datenbank existiert. Falls ja, wird \verb|True| zurückgegeben - ansonsten \verb|False|.
@@ -686,7 +675,7 @@ def get_value(user_id, column):
     return table_value
                 \end{lstlisting}
 
-        \subsection{insert\_value\_db.py} \label{insert_value_db.py}
+        \subsection{insert\_value\_db.py} \label{Implementierung: insert_value_db.py}
             %\subsubsection{Methode insert\_update}
                 Um sicherzustellen, dass eine Datebank existiert, wird zunächste \verb|create_db| aufgerufen. Diese kommt schnell zurück, da die Datenbank in den meisten Fällen bereits existiert. Nun wird in einem \verb|try/except|-Block versucht, einen existierenden Datenbankeintrag zu aktualisieren. Das funktioniert meistens, weil der Datensatz für einen Nutzer bereits bei der Eingabe von \verb|/start| durchgeführt wird. So kann ein Eintrag bereits von Beginn an immer weiter angereichert werden. Nachdem der Eintrag erfolgreich aktualisiert wurde, gibt es noch einen Log-Eintrag auf der Konsole.
 
@@ -721,11 +710,11 @@ def insert_update (user_id, column, value):
 
                 \end{lstlisting}
         
-        \subsection{insert\_update\_db.py} \label{insert_update_db.py}
+        \subsection{insert\_update\_db.py} \label{Implementierung: insert_update_db.py}
             %\subsubsection{Methode insert\_update}
                 Die Methode funktioniert ähnlich wie die Methode \verb|insert_update| aus der \\\verb|insert_value_db.py|. Sie unterscheidet sich darin, dass sie alle Parameter für den gesamten Datenbankeintrag eines Nutzers übergeben bekommt. So ist es möglich, einen Nutzer zu Testzwecken auf einmal in die Datenbank einzufügen, ohne den Bot jedes Mal zu durchlaufen zu müssen.
         
-        \subsection{delete\_record.py} \label{delete_record.py}
+        \subsection{delete\_record.py} \label{Implementierung: delete_record.py}
             %\subsubsection{Methode delete\_record}
                 Die Methode \verb|delete_record| bekommt eine Nutzer-ID übergeben und prüft zunächst via der Methode \verb|user_search|, ob es den Nutzer mit der angegebenen Nutzer-ID überhaupt gibt. Falls ja, wird in einem \verb|try/except|-Block versucht, alle Informationen eines Nutzers via SQL-Befehl zu löschen. 
 
@@ -733,9 +722,9 @@ def insert_update (user_id, column, value):
                 Die Methode \verb|delete_value| ist mit der Methode \verb|delete_record| fast identisch. Hier wird aber zusätzlich eine Spaltenbezeichnung übergeben, die es ermöglicht, nur einen einzelnen Wert zu löschen.
 
 
-    \section{Kalender} \label{Kalender}
+    \section{Kalender} \label{Implementierung: Kalender}
         
-        \subsection{calendar\_manager.py} \label{calendar_manager.py}
+        \subsection{calendar\_manager.py} \label{Implementierung: calendar_manager.py}
         Der Kalender Manager basiert auf der \verb|quickstart.py|, die von Google als Starter-Kit für einige gängige Programmiersprachen angeboten wird. (Setup beschrieben in \ref{Grundlagen} Grundlagen) Daneben nutzt der Kalender Manager Pythons native Bibliotheken zum Zusammenfügen von Dateipfaden sowie die Mathode \verb|get_value| aus dem Database Connector. Er erlaubt es dem aufrufenden System, abzufragen, ob eine Zeitspanne verfügbar ist und Termine zwischen einer festgelegten Veranstalter-Adresse und beliebig vielen Teilnehmer-Adressen zu erstellen und zu versenden. Im Folgenden werden die dazu erforderlichen Methoden und Schritte erklärt. 
 
             %\subsubsection{Methode main}
@@ -902,16 +891,16 @@ def make_appointment(user_id, slot_start, event):
     \section{Web-GUI}
         Die Web-GUI wird komplett mit Flask erstellt. Dazu benötigt werden die Applikation für den Web-Server sowie das Templating selbst (\verb|app.py|), ein HTML- (\verb|home.html|) und ein CSS-File (\verb|main.css|), über das Inhalt und Style definiert werden sowie wenige Ressourcen. Alle anderen Elemente liegen bereits vor.
         
-        \subsection{app.py} \label{app.py}
+        \subsection{app.py} \label{Implementierung: app.py}
             Die \verb|app.py| instanziiert via der Flask Bibliothek einen Webserver und konstruiert den darzustellenden Inhalt in Form eines sog. Templates. Dieses wird aus Nutzerinformationen zusammengesetzt, die bei Aufrufen der entsprechenden URL aus der Datenbank abgefragt werden sowie aus den von Nutzern eingereichten Bildern. 
             Das fertige Template wird dann an den Webserver zurückgegeben.
 
-        \subsection{home.html} \label{home.html}
+        \subsection{home.html} \label{Implementierung: home.html}
             Die \verb|home.html| besteht aus drei Teilen. Zunächst wird eine Tabelle erstellt und mit den für die Darstellung der Daten aus der Datenbank erforderlichen Spalten versehen. Daraufhin werden die Daten aus der Datenabank, die eine andere Spaltenreihenfolge haben, als die, in der sie hier dargestellt werden sollen, den entsprechenden Spalten zugeordnet.
             Schließlich wird eine Google Calendar View via iframe eingebunden.
             Die Ansicht aktualisiert sich nicht in Echtzeit, sondern nur auf Anfrage, da eine Veränderung der Daten nur selten zu erwarten ist.
 
-        \subsection{main.css} \label{main.css}
+        \subsection{main.css} \label{Implementierung: main.css}
             Es kommt ein minimalistisches CSS-Template zum Einsatz, das den Ansprüchen, Nutzerdaten einzusehen leicht genügt.\\ \\
 
         Über die IP-Adresse \verb|127.0.0.1| und Port \verb|5000| ist die GUI als Admin zu erreichen\footnote{Um das Kalender-Feature einsehen zu können, ist eine Anmeldung mit dem entsprechenden Google-Konto erforderlich.}: \url{http://127.0.0.1:5000/} 

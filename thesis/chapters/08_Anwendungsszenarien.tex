@@ -3,4 +3,13 @@
 
 Der Coaching Bot kann in allerlei Szenarien angewandt werden. Die in den letzten Jahren stark angewachsene Zahl an Personal Coaches kann den Bot mit basalen Programmierfähigkeiten an die eigenen Bedürfnisse anpassen und ist flexibel in der Wahl der unterliegenden Infrastruktur. Vor allem für Nebenerwerbstätige Coaches mit einem kleinen Kundenportfolio, bei dem sich Kaltaquise oft als teuer und wenig erfolgreich herausstellt, bietet der Coaching Bot eine einfache Möglichkeit, Neukunden kostenfrei und einfach onzuboarden. Der Prozess ist unkompliziert, unverbindlich, gut dokumentiert und einfach zu adaptieren. 
 
+\section{Setup} \label{Anwendungsszenarien: Setup}
+
+        \subsection{pipenv - Python Package Manager}
+            Die Applikation nutzt den Package Manager pipenv. Dieser bietet die Möglichkeit, ein projektspezifisches Dokument über alle Abhängigkeiten hinweg zu erstellen und im Projekt selbst zu speichern. So können andere Entwickler Abhängigkeiten leicht installieren und müssen dies nicht auf Systemebene tun, wo es ggf. zu Konflikten mit anderen Projekten kommen könnte.\\
+            Um alle Abhängigkeiten einzusehen, pipenv \cite{pipenv} und das coaching\_bot\/Pipfile entsprechend der Dokumentation nutzen, um alle automatisch zu installieren.
+
+        \subsection{Konstanten und Schlüssel}
+            Für die Umsysteme des Coaching Bots (Telegram-API, Google-Calendar-API und Mail-Server) sind Zugangsdaten erforderlich. Diese sind im Repository \cite{repo} aus Sicherheitsgründen nicht versioniert. Anpassbare Vorlagen sind inkl. Anleitung unter \verb|_constants|\footnote{\url{https://github.com/mwel/coaching_bot/tree/main/bot/constants_}} zu finden.
+
 

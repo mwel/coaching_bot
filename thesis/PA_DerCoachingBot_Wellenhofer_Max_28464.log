@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2021.1.31)  26 MAR 2022 18:51
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2021.1.31)  26 MAR 2022 22:04
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -600,7 +600,7 @@ bibgerm.sty: babel.sty detected
 
 
 pdfTeX warning: pdflatex (file ./images/logo-fb-informatik.pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<images/logo-fb-informatik.pdf, id=458, 811.81792pt x 157.11497pt>
+<images/logo-fb-informatik.pdf, id=438, 811.81792pt x 157.11497pt>
 File: images/logo-fb-informatik.pdf Graphic file (type pdf)
 <use images/logo-fb-informatik.pdf>
 Package pdftex.def Info: images/logo-fb-informatik.pdf  used on input line 92.
@@ -626,29 +626,29 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ] (./PA_DerCoachingBot_Wellenhofer_Max_28464.toc [4
 
 
-] [5] [6])
+] [5])
 \tf@toc=\write5
 \openout5 = `PA_DerCoachingBot_Wellenhofer_Max_28464.toc'.
 
- [7] (./PA_DerCoachingBot_Wellenhofer_Max_28464.lof)
+ [6] (./PA_DerCoachingBot_Wellenhofer_Max_28464.lof)
 \tf@lof=\write6
 \openout6 = `PA_DerCoachingBot_Wellenhofer_Max_28464.lof'.
 
- [8
+ [7
 
 
 ] (./PA_DerCoachingBot_Wellenhofer_Max_28464.lot)
 \tf@lot=\write7
 \openout7 = `PA_DerCoachingBot_Wellenhofer_Max_28464.lot'.
 
- [9
+ [8
 
 
 ] (./PA_DerCoachingBot_Wellenhofer_Max_28464.lol)
 \tf@lol=\write8
 \openout8 = `PA_DerCoachingBot_Wellenhofer_Max_28464.lol'.
 
- [10
+ [9
 
 
 ] (./chapters/01_EinleitungProblemstellung.tex
@@ -714,7 +714,11 @@ Overfull \hbox (2.57947pt too wide) in paragraph at lines 71--72
 \OT1/cmr/m/n/12 Zur per-sis-ten-ten Spei-che-rung von Nut-zer-da-ten wird ei-ne SQ-Li-te Da-ten-bank [[]]
  []
 
-[9] [10]
+[9]
+
+LaTeX Warning: Reference `calendar_manager.py' on page 10 undefined on input line 90.
+
+[10]
 Overfull \hbox (11.9488pt too wide) in paragraph at lines 118--120
 \OT1/cmr/m/n/12 Der ge-sam-te Quell-co-de in-klu-si-ve al-ler Abh[]angigkeiten fin-det sich in ei-nem []offentlichen
  []
@@ -735,7 +739,7 @@ Kapitel 4.
 
 
 ]
-<images/220320_PA28464_Architecture.png, id=956, 981.6675pt x 972.63374pt>
+<images/220320_PA28464_Architecture.png, id=931, 981.6675pt x 972.63374pt>
 File: images/220320_PA28464_Architecture.png Graphic file (type png)
 <use images/220320_PA28464_Architecture.png>
 Package pdftex.def Info: images/220320_PA28464_Architecture.png  used on input line 29.
@@ -766,12 +770,15 @@ Underfull \hbox (badness 1132) in paragraph at lines 55--55
  []
 
 
+LaTeX Warning: Reference `bio.py' on page 15 undefined on input line 55.
+
+
 Overfull \hbox (48.31166pt too wide) in paragraph at lines 59--75
  [][] 
  []
 
 [15 <./images/220320_PA28464_Architecture.png>]
-<images/220326_PA28464_State-Machine.png, id=989, 1001.7425pt x 1182.4175pt>
+<images/220326_PA28464_State-Machine.png, id=962, 1001.7425pt x 1182.4175pt>
 File: images/220326_PA28464_State-Machine.png Graphic file (type png)
 <use images/220326_PA28464_State-Machine.png>
 Package pdftex.def Info: images/220326_PA28464_State-Machine.png  used on input line 81.
@@ -781,263 +788,264 @@ Kapitel 5.
 [19
 
 
-]
-
-LaTeX Warning: Reference `Zustands-Funktionen' on page 20 undefined on input line 31.
-
-[20] [21] [22]
-<images/220325_PA28464_DataBaseModel.png, id=1036, 241.90375pt x 532.99126pt>
+] [20] [21] [22]
+<images/220325_PA28464_DataBaseModel.png, id=1015, 241.90375pt x 532.99126pt>
 File: images/220325_PA28464_DataBaseModel.png Graphic file (type png)
 <use images/220325_PA28464_DataBaseModel.png>
-Package pdftex.def Info: images/220325_PA28464_DataBaseModel.png  used on input line 89.
+Package pdftex.def Info: images/220325_PA28464_DataBaseModel.png  used on input line 90.
 (pdftex.def)             Requested size: 209.12683pt x 460.79526pt.
- [23] [24 <./images/220325_PA28464_DataBaseModel.png>]) (./chapters/06_Implementierung.tex [25] [26]
+ [23] [24] [25 <./images/220325_PA28464_DataBaseModel.png>]) (./chapters/06_Implementierung.tex [26]
 Kapitel 6.
-
-Overfull \hbox (3.43718pt too wide) in paragraph at lines 12--13
-\OT1/cmr/m/n/12 Entsprechende Vor-la-gen sind in-kl. An-lei-tung f[]ur ei-ne An-pas-sung un-ter [][]\OT1/cmtt/m/n/12 _constants[][][]
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 16--18
-
- []
-
 [27
 
 
 ]
-LaTeX Font Info:    Trying to load font information for TS1+cmtt on input line 35.
+LaTeX Font Info:    Trying to load font information for TS1+cmtt on input line 42.
  (/usr/local/texlive/2020/texmf-dist/tex/latex/base/ts1cmtt.fd
 File: ts1cmtt.fd 2019/12/16 v2.5j Standard LaTeX font definitions
-) [28]
-Underfull \hbox (badness 10000) in paragraph at lines 109--112
+)
+Overfull \hbox (9.19344pt too wide) in paragraph at lines 76--77
+[][]\OT1/cmr/m/n/12 Uber die fol-gen-den Be-feh-le, wer-den die ent-spre-chen-den, gleich-na-mi-gen Command-
+ []
+
+[28]
+Underfull \hbox (badness 10000) in paragraph at lines 86--87
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 86--87
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 98--101
 
  []
 
 [29]
-Overfull \hbox (123.64424pt too wide) in paragraph at lines 152--153
+Overfull \hbox (123.64424pt too wide) in paragraph at lines 141--142
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
-[30]
-Overfull \hbox (138.94458pt too wide) in paragraph at lines 186--187
+
+Overfull \hbox (138.94458pt too wide) in paragraph at lines 175--176
 [][][][][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
-
-Overfull \hbox (11.44176pt too wide) in paragraph at lines 193--194
+[30]
+Overfull \hbox (11.44176pt too wide) in paragraph at lines 182--183
 [][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 219--224
+Underfull \hbox (badness 10000) in paragraph at lines 208--213
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 219--224
+Underfull \hbox (badness 10000) in paragraph at lines 208--213
 
  []
 
 [31]
-Underfull \hbox (badness 10000) in paragraph at lines 230--237
+Underfull \hbox (badness 10000) in paragraph at lines 219--226
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 230--237
+Underfull \hbox (badness 10000) in paragraph at lines 219--226
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 230--237
+Underfull \hbox (badness 10000) in paragraph at lines 219--226
 
  []
 
 [32] [33] [34] [35]
-Overfull \hbox (6.34164pt too wide) in paragraph at lines 390--391
+Overfull \hbox (6.34164pt too wide) in paragraph at lines 379--380
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
-[36]
-Overfull \hbox (11.44176pt too wide) in paragraph at lines 427--428
+
+Overfull \hbox (11.44176pt too wide) in paragraph at lines 416--417
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
 
-Overfull \hbox (67.543pt too wide) in paragraph at lines 428--429
+Overfull \hbox (67.543pt too wide) in paragraph at lines 417--418
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 445--448
+[36]
+Underfull \hbox (badness 10000) in paragraph at lines 434--437
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 451--452
+Underfull \hbox (badness 10000) in paragraph at lines 440--441
 
  []
 
 [37]
-Underfull \hbox (badness 10000) in paragraph at lines 500--501
+Underfull \hbox (badness 10000) in paragraph at lines 489--490
 
  []
 
 
-Overfull \hbox (2.54465pt too wide) in paragraph at lines 502--506
+Overfull \hbox (2.54465pt too wide) in paragraph at lines 491--495
 []\OT1/cmr/m/n/12 Erforderliche Zu-gangs-da-ten wer-den au-^^Yer-halb der Me-tho-de [][]\OT1/cmtt/m/n/12 confirmation_mail
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 502--506
+Underfull \hbox (badness 10000) in paragraph at lines 491--495
 
  []
 
-[38]
-Underfull \hbox (badness 10000) in paragraph at lines 512--516
+
+Underfull \hbox (badness 10000) in paragraph at lines 501--505
 
  []
 
-[39]
-Overfull \hbox (8.84714pt too wide) in paragraph at lines 577--582
+[38] [39]
+Overfull \hbox (8.84714pt too wide) in paragraph at lines 566--571
 \OT1/cmr/m/n/12 neh-men, ein Kalender-Event zu bau-en und die-ses an die Me-tho-de [][]\OT1/cmtt/m/n/12 make_appointment
  []
 
 
-Overfull \hbox (38.3692pt too wide) in paragraph at lines 584--585
+Overfull \hbox (38.3692pt too wide) in paragraph at lines 573--574
 [][]\OT1/cmr/m/n/12 Uberspringt der Nut-zer die-sen letz-ten Schritt, gibt ihm die Me-tho-de [][]\OT1/cmtt/m/n/12 skip_appointment
  []
 
 [40]
-Underfull \hbox (badness 10000) in paragraph at lines 619--624
+Underfull \hbox (badness 10000) in paragraph at lines 608--613
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 619--624
+Underfull \hbox (badness 10000) in paragraph at lines 608--613
 
  []
 
 [41] [42]
-Overfull \hbox (42.04243pt too wide) in paragraph at lines 684--686
+Overfull \hbox (42.04243pt too wide) in paragraph at lines 673--675
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
-[43]
-Overfull \hbox (6.34164pt too wide) in paragraph at lines 705--706
+
+Overfull \hbox (6.34164pt too wide) in paragraph at lines 694--695
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
 
-Overfull \hbox (31.84221pt too wide) in paragraph at lines 706--707
+Overfull \hbox (31.84221pt too wide) in paragraph at lines 695--696
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
-
-Overfull \hbox (16.54187pt too wide) in paragraph at lines 715--717
+[43]
+Overfull \hbox (16.54187pt too wide) in paragraph at lines 704--706
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
 [44]
-Underfull \hbox (badness 10000) in paragraph at lines 750--759
+Underfull \hbox (badness 10000) in paragraph at lines 739--748
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 750--759
+Underfull \hbox (badness 10000) in paragraph at lines 739--748
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 750--759
+Underfull \hbox (badness 10000) in paragraph at lines 739--748
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 750--759
+Underfull \hbox (badness 10000) in paragraph at lines 739--748
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 750--759
+Underfull \hbox (badness 10000) in paragraph at lines 739--748
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 760--763
+Underfull \hbox (badness 10000) in paragraph at lines 749--752
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 760--763
+Underfull \hbox (badness 10000) in paragraph at lines 749--752
 
  []
 
 [45]
-Underfull \hbox (badness 10000) in paragraph at lines 813--822
+Underfull \hbox (badness 10000) in paragraph at lines 802--811
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 813--822
+Underfull \hbox (badness 10000) in paragraph at lines 802--811
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 813--822
+Underfull \hbox (badness 10000) in paragraph at lines 802--811
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 813--822
+Underfull \hbox (badness 10000) in paragraph at lines 802--811
 
  []
 
 [46]
-Overfull \hbox (52.24266pt too wide) in paragraph at lines 836--838
+Overfull \hbox (52.24266pt too wide) in paragraph at lines 825--827
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
 
-Overfull \hbox (16.54187pt too wide) in paragraph at lines 847--848
+Overfull \hbox (16.54187pt too wide) in paragraph at lines 836--837
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
 
-Overfull \hbox (67.543pt too wide) in paragraph at lines 848--850
+Overfull \hbox (67.543pt too wide) in paragraph at lines 837--839
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
 
-Overfull \hbox (16.54187pt too wide) in paragraph at lines 853--854
+Overfull \hbox (16.54187pt too wide) in paragraph at lines 842--843
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
 [47]
-Overfull \hbox (57.34277pt too wide) in paragraph at lines 892--893
+Overfull \hbox (57.34277pt too wide) in paragraph at lines 881--882
 [][][][][][][][][][][][][][][][][][][][][][] 
  []
 
 
-Overfull \hbox (6.34164pt too wide) in paragraph at lines 893--895
+Overfull \hbox (6.34164pt too wide) in paragraph at lines 882--884
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
-[48]
-Underfull \hbox (badness 10000) in paragraph at lines 915--916
+
+Underfull \hbox (badness 10000) in paragraph at lines 904--905
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 915--916
+Underfull \hbox (badness 10000) in paragraph at lines 904--905
 
  []
 
-) (./chapters/07_Beispiele.tex [49]
+) (./chapters/07_Beispiele.tex [48] [49]
 Kapitel 7.
-<images/coaching_bot_dummy_screenshot.jpeg, id=1772, 1174.3875pt x 2420.04124pt>
+<images/coaching_bot_dummy_screenshot.jpeg, id=1739, 1174.3875pt x 2420.04124pt>
 File: images/coaching_bot_dummy_screenshot.jpeg Graphic file (type jpg)
 <use images/coaching_bot_dummy_screenshot.jpeg>
 Package pdftex.def Info: images/coaching_bot_dummy_screenshot.jpeg  used on input line 10.
@@ -1223,7 +1231,7 @@ Package atveryend Info: Empty hook `AfterLastShipout' on input line 131.
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 131.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 131.
 Package rerunfilecheck Info: File `PA_DerCoachingBot_Wellenhofer_Max_28464.out' has not changed.
-(rerunfilecheck)             Checksum: 3C9230064A928470EEA372A9F41B563B;7719.
+(rerunfilecheck)             Checksum: 77ED3C9DBA931C57EFA876DC1E1702B1;7328.
 
 
 LaTeX Warning: There were undefined references.
@@ -1234,18 +1242,18 @@ LaTeX Warning: There were multiply-defined labels.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 131.
  ) 
 Here is how much of TeX's memory you used:
- 13845 strings out of 480608
- 208290 string characters out of 5903630
- 717887 words of memory out of 5000000
- 28489 multiletter control sequences out of 15000+600000
+ 13860 strings out of 480608
+ 209179 string characters out of 5903630
+ 723716 words of memory out of 5000000
+ 28503 multiletter control sequences out of 15000+600000
  542477 words of font info for 63 fonts, out of 8000000 for 9000
  1146 hyphenation exceptions out of 8191
- 41i,10n,44p,2414b,2097s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 41i,10n,44p,2414b,2159s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2020/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}</usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt8.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt9.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/cm-super/sftt0800.pfb>
-Output written on PA_DerCoachingBot_Wellenhofer_Max_28464.pdf (76 pages, 1629913 bytes).
+Output written on PA_DerCoachingBot_Wellenhofer_Max_28464.pdf (75 pages, 1631653 bytes).
 PDF statistics:
- 2103 PDF objects out of 2487 (max. 8388607)
- 1982 compressed objects within 20 object streams
- 947 named destinations out of 1000 (max. 500000)
- 930 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 2078 PDF objects out of 2487 (max. 8388607)
+ 1958 compressed objects within 20 object streams
+ 948 named destinations out of 1000 (max. 500000)
+ 890 words of extra memory for PDF output out of 10000 (max. 10000000)
 
