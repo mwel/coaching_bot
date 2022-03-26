@@ -29,15 +29,12 @@
 \contentsline {subsection}{\numberline {3.3.2}Telegram API Extension}{8}{subsection.3.3.2}%
 \contentsline {section}{\numberline {3.4}ConversationBot}{8}{section.3.4}%
 \contentsline {section}{\numberline {3.5}SQLite}{9}{section.3.5}%
-\contentsline {section}{\numberline {3.6}SQLite3 API}{10}{section.3.6}%
-\contentsline {section}{\numberline {3.7}Mailing}{10}{section.3.7}%
-\contentsline {section}{\numberline {3.8}HMTL}{10}{section.3.8}%
-\contentsline {section}{\numberline {3.9}CSS}{10}{section.3.9}%
-\contentsline {section}{\numberline {3.10}Flask}{10}{section.3.10}%
-\contentsline {section}{\numberline {3.11}Google Calendar API}{10}{section.3.11}%
-\contentsline {subsection}{\numberline {3.11.1}Scope}{11}{subsection.3.11.1}%
-\contentsline {subsection}{\numberline {3.11.2}Zugangsdaten}{11}{subsection.3.11.2}%
-\contentsline {section}{\numberline {3.12}TheCoachingBot}{12}{section.3.12}%
+\contentsline {section}{\numberline {3.6}Mailing-Service und Mail-Server}{10}{section.3.6}%
+\contentsline {section}{\numberline {3.7}Web-GUI}{10}{section.3.7}%
+\contentsline {section}{\numberline {3.8}Google Calendar API}{10}{section.3.8}%
+\contentsline {subsection}{\numberline {3.8.1}Scope}{11}{subsection.3.8.1}%
+\contentsline {subsection}{\numberline {3.8.2}Zugangsdaten}{11}{subsection.3.8.2}%
+\contentsline {section}{\numberline {3.9}TheCoachingBot}{12}{section.3.9}%
 \contentsline {chapter}{\numberline {4}Konzept}{13}{chapter.4}%
 \contentsline {section}{\numberline {4.1}User Journey}{13}{section.4.1}%
 \contentsline {section}{\numberline {4.2}Technisches Grundkonzept}{14}{section.4.2}%

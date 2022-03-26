@@ -38,10 +38,6 @@
   https://www.messengerpeople.com/de/weltweite-nutzer-statistik-fuer-whatsapp-wechat-und-andere-messenger/,
   2022.
 
-\bibitem[Pal22]{flask}
-{\sc Pallets}: {\em {Flask Documentation}}.
-\newblock https://flask.palletsprojects.com/en/2.0.x/, 2022.
-
 \bibitem[{Pyt}]{sqlite3API}
 {\sc {Python Software Foundation}}: {\em {sqlite3 — DB-API 2.0 interface for
   SQLite databases}}.
@@ -101,10 +97,6 @@
 {\sc Toledo, Leandro}: {\em telegram.ext package}.
 \newblock
   https://python-telegram-bot.readthedocs.io/en/stable/telegram.ext.html, 2021.
-
-\bibitem[W3C19]{HTML}
-{\sc W3CSchools}: {\em {HTML Documentation}}.
-\newblock https://www.w3schools.com/html/html{\_}intro.asp, 2019.
 
 \bibitem[Wel21]{repo}
 {\sc Wellenhofer, Max}: {\em {The Coaching Bot Repository}}.

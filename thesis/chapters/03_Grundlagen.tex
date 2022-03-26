@@ -68,60 +68,54 @@ Die folgenden Sprachen und Systeme und deren grundsätzliches Verständnis diene
 
 
     \section{SQLite}
-        Zur persistenten Speicherung von Nutzerdaten wird eine SQLite Datenbank \cite{sqlite} genutzt. SQLite ist das weltweit am weitesten verbreitete Datenbank-System und bietet mitunter die einfachste und dennoch hinreichend verlässliche und robuste Möglichkeit, Daten über die Lebensdauer des Bots hinaus in einem Datenbankformat zu speichern. SQLite ist vor Allem geeignet für lokal betriebene Applikationen, die realtiv wenige, gleichzeitige Datenbankoperationen erwarten. Daneben ist das System kostenlos und quasi wartungsfrei. In Abschnitt \ref{Realisierung Datenbank} Datenbank wird näher auf das Thema eingegangen.
+        Zur persistenten Speicherung von Nutzerdaten wird eine SQLite Datenbank \cite{sqlite} genutzt. SQLite ist das weltweit am weitesten verbreitete Datenbank-System und bietet mitunter die einfachste und dennoch hinreichend verlässliche und robuste Möglichkeit, Daten über die Lebensdauer des Bots hinaus in einem Datenbankformat zu speichern. SQLite ist vor Allem geeignet für lokal betriebene Applikationen, die realtiv wenige, gleichzeitige Datenbankoperationen erwarten und nicht verteilt sind oder große Enterprise-Grade-Applikationen bedienen müssen. Das System ist kostenlos, wartungsfrei, quelloffen und leicht über die die Bibliothek sqlite3 \cite{sqlite3API} mit dem Python-basierten CoachingBot zu verknüpfen. Der Database-Connector bietet basale CRUD-Operationen, die durch eine einfache Implementierung angesprochen und ohne Weiteres genutzt werden können. In Abschnitt \ref{Realisierung Datenbank} Datenbank wird näher auf die Datenbank-Instanz eingegangen. 
 
 
-    \section{SQLite3 API}
-        Als Schnittstelle zwischen dem Python-basierten Backend und der SQLite-Datenbank nutzt die Applikation den sqlite3 Database-Connector. \cite{sqlite3API} Er bietet basale CRUD-Operationen.
+    \section{Mailing-Service und Mail-Server}
+        Die Applikation versendet als Bestätigung der Anmeldung eine E-Mail von einem Mail-Server. Dazu wird ein privat gehosteter Mail-Server genutzt. Der Mailing-Service funktioniert mit jedem beliebigen Mail-Server. Zugangsdaten dazu können in den \verb|_constants| angepasst werden. 
 
 
-    \section{Mailing}
-        Die Applikation versendet als Zusammenfassung aller eingereichten Informationen und als Bestätigung der Anmeldung eine E-Mail von einem Mail-Server. 
+    \section{Web-GUI}
+        Um dem Coach eine Übersicht über Anmeldungen und Nutzerinformationen bereitzustellen, stellt die Applikation eine Web-GUI via HTML, CSS und Flask bereit. Die GUI kann angepasst werden. Dies ist aber weder für die Verwendung des Bots noch der Übersicht erforderlich. Sollte eine Anpassung an diesem Modul gewünscht sein, sind Grundkenntnisse der drei folgenden Elemente empfohlen: 
+        \begin{itemize}
+            \item HTML\footnote{\url{https://www.w3schools.com/html/default.asp}} - Mark-Up der im Webbrowser auszugebenden Inhalte
+            \item CSS\footnote{\url{https://www.w3schools.com/css/default.asp}} - optische Aufbereitung der Web-GUI via CSS-Stylesheet
+            \item Flask\footnote{\url{https://flask.palletsprojects.com/en/2.0.x/\#user-s-guide}} - Audbau eines lokalen Web-Servers, um HTML und CSS an den Browser zu übergeben
+        \end{itemize}    
 
-
-    \section{HMTL}
-        HTML bietet uns die Möglichkeit die grafische Oberfläche für den Coach in einem Standard Webbrowser auszugeben. \cite{HTML}
-
-
-    \section{CSS}
-        Zur Aufbereitung der Web-GUI wird CSS genutzt.
-
-
-    \section{Flask}
-        Die HTML-GUI wird via Flask \cite{flask} an einen lokalen Web-Server übermittelt und kann so einfach mittels Python in gängigen Browsern präsentiert werden.
-
-
+        
     \section{Google Calendar API} \label{Google Calendar API}
         Die Applikation bindet die Google Calendar API \cite{googleCalAPI} an, um es dem User zu ermöglichen, einen Termin mit dem Anbieter zu vereinbaren und diesen später auch wieder in der eigegen Kalender-Applikation abzulehnen.
         Um die API nutzen zu können, bedarf es der Installation der API (via pipenv) und der Einrichtung der quickstart.py. Sie stellt den Rahmen für die Authentifizierung gegenüber dem Google Open\-Authorization (oauth2) Protokoll und bindet erste Bibliotheken ein.\footnote{Eine genaue Dokumentation zu Aufbau und Nutzung der quickstart.py findet sich hier: \url{https://developers.google.com/calendar/api/quickstart/python}}
         Für den CoachingBot ist die quickstart.py bereits konfiguriert und wurde durch einige Erweiterungen zum Calendar Manager weiterentwickelt (siehe \ref{calendar_manager.py} calendar\_manager.py). Zur Nutzung durch Dritte bedarf es dabei individueller Schlüssel sowie Zugangsberechtigungen, durch deren Setup nun geführt wird. Vorgängig ist die Dokumentation zur Google Cloud Console zu sichten. 
         \footnote{\url{https://console.cloud.google.com/}}
         
-            \subsection{Scope}
-                Die API kann auf verschiedene sog. \glq Scope\grq (z.dt. Umfang oder Reichweite) eingestellt werden. So wird festgelegt, welche Rechte dem Kalender Manager gegenüber der API zur Verfügung stehen und welche Methoden, die die API bietet, genutzt werden können. So wäre bspw. der Scope \glqq.../readonly\grqq verfügbar, über den ein Kalender nur abgefragt, aber keine Termine erstellt werden können. Der Bot nutzt den umfangreichsten Scope.\footnote{\url{https://www.googleapis.com/auth/calendar}}. Über ihn stehen alle Operationen der API zur Verfügung.
-
-            \subsection{Zugangsdaten}
-                Um sich via OAuth zu authentifizieren, bedarf es folgender Schritte in der Google Cloud Console. Obwohl diese Schritte bereits durchgeführt wurden, so sind diese bei einer Fremdimplementierung dennoch erneut erforderlich - damit die erforderlichen Schlüssel erstellt werden. 
-
-                \begin{enumerate}
-                    \item Erstellung eines Google Accounts
-                    \item Registrierung dieses Accounts als Google Developer Account
-                    \item Anlegen eines Projekts in diesem Google Developer Account
-                    \item Deklaration des Projekts als Testprojekt
-                    \item Eintragen eines Testers (das Gleiche oder ein anderes Google-Konto kann verwendet werden.)
-                    \item Generierung eines Schlüsselpaares zur Authentifizierung
-                    \item Verifizierung der eigenen Website\footnote{\url{https://www.google.com/webmasters/verification/home?hl=en}}
-                    \item Freigabe der Redirect-URI für dieses Schlüsselpaar
-                    \item Generierung und Herunterladen der Zugangsdaten (credentials.json)
-                    \item Installation der quickstart.py im eigenen Repository
-                    \item Anpassung der quickstart.py (Angabe des Pfads zum credentials.json)
-                    \item Ausführen der quickstart.py zur Generierung des lokalen Partner\-Tokens für die Authentifizierung
-                    \item Anpassung der quickstart.py (Angabe des Pfads zum Sicherheits\-Token)
-                    \item Erneutes Ausführen der quickstart.py, um zu testen, ob die ersten 10 Events des angegebenen Kalenders abgefragt werden konnten.                    
-                \end{enumerate}
-
-                Bei Erfolg kann die quickstart.py als Testskript bestehen bleiben, wird aber für den Bot nicht mehr benötigt.
-
-
+        \subsection{Scope}
+            Die API kann auf verschiedene sog. \glq Scope\grq (z.dt. Umfang oder Reichweite) eingestellt werden. So wird festgelegt, welche Rechte dem Kalender Manager gegenüber der API zur Verfügung stehen und welche Methoden, die die API bietet, genutzt werden können. So wäre bspw. der Scope \glqq.../readonly\grqq verfügbar, über den ein Kalender nur abgefragt, aber keine Termine erstellt werden können. Der Bot nutzt den umfangreichsten Scope.\footnote{\url{https://www.googleapis.com/auth/calendar}}. Über ihn stehen alle Operationen der API zur Verfügung.
+        
+        \subsection{Zugangsdaten}
+            Um sich via OAuth zu authentifizieren, bedarf es folgender Schritte in der Google Cloud Console. Obwohl diese Schritte bereits durchgeführt wurden, so sind diese bei einer Fremdimplementierung dennoch erneut erforderlich - damit die erforderlichen Schlüssel erstellt werden. 
+        
+            \begin{enumerate}
+                \item Erstellung eines Google Accounts
+                \item Registrierung dieses Accounts als Google Developer Account
+                \item Anlegen eines Projekts in diesem Google Developer Account
+                \item Deklaration des Projekts als Testprojekt
+                \item Eintragen eines Testers (das Gleiche oder ein anderes Google-Konto kann verwendet werden.)
+                \item Generierung eines Schlüsselpaares zur Authentifizierung
+                \item Verifizierung der eigenen Website\footnote{\url{https://www.google.com/webmasters/verification/home?hl=en}}
+                \item Freigabe der Redirect-URI für dieses Schlüsselpaar
+                \item Generierung und Herunterladen der Zugangsdaten (credentials.json)
+                \item Installation der quickstart.py im eigenen Repository
+                \item Anpassung der quickstart.py (Angabe des Pfads zum credentials.json)
+                \item Ausführen der quickstart.py zur Generierung des lokalen Partner\-Tokens für die Authentifizierung
+                \item Anpassung der quickstart.py (Angabe des Pfads zum Sicherheits\-Token)
+                \item Erneutes Ausführen der quickstart.py, um zu testen, ob die ersten 10 Events des angegebenen Kalenders abgefragt werden konnten.                    
+            \end{enumerate}
+        
+            Bei Erfolg kann die quickstart.py als Testskript bestehen bleiben, wird aber für den Bot nicht mehr benötigt.
+        
     \section{TheCoachingBot}
-        Der gesamte Source-Code inklusive aller Abhängigkeiten findet sich in einem öffentlichen GitHub-Repository.\footnote{\url{https://github.com/mwel/coaching_bot}}
+        Der gesamte Quellcode inklusive aller Abhängigkeiten findet sich in einem öffentlichen GitHub-Repository.\footnote{\url{https://github.com/mwel/coaching_bot}}
+        \\ \\
+        
