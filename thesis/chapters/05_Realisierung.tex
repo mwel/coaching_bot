@@ -1,15 +1,50 @@
 \label{Realisierung}
 \chapter{Realisierung}
 
+    \section{Realisierung User Journey}
+
+    Die in Abschnitt \ref{User Journey} beschriebene User Journey soll folgendermaßen umgesetzt werden:
+
+    \begin{enumerate}
+        \item Sobald der User eine Verbindung zum Bot herstellt, wird seine Telegram-ID geloggt.
+        \item Da Nutzer derlei Angaben zeitlich sehr volatil und nicht am Stück vornehmen, muss der Nutzer jederzeit die Möglichkeit haben, den Chat zu verlassen und zu ihm zurückkehren\footnote{Daher die Erfordernis der Bindung aller Informationen an die User-ID} und die Kommunikation mit dem Bot wiederaufzunehmen.
+        \item Informationen, die der User eingibt, werden mit der Telegram-ID des Users verknüpft und i.e. via einem SQL-python-connector in eine ausgelagerte DB (i.e. mySQL oder SQLight) geschrieben.
+        \item Damit getrackt werden kann, welche Fragen der User schon beantwortet hat, muss es eine Funktion geben, die nach jeder Benutzereingabe abfragt, welche Fragen schon beantwortet sind. Dies kann entweder über einen Cache passieren oder über eine DB-Abfrage. Via Ausschluss bekommt man dann die noch offenen Fragen und kann diese an einer passenden Stelle in der Journey oder auf Befehl an den User zurückspielen.
+        \item Genau dann, wenn diese Liste ausgegeben wird, soll der User wählen können, mit welcher Fragen er fortfahren möchte. Das könnte über ein custom Keyboard passieren.
+        \item Damit das alles funktioniert muss der Bot immer wissen, mit welchem User er gerade kommuniziert und welche Frage gerade beantwortet wird. (evtl. Sessions - tbd)
+        \item Sowohl Coach als auch Coachee sollen zu jeder Zeit (ab Vollendung von Stufe 1) die Möglichkeit haben, eingegebene Daten einzusehen.
+        \begin{enumerate}
+            \item Telegram-ID
+            \item Gender
+            \item First Name
+            \item Last Name
+            \item E-Mail-Adresse
+            \item Telefonnummer
+            \item Picture
+            \item Biography
+            \item Problems
+            \item Desired Position
+            \item Initial Questions
+            \item evtl. Weitere
+        \end{enumerate} 
+        \item Der Coachee kann seine Daten vom Bot abfragen. >> /summary Diese sollen nach Möglichkeit etwas aufbereitet werden. (tbd)
+        \item Für den Coach soll eine Übersicht über alle Coachees in Form einer Web-GUI gebaut werden, die diese Informationen unkompliziert darstellt.
+        \item Sobald alle Informationen eingereicht sind, soll zur Terminvereinbarung ein Datepicker eingebunden und angezeigt werden, der im Hintergrund einen google calendar managed. Datum und Zeit können ausgewählt werden. Die Standard-Zeit beträgt 1h und es können nur Termine ausgewählt werden, die noch nicht belegt sind. (Auf die Auswahl der Zeitzone wird hier verzichtet, da das Coaching-Angebot aktuell nur in CET angeboten wird.)
+        \item Der Benutzer bekommt eine schriftliche Bestätigung in Form einer E-Mail mit seinen Daten und dem vereinbarten Termin.
+        \item Der Coach bekommt eine E-Mail mit den Infos zum neuen Bewerber und einem Link zur Übersicht.
+        \item Der Bot verabschiedet sich. (Ende der Konversation)
+
+    \end{enumerate}
+
+
 
     \section{Telegram Bot Framwork}
 
-        \subsection{Generierung Telegram Bot}
+        \subsection{Generierung Telegram Bot} \label{botfather}
 
-            Als ersten Schritt zur Erschaffung eines Telegram-Bots wird der Bot-Father (selbst ein Telegram-Bot \cite{coreTelegram}) konsultiert.  Er erstellt das Framework, registriert den Bot und gibt ein API-Token zurück, das verwendet werden kann, um sich gegenüber der Telegram-Bot-API als Entwickler zu identifizieren. \cite{telegramAPI}
+            Als ersten Schritt zur Erschaffung eines Telegram-Bots wird der Bot-Father\footnote{\url{https://core.telegram.org/bots\#6-botfather}} konsultiert.  Er erstellt das Framework, registriert den Bot und gibt ein API-Token zurück, das verwendet werden kann, um sich gegenüber der Telegram-Bot-API als Entwickler zu identifizieren. \cite{telegramAPI} Das Token dient als einzige Identifikationsmethode. Jeder, der in Besitz des Schlüssel ist, kann den zugehörigen Bot theoretisch nutzen und bearbeiten. Das Token ist also an einem sicheren Ort aufzubewahren und nicht in einer öffentlichen Versionierung freizugeben.
 
-
-        \section{Vanilla Bot Implementierung}
+        \subsection{Vanilla Bot Implementierung}
             Als Basis (boiler plate) für den Coaching Bot (fortan \glqq Bot\grqq) nutzen wir die breit in der Community abgestütze Implementierung \textbf{Conversation Bot} \cite{conversationBot}. Sie stellt uns die basale Anbindung an die State Machine zur Verfügung und ist einfach genug, um als Einstieg in einen vordefinierten Bot zu fungieren. Im Gegensatz dazu ist der \glqq Nested Converation Bot\grqq  schon zu umfangreich und zu mächtig für unsere Zwecke.
 
             Die Kommunikationslogik des Bots basiert auf einer State Machine. Die Zustände, in denen der Bot sich befinden kann, sind vordefiniert und immer mit einer Aktion und einer Reaktion verbunden. Aktionen werden meist von Seiten des Benutzers durch eine Eingabe oder einen Befehl ausgelöst. Reaktionen sind in Funktionen vordefiniert. Deren Umfang wird im Folgenden funktional und in \ref{Implementierung} Implementierung technisch beschrieben.
@@ -70,7 +105,7 @@
         Die E-Mail, die am Ende des Konversationsflusses ausgegeben wird, wird separat aus verschiedenen Bausteinen zusammengesetzt. Dafür kommen Informationsabfragen gegen die Datenbank mit der Ansprache eines Mail-Servers zusammen.
         
     
-    \section{Datenbank}
+    \section{Datenbank} \label{Realisierung Datenbank}
         Fast alle Informationen über den Nutzer werden in einer Datenbank gespeichert. Ausgenommen ist nur das Bild, das der Nutzer hochlädt. So können einzelne Werte jederzeit verwendet werden, um Nutzer-spezifische Reaktionen zu gestalten.
         Dem Nutzer stehen die meisten Datenbank-Operationen implizit und wenige explizit zur Verfügung. Daten werden implizit gespeichert und abgerufen. Explizit können Daten gelöscht werden. Zur Realisierung wird eine SLQlite Datenbank genutzt. Diese einfache Datenbank ist für den Zweck des Coaching-Bots vollkommen ausreichend. Weder ist mit immensen Nutzerzahlen, noch mit vielen gleichzeitigen Operationen oder einer riesigen Datemenge zu rechen, was für mächtigere Lösungen sprechen würde.
         Da keine komplexen berechnungen auf den Daten ausgeführt werden, sondern nur basale CRUD-Operaionen geplant sind, gibt es nur eine Tabelle (siehe Abb. \ref{fig: data base model}), in der alle Nutzerdaten gespeichert sind.

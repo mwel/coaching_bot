@@ -1,5 +1,11 @@
 \begin{thebibliography}{{Goo}22b}
 
+\bibitem[BJ22]{telegram_ext_intro}
+{\sc Bibo-Joshi}: {\em {Extensions – Your first Bot}}.
+\newblock
+  https://github.com/python-telegram-bot/python-telegram-bot/wiki/Extensions-–-Your-first-Bot,
+  2022.
+
 \bibitem[eaK02]{date_time}
 {\sc Klyne~et.~al.}: {\em {Date and Time on the Internet: Timestamps}}.
 \newblock 2002.
@@ -64,13 +70,17 @@
 \newblock https://docs.python.org/3.8/library/smtplib.html{\#}module-smtplib,
   2021.
 
-\bibitem[{Tel}21a]{coreTelegram}
-{\sc {Telegram Messenger Inc.}}: {\em {Bots: An introduction for developers}}.
-\newblock https://core.telegram.org/bots, 2021.
+\bibitem[{Ref}21]{python}
+{\sc {Refsnes Data}}: {\em {Python Introduction}}.
+\newblock https://www.w3schools.com/python/python{\_}intro.asp, 2021.
 
-\bibitem[{Tel}21b]{telegram}
+\bibitem[{Tel}21a]{telegram}
 {\sc {Telegram Messenger Inc.}}: {\em {Telegram App}}.
 \newblock https://telegram.org/, 2021.
+
+\bibitem[{Tel}21b]{core_telegram_api}
+{\sc {Telegram Messenger Inc.}}: {\em {Telegram Bot API}}.
+\newblock https://core.telegram.org/bots/api, 2021.
 
 \bibitem[{The}21]{sqlite}
 {\sc {The SQLite Consortium}}: {\em {SQLite}}.

@@ -1,7 +1,7 @@
 \label{Verwandte Arbeiten}
 \chapter{Verwandte Arbeiten}
 
-    Ziel der Recherche war es, einen kleinen, selbst wartbaren, quelloffenen Chatbot zu finden, der von angehenden Coaches mit minimalen Vorkenntnissen und einer einfach verständlichen Dokumentation ohne monetäre Mittel auf die eigenen Bedürfnisse angepasst werden kann. Gleichzeitig sollte es dem Coach überlassen sein, wo der Service gehostet wird. Der Nutzer soll eine einfache, geskriptete OnBoarding-Phase durchlaufen und schließlich einen Termin vereinbaren können. Einen Bedarf für Natural Language Processing besteht in einer ersten Version nicht. Analysiert man den Hintergrund der meisten Bots, so wird schnell klar: Die meisten Frameworks bieten umfangreiche und komplexe Feature-Sets, die für Enterprise-Grade-Software bestens geeignet, aber für die in der Problemstellung beschriebenen Zwecke zu umfangreichend sind. Daneben sind ansonsten valable Optionen teilweise nicht direkt, aber in zweiter Instanz zu eng mit nicht kostenlosen Systemen verknüpft, als dass diese ohne Weiteres genutzt werden könnten. 
+    Ziel der Recherche war es, einen kleinen, selbst wartbaren, quelloffenen Chatbot zu finden, der von angehenden Coaches mit minimalen Vorkenntnissen und einer einfach verständlichen Dokumentation ohne monetäre Mittel auf die eigenen Bedürfnisse angepasst werden kann. Gleichzeitig sollte es dem Coach überlassen sein, wo der Service gehostet wird. Der Nutzer soll eine einfache, geskriptete OnBoarding-Phase durchlaufen und schließlich einen Termin vereinbaren können. Einen Bedarf für Natural Language Processing besteht in einer ersten Version nicht. Eine Analyse der meisten Frameworks ergibt: Die Kandidaten bieten umfangreiche und komplexe Feature-Sets, die für Enterprise-Grade-Software wahrscheinlich bestens geeignet, aber für die in der Problemstellung beschriebenen Zwecke zu umfangreichend sind. Daneben sind ansonsten valable Optionen teilweise nicht direkt, aber in zweiter Instanz zu eng mit nicht kostenlosen Systemen verknüpft, als dass diese ohne Weiteres genutzt werden könnten. 
 
     \paragraph{Analysierte Frameworks}
     \begin{enumerate}
@@ -23,73 +23,60 @@
         \item Bot Libre
     \end{enumerate}
 
+    Für eine bessere Übersicht sind die Systeme in 3 Gruppen zusammengefasst:
+
+    \section{Systeme, die mit Kosten verbunden sind}
+    Diese Frameworks gehören entweder einem Großunternehmen oder sind so eng mit Hyperscaler Services verknüpft, dass sie für eine kostenfreie und quelloffene Verwendung nicht geeignet sind:
+
     
-    \section{Microsoft Bot Framework} 
-        Als Corporate ist eine Nutzung des von Microsoft bereitgestellten Frameworks sicher aufgrund vielerlei Plug-and-play-Integrationen sinnvoll. Allerdings bindet man sich damit an die mit Kosten verbundene Cloud Plattform Azure. Das Open Source Kriterium ist also nicht erfüllt.\footnote{\url{https://github.com/microsoft/botframework-sdk}}
+    \subsection{Microsoft Bot Framework} 
+        Als Corporate ist eine Nutzung des von Microsoft bereitgestellten Frameworks sicher aufgrund vielerlei Plug-and-play-Integrationen sinnvoll. Allerdings bindet man sich damit an die mit Kosten verbundene Cloud Plattform Azure. Das Kriterium der Kostenfreiheit ist somit nicht erfüllt.\footnote{\url{https://github.com/microsoft/botframework-sdk}}
         
 
-    \section{Botkit} 
-        Botkit ist im Microsoft Bot Framework aufgegangen.\footnote{\url{https://github.com/howdyai/botkit-cms}}
+    \subsection{Botkit} 
+        Botkit ist im Microsoft Bot Framework aufgegangen und unterliegt damit den gleichen soeben genannten Einschränkungen.\footnote{\url{https://github.com/howdyai/botkit-cms}} 
         
+    \subsection{Wit.ai} 
+        Wit.ai gehört Facebook (inzwischen Meta) und entspricht damit nicht unserer Vorstellung von freier Software.\footnote{\url{https://github.com/wit-ai}}        
 
-    \section{Botpress} 
-        Botpress ist ein sehr mächtiges Bot Framework, das grundsätzlich den oben genannten Anforderungen entspricht. Schnell wird aber klar, dass man als Laie umfangreiche Einarbeitung benötigt und, dass das Natural Language Understanding, das für fortgeschrittene Chatbos eines der Hauptfeatures ist, die hier geforderten Zwecke weit übersteigt.\footnote{\url{https://botpress.com/}}
-        
-
-    \section{Rasa} 
-        Rasa bietet mit seinem Story-Feature genau das, was man sich als Coach wünscht. Nämlich, den potenziellen Coachee mit auf seine persönliche Reise zu nehmen. Allerdings bedarf Rasa, um gut zu funktionieren eines umfangreichen Datensatzes, anhand dessen die AI lernen kann und das liegt uns leider nicht vor.\footnote{\url{https://github.com/RasaHQ/rasa}}
-        
-
-    \section{Wit.ai} 
-        Wit.ai gehört Facebook (inzwischen Meta) und entspricht damit nicht unserer Vorstellung von freier Software.\footnote{\url{https://github.com/wit-ai}}
-        
-
-    \section{OpenDialog} 
+    \subsection{ParlAI by Facebook AI} 
+        Als Teil des Facebook- / Meta-Universums bietet ParlAI wahrscheinlich eines der besten NLPs, die aktuell verfügbar sind. Allerdings befindet sich das Framework noch in Produktion und das Feature wird nicht benötigt.\footnote{\url{https://ai.facebook.com/blog/state-of-the-art-open-source-chatbot/}}
+                
+    \subsection{OpenDialog} 
         Open Dialog ist zwar open source, die Nutzung ist aber mit Lizenzgebühren verbunden.\footnote{\url{https://www.opendialog.ai/}}
-        
 
-    \section{Botonic} 
-        Botonic bietet genau das, was wir gesucht haben: Eine Kombination aus Text- und grafischen Schnittstellen. Allerdings sind wie auch für die Nutzung von Botonic, wie für Botpress, umfangreiche Vorkenntnisse erforderlich. Eine Weiterverwendung und Individualisierung durch weitere Coaches ist daher unwahrscheinlich.\footnote{\url{https://github.com/hubtype/botonic}}
-        
-
-    \section{Claudia Bot Builder} 
-        Claudia Bot Builder reduziert die Komplexität, einen Bot selbst zu bauen und zu konfigurieren erheblich und bietet somit genau die Features, die eine einfache Adaption ermöglichen. Leider ist die Software aber ausschließlich auf AWS Lambda ausführbar und somit mit regelmäßigen Kosten verbunden.\footnote{\url{https://github.com/claudiajs/claudia-bot-builder}}
-        
-
-    \section{Tock} 
+    \subsection{Tock} 
         Tock ist eine valable Stand Alone Lösung für Chat Bots. Allerdings ist die Kompatibilität mit Plattformen, die ausschließlich kommerziellen Corporationen gehören, nicht mit den Zielen des Coaching Bots vereinbar.\footnote{\url{https://github.com/theopenconversationkit/tock}}
         
-
-    \section{BotMan} \label{BotMan}
-        Als das populärste Bot-Framework der Welt, stellt BotMan einen soliden Kandidaten für unseren Coaching Bot dar.\footnote{\url{https://github.com/botman/botman}}
+    \subsection{Botpress} 
+        Botpress ist ein sehr mächtiges Bot Framework, das alles in \ref{Einleitung und Problemstellung} genannten Anforderungen entspricht. Der Umfang der Dokumentation sowie die Komplexität der Anwednungsfälle lässt darauf schließen, dass man als Laie umfangreiche Einarbeitung benötigt. Im Zeitrahmen dieser Arbeit ist eine Einarbeitung leider nicht plausibel. Darüber hinaus übersteigt das Natural Language Understanding, das für fortgeschrittene Chatbos eines der Hauptfeatures ist. die hier geforderten Zwecke.\footnote{\url{https://botpress.com/}}
         
-
-    \section{Bottender} 
+    \subsection{Bottender} 
         Auch Bottender erfüllt auf den ersten Blick alle Anforderungen, die an das Framework gestellt wurden. Allerdings scheint es, als wären die Features, die für die Zwecke des Coaching-Bots benötigt werden, nicht einfacher zu implementieren als auf einer Chatbot Boiler Plate. Durch Bottender wären aber Komplexität und Gewicht der Applikation erheblich erhöht.\footnote{\url{https://github.com/yoctol/bottender}}
-        
 
-    \section{DeepPavlov} 
+    \subsection{Rasa} 
+        Rasa bietet mit seinem Story-Feature genau das, was man sich als Coach wünscht. Nämlich, den potenziellen Coachee mit auf seine persönliche Reise zu nehmen. Allerdings bedarf Rasa, um gut zu funktionieren eines umfangreichen Datensatzes, anhand dessen die AI lernen kann und dieser liegt uns leider nicht vor.\footnote{\url{https://github.com/RasaHQ/rasa}}
+        
+    \subsection{Botonic} 
+        Botonic bietet genau das, was wir gesucht haben: Eine Kombination aus Text- und grafischen Schnittstellen. Allerdings sind wie auch für die Nutzung von Botonic, wie für Botpress, umfangreiche Vorkenntnisse erforderlich. Eine Weiterverwendung und Individualisierung durch weitere Coaches ist daher unwahrscheinlich.\footnote{\url{https://github.com/hubtype/botonic}}
+        
+    \subsection{Claudia Bot Builder} 
+        Claudia Bot Builder reduziert die Komplexität, einen Bot selbst zu bauen und zu konfigurieren erheblich und bietet somit genau die Features, die eine einfache Adaption ermöglichen. Leider ist die Software aber ausschließlich auf AWS Lambda ausführbar und somit mit regelmäßigen Kosten verbunden.\footnote{\url{https://github.com/claudiajs/claudia-bot-builder}}
+
+    \subsection{BotMan} \label{BotMan}
+        Als das populärste Bot-Framework der Welt, stellt BotMan einen soliden Kandidaten für unseren Coaching Bot dar.\footnote{\url{https://github.com/botman/botman}}
+
+    \subsection{DeepPavlov} 
         Das auf mächtige und qualitativ hochwertiges NLP ausgelegte Framework DeepPavlov ist weitaus zu mächtig und entspricht nicht dem geskripteten OnBoarding-Prozess, der für den CoachingBot verfolgt werden soll.\footnote{\url{https://github.com/deepmipt/deeppavlov}}
         
-
-    \section{Golem} 
+    \subsection{Golem} 
         Aus den gleichen Gründen wie bei Bottender und DeepPavlov ist uns auch Golem nicht dienlich. Weder werden für die erste Version des Bots NLU benötigt, noch bietet Golem mehr relevante Features, als die Vanilla-Version des Telegram-Bots.\footnote{\url{https://github.com/prihoda/golem}}
         
-
-    \section{ParlAI by Facebook AI} 
-        Als Teil des Facebook- / Meta-Universums bietet ParlAI wahrscheinlich eines der besten NLPs, die aktuell verfügbar sind. Allerdings befindet sich das Framework noch in Produktion und das Feature wird nicht benötigt.\footnote{\url{https://ai.facebook.com/blog/state-of-the-art-open-source-chatbot/}}
-        
-
-    \section{Ana} 
+    \subsection{Ana} 
         Ana bietet ein SDK, über das ein Chatbot in Applikationen integriert werden kann. Da wir aber bestehende Messenger Applikationen nutzen möchten, schließen wir Ana aus.\footnote{\url{https://www.ana.chat/}}
         
-
-    \section{Bot Libre} 
+    \subsection{Bot Libre} 
         Bot Libre ist auf Android beschränkt. Ein dignifikanter Anteil aller Mobile-User wäre dadurch von unserer Zielgruppe ausgeschlossen.\footnote{\url{https://www.botlibre.com/}} 
         
-        
-    \section{Telegram Bot}
+    \subsection{Telegram Bot}
         Der Instant Messenger Telegram ist (neben vielen anderen) ein beliebtes Kommunikations- und Interaktionsmedium, das Funktionen weit über den einfachen Nachrichtenaustausch hinaus bietet. Unter Anderem bietet Telegram mit seiner sehr intuitiven und einfach zu bedienenden Telegram Bot API ein Framework, das all unseren Anforderungen für eine erste Version des Bots entspricht und es uns erlaubt, eine schlanke, geskriptete OnBoarding-Applikation zu erstellen.
-        
-
-Um sich auf die in \ref{Einleitung und Problemstellung} Einleitung und Problemstellung gennanten Zielgruppen einzulassen, hat man sich nach einiger Analyse entschieden, in einem ersten Schritt einen Chat-Bot zu programmieren, der basale Informationen vom Nutzer abfragt und den Bewerber einen Termin vereinbaren lässt. Weitere Iterationen sind nach erfolgreicher Beta-Phase möglich und ein Ausblick wird in \ref{Zusammenfassung und Ausblick} Zusammenfassung und Ausblick gegeben. Die Recherche ergibt ein Zweistufenmodell nach dem in einem ersten Schritt die Telegram Bot API genutzt wird, um einen Proof of Concept zu erstellen und eine geskriptete Variante des Bots zu schreiben, mit der der Approach getestet werden kann. In einem zweiten Schritt kann das BotMan Framework genutzt werden, um die Logik des Bots inkl. der bis dahin gesammelten Erfahrungswerte in eine Version 2 einfließen zu lassen, die mit weiteren Plattformen kompatibel ist und durch ihre bessere Skalierbarkeit auch kommerzialisiert werden könnte. \\

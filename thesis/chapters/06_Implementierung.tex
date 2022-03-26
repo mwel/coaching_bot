@@ -12,7 +12,7 @@
             Der Coaching Bot hat einige Abhängigkeiten zu Umsystemen, die Zugangsdaten voraussetzen. Diese sind im Repository \cite{repo} aus Sicherheitsgründen nicht versioniert und können durch kleine Anpassungen adaptiert werden.\\ Entsprechende Vorlagen sind inkl. Anleitung für eine Anpassung unter \verb|_constants|\footnote{\url{https://github.com/mwel/coaching_bot/tree/main/bot/constants_}} zu finden.
 
 
-    \section{main.py - State Machine}
+    \section{main.py - Anmeldung, Updater, Dispatcher und Handler-Konfiguration} \label{main.py}
         Die \verb|main.py| beinhaltet die Instanz der State Machine des Coaching Bots.\\
         Sie importiert alle Handler-Funktionen, authentifiziert sich durch den entsprechenden API-Schlüssel und beinhaltet den Dispatcher, an dem wiederum Conversation- sowie CommandHandler hängen. Darüber hinaus startet sie den Bot und aktualisiert die Handler in regelmäßigen Abständen via dem Updater.\\
 

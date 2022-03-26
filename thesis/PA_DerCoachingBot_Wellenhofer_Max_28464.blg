@@ -6,45 +6,45 @@ A level-1 auxiliary file: chapters/Glossar.aux
 A level-1 auxiliary file: chapters/Selbststaendigkeitserklaerung.aux
 Database file #1: coaching_bot_group.bib
 Warning--empty note in date_time
-You've used 21 entries,
+You've used 23 entries,
             2768 wiz_defined-function locations,
-            706 strings with 7719 characters,
-and the built_in function-call counts, 6112 in all, are:
-= -- 627
-> -- 168
-< -- 21
-+ -- 50
-- -- 42
-* -- 339
-:= -- 925
-add.period$ -- 42
-call.type$ -- 21
-change.case$ -- 84
-chr.to.int$ -- 13
-cite$ -- 22
-duplicate$ -- 272
-empty$ -- 578
-format.name$ -- 83
-if$ -- 1373
+            712 strings with 7905 characters,
+and the built_in function-call counts, 6692 in all, are:
+= -- 687
+> -- 184
+< -- 23
++ -- 54
+- -- 46
+* -- 371
+:= -- 1011
+add.period$ -- 46
+call.type$ -- 23
+change.case$ -- 92
+chr.to.int$ -- 15
+cite$ -- 24
+duplicate$ -- 298
+empty$ -- 634
+format.name$ -- 90
+if$ -- 1505
 int.to.chr$ -- 9
 int.to.str$ -- 0
 missing$ -- 0
-newline$ -- 87
-num.names$ -- 63
-pop$ -- 184
+newline$ -- 95
+num.names$ -- 69
+pop$ -- 201
 preamble$ -- 1
-purify$ -- 126
+purify$ -- 138
 quote$ -- 0
-skip$ -- 262
+skip$ -- 289
 stack$ -- 0
-substring$ -- 147
-swap$ -- 62
-text.length$ -- 21
-text.prefix$ -- 20
+substring$ -- 161
+swap$ -- 68
+text.length$ -- 23
+text.prefix$ -- 21
 top$ -- 0
-type$ -- 168
+type$ -- 184
 warning$ -- 1
-while$ -- 42
-width$ -- 28
-write$ -- 231
+while$ -- 46
+width$ -- 30
+write$ -- 253
 (There was 1 warning)
