@@ -4,30 +4,24 @@
     Die im Kapitel \ref*{Realisierung} Realisierung erarbeiteten Ansätze wurden umgesetzt. Die Systeme und Ergebnisse werden im Folgenden beschrieben.
 
     \section{main.py - Anmeldung, Updater, Dispatcher und Handler-Konfiguration} \label{main.py}
-        Die \verb|main.py|-Methode basiert auf dem im Kapiel \ref*{Grundlagen} Grundlagen vorgestellten Conversation Bot. Sie importiert alle Zustands-Funktionen (siehe \ref*{Implementierung: Handler Functions} Handler Functions), authentifiziert sich durch den entsprechenden API-Schlüssel (Token) gegenüber der Telegram API und beinhaltet den Dispatcher. 
-        
-        \begin{lstlisting}[language=Python, caption={bot/main.py - Authentifizierung und Schlüssel-Übergabe an den Updater}\label{code: bot/main.py 1}]
+        Auf diese Mechanismen der \verb|main.py|-Methode wird in den folgenden drei Code-Abschnitten eingegangen:
+        \begin{lstlisting}[language=Python, caption={bot/main.py(1) - Authentifizierung und Schlüssel-Übergabe an den Updater}\label{code: bot/main.py 1}]
 # Hand over API_TOKEN to the bot
 bot = telegram.Bot(token=API_KEY)
 
 def main() -> None:
-    # Creates the updater and passes the API_TOKEN to it.
-    updater = Updater(API_KEY)
+# Creates the updater and passes the API_TOKEN to it.
+updater = Updater(API_KEY)
         \end{lstlisting}
+        Die \verb|main.py|-Methode basiert auf dem im Kapiel \ref*{Grundlagen} Grundlagen vorgestellten Conversation Bot. Sie importiert alle Handler, authentifiziert sich gegenüber der Telegram API (wie in Listing \ref*{code: bot/main.py 1} zu sehen), instanziiert den Bot und seinen Dispatcher und bindet dann in einem genesteten Aufbau Message- und Command-Handler and Conversation-Handler und diese wiederum an den Dispatcher, um den Bot in einen Zustand zu versetzen, in dem er Befehle entgegennehmen und entsprechend reagieren kann. \\
         
-        \subsection{Dispatcher} \label{Implementierung: Dispatcher}
-            Dispatcher liefern Nachrichten an den User aus. Pro Bot gibt es grundsätzlich mind. einen Dispatcher. Der Coaching Bot hat aber mehrere für mehrere Konversationsstränge. An den Dispatcher werden Conversation- sowie CommandHandler gebunden und konfiguriert.
-    
-        \subsection{Conversation-Handlers} \label{Implementierung: Conversation-Handlers}
-            Der Conversation-Handler bildet die in Abb. \ref*{fig: state machine} konzipierte State Machine ab. Als solche, kontrolliert er den Konversationsfluss zwischen dem User und dem Bot. Pro Bot kann es mehrere Conversation-Handler geben. Der CoachingBot hat aber nur Einen: den \verb|conv_handler|. Der Conversation-Handler koordiniert alle im Haupt-Konversationsfluss enthaltenen Command-Handler.
-    
-        \subsection{Command-Handler} \label{Implementierung: Command-Handler}
-            Pro Zustand aus der State Machine gibt es einen Command-Handler. Für jeden Command-Handler gibt es ein Set an Kriterien und / oder einen Befehl, der die zugeordnete Zustands-Funktion auslöst. i.e. den Befehl \verb|/start| für die Funktion \verb|start| aus \verb|start.py| im gleichnamigen Command-Handler, der hier als Einstiegspunkt definiert ist. Funktionen werden nur mittelbar vom Nutzer und unmittelbar von der State-Machine ausgelöst.
+        Dispatcher liefern Nachrichten an den User aus. Pro Bot gibt es grundsätzlich mind. einen Dispatcher. Der Coaching Bot hat aber mehrere für mehrere Konversationsstränge. An den Dispatcher werden Conversation- sowie CommandHandler gebunden und konfiguriert (wie in Listing \ref*{code: bot/main.py 1} ersichtlich).\\
+        Der Conversation-Handler bildet die in Abb. \ref*{fig: state machine} konzipierte State Machine ab. Als solche, kontrolliert er den Konversationsfluss zwischen dem User und dem Bot. Pro Bot kann es mehrere Conversation-Handler geben. Der CoachingBot hat aber nur Einen: den \verb|conv_handler|. Der Conversation-Handler koordiniert alle im Haupt-Konversationsfluss enthaltenen Command-Handler.\\
+        Pro Zustand aus der State Machine gibt es einen Command-Handler. Für jeden Command-Handler gibt es ein Set an Kriterien und / oder einen Befehl, der die zugeordnete Zustands-Funktion auslöst. i.e. den Befehl \verb|/start| für die Funktion \verb|start| aus \verb|start.py| im gleichnamigen Command-Handler, der hier als Einstiegspunkt definiert ist. Funktionen werden nur mittelbar vom Nutzer und unmittelbar von der State-Machine ausgelöst.\\
+        Befehle werden vom Nutzer eingegeben und vom Message-Handler entgegengenommen. Ein Message-Handler prüft die Eingabe eines Nutzers in einem bestimmten Zustand auf vordefinierte Kriterien und meldet das Ergebnis an den Conversation-Handler zurück, der auf dieser Basis dann entscheidet, ob er die zugehörige Zustands-Funktion auslöst oder nicht. Diese Kriterien werden direkt in der main.py in einem der Message-Handler definiert. \\
+        Handler Functions sind Zustands-Funktionen (siehe \ref*{Realisierung: state functions}). Sie werden ausgelöst, wenn Eingaben vom Message-Handler als valide interpretiert werden. 
 
-        \subsection{Message-Handler} \label{Implementierung: Message-Handler}
-            Befehle werden vom Nutzer eingegeben und vom Message-Handler entgegengenommen. Ein Message-Handler prüft die Eingabe eines Nutzers auf vordefinierte Kriterien und meldet das Ergebnis an den Conversation-Handler.
-
-        \begin{lstlisting}[language=Python, caption={bot/main.py - Dispatcher, Conversation- \& Command-Handler}\label{code: bot/main.py 2}]
+        \begin{lstlisting}[language=Python, caption={bot/main.py(2) - Dispatcher, Conversation- \& Command-Handler}\label{code: bot/main.py 2}]
     # Gets the dispatcher to register handlers
     dispatcher = updater.dispatcher
     
@@ -73,20 +67,19 @@ def main() -> None:
     dispatcher.add_handler(CommandHandler('status', status))
         \end{lstlisting}
 
-        Über die folgenden Befehle, werden die entsprechenden, gleichnamigen Command-Handler und Funktionen aus \ref*{code: bot/main.py 2} ausgelöst. 
-
+        Über die folgenden Befehle, werden die entsprechenden, gleichnamigen Command-Handler und Funktionen ausgelöst: 
         \begin{itemize}
-            \item \verb|/start| - startet den Konversationsfluss. Der in dieser Applikation umfangreichste Conversation-Handler umfasst zwei Befehle: \verb|/start| und \verb|/cancel|. Solange der Bot ausgeführt wird, lässt sich ein Konversationsfluss mit ihm über den Befehl \verb|/start| starten und via \verb|/cancel| beenden.
+            \item \verb|/start| - startet den Konversationsfluss
             \item \verb|/cancel| - beendet den Konversationsfluss, löscht Nutzerdaten aus der Datenbank und informiert entsprechend
             \item \verb|/delete| - löscht Nutzerdaten des Nutzers und informiert ihn
             \item \verb|/help| - gibt die Hilfe aus
             \item \verb|/summary| - gibt die Zusammenfassung für den Nutzer aus
             \item \verb|/status| - gibt gibt den aktuellen Fortschritt für den Nutzer aus
         \end{itemize}
-        (Zur Funktionsweise der den Befehlen zugeordneten Zustands-Funktionen siehe den entsprechden Abschnitt unter \ref{Implementierung: Handler Functions}.) \\ \\
+        Der in dieser Applikation umfangreichste Conversation-Handler umfasst zwei Befehle: \verb|/start| und \verb|/cancel|. Solange der Bot ausgeführt wird, lässt sich ein Konversationsfluss mit ihm über den Befehl \verb|/start| starten und via \verb|/cancel| beenden. (Zur Funktionsweise der den Befehlen zugeordneten Zustands-Funktionen siehe den entsprechden Abschnitt unter \ref{Implementierung: Handler Functions}.) \\ \\
         
         Schließlich wird die State Machine des Coaching Bots gestartet. Über das sog. Polling werden Aktualisierungen konstant von Telegram nachgeladen. Der Bot ist aktiv (idle) und wartet darauf, Befehle entgegenzunehmen.
-        \begin{lstlisting}[language=Python, caption={bot/main.py - Start Polling \ Idle}\label{code: bot/main.py 3}]
+        \begin{lstlisting}[language=Python, caption={bot/main.py(3) - Start Polling \ Idle}\label{code: bot/main.py 3}]
     # Start the Bot
     updater.start_polling()
 
@@ -94,10 +87,8 @@ def main() -> None:
         \end{lstlisting}
 
 
-    \section{Zustands-Funktionen: Handler Funktions} \label{Implementierung: Handler Functions}
-        Handler-Funktionen\footnote{siehe coaching\_bot/handler\_functions unter \url{https://github.com/mwel/coaching_bot/tree/main/bot/handler_functions}} sind Funktionen, die auf Eingaben reagieren, die via CallbackContext vom User an den Bot gesendet werden und bestimmten Kriterien entsprechen. Diese Kriterien werden direkt in der main.py in einem der CommandHandler definiert. \\
-        \\
-        Im Folgenden gehen wir detailliert auf die einzelnen Handler-Funktionen ein, beschreiben deren Umfang und Aufbau und erklären ihre Funktionsweise. 
+    \section{Zustands-Funktionen: Handler Functions} \label{Implementierung: Handler Functions}
+        Im Folgenden gehen wir detailliert auf die einzelnen Handler Functions ein, beschreiben deren Umfang und Aufbau und erklären ihre Funktionsweise. 
 
         \subsection{start.py} \label{Implementierung: start.py}
 
