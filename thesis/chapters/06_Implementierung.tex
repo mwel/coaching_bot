@@ -91,8 +91,11 @@ updater = Updater(API_KEY)
         Im Folgenden gehen wir detailliert auf die einzelnen Handler Functions ein, beschreiben deren Umfang und Aufbau und erklären ihre Funktionsweise. 
 
         \subsection{start.py} \label{Implementierung: start.py}
+        In sechs Abschnitten wird nun die wichtige Funktion \verb|start| beschrieben. Sie fungiert als Eingangstor für jeden User. Wann immer der Befehl \verb|/start| an den Bot schickt wird, löst der CommandHandler die Methode \verb|start| aus.\\
+        Zunächst wird geprüft, ob es eine Datenbank gibt. Ist dies der Fall, wird geprüft, ob der Nutzer, der die Methode ausgelöst hat, bereits in der Datenbank existiert. Ist dies wiederum der Fall, gibt die Methode eine Willkommen-zurück-Nachricht aus.
 
-        \begin{lstlisting}[language=Python, caption={start.py - Start-Funktion und Einstieg in den Konversationsfluss}\label{code: start.py}]
+% Code Abschnitt 1 aus start.py
+            \begin{lstlisting}[language=Python, caption={start.py - Aufbau DB und Prüfung ob Nutzer bekannt}\label{code: start.py(1)}]
 def start(update: Update, context: CallbackContext) -> int:
     # CREATE DB, IF NOT EXISTS
     create_db()
@@ -109,7 +112,10 @@ def start(update: Update, context: CallbackContext) -> int:
             'Let\'s continue where we left off...',
             reply_markup=ReplyKeyboardRemove(),
             )
-
+            \end{lstlisting}
+% Code Abschnitt 2 aus start.py
+            Nun wird abhängig vom für den Nutzer gespeicherten Zustand zwischen unterschiedlichen Reaktionen differenziert. Befindet der Nutzer sich im Zustand \verb|SUMMARY|, hat also bereits alle Fragen beantwortet, aber noch keinen Termin vereinbart, so werden in diesem Zustand sinnvolle Optionen empfohlen. Der Nutzer kann sich den Status seiner Bewerbung ausgeben lassen, die Zusammenfassung erneut beantragen oder alle seine Daten löschen.
+            \begin{lstlisting}[language=Python, caption={start.py - Zustand Zusammenfassung}\label{code: start.py(2)}]
         if state == states.SUMMARY:  
         # sign up was apparently already completed for this user
             reply_keyboard = [
@@ -128,7 +134,10 @@ def start(update: Update, context: CallbackContext) -> int:
             input_field_placeholder='SIGN UP COMPLETE'
                 )
             )
-
+            \end{lstlisting}
+% Code Abschnitt 3 aus start.py
+            Befindet der Nutzer sich im Zustand \verb|APPOINTMENT|, hat aber noch keinen Termin vereinbart, die Zusammenfassung aber bereits erhalten, erhält er zusätzlich zur Option, sich die Zusammenfassung erneut ausgeben zu lassen und so die Terminfindung zu starten, nur die Status- und Lösch-Optionen. Natürlich kann der Nutzer auch manuell alle Befehle jederzeit eingeben, aber die Tastatur ist so für Optionen vordefiniert, dass der Nutzer in eine bestimmte Richtung gelenkt wird. Nach der Ausgabe dieser Nachricht, beendet der ConversationHandler die Kommunikation.
+            \begin{lstlisting}[language=Python, caption={start.py - Zustand Terminvereinbarung(noch nicht vereinbart)}\label{code: start.py(3)}]
         elif state == states.APPOINTMENT and select_db.get_value(user_id, 'appointment') == 'None':
             reply_keyboard = [
                 ['/status'], 
@@ -142,7 +151,11 @@ def start(update: Update, context: CallbackContext) -> int:
             )
         )
             return ConversationHandler.END
+            \end{lstlisting}
 
+% Code Abschnitt 4 aus start.py
+            Befindet der Nutzer sich im Zustand \verb|APPOINTMENT| und hat bereits einen Termin vereinbart, so werden Informationen zu dem Termin aus der Datenbank abgerufen und direkt ausgegeben. Auch in diesem Fall wird die Konversation nun beendet, da keine weiteren Interaktionen mit dem Nutzer vorgesehen sind.
+            \begin{lstlisting}[language=Python, caption={start.py - Zustand Termin (bereits vereinbart)}\label{code: start.py(4)}]
         elif state == states.APPOINTMENT:
             appointment_made = select_db.get_value(user_id, 
             'appointment')
@@ -161,60 +174,52 @@ def start(update: Update, context: CallbackContext) -> int:
             )
         )
             return ConversationHandler.END
-        
-        # call next function for user
-        update.message.reply_text(states.MESSAGES[state], reply_markup=states.KEYBOARD_MARKUPS[state])
-        return state
+            \end{lstlisting}
+            Egal für welchen Fall die Funktion sich entscheidet, der Nutzer wird immer korrekt in den Konversationsfluss zurückgeführt und zwar genau vor der Frage, die zuletzt nicht beantwortet wurde.\footnote{Eine Frage zu überspringen gilt dabei auch als Beantwortung.} Dazu wird die Datenbank abgefragt und der Wert aus \verb|state| für die entsprechende \verb|user_id| an den ConversationHandler weitergegeben. Dieser präsentiert als Antwort darauf die nächste Frage im Konversationsfluss. \\
+% Code Abschnitt 5 aus start.py
+            \begin{lstlisting}[language=Python, caption={start.py - Weiterleitung in Zustand}\label{code: start.py(5)}]
 
-    logger.info(f'+++++ NEW USER: {update.message.from_user.first_name} 
-    {update.message.from_user.last_name} +++++')
+            # call next function for user
+            update.message.reply_text(states.MESSAGES[state], reply_markup=states.KEYBOARD_MARKUPS[state])
+            return state
+            \end{lstlisting}
 
-    # write user info to db
-    insert_update(user_id, 'first_name', update.message.from_user.first_name) 
-    insert_update(user_id, 'last_name', update.message.from_user.last_name)
-    insert_update(user_id, 'appointment', 'None')
-    insert_update(user_id, 'event_id', '0')
-
-    update.message.reply_text(
-        f'Hi {update.message.from_user.first_name},\n'
-        'I am a coaching bot by wavehoover. You have 
-        taken the first step on your journey to success 
-        by contacting me. I will guide you through the 
-        application process for your first coaching session. '
-        'It\'s super easy. Just follow the questions, answer 
-        or skip them - that\'s it.\n\n'
-        '[You can send /cancel at any time, if you are 
-        no longer interested in a conversation.]\n\n'
-        f'Now, {update.message.from_user.first_name} - 
-        {states.MESSAGES[states.BIO]}',
-        reply_markup=ReplyKeyboardRemove(),
-        )
-
-    # save state to DB
-    insert_update(user_id, 'time_stamp', datetime.now())
-    insert_update(user_id, 'state', states.BIO)
-    return states.BIO
-        \end{lstlisting}
-
-            Die Methode \verb|start| in der \verb|start.py| fungiert als Eingangstor für jeden User. Wann immer der Befehl \verb|/start| an den Bot schickt wird, löst der CommandHandler die Methode \verb|start| aus.\\
-            \\
-            Zunächst wird geprüft, ob es eine Datenbank gibt. Ist dies der Fall, wird geprüft, ob der Nutzer, der die Methode ausgelöst hat, bereits in der Datenbank existiert. \\
-            \\
-            Ist dies der Fall, gibt die Methode eine Willkommen-zurück-Nachricht aus und differenziert zwischen unterschiedlichen Reaktionen auf unterschiedliche Zustände:
-            \begin{enumerate}
-                \item Befindet der Nutzer sich im Zustand \verb|SUMMARY|, hat also bereits alle Fragen beantwortet, aber noch keinen Termin vereinbart, so werden in diesem Zustand sinnvolle Optionen empfohlen. Der Nutzer kann sich den Status seiner Bewerbung ausgeben lassen, die Zusammenfassung erneut beantragen oder alle seine Daten löschen.
-                \item Befindet der Nutzer sich im Zustand \verb|APPOINTMENT|, hat aber noch keinen Termin vereinbart, die Zusammenfassun aber bereits erhalten, erhält er zusätzlich zur Option, sich die Zusammenfassung erneut ausgeben zu lassen und so die Terminfindung zu starten, nur die Status- und Lösch-Optionen. Natürlich kann der Nutzer auch manuell alle Befehle jederzeit eingeben, aber die Tastatur ist so für Optionen vordefiniert, dass der Nutzer in eine bestimmte Richtung gelenkt wird. Nach der Ausgabe dieser Nachricht, beendet der ConversationHandler die Kommunikation.
-                \item Befindet der Nutzer sich im Zustand \verb|APPOINTMENT| und hat bereits einen Termin vereinbart, so werden Informationen zu dem Termin aus der Datenbank abgerufen und direkt ausgegeben. Auch in diesem Fall wird die Konversation nun beendet, da keine weiteren Interaktionen mit dem Nutzer vorgesehen sind.
-            \end{enumerate}
-
-            Egal welche Option die Methode wählt, der Nutzer wird immer in den Konversationsfluss zurückgeführt und zwar genau vor der Frage, die zuletzt nicht beantwortet wurde. Eine Frage zu überspringen gilt dabei auch als Beantwortung. Dazu wird die Datenbank abgefragt und der Wert aus \verb|state| für die entsprechende User-ID an den ConversationHandler weitergegeben. Dieser präsentiert als Antwort darauf die nächste Frage im Konversationsfluss. \\
-            \\
+% Code Abschnitt 6 aus start.py
             Treffen all diese Konditionen nicht zu, wurde der Nutzer also nicht in der Datenbank gefunden, so startet der Bot ganz normal mit einer Begrüßung, nachdem initiale Daten von der Telegram-Instanz des Nutzers abgefragt und in die Datenbank geschrieben wurden. \\
-            \\
             Ist die Nachricht an den Nutzer ausgeliefert, aktualisiert der Bot den Zustand für den Nutzer in der Datenbank, damit der Bot weiß, welche Fragen der Nutzer schon beantwortet hat und er den Nutzer bei einer Rückkehr wieder am richtigen Punkt in den Konversationsfluss einfügen kann.\\
-            \\    
             Bevor der Bot den Nutzer zur nächsten Stufe weiterleitet, speichert er noch einen Zeitstempel, damit man nachvollziehen kann, wann der Nutzer seinen Prozess begonnen hat.
+            \begin{lstlisting}[language=Python, caption={start.py - Standard Einstieg Konversationsfluss}\label{code: start.py(6)}]
 
+        logger.info(f'+++++ NEW USER: {update.message.from_user.first_name} 
+        {update.message.from_user.last_name} +++++')
+
+        # write user info to db
+        insert_update(user_id, 'first_name', update.message.from_user.first_name) 
+        insert_update(user_id, 'last_name', update.message.from_user.last_name)
+        insert_update(user_id, 'appointment', 'None')
+        insert_update(user_id, 'event_id', '0')
+
+        update.message.reply_text(
+            f'Hi {update.message.from_user.first_name},\n'
+            'I am a coaching bot by wavehoover. You have 
+            taken the first step on your journey to success 
+            by contacting me. I will guide you through the 
+            application process for your first coaching session. '
+            'It\'s super easy. Just follow the questions, answer 
+            or skip them - that\'s it.\n\n'
+            '[You can send /cancel at any time, if you are 
+            no longer interested in a conversation.]\n\n'
+            f'Now, {update.message.from_user.first_name} - 
+            {states.MESSAGES[states.BIO]}',
+            reply_markup=ReplyKeyboardRemove(),
+            )
+
+        # save state to DB
+        insert_update(user_id, 'time_stamp', datetime.now())
+        insert_update(user_id, 'state', states.BIO)
+        return states.BIO
+            \end{lstlisting}
+            
 
         \subsection{bio.py} \label{Implementierung: bio.py}
             %\subsubsection{Methode bio}
