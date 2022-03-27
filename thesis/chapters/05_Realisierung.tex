@@ -4,7 +4,6 @@
     Das Konzept aus Kapitel \ref*{Konzept} wird nun weiterentwickelt und Überlegungen dazu angestellt, wie das Konzept realisiert werden kann. Es wird auf das Telegram Framework und dessen Setup allgemein und dann auf die Funktionen im Zusammenhang mit den einzelnen Zuständen des Konversationsflusses eingegangen. In darauffolgenden Abschnitt wird die Lösungsansätze für die Datenbank und das Kalender-Feature erklärt.
 
     \section{Telegram Bot Framwork}
-
         Bevor mit der eigentlichen Implementierung begonnen werden kann, muss zunächst eine Art Bot-Rohling registriert werden. Daraufhin kann ein Template verwendet werden oder ein ganz neuer Bot implementiert werden. Im Folgenden werden diese beiden Schritte erläutert:
 
         \subsection{Generierung Telegram Bot} \label{Realisierung: botfather}
@@ -13,35 +12,52 @@
         \subsection{Vanilla Bot Implementierung}
             Als Basis (boiler plate) für den Bot nutzen wir die breit in der Community abgestütze Implementierung \textbf{Conversation Bot} \cite{conversationBot}. Sie stellt uns eine basale Implementierung einer State Machine zur Verfügung, die in der Implementierung erheblich ausgebaut wird, uns aber als guter Einstieg dient. Im Gegensatz dazu ist der \glqq Nested Converation Bot\grqq schon bei Weitem zu umfangreich und zu mächtig für unsere Zwecke.
             
+    
+    \section{Rahmen- und Meta-Funktionen} \label{Realisierung: meta functions}
+        Als Rahmen für die Interaktion zwischen Nutzer und Bot soll es neben den Zustands-Funktionen in Abschnitt \ref*{Realisierung: state functions} (Funktionen, die zum Gesprächsfluss gehören), eine Reihe an Meta-Funktionen geben, die dem Nutzer zur Verfügung stehen, um eine Konversation zu starten, zu beenden, Daten zu löschen oder eine Hilfe aufzurufen.
             
+        \subsection{Start: Eine Konversation beginnen}
+            Der Nutzer startet den Bot über den Aufruf eines Links oder mit dem Befehl \verb|/start| (Aktion) und der Bot gibt eine Begrüßungsnachricht zurück (Reaktion). Gleichzeitig erfasst er grundsätzliche Informationen des Nutzers und schreibt diese in eine Datenbank. Ab diesem Zeitpunkt kennt die Applikation den Nutzer und kann weitere Informationen über ihn speichern oder individuell auf Eingaben reagieren. Der Bot soll einen Nutzer wiedererkennen und ihn am richtigen Punkt zurück in den Konversationsfluss platzieren. Diese Erfahrung soll für den Nutzer nicht angestrengt wirken, sondern so, als würde der Bot ihn schon kennen und einfach da weitermachen, wo er aufgehört hat. Die technische Komplexität besteht darin, dass das Feature besonders dann funktionieren soll, wenn der Bot neu gestartet wurde. Am Ende jeder Zustands-Funktion muss die nächste Stufe also aus den Nutzerdaten bekannt sein, damit der Bot in S0 weiß, auf welche Stufe der Nutzer weitergeleitet werden muss. Der Zustand in dem der Nutzer sich zuletzt befunden hat, wird also ab der ersten Kontaktaufnahme persistent in der Datenbank gespeichert. Die Memory-Funktion findet zu Beginn der Konversation statt. 
+        
+        \subsection{Ende: Konversation manuell beenden}
+            Hat der Nutzer eine Konversation gestartet, so kann er diese auch zu jedem Zeitpunkt wieder beenden. Die Konversation muss nicht zu Ende geführt worden sein. Über einen kurzen Befehl \verb|/cancel| wird der Bot beendet und personenbezogene Daten werden aus der Datenbank gelöscht. Dabei kann der Nutzer nur seine eigenen Daten löschen. Hat der Nutzer seine Konversation bereits beendet, so ist \verb|/cancel| nicht mehr verfügbar, da der Conversation-Handler bereits beendet ist und keine Aktionen mehr entgegennimmt. Möchte der Nutzer seine Daten dennoch löschen, so steht ihm stattdessen folgende Funktion zur Verfügung: 
+        
+        \subsection{Persönliche Daten löschen}
+            Zu jeder Zeit hat der Nutzer die Möglichkeit, die eigenen Daten via dem Befehl \verb|/delete| zu löschen. Die Funktion ist mit einem \glqq Reset-Knopf\grqq  zu vergleichen. Das Resultat ist nämlich, dass der Bot den Nutzer nicht mehr kennt. Er weiß nicht, dass er schon einmal da war und auch nicht, welche Angaben er gemacht hat oder nicht. So kann man den Bot nach fehlerhafter Eingabe oder, falls man neu anfangen möchte, einfach zurücksetzen.
+        
+        \subsection{Hilfe-Funktion aufrufen}
+            Manchmal wünscht man sich als Nutzer eine Übersicht über verfügbare Befehle. Die Hilfe-Funktion gibt eine Beschreibung der Aktions-Optionen aus, die es gegenüber dem Bot gibt. So werden alle Befehle einfach erklärt und können auch direkt aus der Hilfe heraus aufgerufen werden.  
+
+
+
     \section{Zustands-Funktionen} \label{Realisierung: state functions}
         Die Kommunikationslogik des Bots basiert auf der State Machine aus Abb. \ref*{fig: state machine}. Die Zustände, in denen der Bot sich befinden kann, sind vordefiniert und immer mit einer Aktion und einer Reaktion verbunden. Aktionen werden von Seiten des Benutzers durch eine Eingabe oder einen Befehl ausgelöst oder vom Bot ausgelöst. Reaktionen sind in Funktionen prädefiniert. Deren Umfang wird im Folgenden funktional und in Abschnitt \ref*{Implementierung: Handler Functions} in Kapitel \ref{Implementierung} Implementierung technisch beschrieben.
             
         Die Übergänge zwischen den Zuständen des Konversationsflusses sind in Funktionen definiert. Auf deren Realisierung wird hier eingegangen:
         
-        \subsection{Abfragen des Geburtsdatums}    
-        Um zu erfahren, wie alt der Bewerber ist, möchten wir das Geburtsdatum abfragen. Dabei ist wichtig, dass das Datum in einem sinnvollen Format eingegeben wird. (Siehe Eingabe-Validierung.)
-        
         \subsection{Hintergrund des Nutzers}
-        Für eine Coaching-Session ist es besonders wichtig, den Coachee besser kennenzulernen. Zu diesem Zweck hat der Nutzer die Möglichkeit, etwas über sich zu erzählen. Erwartet wird hier kein komplettes Motivationsschreiben, sondern einfache, kurz formulierte Beweggründe dafür, dass man gerne mit dem Personal Coaching beginnen möchte. 
+            Für eine Coaching-Session ist es besonders wichtig, den Coachee besser kennenzulernen. Zu diesem Zweck hat der Nutzer die Möglichkeit, etwas über sich zu erzählen. Erwartet wird hier kein komplettes Motivationsschreiben, sondern einfache, kurz formulierte Beweggründe dafür, dass man gerne mit dem Personal Coaching beginnen möchte. 
+        
+        \subsection{Abfragen des Geburtsdatums}    
+            Um zu erfahren, wie alt der Bewerber ist, möchten wir das Geburtsdatum abfragen. Dabei ist wichtig, dass das Datum in einem sinnvollen Format eingegeben wird. (Siehe Eingabe-Validierung.)
         
         \subsection{Abfragen des Geschlechts des Nutzers}
-        Um den Nutzer in der Folegkommunikation korrekt anzusprechen, wird nach dem Geschlecht des Nutzers gefragt. Neben der Option, die Frage überspringen zu können, präsentiert der Bot den Nutzer mit mehr als 2 Optionen, um diversen Geschlechtern gerecht zu werden.
+            Um den Nutzer in der Folegkommunikation korrekt anzusprechen, wird nach dem Geschlecht des Nutzers gefragt. Neben der Option, die Frage überspringen zu können, präsentiert der Bot den Nutzer mit mehr als 2 Optionen, um diversen Geschlechtern gerecht zu werden.
         
         \subsection{Abfragen der E-Mail Adresse des Nutzers}
-        Um dem Nutzer eine E-Mail mit allen erfassten Daten zusenden zu können und dem eigentlichen Zweck des Bots nachzukommen - einen Termin vereinbaren zu können - benötigt der Bot eine valide E-Mail-Adresse des Nutzers. Um die Wahrscheinlichkeit zu erhöhen, dass bei dieser Eigabe keine Fehler passieren, ist auch hier eine Eingabe-Validierung hinterlegt.
+            Um dem Nutzer eine E-Mail mit allen erfassten Daten zusenden zu können und dem eigentlichen Zweck des Bots nachzukommen - einen Termin vereinbaren zu können - benötigt der Bot eine valide E-Mail-Adresse des Nutzers. Um die Wahrscheinlichkeit zu erhöhen, dass bei dieser Eigabe keine Fehler passieren, ist auch hier eine Eingabe-Validierung hinterlegt.
         
         \subsection{Abfragen der Telefonnummer des Nutzers}
-        Am Ende des Konversationsflusses hat der Nutzer die Möglichkeit, einen ersten Termin zu vereinbaren. Dabei handelt es sich um einen unverbindlichen Telefontermin. Um den Nutzer zu einer festgelegten Zeit erreichen zu können, wird hier die Telefonnummer des Nutzers erfasst. Da der Service aktuell nur in der DACH-Region angeboten wird, können hier nur Telefonnummern mit der Länderkennung Deutschland, Österreich und der Schweiz angegeben werden. 
+            Am Ende des Konversationsflusses hat der Nutzer die Möglichkeit, einen ersten Termin zu vereinbaren. Dabei handelt es sich um einen unverbindlichen Telefontermin. Um den Nutzer zu einer festgelegten Zeit erreichen zu können, wird hier die Telefonnummer des Nutzers erfasst. Da der Service aktuell nur in der DACH-Region angeboten wird, können hier nur Telefonnummern mit der Länderkennung Deutschland, Österreich und der Schweiz angegeben werden. 
         
         \subsection{Abfragen des Standorts des Nutzers}
-        Der Coaching-Service soll primär und vorerst nur in der DACH-Region angeboten werden. Daher soll der Standort des Nutzers abgefragt werden. Eine Geo-Fencing-Funktion würde für unseren Zweck hier zu weit gehen, weil wir auch Personen die Chance geben wollen, sich für den Dienst anzumelden, die aktuell im Ausland sind. So bietet die Telegram-App dem Nutzer die Möglichkeit, den Ort, den er teilen möchte, spotan selbst auszuwählen.
+            Der Coaching-Service soll primär und vorerst nur in der DACH-Region angeboten werden. Daher soll der Standort des Nutzers abgefragt werden. Eine Geo-Fencing-Funktion würde für unseren Zweck hier zu weit gehen, weil wir auch Personen die Chance geben wollen, sich für den Dienst anzumelden, die aktuell im Ausland sind. So bietet die Telegram-App dem Nutzer die Möglichkeit, den Ort, den er teilen möchte, spotan selbst auszuwählen.
         
         \subsection{Abfragen des Bilds des Nutzers}
-        Informationen aller Nutzer werden als Resultat der Teilnahme am On-Boarding in einer Web-GUI ausgegeben. Hier wird neben den Informationen zum Bewerber auch ein Bild angezeigt. So kann der Coach sich besser auf ein erstes Treffen einstellen. 
+            Informationen aller Nutzer werden als Resultat der Teilnahme am On-Boarding in einer Web-GUI ausgegeben. Hier wird neben den Informationen zum Bewerber auch ein Bild angezeigt. So kann der Coach sich besser auf ein erstes Treffen einstellen. 
         
         \subsection{Überspringen} \label{Realisierung: skip}
-            Die meisten Zustände des Bots erlauben es dem Benutzer, die aktuelle Frage zu überspringen. Vor allem, wenn es um personenbezogene oder private Informationen geht, die der Nutzer preisgeben soll, ist der Befehl \verb|/skip| verfügbar. Für jeden Zustand, in dem \verb|/skip| verfügbar ist, ist eine individuelle Reaktion auf das Überspringen vorgesehen, die den Nutzer trotzdem abholt um in den nächsten Zustand leitet. 
+            Die meisten Zustände des Bots erlauben es dem Nutzer, die aktuelle Frage zu überspringen. Vor allem, wenn es um personenbezogene oder private Informationen geht, die der Nutzer preisgeben soll, ist der Befehl \verb|/skip| verfügbar. Für jeden Zustand, in dem \verb|/skip| verfügbar ist, ist eine individuelle Reaktion auf das Überspringen vorgesehen, die den Nutzer trotzdem abholt um in den nächsten Zustand leitet. 
             \begin{enumerate}
                 \item \verb|/skip_bio|: Stufe \verb|BIO| kann ohne Konditionen übersprungen werden. Dann liegen keine Biographie bzw. Freitext-Information über den Nutzer vor.
                 \item \verb|/skip_gender|: Stufe \verb|GENDER| kann ohne Konditionen übersprungen werden. Eine Angabe über das Geschlecht des Nutzers ist nicht zwingend notwendig.
@@ -55,36 +71,20 @@
             Auf die Umsetzung der einzelnen Übersprungsfunktionen wird im Kapitel \ref{Implementierung} Implementierung genauer eingegangen.
     
         \subsection{Zusammenfassungs-Funktion}
-            Ziel des Bots ist ein hohes Maß an Transparenz auf allen Seiten. Der Nutzer weiß nicht nur, dass seine Daten erfasst wurden, sondern am Ende des Konversationsflusses werden diese auch automatisch zurückkommuniziert. Dies passiert auf zweierlei Wegen. Neben einer Telegram-Nachricht wird dem Nutzer auch eine Zusammenfassung in Form einer E-Mail an die angegebene Adresse gesendet. Darüber hinaus hat der Nutzer die Möglichkeit, die Zusammenfassung manuell via des Befehls \verb|/summary| direkt vom Bot abzufragen. 
-
-
-    \section{Rahmen- und Meta-Funktionen} \label{Realisierung: meta functions}
-            Neben den Zustands-Funktionen in Abschnitt \ref*{Realisierung: state functions} des Bots (Funktionen, die zum Gesprächsfluss gehören), gibt es eine Reihe an Meta-Funktionen, die dem Nutzer zur Verfügung stehen, um eine Konversation zu starten, zu beenden, Daten zu löschen oder die Hilfe aufzurufen.
-            
-            \subsection{Start: Eine Konversation beginnen}
-            Der Nutzer startet den Bot über den Aufruf eines Links oder mit dem Befehl \verb|/start| (Aktion) und der Bot gibt eine Begrüßungsnachricht zurück (Reaktion). Gleichzeitig erfasst er grundsätzliche Informationen des Nutzers und schreibt diese in eine Datenbank. Ab diesem Zeitpunkt kennt die Applikation den Nutzer und kann weitere Informationen über ihn speichern oder individuell auf Eingaben reagieren. Der Bot soll einen Nutzer wiedererkennen und ihn am richtigen Punkt zurück in den Konversationsfluss platzieren. Diese Erfahrung soll für den Nutzer nicht angestrengt wirken, sondern so, als würde der Bot ihn schon kennen und einfach da weitermachen, wo er aufgehört hat. Die technische Komplexität besteht darin, dass das Feature besonders dann funktionieren soll, wenn der Bot neu gestartet wurde. Am Ende jeder Zustands-Funktion muss die nächste Stufe also aus den Nutzerdaten bekannt sein, damit der Bot in S0 weiß, auf welche Stufe der Nutzer weitergeleitet werden muss. Der Zustand in dem der Nutzer sich zuletzt befunden hat, wird also ab der ersten Kontaktaufnahme persistent in der Datenbank gespeichert. Die Memory-Funktion findet zu Beginn der Konversation statt. 
-            
-            \subsection{Ende: Konversation manuell beenden}
-            Hat der Nutzer eine Konversation gestartet, so kann er diese auch zu jedem Zeitpunkt wieder beenden. Die Konversation muss nicht zu Ende geführt worden sein. Über einen kurzen Befehl \verb|/cancel| wird der Bot beendet und personenbezogene Daten werden aus der Datenbank gelöscht. Dabei kann der Nutzer nur seine eigenen Daten löschen. Hat der Nutzer seine Konversation bereits beendet, so ist \verb|/cancel| nicht mehr verfügbar, da der Conversation-Handler bereits beendet ist und keine Aktionen mehr entgegennimmt. Möchte der Nutzer seine Daten dennoch löschen, so steht ihm stattdessen folgende Funktion zur Verfügung: 
-            
-            \subsection{Persönliche Daten löschen}
-            Zu jeder Zeit hat der Nutzer die Möglichkeit, die eigenen Daten via dem Befehl \verb|/delete| zu löschen. Die Funktion ist mit einem \glqq Reset-Knopf\grqq  zu vergleichen. Das Resultat ist nämlich, dass der Bot den Benutzer nicht mehr kennt. Er weiß nicht, dass er schon einmal da war und auch nicht, welche Angaben er gemacht hat oder nicht. So kann man den Bot nach fehlerhafter Eingabe oder, falls man neu anfangen möchte, einfach zurücksetzen.
-            
-            \subsection{Hilfe-Funktion aufrufen}
-            Manchmal wünscht man sich als Nutzer eine Übersicht über verfügbare Befehle. Die Hilfe-Funktion gibt eine Beschreibung der Aktions-Optionen aus, die es gegenüber dem Bot gibt. So werden alle Befehle einfach erklärt und können auch direkt aus der Hilfe heraus aufgerufen werden.             
+            Ziel des Bots ist ein hohes Maß an Transparenz auf allen Seiten. Der Nutzer weiß nicht nur, dass seine Daten erfasst wurden, sondern am Ende des Konversationsflusses werden diese auch automatisch zurückkommuniziert. Dies passiert auf zweierlei Wegen. Neben einer Telegram-Nachricht wird dem Nutzer auch eine Zusammenfassung in Form einer E-Mail an die angegebene Adresse gesendet. Darüber hinaus hat der Nutzer die Möglichkeit, die Zusammenfassung manuell via des Befehls \verb|/summary| direkt vom Bot abzufragen.            
 
 
     \section{Support-Funktionen}
         
         \subsection{Eingabe-Validierung} \label{Realisierung: Validation}
-        Bei einigen Angaben ist es besonders wichtig, dass Eingaben auf korrekte Formate geprüft werden. So müssen bspw. E-Mail-Adresse oder Telefonnummer des Nutzers stimmen, um weitere Features des Bots zu nutzen. Um die Wahrscheinlichkeit dafür zu erhöhen, dass diese Eingaben korrekt sind, werden Nutzereingaben für Geburtsdatum, E-Mail-Adresse und Telefonnummer via regulärem Ausdruck oder dafür vorgesehenen nativen Python-Bibliotheken auf Formatfehler geprüft und der Nutzer bei falscher Eingabe um eine erneute Eingabe gebeten. Liefert der Nutzer eine korrekte Eingabe, landet er im nächsten Zustand. (siehe auch \ref*{Implementierung: validation.py}) Input-Validierung: validation.py) Die Übersprungsfunktion besteht, wie in Abschnitt \ref*{Realisierung: skip} Überspringen beschrieben, weiterhin.
+            Bei einigen Angaben ist es besonders wichtig, dass Eingaben auf korrekte Formate geprüft werden. So müssen bspw. E-Mail-Adresse oder Telefonnummer des Nutzers stimmen, um weitere Features des Bots zu nutzen. Um die Wahrscheinlichkeit dafür zu erhöhen, dass diese Eingaben korrekt sind, werden Nutzereingaben für Geburtsdatum, E-Mail-Adresse und Telefonnummer via regulärem Ausdruck oder dafür vorgesehenen nativen Python-Bibliotheken auf Formatfehler geprüft und der Nutzer bei falscher Eingabe um eine erneute Eingabe gebeten. Liefert der Nutzer eine korrekte Eingabe, landet er im nächsten Zustand. (siehe auch \ref*{Implementierung: validation.py}) Input-Validierung: validation.py) Die Übersprungsfunktion besteht, wie in Abschnitt \ref*{Realisierung: skip} Überspringen beschrieben, weiterhin.
         
         \subsection{Konstruktion E-Mail} \label{Realisierung: email}
-        Die E-Mail, die am Ende des Konversationsflusses ausgegeben wird, wird separat aus verschiedenen Bausteinen zusammengesetzt. Dafür kommen Informationsabfragen gegen die Datenbank mit der Ansprache eines Mail-Servers zusammen.
+            Die E-Mail, die am Ende des Konversationsflusses ausgegeben wird, wird separat aus verschiedenen Bausteinen zusammengesetzt. Dafür kommen Informationsabfragen gegen die Datenbank mit der Ansprache eines Mail-Servers zusammen.
         
     
     \section{Datenbank} \label{Realisierung: Datenbank}
-        Sobald der Nutzer durch den Beginn des Konversationsflusses eine Verbindung zum Bot herstellt hat, wird seine Telegram-ID abgefragt und in eine bestehende oder neue Datenbank geschrieben. Informationen, die der Nutzer angibt, reichern den Datensatz des Nutzers in jeder Stufe sukzessive an. Fast alle Informationen über den Nutzer werden so gespeichert. Ausgenommen ist das Bild, das der Nutzer hochlädt.\footnote{Es wird als Datei gespeichert - genau wie andere Medien, die man mit einem anderen Teilnehmer einer Konversation über einen Messenger wie Telegram teilt.} So können einzelne Werte jederzeit verwendet werden, um Nutzer-spezifische Reaktionen zu gestalten. Dem Nutzer stehen die meisten Datenbank-Operationen implizit und wenige explizit zur Verfügung. Daten werden implizit gespeichert und abgerufen. Explizit können Daten gelöscht werden. Zur Realisierung wird, wie in den Grundlagen erwähnt, eine SLQlite Datenbank genutzt, die für den Zweck des Coaching-Bots vollkommen ausreichend ist. Weder ist mit immensen Nutzerzahlen, noch mit vielen gleichzeitigen Operationen oder einer riesigen Datemenge zu rechen, was für mächtigere Lösungen sprechen würde. Da keine komplexen Berechnungen auf den Daten durchgeführt werden, sondern nur basale CRUD-Operaionen geplant sind, gibt es nur eine Tabelle (siehe Abb. \ref{fig: data base model}), in der alle Nutzerdaten gespeichert sind.
+        Sobald der Nutzer durch den Beginn des Konversationsflusses eine Verbindung zum Bot herstellt hat, wird seine Telegram-ID abgefragt und in eine bestehende oder neue Datenbank geschrieben. Informationen, die der Nutzer angibt, reichern den Datensatz des Nutzers in jeder Stufe sukzessive an. Fast alle Informationen über den Nutzer werden so gespeichert. Ausgenommen ist das Bild, das der Nutzer hochlädt.\footnote{Es wird als Datei gespeichert - genau wie andere Medien, die man mit einem anderen Teilnehmer einer Konversation über einen Messenger wie Telegram teilt.} So können einzelne Werte jederzeit verwendet werden, um Nutzer-spezifische Reaktionen zu gestalten. Dem Nutzer stehen die meisten Datenbank-Operationen implizit und wenige explizit zur Verfügung. Daten werden implizit gespeichert und abgerufen. Explizit können Daten gelöscht werden. Zur Realisierung wird, wie in den Grundlagen erwähnt, eine SLQlite Datenbank genutzt, die für den Zweck des Coaching-Bots vollkommen ausreichend ist. Weder ist mit immensen Nutzerzahlen, noch mit vielen gleichzeitigen Operationen oder einer riesigen Datemenge zu rechen, was für mächtigere Lösungen sprechen würde. Da keine komplexen Berechnungen auf den Daten durchgeführt werden, sondern nur basale CRUD-Operaionen geplant sind, kommt der Bot mit einer Tabelle zurecht (siehe Abb. \ref{fig: data base model}), in der alle Nutzerdaten gespeichert sind.
         \begin{figure} %[hbtp]
             \centering
             \includegraphics[width=0.5\textwidth]{images/220325_PA28464_DataBaseModel.png}
@@ -93,47 +93,24 @@
         \end{figure}
 
 
-    \section{Anbindung Datenbank an Python} \label{Realisierung: data base connector}
-        Der Database-Connector wird unter der Zuhilfenahme der sqlite3-Bibliothek programmiert, die es ermöglicht, klassische Datenbank-Operationen direkt aus einem Python-Skript heraus anzustoßen und hier als Basis für den Database-Connector dient. Die CRUD-Operationen selbst werden in handelsüblichem SQL formuliert und übergeben. Die Datenbankoperationen sind in separate Methoden aufgeteilt, die immer an Schema \ref*{code: sqlite3 schema} angelehnt sind: 
-        \begin{enumerate}
-            \item Verbindung zur DB aufbauen. Falls keine DB existiert, eine Neue erstellen.
-            \item Einen Cursor erstellen.
-            \item Query erstellen, die abfragt, ob ein Element (hier die Tabelle selbst) schon existiert.
-            \item Falls die Tabelle nicht existiert, Neue erstellen.
-            \item Daten lesen, schreiben oder löschen
-            \item Neuen Stand bestätigen / committen
-            \item Verbindung schließen.
-        \end{enumerate}
+        \subsection{Anbindung Datenbank an Python} \label{Realisierung: data base connector}
+            Der Connector soll prüfen können, ob die Datenbank sie existiert, sich selbst aufbauen können, klassische CRUD-Operationen durchführen können und schnell Antworten liefern, um die Wartezeit bei Zustands-Funktionen, die auf Antwort von der Datenbank warten, so kurz wie möglich bleibt. Folgendes Schema ist für die benötigten Funktionen angedacht:
+            \begin{enumerate}
+                \item Verbindung zur DB aufbauen. Falls keine DB existiert, eine Neue erstellen.
+                \item Einen Cursor erstellen.
+                \item Query erstellen, die abfragt, ob ein Element (hier die Tabelle selbst) schon existiert.
+                \item Falls die Tabelle nicht existiert, Neue erstellen.
+                \item Daten lesen, schreiben oder löschen
+                \item Neuen Stand bestätigen / committen
+                \item Verbindung schließen.
+            \end{enumerate}
 
-        Eine genauere Beschreibung des für den CoachingBot gebauten Database-Connectors findet sich in Abschnitt \ref*{Implementierung: Datenbank} Datenbank in Kapitel \ref*{Implementierung} Implementierung.
-
-        \begin{lstlisting}[language=Python, caption={Database Connector mit sqlite3}\label{code: sqlite3 schema}]
-import sqlite3
-db = 'db_name.db'
-def create_db ():
-    connection = sqlite3.connect(db)
-    cursor = connection.cursor()
-    checker = '''SELECT count(name)
-        FROM sqlite_master
-        WHERE type='table' AND name='table_name'
-    '''
-    cursor.execute(checker)
-    table_users = '''CREATE TABLE IF NOT EXISTS table_name (
-        # SQL statement for table creation
-    );'''
-    if cursor.fetchone()[0]==1:
-        print('Table already exists.')
-    else:
-        cursor.execute(table_users)
-        print('Table created.')
-    connection.commit()
-    connection.close()
-        \end{lstlisting}
+            Eine genauere Beschreibung des für den CoachingBot gebauten Database-Connectors findet sich in Abschnitt \ref*{Implementierung: Datenbank} Datenbank in Kapitel \ref*{Implementierung} Implementierung.
 
 
     \section{Kalender} \label{Realisierung: calendar}
-        Um am Ende des Konversationsflusses einen ersten Termin mit einem Coach vereinbaren zu können, muss der Nutzer einen freien Termin auswählen können und für diesen eine Einladung beantragen. Zu diesem Zweck wurde die Google Calendar API angebunden. Der Nutzer wird zunächst gefragt, ob er überhaupt einen Termin vereinbaren möchte. Daraufhin wird die API abgefragt und dem Nutzer werden drei Termine vorgeschlagen. Mit einem Klick kann der gewünschte Termin dann ausgewählt werden. Kurz darauf erhält der Nutzer eine Termineinladung an die zuvor angegebene E-Mail-Adresse und kann diese im persönlichen Kalender-Client annehmen oder ablehnen. \\
-        Eine Kennenlern-Sitzung dauert 50 Minuten. Vorschläge sollen über eine Spanne von 10 Tagen verteilt sein und nur an Wochentagen und zu Geschäftszeiten möglich sein. Da sich Geschäftszeiten ändern können und dazu keine Anpassung am Programmcode notwendig sein soll, werden Geschäftszeiten direkt im entsprechenden Kalender festgelegt.
+        Um am Ende des Konversationsflusses einen ersten Termin mit einem Coach vereinbaren zu können, muss der Nutzer einen Termin auswählen können und für diesen eine Einladung beantragen. Zu diesem Zweck soll die Google Calendar API angebunden werden. Der Nutzer wird zunächst gefragt, ob er überhaupt einen Termin vereinbaren möchte. Daraufhin wird die API abgefragt und dem Nutzer werden einige Terminvorschläge gemacht. Vorschläge sollen über eine Spanne von 10 Tagen verteilt sein und nur an Wochentagen und zu Geschäftszeiten möglich sein. Da sich Geschäftszeiten ändern können und dazu keine Anpassung am Programmcode notwendig sein soll, werden Geschäftszeiten direkt im entsprechenden Kalender festgelegt. Mit einem Klick kann der gewünschte Termin dann ausgewählt werden. Kurz darauf erhält der Nutzer eine Termineinladung an die zuvor angegebene E-Mail-Adresse und kann diese im persönlichen Kalender-Client annehmen oder ablehnen. \\
+        
 
     
     \section{Web-GUI} \label{Realisierung: web gui}

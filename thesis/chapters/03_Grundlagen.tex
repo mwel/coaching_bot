@@ -14,17 +14,17 @@ Die folgenden Sprachen und Systeme und deren grundsätzliches Verständnis diene
     \section{Telegram API Framework}
         Große Teile des CoachingBots basieren auf der API des Instant Messaging Dienstes Telegram\cite{telegramAPI} sowie deren Extension \cite{telegramAPIext}. 
 
-        \subsection{Telegram API} \label{Telegram API}
+        \subsection{Telegram API} \label{Grundlagen: Telegram API}
             \glqq Die Telegram Bot-API ist eine HTTP-basierte Schnittstelle für Entwickler, die Bots für Telegram erstellen möchten.\grqq \cite{core_telegram_api} 
 
 
-        \subsection{Telegram API Extension}\label{Telegram API Ext}
-            Die \verb|telegram.ext| baut auf der reinen API-Implementierung aus \ref{Telegram API} auf. Sie besteht aus mehreren Klassen. Die beiden Wichtigsten für den CoachingBot sind \verb|telegram.ext.Updater| und \verb|telegram.ext.Dispatcher|. Die Updater-Klasse holt kontinuierlich neue Aktualisierungen von Telegram ab und gibt sie an die Dispatcher-Klasse weiter. Ein Updater-Objekt erstellt einen Dispatcher und verknüpft diesen mit einer Warteschlange. Im Dispatcher-Handler können dann verschiedene Typen registriert werden, die die vom Updater abgeholten Aktualisierungen entsprechend den registrierten Handlern sortieren und an eine vordefinierte Callback-Funktion übergeben. Für die Nutzung ist ein Access Token erforderlich.\cite{telegram_ext_intro} Mehr Informationen dazu, wie ein solches Token erstellt wird in Abschnitt Realisierung \ref{Realisierung: botfather}.
+        \subsection{Telegram API Extension}\label{Grundlagen: Telegram API Ext}
+            Die \verb|telegram.ext| baut auf der reinen API-Implementierung aus \ref{Grundlagen: Telegram API} auf. Sie besteht aus mehreren Klassen. Die beiden Wichtigsten für den CoachingBot sind \verb|telegram.ext.Updater| und \verb|telegram.ext.Dispatcher|. Die Updater-Klasse holt kontinuierlich neue Aktualisierungen von Telegram ab und gibt sie an die Dispatcher-Klasse weiter. Ein Updater-Objekt erstellt einen Dispatcher und verknüpft diesen mit einer Warteschlange. Im Dispatcher-Handler können dann verschiedene Typen registriert werden, die die vom Updater abgeholten Aktualisierungen entsprechend den registrierten Handlern sortieren und an eine vordefinierte Callback-Funktion übergeben. Für die Nutzung ist ein Access Token erforderlich.\cite{telegram_ext_intro} Mehr Informationen dazu, wie ein solches Token erstellt wird in Abschnitt Realisierung \ref{Realisierung: botfather}.
 
 
     \section{ConversationBot}
-        Das hier verwendete Kernelement des CoachingBots - die Finite State Machine (z.dt. Endlicher Automat, im Folgenden nur \glqq State Machine\grqq) - basiert auf dem ConversationBot von Leandro Toledo et. al. \cite{conversationBot}.\footnote{Das Repository enthält eine Vielzahl basaler Bot-Implementierungen, die als Startpunkt für viele Bot-Implementierung einen guten Einblick in mögliche Grundgerüste und Funktionsweisen geben können.} In Abb. \ref{code: ConversationBot} ist eine vereinfachte Version zu sehen. Nach der Einbindung der \verb|telegram|- und \verb|telegram.ext|-Bibliotheken, werden die Zustände der State Machine definiert. In diesem Setup gibt es drei angedeutete Arten von Methoden (später Handler-Functions): die \verb|start|-, die \verb|state[n]|- und die \verb|cancel|-Methode. Erstere und Letztere werden verwendet, um die Konversation mit dem Bot manuell zu starten und zu beenden. Über die \verb|state[n]|-Methoden können Nachrichten an den Nutzer, Konditionen für den Übergang zum nächsten Zustand sowie weitere Zusatzfunktionen ausgelöst werden, die aus dem entsprechenden Zustand resultieren sollen. 
-        In der \verb|main|-Methode werden der Updater sowie der Dispatcher inkl. aller Conversation- und Command-Handler angemeldet und konfiguriert. Außerdem wird der Abfrage-Loop an Telegram (Polling) gestartet. Auf die genaue Implementierung wird in Abschnitt \ref{main.py} eingegangen.
+        Das hier verwendete Kernelement des CoachingBots - die Finite State Machine (z.dt. Endlicher Automat, im Folgenden nur \glqq State Machine\grqq) - basiert auf dem ConversationBot von Leandro Toledo et. al. \cite{conversationBot}.\footnote{Das Repository enthält eine Vielzahl basaler Bot-Implementierungen, die als Startpunkt für viele Bot-Implementierung einen guten Einblick in mögliche Grundgerüste und Funktionsweisen geben können.} In Abb. \ref{code: ConversationBot} ist eine vereinfachte Version zu sehen. Nach der Einbindung der \verb|telegram|- und \verb|telegram.ext|-Bibliotheken, werden die Zustände der State Machine definiert. In diesem Setup gibt es drei angedeutete Arten von Methoden (später Handler-Functions): die \verb|start|-, die \verb|state[n]|- und die \verb|cancel|-Funktion. Erstere und Letztere werden verwendet, um die Konversation mit dem Bot manuell zu starten und zu beenden. Über die \verb|state[n]|-Methoden können Nachrichten an den Nutzer, Konditionen für den Übergang zum nächsten Zustand sowie weitere Zusatzfunktionen ausgelöst werden, die aus dem entsprechenden Zustand resultieren sollen. 
+        In der \verb|main|-Funktion werden der Updater sowie der Dispatcher inkl. aller Conversation- und Command-Handler angemeldet und konfiguriert. Außerdem wird der Abfrage-Loop an Telegram (Polling) gestartet. Auf die genaue Implementierung wird in Abschnitt \ref{main.py} eingegangen.
         
         \begin{lstlisting}[language=Python, caption={ConversationBot Boiler Plate}\label{code: ConversationBot}]
             from telegram import ReplyKeyboardMarkup, ReplyKeyboardRemove, Update
@@ -84,8 +84,8 @@ Die folgenden Sprachen und Systeme und deren grundsätzliches Verständnis diene
         \end{itemize}    
 
         
-    \section{Google Calendar API} \label{Google Calendar API}
-        Die Applikation bindet die Google Calendar API \cite{googleCalAPI} an, um es dem User zu ermöglichen, einen Termin mit dem Anbieter zu vereinbaren und diesen später auch wieder in der eigegen Kalender-Applikation abzulehnen.
+    \section{Google Calendar API} \label{Grundlagen: Google Calendar API}
+        Die Applikation bindet die Google Calendar API \cite{googleCalAPI} an, um es dem Nutzer zu ermöglichen, einen Termin mit dem Anbieter zu vereinbaren und diesen später auch wieder in der eigegen Kalender-Applikation abzulehnen.
         Um die API nutzen zu können, bedarf es der Installation der API (via pipenv) und der Einrichtung der quickstart.py. Sie stellt den Rahmen für die Authentifizierung gegenüber dem Google Open\-Authorization (oauth2) Protokoll und bindet erste Bibliotheken ein.\footnote{Eine genaue Dokumentation zu Aufbau und Nutzung der quickstart.py findet sich hier: \url{https://developers.google.com/calendar/api/quickstart/python}}
         Für den CoachingBot ist die quickstart.py bereits konfiguriert und wurde durch einige Erweiterungen zum Calendar Manager weiterentwickelt (siehe \ref{Implementierung: calendar_manager.py} calendar\_manager.py). Zur Nutzung durch Dritte bedarf es dabei individueller Schlüssel sowie Zugangsberechtigungen, durch deren Setup nun geführt wird. Vorgängig ist die Dokumentation zur Google Cloud Console zu sichten.\footnote{\url{https://console.cloud.google.com/}}
         
@@ -116,5 +116,4 @@ Die folgenden Sprachen und Systeme und deren grundsätzliches Verständnis diene
         
     \section{TheCoachingBot}
         Der gesamte Quellcode inklusive aller Abhängigkeiten findet sich in einem öffentlichen GitHub-Repository.\footnote{\url{https://github.com/mwel/coaching_bot}}
-        \\ \\
         
