@@ -8,6 +8,7 @@ MAIL_constant.py
 
 # calendar_credentials
 credentials.json
+credentials_old.json
 
 # project
 user_pictures
@@ -27,3 +28,4 @@ IUG.bib
 
 # API token
 token.json
+_Token-Archive

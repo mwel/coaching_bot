@@ -19,11 +19,11 @@ def help(update: Update, context: CallbackContext):
 
     # commands
     help_dict['help'] = 'Call for help and it shall be displayed.\n'
-    help_dict['start'] = 'Start your conversation with The Coaching Bot or pick up, where you left.\n'
-    help_dict['cancel'] = 'End your conversation with the bot and delete all data your have submitted.\n (Only works, if you started the bot.)'
-    help_dict['status'] = 'Ask the bot how many steps you have left to complete your current stage.\n'
+    help_dict['start'] = 'Start your conversation with The Coaching Bot or pick up, where you left off.\n'
+    help_dict['cancel'] = 'End your conversation with the bot and delete all data you have submitted.\n (Only works, if you started the bot.)'
+    help_dict['status'] = 'Ask the bot how many steps you have left to complete the sign up.\n'
     help_dict['summary'] = 'Ask the database for everything it has on you.\n'
-    help_dict['delete'] = 'Delete all you data.\n (If you do, you have to start over.) \n'
+    help_dict['delete'] = 'Delete all your data.\n (If you do, you have to /start over.) \n'
     # help_dict[''] = '' # add more help here
 
 

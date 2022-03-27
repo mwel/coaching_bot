@@ -286,7 +286,7 @@ def bio(update: Update, context: CallbackContext) -> int:
 
             Zunächst werden ein Update- und ein CallbackContext-Objekt an die Handler-Funktion übergeben. Zurückgegeben wird der Datentyp \verb|int|, da die State-Machine am Ende der Funktion wissen muss, in welchen Zustand der Nutzer als nächstes geschickt werden soll und die Zustände nummeriert sind. \\
             Innerhalb der Funktion werden \verb|user_id| und \verb|bio_message| aus dem Update-Objekt gespeichert, da diese beiden informationen als nächstes in die Datenbank gespeichert werden sollen. Die \verb|bio_message| ist in diesem Fall die Text-Eingabe, die an den Bot übermittelt wurde. Die \verb|user_id| ist die Telegram-ID des jeweiligen Nutzers, an die alle Nutzerinformationen geknüpft werden.
-            (zur Funktionalität der \verb|insert_update|-Funktion siehe Abschnitt \ref{Implementierung: insert_update_db.py} insert\_update.py)
+            (zur Funktionalität der \verb|insert_update|-Funktion siehe Abschnitt \ref{Implementierung: insert_value_db.py} insert\_value\_db.py - Werte schreiben)
             Die Hintergrundprozesse sind nun abgeschlossen und die für den Nutzer sichtbare Reaktion auf seine Nachricht kann erfolgen. Die Funktion \verb|update.message.reply_text| erlaubt es uns, dem Nutzer einen beliebigen String sowie eine für diese Nachricht individuelle Antwort-Tastatur auszugeben. (Die zu übergebenden Parameter für die Zustandsbergänge sind für die \verb|reply_text|-Instanzen in der \verb|states.py| zentral gespeichert, um sich innerhalb der einzelnen Handler-Funktion soweit als möglich von Inhalten zu abstrahieren.)
             Ist die Ausgabe an den Nutzer erfolgt, bleibt noch die Aktualisirung des neuen Zustands des Nutzers in der Datenbank, gefolgt von der Übergabe des nächsten Zustands an den ConversationHandler. Damit ist die Zustands-Funktion beendet und der Übergang von einem in den nächsten Zustand abgeschlossen. Diese Funktion leitet in den Zustand \verb|GENDER|.\\ \\
 
@@ -319,9 +319,9 @@ def skip_bio(update: Update, context: CallbackContext) -> int:
 
         \paragraph{Nach den beiden exemplarisch vorgestellten Funktionen wird im weiteren Verlauf des Kapitels nur noch auf Besonderheiten der restlichen Handler-Funktionen eingegangen.}
 
-        \subsection{Handler-Funktionen mit Input Validation} \label{Implementierung: birthdate.py}
+        \subsection{Handler-Funktionen mit Input Validation} \label{Implementierung: handler validation}
             Der Bot arbeitet in den Funktionen \verb|birthdate|, \verb|email| und \verb|telephone| mit Input-Validierung. (zur Funktionsweise siehe \ref{Implementierung: validation.py} validation.py) Dazu wird die Nutzereingabe zunächst an die Funktion \verb|validate_birthdate| übergeben und auf die Bewertung des Inputs gewartet. 
-            \begin{lstlisting}[language=Python, caption={birthdate.py - Input Validation}\label{code: skip_bio.py}]
+            \begin{lstlisting}[language=Python, caption={birthdate.py - Input Validation}\label{code: birthdate.py}]
 def birthdate(update: Update, context: CallbackContext) -> int:
 
     if validate_birthdate(update.message.text): # if entry is valid, continue.
@@ -337,7 +337,7 @@ def birthdate(update: Update, context: CallbackContext) -> int:
         )
             \end{lstlisting}
                 
-            Entspricht der Input dem prädefinierten Format, fährt der Bot wie gewöhnlich fort und übergibt den nächsten Zustand zurück an den Conversation-Handler. Ist dies jedoch nicht der Fall, so wird, wie in Listing \ref*{code: birthdate input validation} eine entsprechende Nachricht an den Nutzer ausgegeben. Da der Conversation-Handler erst dann zur nächsten Stufe geht, wenn er von der Funktion \verb|birthdate| den entsprechenden Zustand zurückerhalten hat, entsteht hier ein Loop, der entweder durch eine gültige Eingabe oder i.e. den Befehl \verb|/skip| gebrochen werden kann.
+            Entspricht der Input dem prädefinierten Format, fährt der Bot wie gewöhnlich fort und übergibt den nächsten Zustand zurück an den Conversation-Handler. Ist dies jedoch nicht der Fall, so wird, wie in Listing \ref*{code: birthdate.py} eine entsprechende Nachricht an den Nutzer ausgegeben. Da der Conversation-Handler erst dann zur nächsten Stufe geht, wenn er von der Funktion \verb|birthdate| den entsprechenden Zustand zurückerhalten hat, entsteht hier ein Loop, der entweder durch eine gültige Eingabe oder i.e. den Befehl \verb|/skip| gebrochen werden kann.
         
             
         % \subsection{telephone.py} \label{Implementierung: telephone.py}
@@ -680,7 +680,7 @@ def get_value(user_id, column):
                 \end{lstlisting}
 
         \subsection{insert\_value\_db.py - Werte schreiben} \label{Implementierung: insert_value_db.py}
-            Um sicherzustellen, dass eine Datebank existiert, wird zunächst die Funktion \verb|create_db| aufgerufen. Diese kommt schnell zurück, da die Datenbank in den meisten Fällen bereits existiert. Nun wird in einem \verb|try/except|-Block versucht (siehe Listing \ref*{}), einen existierenden Datenbankeintrag zu aktualisieren. Das funktioniert meistens, weil der Datensatz für einen Nutzer bereits bei der Eingabe von \verb|/start| durchgeführt wird. So kann ein Eintrag bereits von Beginn an immer weiter angereichert werden.
+            Um sicherzustellen, dass eine Datebank existiert, wird zunächst die Funktion \verb|create_db| aufgerufen. Diese kommt schnell zurück, da die Datenbank in den meisten Fällen bereits existiert. Nun wird in einem \verb|try/except|-Block versucht (siehe Listing \ref*{code: insert_value_db.py}), einen existierenden Datenbankeintrag zu aktualisieren. Das funktioniert meistens, weil der Datensatz für einen Nutzer bereits bei der Eingabe von \verb|/start| durchgeführt wird. So kann ein Eintrag bereits von Beginn an immer weiter angereichert werden.
 
             \begin{lstlisting}[language=Python, caption={select\_db.py - Datensatz eines Nutzers anreichern}\label{code: insert_value_db.py}]
     ...
@@ -717,7 +717,7 @@ def get_value(user_id, column):
     \section{Terminvereinbarung mit dem Google Calendar} \label{Implementierung: Kalender} 
         
         \label{Implementierung: calendar_manager.py}
-        Um die Anforderungen aus der Realisierung in Abschnitt \ref*{Realisierung: calendar} zu erfüllen, ergo mit der Google Calendar API zu kommunizieren, sind die Schritte aus Kapitel \ref*{Grundlagen} Grundlagen, Abschnitt \ref*{Google Calendar API} Google Calendar API durchzuführen. Der Kalender-Manager basiert auf der \verb|quickstart.py| und erweitert diese. Daneben nutzt der Kalender-Manager Pythons native Bibliothek zum Zusammenfügen von Dateipfaden (path) und den soeben beschriebenen Database-Connector. Er erlaubt es dem aufrufenden System, abzufragen, ob eine Zeitspanne in einem bestimmten Kalender verfügbar ist und Termine zwischen einer festgelegten Veranstalter-Adresse und beliebig vielen Teilnehmer-Adressen zu erstellen und zu versenden. Im Folgenden werden Aufbau und Funktionsweise der \verb|calendar_manager.py| erklärt: \\ 
+        Um die Anforderungen aus der Realisierung in Abschnitt \ref*{Realisierung: calendar} zu erfüllen, ergo mit der Google Calendar API zu kommunizieren, sind die Schritte aus Kapitel \ref*{Grundlagen} Grundlagen, Abschnitt \ref*{Grundlagen: Google Calendar API} Google Calendar API durchzuführen. Der Kalender-Manager basiert auf der \verb|quickstart.py| und erweitert diese. Daneben nutzt der Kalender-Manager Pythons native Bibliothek zum Zusammenfügen von Dateipfaden (path) und den soeben beschriebenen Database-Connector. Er erlaubt es dem aufrufenden System, abzufragen, ob eine Zeitspanne in einem bestimmten Kalender verfügbar ist und Termine zwischen einer festgelegten Veranstalter-Adresse und beliebig vielen Teilnehmer-Adressen zu erstellen und zu versenden. Im Folgenden werden Aufbau und Funktionsweise der \verb|calendar_manager.py| erklärt: \\ 
         \\
         Die \verb|main|-Funktion des Kalender-Managers authentifiziert sich gegenüber der Google Calendar API und versucht daraufhin, die nächsten zehn Elemente des Kalenders auszugeben. Ist die Authentifizierung nicht erfolgreich, wird ein \verb|HTTP|-Error ausgegeben.  \\
         Die \verb|authenticate| ist eine reduzierte Version der \verb|main|. Sie gibt ein \verb|service|-Objekt zurück, das genutzt werden kann, um die Funktionen der Google Calendar API anzusprechen und auszuführen.\\

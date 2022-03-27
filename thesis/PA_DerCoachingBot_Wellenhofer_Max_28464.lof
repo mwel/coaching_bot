@@ -10,16 +10,22 @@
 \contentsline {figure}{\numberline {5.1}{\ignorespaces coachingBot\_DB - Datenbankmodell\relax }}{25}{figure.caption.11}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {7.1}{\ignorespaces Bezeichnung der Abbildung\relax }}{49}{figure.caption.15}%
-\contentsline {figure}{\numberline {7.2}{\ignorespaces Bezeichnung der Abbildung\relax }}{50}{figure.caption.16}%
-\contentsline {figure}{\numberline {7.3}{\ignorespaces Bezeichnung der Abbildung\relax }}{51}{figure.caption.17}%
-\contentsline {figure}{\numberline {7.4}{\ignorespaces Bezeichnung der Abbildung\relax }}{52}{figure.caption.18}%
-\contentsline {figure}{\numberline {7.5}{\ignorespaces Bezeichnung der Abbildung\relax }}{53}{figure.caption.19}%
-\contentsline {figure}{\numberline {7.6}{\ignorespaces Bezeichnung der Abbildung\relax }}{54}{figure.caption.20}%
-\contentsline {figure}{\numberline {7.7}{\ignorespaces Bezeichnung der Abbildung\relax }}{55}{figure.caption.21}%
-\contentsline {figure}{\numberline {7.8}{\ignorespaces Bezeichnung der Abbildung\relax }}{56}{figure.caption.22}%
-\contentsline {figure}{\numberline {7.9}{\ignorespaces Bezeichnung der Abbildung\relax }}{57}{figure.caption.23}%
-\contentsline {figure}{\numberline {7.10}{\ignorespaces Bezeichnung der Abbildung\relax }}{58}{figure.caption.24}%
+\contentsline {figure}{\numberline {7.1}{\ignorespaces Creating subfigures in \LaTeX .\relax }}{50}{figure.caption.15}%
+\contentsline {figure}{\numberline {7.2}{\ignorespaces Creating subfigures in \LaTeX .\relax }}{51}{figure.caption.16}%
+\contentsline {figure}{\numberline {7.3}{\ignorespaces Übergang zur Angabe des Geburtsdatums\relax }}{52}{figure.caption.17}%
+\contentsline {figure}{\numberline {7.4}{\ignorespaces Übergang zur Angabe der E-Mail-Adresse\relax }}{53}{figure.caption.18}%
+\contentsline {figure}{\numberline {7.5}{\ignorespaces Übergang zur Angabe der Telefonnummer\relax }}{54}{figure.caption.19}%
+\contentsline {figure}{\numberline {7.6}{\ignorespaces Übergang zur Angabe des Standorts\relax }}{55}{figure.caption.20}%
+\contentsline {figure}{\numberline {7.7}{\ignorespaces Übergang zum Upload eines Fotos\relax }}{56}{figure.caption.21}%
+\contentsline {figure}{\numberline {7.8}{\ignorespaces Ende der Anmeldung und Übergang zur Terminauswahl\relax }}{57}{figure.caption.22}%
+\contentsline {figure}{\numberline {7.9}{\ignorespaces Terminfindung\relax }}{58}{figure.caption.23}%
+\contentsline {figure}{\numberline {7.10}{\ignorespaces Terminauswahl\relax }}{59}{figure.caption.24}%
+\contentsline {figure}{\numberline {7.11}{\ignorespaces Terminbestätigung\relax }}{60}{figure.caption.25}%
+\contentsline {figure}{\numberline {7.12}{\ignorespaces Kalendereinladung\relax }}{60}{figure.caption.26}%
+\contentsline {figure}{\numberline {7.13}{\ignorespaces Rückkehr zum Bot, wenn bereits ein Termin vereinbart wurde\relax }}{61}{figure.caption.27}%
+\contentsline {figure}{\numberline {7.14}{\ignorespaces Statusabfrage und Hilfe\relax }}{62}{figure.caption.28}%
+\contentsline {figure}{\numberline {7.15}{\ignorespaces Nutzerdaten löschen und Neustart des Bots\relax }}{63}{figure.caption.29}%
+\contentsline {figure}{\numberline {7.16}{\ignorespaces Ansicht Coach\relax }}{63}{figure.caption.30}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
