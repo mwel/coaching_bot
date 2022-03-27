@@ -23,6 +23,8 @@
 \contentsline {lstlisting}{\numberline {6.22}{Database Connector mit sqlite3}}{42}{lstlisting.6.22}%
 \contentsline {lstlisting}{\numberline {6.23}{select\_db.py - Datenbankabfrage einzelner Nutzerinformationen}}{43}{lstlisting.6.23}%
 \contentsline {lstlisting}{\numberline {6.24}{select\_db.py - Datensatz eines Nutzers anreichern}}{44}{lstlisting.6.24}%
-\contentsline {lstlisting}{\numberline {6.25}{check\_availability - Anfrage an Google Calendar API}}{45}{lstlisting.6.25}%
-\contentsline {lstlisting}{\numberline {6.26}{find\_slots - Sucht drei Terminvorschläge heraus}}{46}{lstlisting.6.26}%
-\contentsline {lstlisting}{\numberline {6.27}{make\_appointment - Terminvereinbarung und Erstellung Kalender Event in Google Calendar}}{47}{lstlisting.6.27}%
+\contentsline {lstlisting}{\numberline {6.25}{check\_availability - Komposition der Anfrage an die API}}{45}{lstlisting.6.25}%
+\contentsline {lstlisting}{\numberline {6.26}{check\_availability - Versant der Anfrage und Analyse der Antwort der API}}{46}{lstlisting.6.26}%
+\contentsline {lstlisting}{\numberline {6.27}{find\_slots - Sucht drei Terminvorschläge heraus}}{46}{lstlisting.6.27}%
+\contentsline {lstlisting}{\numberline {6.28}{find\_slots - Sucht drei Terminvorschläge heraus}}{47}{lstlisting.6.28}%
+\contentsline {lstlisting}{\numberline {6.29}{make\_appointment - Terminvereinbarung und Erstellung Kalender Event in Google Calendar}}{47}{lstlisting.6.29}%

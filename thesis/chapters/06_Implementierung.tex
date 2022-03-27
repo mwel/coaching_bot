@@ -717,95 +717,72 @@ def get_value(user_id, column):
     \section{Terminvereinbarung mit dem Google Calendar} \label{Implementierung: Kalender} 
         
         \label{Implementierung: calendar_manager.py}
-        Um die Anforderungen aus der Realisierung in Abschnitt \ref*{Realisierung: calendar} zu erfüllen, ergo mit der Google Calendar API zu kommunizieren, sind die Schritte aus Kapitel \ref*{Grundlagen} Grundlagen, Abschnitt \ref*{Google Calendar API} Google Calendar API durchzuführen. Der Kalender-Manager basiert auf der \verb|quickstart.py| und erweitert diese. Daneben nutzt der Kalender-Manager Pythons native Bibliothek zum Zusammenfügen von Dateipfaden (path) und den soeben beschriebenen Database-Connector. Er erlaubt es dem aufrufenden System, abzufragen, ob eine Zeitspanne in einem bestimmten Kalender verfügbar ist und Termine zwischen einer festgelegten Veranstalter-Adresse und beliebig vielen Teilnehmer-Adressen zu erstellen und zu versenden. Im Folgenden werden Aufbau und Funktionsweise der \verb|calendar_manager.py| erklärt:
-
-        Die \verb|main|-Funktion des Kalender-Managers authentifiziert sich gegenüber der Google Calendar API und versucht daraufhin, die nächsten zehn Elemente des Kalenders auszugeben. Ist die Authentifizierung nicht erfolgreich, wird ein \verb|HTTP|-Error ausgegeben. (siehe \ref{Google Calendar API} Google Calendar API) \\ \\
-
-        \verb|authenticate| ist eine reduzierte Version der \verb|main|-Funktion. Sie gibt ein \verb|service|-Objekt zurück, das genutzt werden kann, um die Funktionen der Google Calendar API anzusprechen und auszuführen.\\
-        \\ 
-                
-        Die Funktion \verb|check_availability| nimmt einen Start- und einen Endzeitpunkt entgegen und formatiert diese so um, dass sie dem RFC3339-Format entsprechen. Das Format setzt sich zusammen wie folgt: \\
+        Um die Anforderungen aus der Realisierung in Abschnitt \ref*{Realisierung: calendar} zu erfüllen, ergo mit der Google Calendar API zu kommunizieren, sind die Schritte aus Kapitel \ref*{Grundlagen} Grundlagen, Abschnitt \ref*{Google Calendar API} Google Calendar API durchzuführen. Der Kalender-Manager basiert auf der \verb|quickstart.py| und erweitert diese. Daneben nutzt der Kalender-Manager Pythons native Bibliothek zum Zusammenfügen von Dateipfaden (path) und den soeben beschriebenen Database-Connector. Er erlaubt es dem aufrufenden System, abzufragen, ob eine Zeitspanne in einem bestimmten Kalender verfügbar ist und Termine zwischen einer festgelegten Veranstalter-Adresse und beliebig vielen Teilnehmer-Adressen zu erstellen und zu versenden. Im Folgenden werden Aufbau und Funktionsweise der \verb|calendar_manager.py| erklärt: \\ 
         \\
-        YYYY-MM-DD, \glq T\grq, HH:MM:SS.ms, Buchstabe \glq Z\grq \\
-        \\
-        Beispiel für 10:05 Uhr vormittags am 28.02.2022, koordinierte Weltzeit (UTC): \\
-        \\
-        \verb/2022-02-28T10:05:00.00Z/ \\
-        \\
-        Weitere Informationen zum RFC3339-Format finden sich im offiziellen Standard. \cite{date_time} \\
+        Die \verb|main|-Funktion des Kalender-Managers authentifiziert sich gegenüber der Google Calendar API und versucht daraufhin, die nächsten zehn Elemente des Kalenders auszugeben. Ist die Authentifizierung nicht erfolgreich, wird ein \verb|HTTP|-Error ausgegeben.  \\
+        Die \verb|authenticate| ist eine reduzierte Version der \verb|main|. Sie gibt ein \verb|service|-Objekt zurück, das genutzt werden kann, um die Funktionen der Google Calendar API anzusprechen und auszuführen.\\
         
-        Die beiden Zeitstempel werden in einer Anfrage an die Calendar API eingebaut, an diese übergeben. Die Funktion versucht darauf, die Funktion \verb|freebusy| der API abzufragen. Ist dies erfolgreich, gibt die API eine Antwort im \verb|JSON|-Format zurück, das Python als Dictionary interpretiert und in mehreren geschachtelten Schleifen auslegen kann. Ist das Feld \verb|busy: []| leer, so wird \verb|True| zurückgegeben. Das Zeitfenster ist frei. Ist das Feld nicht leer, gibt es einen Terminkonflikt. Die Funktion gibt \verb|False| zurück. \\
-        \\
-        Erzeugt dieser Vorgang einen Fehler, wird ein \verb|HTTP|-Error auf der Konsole ausgegeben. \\
-        \begin{lstlisting}[language=Python, caption={check\_availability - Anfrage an Google Calendar API}\label{code: check_availability}]
+        \subsection{Zeitspanne prüfen}
+            Die Funktion \verb|check_availability| nimmt einen Start- und einen Endzeitpunkt entgegen und prüft die Verfügbarkeit des entsprechenden Kalenders. Sie gibt einen \verb|BOOLEAN| zurück, der aussagt, ob der Termin noch frei ist. Dafür werden die beiden Zeitstempel so formatiert, dass sie dem RFC3339-Format entsprechen. Das Format setzt sich zusammen wie folgt: \\
+            \\
+            YYYY-MM-DD, \glq T\grq, HH:MM:SS.ms, Buchstabe \glq Z\grq \\
+            \\
+            Beispiel für 10:05 Uhr vormittags am 28.02.2022, koordinierte Weltzeit (UTC): \\
+            \\
+            \verb/2022-02-28T10:05:00.00Z/ \\
+            \\
+            Weitere Informationen zum RFC3339-Format finden sich im offiziellen Standard. \cite{date_time} \\
+            
+            Die beiden Zeitstempel werden in eine \verb|JSON|-Anfrage eingebaut:
+            \begin{lstlisting}[language=Python, caption={check\_availability - Komposition der Anfrage an die API}\label{code: check_availability(1)}]
 def check_availability(start, end):
 
     service = authenticate()
-    
-    logger.info(f'+++++ SLOT START: {start}') # must be in format RFC3339
-    logger.info(f'+++++ SLOT END: {end}')
-
     start_iso = str(start.isoformat('T')+'+01:00') # convert UTC to CET
-    logger.info(f'+++++ start_iso: {start_iso}')
-
     end_iso = str(end.isoformat('T')+'+01:00') # same for end time
-    logger.info(f'+++++ end_iso: {end_iso}')
-
     request = {
         "timeMin": start_iso,
         "timeMax": end_iso,
         "timeZone": "Europe/Berlin", 
         "items": [
             {
-            "id": coaching_calendar_ID #put ID incl. the @domain...
-            }
-        ]
+            "id": coaching_calendar_ID
+            }]
         }
+            \end{lstlisting}
 
-    print (request)
-    
+            In einem \verb|try/except|-Block wird das die Anfrage dann an die API-Funktion \verb|freebusy| übergeben. Ist dies erfolgreich, gibt die API eine Antwort im \verb|JSON|-Format zurück, das Python als Dictionary interpretieren und in mehreren genesteten Schleifen auslesen kann. Ist das Feld \verb|busy: []| leer, so ist das Zeitfenster frei. Es wird \verb|True| zurückgegeben. Ist das Feld nicht leer, gibt es einen Terminkonflikt. Die Funktion gibt \verb|False| zurück. \\
+            Erzeugt dieser Vorgang einen Fehler, wird ein \verb|HTTP|-Error auf der Konsole ausgegeben. \\
+
+            \begin{lstlisting}[language=Python, caption={check\_availability - Versant der Anfrage und Analyse der Antwort der API}\label{code: check_availability(2)}]
     try:
-        
-        response = service.freebusy().query(body=request).execute()
-        logger.info('+++++ CAL: AVAILABILITY CHECKED +++++')
-        print('>>>>> HTTP Response' + str(response))
-    
-        # climb down the dict latter and read the busy response 
-        from the HTTP-Response object
+        response = service.freebusy().query(body=request).execute()    
+        # climb down the dict latter and read the busy response from HTTP-Response
         calendars = response.get('calendars')
-        print(f'>>>>> CALENDARS: {calendars}')
         calendar_temp = calendars.get(coaching_calendar_ID)
-        print(f'>>>>> CALENDAR_TEMP: {calendar_temp}')
         availability = calendar_temp.get('busy')
-        print(f'>>>>> AVAILABILITY: {availability}')
         if availability == []:
             return True
 
-
     except HttpError as error:
         logger.info('ERROR: %s' % error)
-                \end{lstlisting}
+                    \end{lstlisting}
 
-            %\subsubsection{Funktion find\_slots}
-                Die Funktion \verb|find_slots| sucht nach drei Zeitfenstern innerhalb der vordefinierten Geschäftszeiten und gibt diese, in Form einer Liste zurück. \\
-                \\
-                Die Suche für Termine startet um 08:00 Uhr am kommenden Arbeitstag. Es wird zwischen heute und morgen 08:00 Uhr unterschieden. Ist der Zeitstempel zur Zeit der Ausführung der Funktion vor 08:00 Uhr, so wird die Suche heute um 08:00 Uhr begonnen. Ist es bereits nach 08:00 Uhr, so wird die Suche am nächsten Tag begonnen. Das Resultat ist der Zeitstempel von heute oder morgen 08:00 Uhr, der als Startzeit für die Suche verwendet wird. \\
-                \\
-                Nun wird die Google Calendar API für das erste Zeitfenster abgefragt. Ist das Fenster frei, übernimmt die Funktion den Slot und fährt mit der Suche fort. Der nächste Termin wird drei Tage später gesucht, um mehrere unterschiedliche Termine anbieten zu können. \\
-                \\
-                Ist ein Fenster belegt, so wird der Slot zur nächsten vollen Stunde geprüft und dies solange, bis drei Termine gefunden sind. Neben der Rückgabe als Liste erfolgt eine Ausgabe auf der Konsole.\\
-                \\
-                Wochenenden und Zeiten vor 08:00 sowie nach 18:00 Uhr werden übersprungen, da die Funktion \verb|check_availability| für diese Zeiten immer \verb|False| zurückgibt.\footnote{Welche Zeiten als busy zurückgegeben werden kann einfach im eigenen Kalender-Client angepasst werden. Eine Anpassung im Code ist nicht erforderlich.}
 
-                \begin{lstlisting}[language=Python, caption={find\_slots - Sucht drei Terminvorschläge heraus}\label{code: find_slots}]
+
+
+        \subsection{Terminvorschläge generieren}
+            Dem Nutzer sollen drei Terminvorschläge gemacht werden. Die Funktion \verb|find_slots| sucht folgendermaßen nach drei verfügbaren Zeitfenstern und gibt diese in Form einer Liste zurück: 
+            
+                Die Suche für Termine startet um 08:00 Uhr am kommenden Arbeitstag. Es wird zwischen heute und morgen 08:00 Uhr unterschieden. Liegt der Zeitstempel zur Zeit der Ausführung der Funktion vor 08:00 Uhr, so wird die Suche heute um 08:00 Uhr begonnen. Ist es bereits nach 08:00 Uhr, so wird die Suche am nächsten Tag begonnen. Das Resultat ist der Zeitstempel von heute oder morgen 08:00 Uhr, der als Startzeit für die Suche verwendet wird.
+
+            \begin{lstlisting}[language=Python, caption={find\_slots - Sucht drei Terminvorschläge heraus}\label{code: find_slots}]
 def find_slots():
 
     # Get today's datetime
     datenow = datetime.datetime.now()
-
     # Create datetime variable for 8 AM
     dt8 = None
-
     # If today's hour is < 8 AM
     if datenow.hour < 8:
 
@@ -814,19 +791,18 @@ def find_slots():
 
     # If today is past 8 AM, increment date by 1 day
     else:
-
         # Get 1 day duration to add
         day = datetime.timedelta(days=1)
-
         # Generate tomorrow's datetime
         tomorrow = datenow + day
 
         # Create new datetime object using tomorrow's year, month, day at 8 AM
         dt8 = datetime.datetime(tomorrow.year, tomorrow.month, tomorrow.day, 8, 0, 0, 0)
+            \end{lstlisting}
 
-    # Create timestamp from datetime object
-    # timestamp = time.mktime(dt8.timetuple())
-    
+            Nun wird die Google Calendar API für das erste Zeitfenster abgefragt. Ist das Fenster frei, übernimmt die Funktion den Slot und fährt mit der Suche fort. Der nächste Termin wird drei Tage später gesucht, um mehrere unterschiedliche Termine anbieten zu können. Ist ein Fenster belegt, so wird der Slot zur nächsten vollen Stunde geprüft und dies solange, bis drei Termine gefunden sind. Neben der Rückgabe als Liste erfolgt eine Ausgabe auf der Konsole.
+
+            \begin{lstlisting}[language=Python, caption={find\_slots - Sucht drei Terminvorschläge heraus}\label{code: find_slots}]
     # within the business hours, find 3 free time slots to suggest to the user
     free_slots = []
     slots = 0
@@ -839,59 +815,57 @@ def find_slots():
         if (check_availability(start, end)): 
             free_slots.append(str(start))
             slots += 1;
-
-            print(f'>>>>> Slot found at: {start} <<<<<')
             start = dt8 + datetime.timedelta(days=3*slots)
 
         else: 
-            logger.info ('##### NO SLOT FOUND #####')
             start = start + datetime.timedelta(hours=1)
         
-        print (f'##### {slots} slots found in {round} rounds. #####') 
-        # tell me, how many rounds the while loop has to run to get 3 slots
-
-    print(f'>> FREE SLOTS: {free_slots}')
     return free_slots
-                \end{lstlisting}
+            \end{lstlisting}
+            Wochenenden und Zeiten vor 08:00 sowie nach 18:00 Uhr werden übersprungen, da die Funktion \verb|check_availability| für diese Zeiten immer \verb|False| zurückgibt.\footnote{Welche Zeiten als busy zurückgegeben werden kann einfach im eigenen Kalender-Client angepasst werden. Eine Anpassung im Code ist nicht erforderlich.}
 
 
-            %\subsubsection{Funktion make\_appointment}
-                Abschließend hat der Nutzer die Möglichkeit, einen der drei Vorschläge auszuwählen. Dieser Vorschlag wird neben der Nutzer-ID in zweierlei Form an die Funktion \\\verb|make_appointment| übergeben - einmal als \verb|String| und einmal als \verb|Calender|-Event. \\
-                Das Event wird inkl. der Kalender-ID an die API via der Funktion \verb|insert| übergeben und so in den entsprechenden Kalender eingefügt. \\
-                Falls bei dieser Operation ein Fehler passiert, wird ein \verb|HTTP|-Error auf der Konsole ausgegeben.
+        \subsection{make\_appointment - Finalen Termin vereinbaren}
+            Abschließend kann der Nutzer einen der drei Vorschläge auswählen. Der gewählte Vorschlag wird an die Funktion \verb|make_appointment| übergeben inkl. der Kalender-ID an die API via der API-Funktion \verb|insert| übergeben und so in den entsprechenden Kalender eingefügt. 
 
-                \begin{lstlisting}[language=Python, caption={make\_appointment - Terminvereinbarung und Erstellung Kalender Event in Google Calendar}\label{code: make_appointment}]
-def make_appointment(user_id, slot_start, event):
-
+            \begin{lstlisting}[language=Python, caption={make\_appointment - Terminvereinbarung und Erstellung Kalender Event in Google Calendar}\label{code: make_appointment}]
+def make_appointment(event):
     service = authenticate()
-
     try:
         service.events().insert(calendarId=coaching_calendar_ID, body=event).execute()
-        logger.info(f'+++++ APPOINTMENT MADE for {user_id} at {slot_start}')
 
     except HttpError as error:
         logger.info('ERROR: %s' % error)
-
-    return
-                \end{lstlisting}
+            \end{lstlisting}
+            Google versendet eine Termineinladung, in der die Informationen enthalten, sind, die im Event mitgeschickt wurden und der Nutzer sowie der Coaching-Kalender bekommen eine entsprechende Einladung. Falls bei dieser Operation ein Fehler auftritt, wird ein \verb|HTTP|-Error auf der Konsole ausgegeben.
 
     
     \section{Web-GUI}
-        Die Web-GUI wird komplett mit Flask erstellt. Dazu benötigt werden die Applikation für den Web-Server sowie das Templating selbst (\verb|app.py|), ein HTML- (\verb|home.html|) und ein CSS-File (\verb|main.css|), über das Inhalt und Style definiert werden sowie wenige Ressourcen. Alle anderen Elemente liegen bereits vor.
+        Die Web-GUI stellt dem Coach eine Liste der Nutzer, die den Prozess begonnen haben zur Verfügung und zeigt den aus den Anmeldungen resultierenden Terminkalender an. Die GUI wurde mit Flask erstellt und bindet Daten aus der Datenbank, Nutzerbilder, eine Google Calendar View zusammen auf eine HTML-Seite, die mithilfe von CSS gestyled wird.
         
-        \subsection{app.py} \label{Implementierung: app.py}
-            Die \verb|app.py| instanziiert via der Flask Bibliothek einen Webserver und konstruiert den darzustellenden Inhalt in Form eines sog. Templates. Dieses wird aus Nutzerinformationen zusammengesetzt, die bei Aufrufen der entsprechenden URL aus der Datenbank abgefragt werden sowie aus den von Nutzern eingereichten Bildern. 
-            Das fertige Template wird dann an den Webserver zurückgegeben.
+        Die \verb|app.py| instanziiert via der Flask Bibliothek einen Webserver und konstruiert den darzustellenden Inhalt in Form eines Templates. Dieses wird aus Nutzerinformationen zusammengesetzt, die bei Aufrufen der entsprechenden URL aus der Datenbank abgefragt werden sowie aus den von Nutzern eingereichten Bildern. 
+        Das fertige Template wird dann an den Webserver zurückgegeben, der die Oberfläche an den Web-Browser liefert.
 
-        \subsection{home.html} \label{Implementierung: home.html}
-            Die \verb|home.html| besteht aus drei Teilen. Zunächst wird eine Tabelle erstellt und mit den für die Darstellung der Daten aus der Datenbank erforderlichen Spalten versehen. Daraufhin werden die Daten aus der Datenabank, die eine andere Spaltenreihenfolge haben, als die, in der sie hier dargestellt werden sollen, den entsprechenden Spalten zugeordnet.
-            Schließlich wird eine Google Calendar View via iframe eingebunden.
-            Die Ansicht aktualisiert sich nicht in Echtzeit, sondern nur auf Anfrage, da eine Veränderung der Daten nur selten zu erwarten ist.
+        \begin{lstlisting}
+# Instantiate Flask App / Build Web Server to display GUI
+app = Flask(__name__)
+app.config['SEND_FILE_MAX_AGE_DEFAULT'] = 0
 
-        \subsection{main.css} \label{Implementierung: main.css}
-            Es kommt ein minimalistisches CSS-Template zum Einsatz, das den Ansprüchen, Nutzerdaten einzusehen leicht genügt.\\ \\
+@app.route("/")
+def home():
+    data = get_customers()
+    picture_path = os.path.join('static', 'user_pictures')
+    return render_template('home.html', **config.CONTEXT, customers=data, path=picture_path)
+        \end{lstlisting}
 
-        Über die IP-Adresse \verb|127.0.0.1| und Port \verb|5000| ist die GUI als Admin zu erreichen\footnote{Um das Kalender-Feature einsehen zu können, ist eine Anmeldung mit dem entsprechenden Google-Konto erforderlich.}: \url{http://127.0.0.1:5000/} 
+        Die \verb|home.html| besteht aus drei Teilen. Zunächst wird eine Tabelle erstellt und mit den für die Darstellung der Daten aus der Datenbank erforderlichen Spalten versehen. Daraufhin werden die Daten aus der Datenabank, die eine andere Spaltenreihenfolge haben, als die, in der sie hier dargestellt werden sollen, den entsprechenden Spalten zugeordnet.
+        Schließlich wird eine Google Calendar View via iframe eingebunden.Die Ansicht aktualisiert sich auf Anfrage. \\
+        Es kommt ein minimalistisches CSS-Template zum Einsatz, das den Ansprüchen, Nutzerdaten einzusehen leicht genügt.\\ \\
+
+        Über die IP-Adresse \verb|127.0.0.1| und Port \verb|5000| ist die GUI als Admin zu erreichen\footnote{Um das Kalender-Feature einsehen zu können, ist eine Anmeldung mit dem entsprechenden Google-Konto erforderlich.}: \url{http://127.0.0.1:5000/} \\ \\ \\
+
+
+    Damit ist das Kapitel \ref*{Implementierung} Implementierung abgeschlossen. Es folgt ein Beispieldurchlauf.
 
 
     % \section{Tests}

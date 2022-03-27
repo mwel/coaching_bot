@@ -88,16 +88,16 @@
 \contentsline {subsection}{\numberline {6.4.3}insert\_value\_db.py - Werte schreiben}{43}{subsection.6.4.3}%
 \contentsline {subsection}{\numberline {6.4.4}delete\_record.py}{44}{subsection.6.4.4}%
 \contentsline {section}{\numberline {6.5}Terminvereinbarung mit dem Google Calendar}{44}{section.6.5}%
+\contentsline {subsection}{\numberline {6.5.1}Zeitspanne prüfen}{45}{subsection.6.5.1}%
+\contentsline {subsection}{\numberline {6.5.2}Terminvorschläge generieren}{46}{subsection.6.5.2}%
+\contentsline {subsection}{\numberline {6.5.3}make\_appointment - Finalen Termin vereinbaren}{47}{subsection.6.5.3}%
 \contentsline {section}{\numberline {6.6}Web-GUI}{48}{section.6.6}%
-\contentsline {subsection}{\numberline {6.6.1}app.py}{48}{subsection.6.6.1}%
-\contentsline {subsection}{\numberline {6.6.2}home.html}{48}{subsection.6.6.2}%
-\contentsline {subsection}{\numberline {6.6.3}main.css}{48}{subsection.6.6.3}%
-\contentsline {chapter}{\numberline {7}Beispiele}{50}{chapter.7}%
-\contentsline {chapter}{\numberline {8}Anwendungsszenarien}{60}{chapter.8}%
-\contentsline {section}{\numberline {8.1}Setup}{60}{section.8.1}%
-\contentsline {subsection}{\numberline {8.1.1}pipenv - Python Package Manager}{60}{subsection.8.1.1}%
-\contentsline {subsection}{\numberline {8.1.2}Konstanten und Schlüssel}{60}{subsection.8.1.2}%
-\contentsline {chapter}{\numberline {9}Zusammenfassung und Ausblick}{61}{chapter.9}%
-\contentsline {chapter}{Literaturverzeichnis}{63}{chapter*.25}%
-\contentsline {chapter}{Glossar}{65}{appendix.A}%
-\contentsline {chapter}{Selbstständigkeitserklärung}{66}{appendix.B}%
+\contentsline {chapter}{\numberline {7}Beispiele}{49}{chapter.7}%
+\contentsline {chapter}{\numberline {8}Anwendungsszenarien}{59}{chapter.8}%
+\contentsline {section}{\numberline {8.1}Setup}{59}{section.8.1}%
+\contentsline {subsection}{\numberline {8.1.1}pipenv - Python Package Manager}{59}{subsection.8.1.1}%
+\contentsline {subsection}{\numberline {8.1.2}Konstanten und Schlüssel}{59}{subsection.8.1.2}%
+\contentsline {chapter}{\numberline {9}Zusammenfassung und Ausblick}{60}{chapter.9}%
+\contentsline {chapter}{Literaturverzeichnis}{62}{chapter*.25}%
+\contentsline {chapter}{Glossar}{64}{appendix.A}%
+\contentsline {chapter}{Selbstständigkeitserklärung}{65}{appendix.B}%
