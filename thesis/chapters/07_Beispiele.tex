@@ -5,189 +5,127 @@
 	\\
 	Der Nutzer startet den Bot via dem Klick auf einen Link\footnote{\url{https://t.me/thecoachingbot?start=start}}, den er auf einer Website findet oder der ihm zugesandt wird.
 
-
+	% PAGE 01
 	\begin{figure}
+		\centering
+		\begin{minipage}{.48\linewidth}
+		  \centering
+		  \subcaptionbox{Einstieg via URL}
+			{\includegraphics[width=\linewidth,height=150pt,keepaspectratio]{images/Screenshots/link.png}}
+	  
+		  \subcaptionbox{Start des CoachingBots}
+			{\includegraphics[width=\linewidth,height=300pt,keepaspectratio]{images/Screenshots/start.PNG}}
+	  
+		  \caption{Einstieg und Start}
+		\end{minipage}\quad
+		\begin{minipage}{.48\linewidth}
+		  \centering
+		  \subcaptionbox{Übergang zur Angabe der Biographie}
+			{\includegraphics[width=\linewidth,height=300pt,keepaspectratio]{images/Screenshots/bio.PNG}}
+	  
+		  \subcaptionbox{Übergang zur Auswahl des Geschlechts}
+			{\includegraphics[width=\linewidth,height=300pt,keepaspectratio]{images/Screenshots/gender.PNG}}
+	  
+		  \caption{Erste Zustands-Übergänge}
+		\end{minipage}
+	\end{figure}
 
-		\hfill
 
-		\begin{subfigure}{0.3\textwidth}
-			\includegraphics[width=\textwidth]{images/Screenshots/link.png}
-			\caption{Einstieg via URL}
-			\label{fig: scs..link}
-		\end{subfigure}
+	% PAGE 02
+	\begin{figure}
+		\centering
+		\begin{minipage}{.48\linewidth}
+			\centering
+			\subcaptionbox{Übergang zur Angabe des Geburtsdatums}
+			{\includegraphics[width=\linewidth,height=300pt,keepaspectratio]{images/Screenshots/birthdate.PNG}}
 		
-		\hfill
+			\subcaptionbox{Übergang zur Angabe der E-Mail-Adresse}
+			{\includegraphics[width=\linewidth,height=300pt,keepaspectratio]{images/Screenshots/email.PNG}}
 		
-		\begin{subfigure}{0.3\textwidth}
-			\includegraphics[width=\textwidth]{images/Screenshots/start.PNG}
-			\caption{Start des CoachingBots}
-			\label{fig: scs..start}
-		\end{subfigure}
-		\caption{Creating subfigures in \LaTeX.}
+			\caption{Abfrage Geburtsdatum und E-Mail-Adresse}
+		\end{minipage}\quad
+		\begin{minipage}{.48\linewidth}
+			\centering
+			\subcaptionbox{Übergang zur Angabe der Telefonnummer}
+			{\includegraphics[width=\linewidth,height=300pt,keepaspectratio]{images/Screenshots/telephone.PNG}}
 		
-		\label{fig:figures}
-
-	\end{figure}
+			\subcaptionbox{Übergang zur Angabe des Standorts}
+			{\includegraphics[width=\linewidth,height=300pt,keepaspectratio]{images/Screenshots/location.PNG}}
 		
-	\begin{figure}
+			\caption{Abfrage Telefonnummer und Standort}
+		\end{minipage}
+	\end{figure}
 
-		\hfill
+
+	% PAGE 03
+	\begin{figure}
+		\centering
+		\begin{minipage}{.48\linewidth}
+			\centering
+			\subcaptionbox{Übergang zum Upload eines Fotos}
+			{\includegraphics[width=\linewidth,height=300pt,keepaspectratio]{images/Screenshots/photo.PNG}}
 		
-		\begin{subfigure}{0.3\textwidth}
-			\includegraphics[width=\textwidth]{images/Screenshots/bio.PNG}
-			\caption{Übergang zur Angabe der Biographie}
-			\label{fig: scs..bio}
-		\end{subfigure}
-
-		\hfill
+			\subcaptionbox{Ende der Anmeldung und Übergang zur Terminauswahl}
+			{\includegraphics[width=\linewidth,height=300pt,keepaspectratio]{images/Screenshots/complete-sign-up.PNG}}
 		
-		\begin{subfigure}{0.3\textwidth}
-			\includegraphics[width=\textwidth]{images/Screenshots/gender.PNG}
-			\caption{Übergang zur Auswahl des Geschlechts}
-			\label{fig: scs..gender}
-		\end{subfigure}
-				
-		\caption{Creating subfigures in \LaTeX.}
+			\caption{Frage nach einem Bild des Nutzers und Abschluss des Sign-Ups}
+		\end{minipage}\quad
+		\begin{minipage}{.48\linewidth}
+			\centering
+			\subcaptionbox{Terminfindung}
+			{\includegraphics[width=\linewidth,height=300pt,keepaspectratio]{images/Screenshots/slot-search.PNG}}
 		
-		\label{fig:figures}
-
-	\end{figure}
-
-	% \begin{figure}[ht!]
-	% 	\begin{center}
-
-	% 		\subfigure[Einstieg via URL]{
-	% 			\label{fig: scs..link}
-	% 			\includegraphics[width=0.4\textwidth]{images/Screenshots/link.png}
-	% 		}
-	% 		\subfigure[Start des CoachingBots]{
-	% 			\label{fig: scs..start}
-	% 			\includegraphics[width=0.4\textwidth]{images/Screenshots/start.PNG}
-	% 		}
-	% 		\subfigure[Übergang zur Angabe der Biographie]{
-	% 			\label{fig: scs..bio}
-	% 			\includegraphics[width=0.4\textwidth]{images/Screenshots/bio.PNG}
-	% 		}
-	% 		\subfigure[Übergang zur Auswahl des Geschlechts]{
-	% 			\label{fig: scs..gender}
-	% 			\includegraphics[width=0.4\textwidth]{images/Screenshots/gender.PNG}
-	% 		}
-	% 	\end{center}
-	% 	\caption{
-    %     Der Nutzer kommt im Bot an und er sieht einen Start-Button. Wenn er diesen drückt, wird die erste Nachricht an den Nutzer ausgegeben. Nun beginnt der Kommunikationsfluss zwischen Nutzer und Bot. Hier zusehen die ersten zwei Zustände und die Übergänge zu ihnen. (BIO und GENDER)
-    %  	}
-	% 	\label{fig: scs..page1 - start}
-	% \end{figure}
-
-
-	\begin{figure}
-		\centering
-		\includegraphics[width=0.4\textwidth]{images/Screenshots/birthdate.PNG}
-		\caption{Übergang zur Angabe des Geburtsdatums}
-		\label{fig: scs..birthdate}
+			\subcaptionbox{Terminauswahl}
+			{\includegraphics[width=\linewidth,height=300pt,keepaspectratio]{images/Screenshots/appointment-selection.PNG}}
+		
+			\caption{Terminsuche und -wahl}
+		\end{minipage}
 	\end{figure}
 
 
+	% PAGE 04
 	\begin{figure}
 		\centering
-		\includegraphics[width=0.4\textwidth]{images/Screenshots/email.PNG}
-		\caption{Übergang zur Angabe der E-Mail-Adresse}
-		\label{fig: scs..email}
+		\begin{minipage}{.48\linewidth}
+			\centering
+			\subcaptionbox{Terminbestätigung}
+			{\includegraphics[width=\linewidth,height=300pt,keepaspectratio]{images/Screenshots/appointment-made.PNG}}
+		
+			\subcaptionbox{Kalendereinladung}
+			{\includegraphics[width=\linewidth,height=300pt,keepaspectratio]{images/Screenshots/calendar-invite.png}}
+		
+			\caption{Bestätigung, dass Termin vereinbart wurde und die entsprechende Bestätigung per Kalender-Client}
+		\end{minipage}\quad
+		\begin{minipage}{.48\linewidth}
+			\centering
+			\subcaptionbox{Rückkehr zum Bot, wenn bereits ein Termin vereinbart wurde}
+			{\includegraphics[width=\linewidth,height=300pt,keepaspectratio]{images/Screenshots/return-with-appointment.PNG}}
+		
+			\subcaptionbox{Statusabfrage und Hilfe}
+			{\includegraphics[width=\linewidth,height=300pt,keepaspectratio]{images/Screenshots/status-and-help.PNG}}
+		
+			\caption{Rückkehr des Nutzers nach Beendigung des Konversationsflusses und Ausgabe Meta-Funktionen}
+		\end{minipage}
 	\end{figure}
 
 
+	% PAGE 05
 	\begin{figure}
 		\centering
-		\includegraphics[width=0.4\textwidth]{images/Screenshots/telephone.PNG}
-		\caption{Übergang zur Angabe der Telefonnummer}
-		\label{fig: scs..telephone}
+		\begin{minipage}{.48\linewidth}
+			\centering
+			\subcaptionbox{Nutzerdaten löschen und Neustart des Bots}
+			{\includegraphics[width=\linewidth,height=300pt,keepaspectratio]{images/Screenshots/delete-and-restart.PNG}}
+		
+			\caption{Resultat aus \/delte und \/start}
+		\end{minipage}\quad
 	\end{figure}
 
 
 	\begin{figure}
 		\centering
-		\includegraphics[width=0.4\textwidth]{images/Screenshots/location.PNG}
-		\caption{Übergang zur Angabe des Standorts}
-		\label{fig: scs..location}
-	\end{figure}
-
-
-	\begin{figure}
-		\centering
-		\includegraphics[width=0.4\textwidth]{images/Screenshots/photo.PNG}
-		\caption{Übergang zum Upload eines Fotos}
-		\label{fig: scs..photo}
-	\end{figure}
-
-
-	\begin{figure}
-		\centering
-		\includegraphics[width=0.4\textwidth]{images/Screenshots/complete-sign-up.PNG}
-		\caption{Ende der Anmeldung und Übergang zur Terminauswahl}
-		\label{fig: scs..complete-sign-up}
-	\end{figure}
-
-
-	\begin{figure}
-		\centering
-		\includegraphics[width=0.4\textwidth]{images/Screenshots/slot-search.PNG}
-		\caption{Terminfindung}
-		\label{fig: scs..slot-search}
-	\end{figure}
-
-
-	\begin{figure}
-		\centering
-		\includegraphics[width=0.4\textwidth]{images/Screenshots/appointment-selection.PNG}
-		\caption{Terminauswahl}
-		\label{fig: scs..appointment-selection}
-	\end{figure}
-
-
-	\begin{figure}
-		\centering
-		\includegraphics[width=0.4\textwidth]{images/Screenshots/appointment-made.PNG}
-		\caption{Terminbestätigung}
-		\label{fig: scs..Abbildung 10}
-	\end{figure}
-
-
-	\begin{figure}
-		\centering
-		\includegraphics[width=0.4\textwidth]{images/Screenshots/calendar-invite.png}
-		\caption{Kalendereinladung}
-		\label{fig: scs..calendar-invite}
-	\end{figure}
-
-
-	\begin{figure}
-		\centering
-		\includegraphics[width=0.4\textwidth]{images/Screenshots/return-with-appointment.PNG}
-		\caption{Rückkehr zum Bot, wenn bereits ein Termin vereinbart wurde}
-		\label{fig: scs..return-with-appointment}
-	\end{figure}
-
-
-	\begin{figure}
-		\centering
-		\includegraphics[width=0.4\textwidth]{images/Screenshots/status-and-help.PNG}
-		\caption{Statusabfrage und Hilfe}
-		\label{fig: scs..status-and-help}
-	\end{figure}
-
-
-	\begin{figure}
-		\centering
-		\includegraphics[width=0.4\textwidth]{images/Screenshots/delete-and-restart.PNG}
-		\caption{Nutzerdaten löschen und Neustart des Bots}
-		\label{fig: scs..delete-and-restart}
-	\end{figure}
-
-
-	\begin{figure}
-		\centering
-		\includegraphics[width=0.4\textwidth]{images/Screenshots/web-gui.png}
-		\caption{Ansicht Coach}
+		\includegraphics[width=1\textwidth]{images/Screenshots/web-gui.png}
+		\caption{Coach-Übersicht mit Kalender und Nutzer-Informationen im Listenformat}
 		\label{fig: scs..web-gui}
 	\end{figure}
 

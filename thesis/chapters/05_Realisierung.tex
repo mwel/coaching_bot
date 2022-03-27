@@ -87,7 +87,7 @@
         Sobald der Nutzer durch den Beginn des Konversationsflusses eine Verbindung zum Bot herstellt hat, wird seine Telegram-ID abgefragt und in eine bestehende oder neue Datenbank geschrieben. Informationen, die der Nutzer angibt, reichern den Datensatz des Nutzers in jeder Stufe sukzessive an. Fast alle Informationen über den Nutzer werden so gespeichert. Ausgenommen ist das Bild, das der Nutzer hochlädt.\footnote{Es wird als Datei gespeichert - genau wie andere Medien, die man mit einem anderen Teilnehmer einer Konversation über einen Messenger wie Telegram teilt.} So können einzelne Werte jederzeit verwendet werden, um Nutzer-spezifische Reaktionen zu gestalten. Dem Nutzer stehen die meisten Datenbank-Operationen implizit und wenige explizit zur Verfügung. Daten werden implizit gespeichert und abgerufen. Explizit können Daten gelöscht werden. Zur Realisierung wird, wie in den Grundlagen erwähnt, eine SLQlite Datenbank genutzt, die für den Zweck des Coaching-Bots vollkommen ausreichend ist. Weder ist mit immensen Nutzerzahlen, noch mit vielen gleichzeitigen Operationen oder einer riesigen Datemenge zu rechen, was für mächtigere Lösungen sprechen würde. Da keine komplexen Berechnungen auf den Daten durchgeführt werden, sondern nur basale CRUD-Operaionen geplant sind, kommt der Bot mit einer Tabelle zurecht (siehe Abb. \ref{fig: data base model}), in der alle Nutzerdaten gespeichert sind.
         \begin{figure} %[hbtp]
             \centering
-            \includegraphics[width=0.5\textwidth]{images/220325_PA28464_DataBaseModel.png}
+            \includegraphics[width=0.4\textwidth]{images/220325_PA28464_DataBaseModel.png}
             \caption{coachingBot\_DB - Datenbankmodell}
             \label{fig: data base model}
         \end{figure}
