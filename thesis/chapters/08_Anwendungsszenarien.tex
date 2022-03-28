@@ -1,15 +1,17 @@
 \label{Anwendungsszenarien}
 \chapter{Anwendungsszenarien}
 
-Der Coaching Bot kann in allerlei Szenarien angewandt werden. Die in den letzten Jahren stark angewachsene Zahl an Personal Coaches kann den Bot mit basalen Programmierfähigkeiten an die eigenen Bedürfnisse anpassen und ist flexibel in der Wahl der unterliegenden Infrastruktur. Vor allem für Nebenerwerbstätige Coaches mit einem kleinen Kundenportfolio, bei dem sich Kaltaquise oft als teuer und wenig erfolgreich herausstellt, bietet der Coaching Bot eine einfache Möglichkeit, Neukunden kostenfrei und einfach onzuboarden. Der Prozess ist unkompliziert, unverbindlich, gut dokumentiert und einfach zu adaptieren. 
+Das Haupt-Anwendungsszenario des Coaching-Bots besteht darin, als wartungs- und interaktionsarme Erweiterung zu bestehenden Kommunikationskanälen, wie einem Web-Formular zu fungieren. Je nach Anwendungsfall kann der Bot so auf eine Vielzahl an Dienstleistungen angewandt werden, bei denen die Conversion darin besteht, einige Informationen vom Nutzer abzufragen und einen Termin zu vereinbaren. Die in den letzten Jahren stark angewachsene Zahl an Personal Coaches kann den Bot mit basalen Programmierfähigkeiten an die eigenen Bedürfnisse anpassen und ist flexibel in der Wahl der unterliegenden Infrastruktur. Vor allem für Nebenerwerbstätige Coaches mit einem kleinen Kundenportfolio, bei dem sich Kaltaquise oft als teuer und wenig erfolgreich herausstellt, bietet der Coaching Bot eine einfache Möglichkeit, Neukunden kostenfrei und einfach onzuboarden. Der Prozess ist unkompliziert, unverbindlich, gut dokumentiert und einfach zu adaptieren. \\
+\\
+In seinem jetzigen Zustand ist der Bot auf den Anwendungsfall für eine Coaching-Dienstleistung konfiguriert, aber potenzielle Anwedungsfälle gehen darüber hinaus. So könnten Erstgespräche aller Art durch die Anpassung des MESSAGE-Dictionaries unkompliziert via dem Coaching-Bot aufgesetzt werden.
+\\
+\paragraph{Einige Beispiele}
+\begin{itemize}
+    \item Über einen QR-Code könnte auf einer Messe, wo potenzielle Neukunden oft nur ihr Mobiltelefon zur Hand haben, zum Bot hingeleitet werden. Darauf könnten erste Angaben gemacht und ein Termin mit einem Vertreter des entsprechenden Stands vereinbart werden. 
+    \item Prädestiniert sind auch Beratungsdienstleistungen, für die Basis-Informationen erforderlich sind, um sich für einen ersten Termin sinnvoll vorzubereiten.
+    \item Unternehmen, die einstellen verwenden oft hohe Summen darauf, Kandidaten auszusuchen und einzuladen, um dann herauszufinden, dass ein kurzes Gespräch und erste Informationen über einen Lebenslauf hinaus genügt hätten, um das Profil eines Bewerbers ganz anders einzuschätzen. Human Ressources Abteilungen könnten derlei Kurzvorstellungen unkompliziert durch den Bewerber selbst aufsetzen lassen.
+    \item An Universitäten werden ständig Termine vereinbart und bei Studierenden handelt es sich um ein junges Publikum, das wahrscheinlich gerne via Messenger kommuniziert. Neben den bestehenden Möglichkeiten, mit einer Ansprechperson in Kontakt zu treten, wäre es denkbar, dass Anfragen an ein Mitglied der Fakultät mit kleinen, zeitlich begrenzten Sprechstunden unter Angabe der Fragestellung von Studierendenseite vereinbart werden können.
+    \item Denkbar wäre auch eine Reservation für einen Tisch in einem Restaurant, für das man die Zeit auswählen möchte, aber wahrscheinlich nicht mehr alle Zeiten zur Verfügung stehen. Vor Allem in Verbindung mit einer Pflicht zur Kontaktdatenerhebung wäre dies eine Möglichkeit.
+\end{itemize}
 
-\section{Setup} \label{Anwendungsszenarien: Setup}
-
-        \subsection{pipenv - Python Package Manager}
-            Die Applikation nutzt den Package Manager pipenv. Dieser bietet die Möglichkeit, ein projektspezifisches Dokument über alle Abhängigkeiten hinweg zu erstellen und im Projekt selbst zu speichern. So können andere Entwickler Abhängigkeiten leicht installieren und müssen dies nicht auf Systemebene tun, wo es ggf. zu Konflikten mit anderen Projekten kommen könnte.\\
-            Um alle Abhängigkeiten einzusehen, pipenv \cite{pipenv} und das coaching\_bot\/Pipfile entsprechend der Dokumentation nutzen, um alle automatisch zu installieren.
-
-        \subsection{Konstanten und Schlüssel}
-            Für die Umsysteme des Coaching Bots (Telegram-API, Google-Calendar-API und Mail-Server) sind Zugangsdaten erforderlich. Diese sind im Repository \cite{repo} aus Sicherheitsgründen nicht versioniert. Anpassbare Vorlagen sind inkl. Anleitung unter \verb|_constants|\footnote{\url{https://github.com/mwel/coaching_bot/tree/main/bot/constants_}} zu finden.
-
-
+Durch eine Weiterentwicklung des Bots könnten weitere Anwedungsszenarien beleuchtet und dahingehend Features entwickelt werden. Mehr dazu in Kapiel \ref*{Zusammenfassung und Ausblick} Zusammenfassung und Ausblick.

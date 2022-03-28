@@ -1,0 +1,89 @@
+\babel@toc {ngerman}{}
+\babel@toc {ngerman}{}
+\contentsline {chapter}{\numberline {1}Einleitung und Problemstellung}{1}{chapter.1}%
+\contentsline {paragraph}{Im Fokus stehen:}{2}{section*.7}%
+\contentsline {chapter}{\numberline {2}Verwandte Arbeiten}{3}{chapter.2}%
+\contentsline {paragraph}{Anforderungen}{3}{section*.8}%
+\contentsline {paragraph}{Übersicht Frameworks}{3}{section*.9}%
+\contentsline {section}{\numberline {2.1}Analyse}{4}{section.2.1}%
+\contentsline {paragraph}{Aufschlüsselung aller ausgewerteten Frameworks anhand der oben definierten Kriterien}{5}{section*.10}%
+\contentsline {subsection}{\numberline {2.1.1}Bottender}{6}{subsection.2.1.1}%
+\contentsline {subsection}{\numberline {2.1.2}Telegram-Bot}{6}{subsection.2.1.2}%
+\contentsline {chapter}{\numberline {3}Grundlagen}{8}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Python}{8}{section.3.1}%
+\contentsline {section}{\numberline {3.2}Telegram Chat Bots}{8}{section.3.2}%
+\contentsline {section}{\numberline {3.3}Telegram API Framework}{9}{section.3.3}%
+\contentsline {subsection}{\numberline {3.3.1}Telegram API}{9}{subsection.3.3.1}%
+\contentsline {subsection}{\numberline {3.3.2}Telegram API Extension}{9}{subsection.3.3.2}%
+\contentsline {section}{\numberline {3.4}ConversationBot}{9}{section.3.4}%
+\contentsline {section}{\numberline {3.5}SQLite}{10}{section.3.5}%
+\contentsline {section}{\numberline {3.6}Mailing-Service und Mail-Server}{11}{section.3.6}%
+\contentsline {section}{\numberline {3.7}Web-GUI}{11}{section.3.7}%
+\contentsline {section}{\numberline {3.8}Google Calendar API}{11}{section.3.8}%
+\contentsline {subsection}{\numberline {3.8.1}Scope}{12}{subsection.3.8.1}%
+\contentsline {subsection}{\numberline {3.8.2}Zugangsdaten}{12}{subsection.3.8.2}%
+\contentsline {section}{\numberline {3.9}TheCoachingBot}{13}{section.3.9}%
+\contentsline {chapter}{\numberline {4}Konzept}{14}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Grundkonzept, User Journey und Features}{14}{section.4.1}%
+\contentsline {section}{\numberline {4.2}Technischer Aufbau}{15}{section.4.2}%
+\contentsline {section}{\numberline {4.3}Zustände \& Konversationsfluss}{17}{section.4.3}%
+\contentsline {chapter}{\numberline {5}Realisierung}{20}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Telegram Bot Framwork}{20}{section.5.1}%
+\contentsline {subsection}{\numberline {5.1.1}Generierung Telegram Bot}{20}{subsection.5.1.1}%
+\contentsline {subsection}{\numberline {5.1.2}Vanilla Bot Implementierung}{20}{subsection.5.1.2}%
+\contentsline {section}{\numberline {5.2}Rahmen- und Meta-Funktionen}{21}{section.5.2}%
+\contentsline {subsection}{\numberline {5.2.1}Start: Eine Konversation beginnen}{21}{subsection.5.2.1}%
+\contentsline {subsection}{\numberline {5.2.2}Ende: Konversation manuell beenden}{21}{subsection.5.2.2}%
+\contentsline {subsection}{\numberline {5.2.3}Persönliche Daten löschen}{21}{subsection.5.2.3}%
+\contentsline {subsection}{\numberline {5.2.4}Hilfe-Funktion aufrufen}{22}{subsection.5.2.4}%
+\contentsline {section}{\numberline {5.3}Zustands-Funktionen}{22}{section.5.3}%
+\contentsline {subsection}{\numberline {5.3.1}Hintergrund des Nutzers}{22}{subsection.5.3.1}%
+\contentsline {subsection}{\numberline {5.3.2}Abfragen des Geburtsdatums}{22}{subsection.5.3.2}%
+\contentsline {subsection}{\numberline {5.3.3}Abfragen des Geschlechts des Nutzers}{22}{subsection.5.3.3}%
+\contentsline {subsection}{\numberline {5.3.4}Abfragen der E-Mail Adresse des Nutzers}{22}{subsection.5.3.4}%
+\contentsline {subsection}{\numberline {5.3.5}Abfragen der Telefonnummer des Nutzers}{23}{subsection.5.3.5}%
+\contentsline {subsection}{\numberline {5.3.6}Abfragen des Standorts des Nutzers}{23}{subsection.5.3.6}%
+\contentsline {subsection}{\numberline {5.3.7}Abfragen des Bilds des Nutzers}{23}{subsection.5.3.7}%
+\contentsline {subsection}{\numberline {5.3.8}Überspringen}{23}{subsection.5.3.8}%
+\contentsline {subsection}{\numberline {5.3.9}Zusammenfassungs-Funktion}{24}{subsection.5.3.9}%
+\contentsline {section}{\numberline {5.4}Support-Funktionen}{24}{section.5.4}%
+\contentsline {subsection}{\numberline {5.4.1}Eingabe-Validierung}{24}{subsection.5.4.1}%
+\contentsline {subsection}{\numberline {5.4.2}Konstruktion E-Mail}{24}{subsection.5.4.2}%
+\contentsline {section}{\numberline {5.5}Datenbank}{25}{section.5.5}%
+\contentsline {subsection}{\numberline {5.5.1}Anbindung Datenbank an Python}{25}{subsection.5.5.1}%
+\contentsline {section}{\numberline {5.6}Kalender}{25}{section.5.6}%
+\contentsline {section}{\numberline {5.7}Web-GUI}{27}{section.5.7}%
+\contentsline {chapter}{\numberline {6}Implementierung}{28}{chapter.6}%
+\contentsline {section}{\numberline {6.1}main.py - Anmeldung Bot, Updater, Dispatcher und Handler-Konfiguration}{28}{section.6.1}%
+\contentsline {subsection}{\numberline {6.1.1}states.py - Zustände zentral verwalten}{30}{subsection.6.1.1}%
+\contentsline {section}{\numberline {6.2}Rahmen- und Meta-Funktionen}{31}{section.6.2}%
+\contentsline {subsection}{\numberline {6.2.1}start.py - Beginn und Weiterführung des Konversationsflusses}{31}{subsection.6.2.1}%
+\contentsline {subsection}{\numberline {6.2.2}cancel.py - Konversationen beenden und Nutzerdaten löschen}{34}{subsection.6.2.2}%
+\contentsline {subsection}{\numberline {6.2.3}help.py - Hilfe ausgeben}{34}{subsection.6.2.3}%
+\contentsline {section}{\numberline {6.3}Aufbau und Beispiele Zustands-Funktionen(Handler-Funktionen)}{34}{section.6.3}%
+\contentsline {paragraph}{Nach den beiden exemplarisch vorgestellten Funktionen wird im weiteren Verlauf des Kapitels nur noch auf Besonderheiten der restlichen Handler-Funktionen eingegangen.}{36}{section*.16}%
+\contentsline {subsection}{\numberline {6.3.1}Handler-Funktionen mit Input Validation}{36}{subsection.6.3.1}%
+\contentsline {subsection}{\numberline {6.3.2}validation.py - Input-Validierung}{37}{subsection.6.3.2}%
+\contentsline {subsection}{\numberline {6.3.3}summary.py - Zusammenfassung für den Nutzer}{38}{subsection.6.3.3}%
+\contentsline {paragraph}{Option A}{38}{section*.17}%
+\contentsline {paragraph}{Option B}{39}{section*.18}%
+\contentsline {subsection}{\numberline {6.3.4}confirmation\_mail.py - Bestätigung per E-Mail}{40}{subsection.6.3.4}%
+\contentsline {subsection}{\numberline {6.3.5}appointment.py - Kalender-Event erstellen}{41}{subsection.6.3.5}%
+\contentsline {subsection}{\numberline {6.3.6}status.py - Fortschritt abrufen}{42}{subsection.6.3.6}%
+\contentsline {section}{\numberline {6.4}Datenbank}{42}{section.6.4}%
+\contentsline {subsection}{\numberline {6.4.1}create\_db.py - Datenbank und Schema aufbauen}{43}{subsection.6.4.1}%
+\contentsline {subsection}{\numberline {6.4.2}select\_db.py - Nutzerdaten abfragen}{44}{subsection.6.4.2}%
+\contentsline {subsection}{\numberline {6.4.3}insert\_value\_db.py - Werte schreiben}{44}{subsection.6.4.3}%
+\contentsline {subsection}{\numberline {6.4.4}delete\_record.py}{45}{subsection.6.4.4}%
+\contentsline {section}{\numberline {6.5}Terminvereinbarung mit dem Google Calendar}{45}{section.6.5}%
+\contentsline {subsection}{\numberline {6.5.1}Zeitspanne prüfen}{46}{subsection.6.5.1}%
+\contentsline {subsection}{\numberline {6.5.2}Terminvorschläge generieren}{47}{subsection.6.5.2}%
+\contentsline {subsection}{\numberline {6.5.3}make\_appointment - Finalen Termin vereinbaren}{48}{subsection.6.5.3}%
+\contentsline {section}{\numberline {6.6}Web-GUI}{49}{section.6.6}%
+\contentsline {chapter}{\numberline {7}Beispielsitzung}{50}{chapter.7}%
+\contentsline {chapter}{\numberline {8}Anwendungsszenarien}{59}{chapter.8}%
+\contentsline {paragraph}{Einige Beispiele}{59}{section*.25}%
+\contentsline {chapter}{\numberline {9}Zusammenfassung und Ausblick}{61}{chapter.9}%
+\contentsline {chapter}{Literaturverzeichnis}{63}{chapter*.26}%
+\contentsline {chapter}{Glossar}{65}{appendix.A}%
+\contentsline {chapter}{Selbstständigkeitserklärung}{66}{appendix.B}%

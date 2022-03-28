@@ -58,15 +58,11 @@
   objects from scratch}}.
 \newblock https://docs.python.org/3.8/library/email.mime.html, 2021.
 
-\bibitem[{Pyt}21c]{pipenv}
-{\sc {Python Software Foundation}}: {\em pipenv}.
-\newblock https://pypi.org/project/pipenv/, 2021.
-
-\bibitem[{Pyt}21d]{python3.8.6}
+\bibitem[{Pyt}21c]{python3.8.6}
 {\sc {Python Software Foundation}}: {\em {Python 3.8.6}}.
 \newblock https://docs.python.org/3.8/, 2021.
 
-\bibitem[{Pyt}21e]{smtplib}
+\bibitem[{Pyt}21d]{smtplib}
 {\sc {Python Software Foundation}}: {\em {smtplib — SMTP protocol client}}.
 \newblock https://docs.python.org/3.8/library/smtplib.html{\#}module-smtplib,
   2021.
@@ -102,9 +98,5 @@
 {\sc Toledo, Leandro}: {\em telegram.ext package}.
 \newblock
   https://python-telegram-bot.readthedocs.io/en/stable/telegram.ext.html, 2021.
-
-\bibitem[Wel21]{repo}
-{\sc Wellenhofer, Max}: {\em {The Coaching Bot Repository}}.
-\newblock https://github.com/mwel/coaching{\_}bot, 2021.
 
 \end{thebibliography}
