@@ -71,11 +71,7 @@
 {\sc {Refsnes Data}}: {\em {Python Introduction}}.
 \newblock https://www.w3schools.com/python/python{\_}intro.asp, 2021.
 
-\bibitem[{Tel}21a]{telegram}
-{\sc {Telegram Messenger Inc.}}: {\em {Telegram App}}.
-\newblock https://telegram.org/, 2021.
-
-\bibitem[{Tel}21b]{core_telegram_api}
+\bibitem[{Tel}21]{core_telegram_api}
 {\sc {Telegram Messenger Inc.}}: {\em {Telegram Bot API}}.
 \newblock https://core.telegram.org/bots/api, 2021.
 

@@ -202,10 +202,10 @@ INPUT /usr/local/texlive/2020/texmf-dist/tex/latex/amsfonts/umsb.fd
 INPUT /usr/local/texlive/2020/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm10.tfm
 INPUT /usr/local/texlive/2020/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm10.tfm
 INPUT /usr/local/texlive/2020/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm7.tfm
+INPUT /usr/local/texlive/2020/texmf-dist/fonts/tfm/public/cm/cmr9.tfm
 INPUT PA_DerCoachingBot_Wellenhofer_Max_28464.toc
 INPUT PA_DerCoachingBot_Wellenhofer_Max_28464.toc
 INPUT /usr/local/texlive/2020/texmf-dist/fonts/tfm/public/cm/cmbx12.tfm
-INPUT /usr/local/texlive/2020/texmf-dist/fonts/tfm/public/cm/cmr9.tfm
 OUTPUT PA_DerCoachingBot_Wellenhofer_Max_28464.toc
 INPUT PA_DerCoachingBot_Wellenhofer_Max_28464.lof
 INPUT PA_DerCoachingBot_Wellenhofer_Max_28464.lof
@@ -243,9 +243,9 @@ INPUT chapters/04_Konzept.tex
 INPUT images/220320_PA28464_Architecture.png
 INPUT ./images/220320_PA28464_Architecture.png
 INPUT ./images/220320_PA28464_Architecture.png
-INPUT images/220326_PA28464_State-Machine.png
-INPUT ./images/220326_PA28464_State-Machine.png
-INPUT ./images/220326_PA28464_State-Machine.png
+INPUT images/220328_PA28464_State-Machine.png
+INPUT ./images/220328_PA28464_State-Machine.png
+INPUT ./images/220328_PA28464_State-Machine.png
 INPUT chapters/05_Realisierung.tex
 INPUT chapters/05_Realisierung.tex
 INPUT images/220325_PA28464_DataBaseModel.png
