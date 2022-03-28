@@ -48,7 +48,7 @@
 \BOOKMARK [2][-]{subsection.6.2.1}{start.py - Beginn und Weiterf\374hrung des Konversationsflusses}{section.6.2}% 48
 \BOOKMARK [2][-]{subsection.6.2.2}{cancel.py - Konversationen beenden und Nutzerdaten l\366schen}{section.6.2}% 49
 \BOOKMARK [2][-]{subsection.6.2.3}{help.py - Hilfe ausgeben}{section.6.2}% 50
-\BOOKMARK [1][-]{section.6.3}{Aufbau und Beispiele Zustands-Funktionen\(Handler-Funktionen\)}{chapter.6}% 51
+\BOOKMARK [1][-]{section.6.3}{Zustands-Funktionen\(Handler-Funktionen\) - Aufbau und Beispiele}{chapter.6}% 51
 \BOOKMARK [2][-]{subsection.6.3.1}{Handler-Funktionen mit Input Validation}{section.6.3}% 52
 \BOOKMARK [2][-]{subsection.6.3.2}{validation.py - Input-Validierung}{section.6.3}% 53
 \BOOKMARK [2][-]{subsection.6.3.3}{summary.py - Zusammenfassung f\374r den Nutzer}{section.6.3}% 54

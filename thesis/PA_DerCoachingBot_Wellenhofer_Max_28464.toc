@@ -53,25 +53,25 @@
 \contentsline {section}{\numberline {6.2}Rahmen- und Meta-Funktionen}{28}{section.6.2}%
 \contentsline {subsection}{\numberline {6.2.1}start.py - Beginn und Weiterführung des Konversationsflusses}{28}{subsection.6.2.1}%
 \contentsline {subsection}{\numberline {6.2.2}cancel.py - Konversationen beenden und Nutzerdaten löschen}{31}{subsection.6.2.2}%
-\contentsline {subsection}{\numberline {6.2.3}help.py - Hilfe ausgeben}{31}{subsection.6.2.3}%
-\contentsline {section}{\numberline {6.3}Aufbau und Beispiele Zustands-Funktionen(Handler-Funktionen)}{32}{section.6.3}%
+\contentsline {subsection}{\numberline {6.2.3}help.py - Hilfe ausgeben}{32}{subsection.6.2.3}%
+\contentsline {section}{\numberline {6.3}Zustands-Funktionen(Handler-Funktionen) - Aufbau und Beispiele}{32}{section.6.3}%
 \contentsline {paragraph}{Nach den beiden exemplarisch vorgestellten Funktionen wird im weiteren Verlauf des Kapitels nur noch auf Besonderheiten der restlichen Handler-Funktionen eingegangen.}{34}{section*.16}%
 \contentsline {subsection}{\numberline {6.3.1}Handler-Funktionen mit Input Validation}{34}{subsection.6.3.1}%
-\contentsline {subsection}{\numberline {6.3.2}validation.py - Input-Validierung}{34}{subsection.6.3.2}%
+\contentsline {subsection}{\numberline {6.3.2}validation.py - Input-Validierung}{35}{subsection.6.3.2}%
 \contentsline {subsection}{\numberline {6.3.3}summary.py - Zusammenfassung für den Nutzer}{35}{subsection.6.3.3}%
 \contentsline {paragraph}{Option A}{36}{section*.17}%
 \contentsline {paragraph}{Option B}{37}{section*.18}%
-\contentsline {subsection}{\numberline {6.3.4}confirmation\_mail.py - Bestätigung per E-Mail}{37}{subsection.6.3.4}%
+\contentsline {subsection}{\numberline {6.3.4}confirmation\_mail.py - Bestätigung per E-Mail}{38}{subsection.6.3.4}%
 \contentsline {subsection}{\numberline {6.3.5}appointment.py - Kalender-Event erstellen}{39}{subsection.6.3.5}%
 \contentsline {subsection}{\numberline {6.3.6}status.py - Fortschritt abrufen}{40}{subsection.6.3.6}%
 \contentsline {section}{\numberline {6.4}Datenbank}{40}{section.6.4}%
 \contentsline {subsection}{\numberline {6.4.1}create\_db.py - Datenbank und Schema aufbauen}{40}{subsection.6.4.1}%
 \contentsline {subsection}{\numberline {6.4.2}select\_db.py - Nutzerdaten abfragen}{41}{subsection.6.4.2}%
 \contentsline {subsection}{\numberline {6.4.3}insert\_value\_db.py - Werte schreiben}{42}{subsection.6.4.3}%
-\contentsline {subsection}{\numberline {6.4.4}delete\_record.py}{42}{subsection.6.4.4}%
+\contentsline {subsection}{\numberline {6.4.4}delete\_record.py}{43}{subsection.6.4.4}%
 \contentsline {section}{\numberline {6.5}Terminvereinbarung mit dem Google Calendar}{43}{section.6.5}%
 \contentsline {subsection}{\numberline {6.5.1}Zeitspanne prüfen}{43}{subsection.6.5.1}%
-\contentsline {subsection}{\numberline {6.5.2}Terminvorschläge generieren}{44}{subsection.6.5.2}%
+\contentsline {subsection}{\numberline {6.5.2}Terminvorschläge generieren}{45}{subsection.6.5.2}%
 \contentsline {subsection}{\numberline {6.5.3}make\_appointment - Finalen Termin vereinbaren}{46}{subsection.6.5.3}%
 \contentsline {section}{\numberline {6.6}Web-GUI}{46}{section.6.6}%
 \contentsline {chapter}{\numberline {7}Beispielsitzung}{48}{chapter.7}%

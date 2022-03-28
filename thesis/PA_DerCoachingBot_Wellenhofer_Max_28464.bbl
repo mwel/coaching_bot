@@ -5,6 +5,7 @@
 \newblock
   https://github.com/python-telegram-bot/python-telegram-bot/wiki/Extensions-–-Your-first-Bot,
   2022.
+\newblock Abgerufen am: 2022-03-26.
 
 \bibitem[eaK02]{date_time}
 {\sc Klyne~et.~al.}: {\em {Date and Time on the Internet: Timestamps}}.
@@ -13,16 +14,19 @@
 \bibitem[{Goo}22a]{apiExplorer}
 {\sc {Google LLC}}: {\em {Google APIs Explorer overview}}.
 \newblock https://developers.google.com/explorer-help/, 2022.
+\newblock Abgerufen am: 2022-01-29.
 
 \bibitem[{Goo}22b]{googleCalAPI}
 {\sc {Google LLC}}: {\em {GoogleCalendarAPI}}.
 \newblock
   https://googleapis.github.io/google-api-python-client/docs/dyn/calendar{\_}v3.html,
   2022.
+\newblock Abgerufen am: 2022-01-16.
 
 \bibitem[IBM20]{apiIBM2020}
 {\sc IBM}: {\em {Application Programming Interface (API)}}.
 \newblock https://www.ibm.com/cloud/learn/api, 2020.
+\newblock Abgerufen am: 2022-03-02.
 
 \bibitem[Kre21]{telegramVergleich}
 {\sc Kremming, Katharina}: {\em {Telegram Messenger – Alles was Du wissen
@@ -30,6 +34,7 @@
 \newblock
   https://www.messengerpeople.com/de/messaging-apps-brands-der-telegram-messenger/,
   2021.
+\newblock Abgerufen am: 2021-10-02.
 
 \bibitem[Meh22]{Nutzerzahlen}
 {\sc Mehner, Matthias}: {\em {Nutzerzahlen Messenger Apps Deutschland und
@@ -37,62 +42,75 @@
 \newblock
   https://www.messengerpeople.com/de/weltweite-nutzer-statistik-fuer-whatsapp-wechat-und-andere-messenger/,
   2022.
+\newblock Abgerufen am: 2022-01-11.
 
 \bibitem[Pay21]{conversion}
 {\sc Payne, Scarlett}: {\em {Conversational Marketing: Do Chatbots Convert
   Better Than Web Forms?}}
 \newblock https://boldist.co/usability/chatbots-vs-contact-forms/, 2021.
+\newblock Abgerufen am: 2021-10-11.
 
 \bibitem[{Pyt}]{sqlite3API}
 {\sc {Python Software Foundation}}: {\em {sqlite3 — DB-API 2.0 interface for
   SQLite databases}}.
 \newblock https://docs.python.org/3/library/sqlite3.html.
+\newblock Abgerufen am: 2022-01-27.
 
 \bibitem[{Pyt}21a]{datetime}
 {\sc {Python Software Foundation}}: {\em {datetime — Basic date and time
   types}}.
 \newblock https://docs.python.org/3.8/library/datetime.html, 2021.
+\newblock Abgerufen am: 2021-10-02.
 
 \bibitem[{Pyt}21b]{email.mime}
 {\sc {Python Software Foundation}}: {\em {email.mime: Creating email and MIME
   objects from scratch}}.
 \newblock https://docs.python.org/3.8/library/email.mime.html, 2021.
+\newblock Abgerufen am: 2022-01-02.
 
 \bibitem[{Pyt}21c]{python3.8.6}
 {\sc {Python Software Foundation}}: {\em {Python 3.8.6}}.
 \newblock https://docs.python.org/3.8/, 2021.
+\newblock Abgerufen am: 2021-09-02.
 
 \bibitem[{Pyt}21d]{smtplib}
 {\sc {Python Software Foundation}}: {\em {smtplib — SMTP protocol client}}.
 \newblock https://docs.python.org/3.8/library/smtplib.html{\#}module-smtplib,
   2021.
+\newblock Abgerufen am: 2021-10-03.
 
 \bibitem[{Ref}21]{python}
 {\sc {Refsnes Data}}: {\em {Python Introduction}}.
 \newblock https://www.w3schools.com/python/python{\_}intro.asp, 2021.
+\newblock Abgerufen am: 2022-03-26.
 
 \bibitem[{Tel}21]{core_telegram_api}
 {\sc {Telegram Messenger Inc.}}: {\em {Telegram Bot API}}.
 \newblock https://core.telegram.org/bots/api, 2021.
+\newblock Abgerufen am: 2021-09-01.
 
 \bibitem[{The}21]{sqlite}
 {\sc {The SQLite Consortium}}: {\em {SQLite}}.
 \newblock https://sqlite.org, 2021.
+\newblock Abgerufen am: 2022-01-02.
 
 \bibitem[Tol21a]{conversationBot}
 {\sc Toledo, Leandro}: {\em python-telegram-bot}.
 \newblock
   https://github.com/python-telegram-bot/python-telegram-bot/blob/master/examples/conversationbot.py,
   2021.
+\newblock Abgerufen am: 2021-09-02.
 
 \bibitem[Tol21b]{telegramAPI}
 {\sc Toledo, Leandro}: {\em {Telegram API Documentation}}.
 \newblock https://python-telegram-bot.readthedocs.io/en/stable/index.html{\#},
   2021.
+\newblock Abgerufen am: 2021-09-02.
 
 \bibitem[Tol21c]{telegramAPIext}
 {\sc Toledo, Leandro}: {\em telegram.ext package}.
 \newblock
   https://python-telegram-bot.readthedocs.io/en/stable/telegram.ext.html, 2021.
+\newblock Abgerufen am: 2021-09-02.
 
 \end{thebibliography}
