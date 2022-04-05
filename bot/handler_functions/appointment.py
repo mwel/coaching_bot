@@ -29,12 +29,12 @@ def appointment(update: Update, context: CallbackContext) -> int:
     
     slot_start = update.message.text
     dt_slot_start = datetime.strptime(slot_start, '%Y-%m-%d %H:%M:%S') # https://docs.python.org/3/library/datetime.html#strftime-and-strptime-format-codes
-    iso_slot_start = str(dt_slot_start.isoformat('T') + '+01:00')
+    iso_slot_start = str(dt_slot_start.isoformat('T') + '+02:00')
     logger.info(f'>>>>> ISO_SLOT_START: {iso_slot_start}')
 
     slot_end = str(dt_slot_start + timedelta(minutes=50))
     dt_slot_end = datetime.strptime(slot_end, '%Y-%m-%d %H:%M:%S')
-    iso_slot_end = str(dt_slot_end.isoformat('T') + '+01:00')
+    iso_slot_end = str(dt_slot_end.isoformat('T') + '+02:00')
     logger.info(f'>>>>> ISO_SLOT_END: {iso_slot_end}')
 
     # uuid = str(str(user_id) + str(randint(10000, 99999)))

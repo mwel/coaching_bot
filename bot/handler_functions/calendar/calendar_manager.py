@@ -99,10 +99,12 @@ def authenticate():
 
     try:
         service = build('calendar', 'v3', credentials=creds)
-        logger.info('+++++ OAuth2 SUCCESSFUL +++++')
+        # logger.info('+++++ OAuth2 SUCCESSFUL +++++')
+        print('+++++ OAuth2 SUCCESSFUL +++++')
        
     except HttpError as error:
-        logger.info('ERROR: %s' % error)
+        # logger.info('ERROR: %s' % error)
+        print('ERROR: %s' % error)
 
     return service
 
@@ -116,10 +118,10 @@ def check_availability(start, end):
     logger.info(f'+++++ SLOT START: {start}') # must be in format RFC3339, i.e. 1985-04-12T23:20:50.52Z
     logger.info(f'+++++ SLOT END: {end}')
 
-    start_iso = str(start.isoformat('T')+'+00:00') # convert UTC to CET for the request.
+    start_iso = str(start.isoformat('T')+'+02:00') # convert UTC to CET for the request.
     logger.info(f'+++++ start_iso: {start_iso}')
 
-    end_iso = str(end.isoformat('T')+'+00:00') # same for end time
+    end_iso = str(end.isoformat('T')+'+02:00') # same for end time
     logger.info(f'+++++ end_iso: {end_iso}')
 
     request = {
@@ -272,3 +274,4 @@ def make_appointment(user_id, slot_start, event):
 
 if __name__ == '__main__':
     main()
+    authenticate()

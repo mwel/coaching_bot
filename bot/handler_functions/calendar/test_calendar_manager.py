@@ -2,17 +2,20 @@
 
 
 # imports
-from calendar_manager import authenticate, check_availability, make_appointment, cancel_appointment, find_slots
+from calendar_manager import authenticate, check_availability, make_appointment, find_slots, main
 
 
 " TESTS "
 
+# test main function
+# main()
+
 # can we authenticate agains google API?
-# authenticate() #desired behaviour: "+++++ OAuth2 SUCCESSFUL +++++"
+authenticate() #desired behaviour: "+++++ OAuth2 SUCCESSFUL +++++"
 
 
 # can we check free slots?
-find_slots()
+# find_slots()
 
 
 # can we make an appointment
