@@ -61,9 +61,8 @@ def summary(update: Update, context: CallbackContext) -> int:
     
     # check, if the user already made an appointment. 
     appointment_made = get_value(user_id, 'appointment')
-    # print(f'???????appointment_made: {appointment_made}')
     
-    # If yes, inform. Else, make one.
+    # If no, make one. Else, inform.
     if appointment_made == 'None':
         
         update.message.reply_text(
