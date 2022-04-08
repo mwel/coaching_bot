@@ -6,78 +6,78 @@
 \contentsline {paragraph}{Anforderungen}{3}{section*.8}%
 \contentsline {paragraph}{Übersicht Frameworks}{3}{section*.9}%
 \contentsline {section}{\numberline {2.1}Analyse}{4}{section.2.1}%
-\contentsline {paragraph}{Aufschlüsselung aller ausgewerteten Frameworks anhand der oben definierten Kriterien}{5}{section*.10}%
-\contentsline {subsection}{\numberline {2.1.1}Bottender}{6}{subsection.2.1.1}%
+\contentsline {subsection}{\numberline {2.1.1}Bottender}{5}{subsection.2.1.1}%
 \contentsline {subsection}{\numberline {2.1.2}Telegram-Bot}{6}{subsection.2.1.2}%
-\contentsline {chapter}{\numberline {3}Grundlagen}{8}{chapter.3}%
-\contentsline {section}{\numberline {3.1}Python}{8}{section.3.1}%
-\contentsline {section}{\numberline {3.2}Telegram API Framework}{8}{section.3.2}%
-\contentsline {section}{\numberline {3.3}ConversationBot}{9}{section.3.3}%
-\contentsline {section}{\numberline {3.4}SQLite}{10}{section.3.4}%
-\contentsline {section}{\numberline {3.5}Mailing-Service und Mail-Server}{10}{section.3.5}%
-\contentsline {section}{\numberline {3.6}Web-GUI}{11}{section.3.6}%
-\contentsline {section}{\numberline {3.7}Google Calendar API}{11}{section.3.7}%
-\contentsline {subsection}{\numberline {3.7.1}Scope}{11}{subsection.3.7.1}%
-\contentsline {subsection}{\numberline {3.7.2}Zugangsdaten}{12}{subsection.3.7.2}%
-\contentsline {section}{\numberline {3.8}TheCoachingBot}{12}{section.3.8}%
-\contentsline {chapter}{\numberline {4}Konzept}{13}{chapter.4}%
-\contentsline {section}{\numberline {4.1}Grundkonzept, User Journey und Features}{13}{section.4.1}%
-\contentsline {section}{\numberline {4.2}Technischer Aufbau}{14}{section.4.2}%
-\contentsline {section}{\numberline {4.3}Zustände \& Konversationsfluss}{15}{section.4.3}%
-\contentsline {chapter}{\numberline {5}Realisierung}{18}{chapter.5}%
-\contentsline {section}{\numberline {5.1}Rahmen- und Meta-Funktionen}{18}{section.5.1}%
-\contentsline {subsection}{\numberline {5.1.1}Start: Eine Konversation beginnen}{18}{subsection.5.1.1}%
-\contentsline {subsection}{\numberline {5.1.2}Ende: Konversation manuell beenden}{19}{subsection.5.1.2}%
-\contentsline {subsection}{\numberline {5.1.3}Persönliche Daten löschen}{19}{subsection.5.1.3}%
-\contentsline {subsection}{\numberline {5.1.4}Hilfe-Funktion aufrufen}{19}{subsection.5.1.4}%
-\contentsline {section}{\numberline {5.2}Zustands-Funktionen}{19}{section.5.2}%
+\contentsline {chapter}{\numberline {3}Grundlagen}{7}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Python}{7}{section.3.1}%
+\contentsline {section}{\numberline {3.2}Telegram API Framework}{7}{section.3.2}%
+\contentsline {section}{\numberline {3.3}ConversationBot}{8}{section.3.3}%
+\contentsline {section}{\numberline {3.4}SQLite}{9}{section.3.4}%
+\contentsline {section}{\numberline {3.5}Mailing-Service und Mail-Server}{9}{section.3.5}%
+\contentsline {section}{\numberline {3.6}Web-App und -UI}{10}{section.3.6}%
+\contentsline {section}{\numberline {3.7}Google Calendar API}{10}{section.3.7}%
+\contentsline {subsection}{\numberline {3.7.1}Scope}{10}{subsection.3.7.1}%
+\contentsline {subsection}{\numberline {3.7.2}Zugangsdaten}{11}{subsection.3.7.2}%
+\contentsline {section}{\numberline {3.8}TheCoachingBot}{11}{section.3.8}%
+\contentsline {chapter}{\numberline {4}Konzept}{12}{chapter.4}%
+\contentsline {section}{\numberline {4.1}User Journey und Features}{12}{section.4.1}%
+\contentsline {section}{\numberline {4.2}Technischer Aufbau}{13}{section.4.2}%
+\contentsline {section}{\numberline {4.3}Zustände \& Konversationsfluss}{14}{section.4.3}%
+\contentsline {chapter}{\numberline {5}Realisierung}{17}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Rahmen- und Meta-Funktionen}{17}{section.5.1}%
+\contentsline {subsection}{\numberline {5.1.1}Eine Konversation beginnen}{17}{subsection.5.1.1}%
+\contentsline {subsection}{\numberline {5.1.2}Eine Konversation beenden}{18}{subsection.5.1.2}%
+\contentsline {subsection}{\numberline {5.1.3}Persönliche Daten löschen}{18}{subsection.5.1.3}%
+\contentsline {subsection}{\numberline {5.1.4}Hilfe-Funktion aufrufen}{18}{subsection.5.1.4}%
+\contentsline {section}{\numberline {5.2}Zustands-Funktionen}{18}{section.5.2}%
 \contentsline {subsection}{\numberline {5.2.1}Biographie oder Motivation}{19}{subsection.5.2.1}%
-\contentsline {subsection}{\numberline {5.2.2}Abfragen des Geschlechts}{20}{subsection.5.2.2}%
-\contentsline {subsection}{\numberline {5.2.3}Abfragen des Geburtsdatums}{20}{subsection.5.2.3}%
-\contentsline {subsection}{\numberline {5.2.4}Abfragen der E-Mail Adresse}{20}{subsection.5.2.4}%
-\contentsline {subsection}{\numberline {5.2.5}Abfragen der Telefonnummer}{20}{subsection.5.2.5}%
+\contentsline {subsection}{\numberline {5.2.2}Abfragen des Geschlechts}{19}{subsection.5.2.2}%
+\contentsline {subsection}{\numberline {5.2.3}Abfragen des Geburtsdatums}{19}{subsection.5.2.3}%
+\contentsline {subsection}{\numberline {5.2.4}Abfragen der E-Mail Adresse}{19}{subsection.5.2.4}%
+\contentsline {subsection}{\numberline {5.2.5}Abfragen der Telefonnummer}{19}{subsection.5.2.5}%
 \contentsline {subsection}{\numberline {5.2.6}Abfragen des Standorts}{20}{subsection.5.2.6}%
-\contentsline {subsection}{\numberline {5.2.7}Abfragen des Bilds}{20}{subsection.5.2.7}%
-\contentsline {subsection}{\numberline {5.2.8}Überspringen}{21}{subsection.5.2.8}%
+\contentsline {subsection}{\numberline {5.2.7}Abfragen des Bildes}{20}{subsection.5.2.7}%
+\contentsline {subsection}{\numberline {5.2.8}Überspringen}{20}{subsection.5.2.8}%
 \contentsline {subsection}{\numberline {5.2.9}Zusammenfassungs-Funktion}{21}{subsection.5.2.9}%
-\contentsline {section}{\numberline {5.3}Support-Funktionen}{22}{section.5.3}%
-\contentsline {subsection}{\numberline {5.3.1}Eingabe-Validierung}{22}{subsection.5.3.1}%
-\contentsline {subsection}{\numberline {5.3.2}Konstruktion E-Mail}{22}{subsection.5.3.2}%
-\contentsline {section}{\numberline {5.4}Datenbank}{22}{section.5.4}%
-\contentsline {subsection}{\numberline {5.4.1}Anbindung Datenbank an Python}{23}{subsection.5.4.1}%
-\contentsline {section}{\numberline {5.5}Kalender}{24}{section.5.5}%
-\contentsline {section}{\numberline {5.6}Web-GUI}{24}{section.5.6}%
+\contentsline {section}{\numberline {5.3}Support-Funktionen}{21}{section.5.3}%
+\contentsline {subsection}{\numberline {5.3.1}Eingabe-Validierung}{21}{subsection.5.3.1}%
+\contentsline {subsection}{\numberline {5.3.2}Konstruktion E-Mail}{21}{subsection.5.3.2}%
+\contentsline {section}{\numberline {5.4}Datenbank}{21}{section.5.4}%
+\contentsline {subsection}{\numberline {5.4.1}Anbindung Datenbank an Python}{22}{subsection.5.4.1}%
+\contentsline {section}{\numberline {5.5}Kalender}{22}{section.5.5}%
+\contentsline {section}{\numberline {5.6}Web-App und -UI}{24}{section.5.6}%
 \contentsline {chapter}{\numberline {6}Implementierung}{25}{chapter.6}%
+\contentsline {paragraph}{Vorbereitung}{25}{section*.15}%
 \contentsline {section}{\numberline {6.1}main.py - Anmeldung Bot, Updater, Dispatcher und Handler-Konfiguration}{25}{section.6.1}%
-\contentsline {subsection}{\numberline {6.1.1}states.py - Zustände zentral verwalten}{28}{subsection.6.1.1}%
+\contentsline {subsection}{\numberline {6.1.1}Zustände zentral verwalten}{28}{subsection.6.1.1}%
 \contentsline {section}{\numberline {6.2}Rahmen- und Meta-Funktionen}{28}{section.6.2}%
 \contentsline {subsection}{\numberline {6.2.1}start.py - Beginn und Weiterführung des Konversationsflusses}{28}{subsection.6.2.1}%
-\contentsline {subsection}{\numberline {6.2.2}cancel.py - Konversationen beenden und Nutzerdaten löschen}{31}{subsection.6.2.2}%
-\contentsline {subsection}{\numberline {6.2.3}help.py - Hilfe ausgeben}{32}{subsection.6.2.3}%
-\contentsline {section}{\numberline {6.3}Zustands-Funktionen(Handler-Funktionen) - Aufbau und Beispiele}{32}{section.6.3}%
-\contentsline {paragraph}{Nach den beiden exemplarisch vorgestellten Funktionen wird im weiteren Verlauf des Kapitels nur noch auf Besonderheiten der restlichen Handler-Funktionen eingegangen.}{34}{section*.16}%
+\contentsline {subsection}{\numberline {6.2.2}Konversationen beenden und Nutzerdaten löschen}{31}{subsection.6.2.2}%
+\contentsline {subsection}{\numberline {6.2.3}Hilfe ausgeben}{32}{subsection.6.2.3}%
+\contentsline {section}{\numberline {6.3}Zustands-Funktionen - Aufbau und Beispiele}{32}{section.6.3}%
+\contentsline {paragraph}{Nach den beiden exemplarisch vorgestellten Funktionen wird im weiteren Verlauf des Abschnitts nur noch auf Besonderheiten der restlichen Handler-Funktionen eingegangen.}{34}{section*.16}%
 \contentsline {subsection}{\numberline {6.3.1}Handler-Funktionen mit Input Validation}{34}{subsection.6.3.1}%
-\contentsline {subsection}{\numberline {6.3.2}validation.py - Input-Validierung}{35}{subsection.6.3.2}%
-\contentsline {subsection}{\numberline {6.3.3}summary.py - Zusammenfassung für den Nutzer}{35}{subsection.6.3.3}%
+\contentsline {subsection}{\numberline {6.3.2}Input-Validierung}{35}{subsection.6.3.2}%
+\contentsline {subsection}{\numberline {6.3.3}Zusammenfassung für den Nutzer}{35}{subsection.6.3.3}%
 \contentsline {paragraph}{Option A}{36}{section*.17}%
 \contentsline {paragraph}{Option B}{37}{section*.18}%
-\contentsline {subsection}{\numberline {6.3.4}confirmation\_mail.py - Bestätigung per E-Mail}{38}{subsection.6.3.4}%
-\contentsline {subsection}{\numberline {6.3.5}appointment.py - Kalender-Event erstellen}{39}{subsection.6.3.5}%
-\contentsline {subsection}{\numberline {6.3.6}status.py - Fortschritt abrufen}{40}{subsection.6.3.6}%
+\contentsline {subsection}{\numberline {6.3.4}Bestätigung per E-Mail}{38}{subsection.6.3.4}%
+\contentsline {subsection}{\numberline {6.3.5}Kalender-Event erstellen}{39}{subsection.6.3.5}%
+\contentsline {subsection}{\numberline {6.3.6}Fortschritt abrufen}{40}{subsection.6.3.6}%
 \contentsline {section}{\numberline {6.4}Datenbank}{40}{section.6.4}%
-\contentsline {subsection}{\numberline {6.4.1}create\_db.py - Datenbank und Schema aufbauen}{40}{subsection.6.4.1}%
-\contentsline {subsection}{\numberline {6.4.2}select\_db.py - Nutzerdaten abfragen}{41}{subsection.6.4.2}%
-\contentsline {subsection}{\numberline {6.4.3}insert\_value\_db.py - Werte schreiben}{42}{subsection.6.4.3}%
-\contentsline {subsection}{\numberline {6.4.4}delete\_record.py}{43}{subsection.6.4.4}%
+\contentsline {subsection}{\numberline {6.4.1}create\_db.py - Datenbank und Schema aufbauen}{41}{subsection.6.4.1}%
+\contentsline {subsection}{\numberline {6.4.2}Nutzerdaten abfragen}{42}{subsection.6.4.2}%
+\contentsline {subsection}{\numberline {6.4.3}Werte in die Datenbank schreiben}{42}{subsection.6.4.3}%
+\contentsline {subsection}{\numberline {6.4.4}Daten aus der Datenbank löschen}{43}{subsection.6.4.4}%
 \contentsline {section}{\numberline {6.5}Terminvereinbarung mit dem Google Calendar}{43}{section.6.5}%
-\contentsline {subsection}{\numberline {6.5.1}Zeitspanne prüfen}{43}{subsection.6.5.1}%
+\contentsline {subsection}{\numberline {6.5.1}Zeitspanne prüfen}{44}{subsection.6.5.1}%
 \contentsline {subsection}{\numberline {6.5.2}Terminvorschläge generieren}{45}{subsection.6.5.2}%
-\contentsline {subsection}{\numberline {6.5.3}make\_appointment - Finalen Termin vereinbaren}{46}{subsection.6.5.3}%
-\contentsline {section}{\numberline {6.6}Web-GUI}{46}{section.6.6}%
+\contentsline {subsection}{\numberline {6.5.3}Wunschtermin vereinbaren}{46}{subsection.6.5.3}%
+\contentsline {section}{\numberline {6.6}Web-App und -UI}{47}{section.6.6}%
 \contentsline {chapter}{\numberline {7}Beispielsitzung}{48}{chapter.7}%
-\contentsline {chapter}{\numberline {8}Anwendungsszenarien}{57}{chapter.8}%
-\contentsline {paragraph}{Einige Beispiele}{57}{section*.25}%
-\contentsline {chapter}{\numberline {9}Zusammenfassung und Ausblick}{59}{chapter.9}%
-\contentsline {chapter}{Literaturverzeichnis}{61}{chapter*.26}%
+\contentsline {chapter}{\numberline {8}Anwendungsszenarien}{56}{chapter.8}%
+\contentsline {paragraph}{Einige Beispiele}{56}{section*.25}%
+\contentsline {chapter}{\numberline {9}Zusammenfassung und Ausblick}{58}{chapter.9}%
+\contentsline {chapter}{Literaturverzeichnis}{60}{chapter*.26}%
 \contentsline {chapter}{Glossar}{63}{appendix.A}%
 \contentsline {chapter}{Selbstständigkeitserklärung}{64}{appendix.B}%

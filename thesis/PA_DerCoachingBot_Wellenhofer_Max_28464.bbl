@@ -5,7 +5,27 @@
 \newblock
   https://github.com/python-telegram-bot/python-telegram-bot/wiki/Extensions-–-Your-first-Bot,
   2022.
-\newblock Abgerufen am: 2022-03-26.
+\newblock Abgerufen am: 26.03.2022.
+
+\bibitem[Bot21a]{botlibre}
+{\sc Botlibre.org}: {\em {Bot Libre}}.
+\newblock https://www.botlibre.com/, 2021.
+\newblock Abgerufen am: 08.10.2021.
+
+\bibitem[Bot21b]{botpress}
+{\sc Botpress}: {\em {Botpress - The building blocks for building chatbots}}.
+\newblock https://botpress.com/, 2021.
+\newblock Abgerufen am: 08.10.2021.
+
+\bibitem[Cla21]{claudia-bot-builder}
+{\sc Claudia.js}: {\em {Claudia Bot Builder}}.
+\newblock https://github.com/claudiajs/claudia-bot-builder, 2021.
+\newblock Abgerufen am: 08.10.2021.
+
+\bibitem[{Dav}19]{golem}
+{\sc {David Př{\'{i}}hoda}}: {\em {Golem Chatbot Framework}}.
+\newblock https://github.com/ThinkR-open/golem, 2019.
+\newblock Abgerufen am: 08.10.2021.
 
 \bibitem[eaK02]{date_time}
 {\sc Klyne~et.~al.}: {\em {Date and Time on the Internet: Timestamps}}.
@@ -14,19 +34,24 @@
 \bibitem[{Goo}22a]{apiExplorer}
 {\sc {Google LLC}}: {\em {Google APIs Explorer overview}}.
 \newblock https://developers.google.com/explorer-help/, 2022.
-\newblock Abgerufen am: 2022-01-29.
+\newblock Abgerufen am: 29.01.2022.
 
 \bibitem[{Goo}22b]{googleCalAPI}
 {\sc {Google LLC}}: {\em {GoogleCalendarAPI}}.
 \newblock
   https://googleapis.github.io/google-api-python-client/docs/dyn/calendar{\_}v3.html,
   2022.
-\newblock Abgerufen am: 2022-01-16.
+\newblock Abgerufen am: 16.01.2022.
+
+\bibitem[How21]{botkit}
+{\sc Howdy}: {\em {Botkit CMS}}.
+\newblock https://github.com/howdyai/botkit-cms, 2021.
+\newblock Abgerufen am: 08.10.2021.
 
 \bibitem[IBM20]{apiIBM2020}
 {\sc IBM}: {\em {Application Programming Interface (API)}}.
 \newblock https://www.ibm.com/cloud/learn/api, 2020.
-\newblock Abgerufen am: 2022-03-02.
+\newblock Abgerufen am: 02.03.2022.
 
 \bibitem[Kre21]{telegramVergleich}
 {\sc Kremming, Katharina}: {\em {Telegram Messenger – Alles was Du wissen
@@ -34,7 +59,12 @@
 \newblock
   https://www.messengerpeople.com/de/messaging-apps-brands-der-telegram-messenger/,
   2021.
-\newblock Abgerufen am: 2021-10-02.
+\newblock Abgerufen am: 02.10.2021.
+
+\bibitem[{Mar}21]{botman}
+{\sc {Marcel Pociot}}: {\em {Botman - PHP chatbot framework}}.
+\newblock https://github.com/botman/botman, 2021.
+\newblock Abgerufen am: 08.10.2021.
 
 \bibitem[Meh22]{Nutzerzahlen}
 {\sc Mehner, Matthias}: {\em {Nutzerzahlen Messenger Apps Deutschland und
@@ -42,75 +72,126 @@
 \newblock
   https://www.messengerpeople.com/de/weltweite-nutzer-statistik-fuer-whatsapp-wechat-und-andere-messenger/,
   2022.
-\newblock Abgerufen am: 2022-01-11.
+\newblock Abgerufen am: 11.01.2022.
+
+\bibitem[Met20]{parl-ai}
+{\sc Meta}: {\em {ParlAI}}.
+\newblock https://ai.facebook.com/blog/state-of-the-art-open-source-chatbot/,
+  2020.
+\newblock Abgerufen am: 08.10.2021.
+
+\bibitem[Mic21]{ms-bot}
+{\sc Microsoft}: {\em {Microsoft Bot Framework}}.
+\newblock https://github.com/microsoft/botframework-sdk, 2021.
+\newblock Abgerufen am: 08.10.2021.
+
+\bibitem[{Neu}21]{deepavlov}
+{\sc {Neural Networks and Deep Learning lab MIPT}}: {\em {DeepPavlov}}.
+\newblock https://github.com/deepmipt/DeepPavlov, 2021.
+\newblock Abgerufen am: 08.10.2021.
+
+\bibitem[{Now}19]{anachat}
+{\sc {NowFloats Technologies Pvt Ltd}}: {\em {Project Ana - Open Source
+  Conversation Suite}}.
+\newblock https://github.com/nowfloats/ProjectAna, 2019.
+\newblock Abgerufen am: 08.10.2021.
+
+\bibitem[Ope21]{opendialog}
+{\sc OpenDialog}: {\em {OpenDialog}}.
+\newblock https://opendialog.ai/, 2021.
+\newblock Abgerufen am: 08.10.2021.
 
 \bibitem[Pay21]{conversion}
 {\sc Payne, Scarlett}: {\em {Conversational Marketing: Do Chatbots Convert
   Better Than Web Forms?}}
 \newblock https://boldist.co/usability/chatbots-vs-contact-forms/, 2021.
-\newblock Abgerufen am: 2021-10-11.
+\newblock Abgerufen am: 11.10.2021.
 
 \bibitem[{Pyt}]{sqlite3API}
 {\sc {Python Software Foundation}}: {\em {sqlite3 — DB-API 2.0 interface for
   SQLite databases}}.
 \newblock https://docs.python.org/3/library/sqlite3.html.
-\newblock Abgerufen am: 2022-01-27.
 
 \bibitem[{Pyt}21a]{datetime}
 {\sc {Python Software Foundation}}: {\em {datetime — Basic date and time
   types}}.
 \newblock https://docs.python.org/3.8/library/datetime.html, 2021.
-\newblock Abgerufen am: 2021-10-02.
+\newblock Abgerufen am: 02.10.2021.
 
 \bibitem[{Pyt}21b]{email.mime}
 {\sc {Python Software Foundation}}: {\em {email.mime: Creating email and MIME
   objects from scratch}}.
 \newblock https://docs.python.org/3.8/library/email.mime.html, 2021.
-\newblock Abgerufen am: 2022-01-02.
+\newblock Abgerufen am: 02.01.2022.
 
 \bibitem[{Pyt}21c]{python3.8.6}
 {\sc {Python Software Foundation}}: {\em {Python 3.8.6}}.
 \newblock https://docs.python.org/3.8/, 2021.
-\newblock Abgerufen am: 2021-09-02.
+\newblock Abgerufen am: 02.09.2021.
 
 \bibitem[{Pyt}21d]{smtplib}
 {\sc {Python Software Foundation}}: {\em {smtplib — SMTP protocol client}}.
 \newblock https://docs.python.org/3.8/library/smtplib.html{\#}module-smtplib,
   2021.
-\newblock Abgerufen am: 2021-10-03.
+\newblock Abgerufen am: 03.10.2021.
+
+\bibitem[Ras21]{rasa}
+{\sc Rasa}: {\em {RasaHQ}}.
+\newblock https://github.com/RasaHQ/rasa, 2021.
+\newblock Abgerufen am: 08.10.2021.
 
 \bibitem[{Ref}21]{python}
 {\sc {Refsnes Data}}: {\em {Python Introduction}}.
 \newblock https://www.w3schools.com/python/python{\_}intro.asp, 2021.
-\newblock Abgerufen am: 2022-03-26.
+\newblock Abgerufen am: 26.03.2022.
+
+\bibitem[Sor21]{botonic}
+{\sc Sorigu{\'{e}}, Sergi}: {\em {Botonic Open Source Framework}}.
+\newblock https://github.com/hubtype/botonic, 2021.
+\newblock Abgerufen am: 08.10.2021.
 
 \bibitem[{Tel}21]{core_telegram_api}
 {\sc {Telegram Messenger Inc.}}: {\em {Telegram Bot API}}.
 \newblock https://core.telegram.org/bots/api, 2021.
-\newblock Abgerufen am: 2021-09-01.
+\newblock Abgerufen am: 01.09.2021.
 
 \bibitem[{The}21]{sqlite}
 {\sc {The SQLite Consortium}}: {\em {SQLite}}.
 \newblock https://sqlite.org, 2021.
-\newblock Abgerufen am: 2022-01-02.
+\newblock Abgerufen am: 02.01.2022.
+
+\bibitem[Toc21]{tock}
+{\sc Tock}: {\em {Tock - The Open Conversation Kit}}.
+\newblock https://github.com/theopenconversationkit/tock, 2021.
+\newblock Abgerufen am: 08.10.2021.
 
 \bibitem[Tol21a]{conversationBot}
 {\sc Toledo, Leandro}: {\em python-telegram-bot}.
 \newblock
   https://github.com/python-telegram-bot/python-telegram-bot/blob/master/examples/conversationbot.py,
   2021.
-\newblock Abgerufen am: 2021-09-02.
+\newblock Abgerufen am: 02.09.2021.
 
 \bibitem[Tol21b]{telegramAPI}
 {\sc Toledo, Leandro}: {\em {Telegram API Documentation}}.
 \newblock https://python-telegram-bot.readthedocs.io/en/stable/index.html{\#},
   2021.
-\newblock Abgerufen am: 2021-09-02.
+\newblock Abgerufen am: 02.09.2022.
 
 \bibitem[Tol21c]{telegramAPIext}
 {\sc Toledo, Leandro}: {\em telegram.ext package}.
 \newblock
   https://python-telegram-bot.readthedocs.io/en/stable/telegram.ext.html, 2021.
-\newblock Abgerufen am: 2021-09-02.
+\newblock Abgerufen am: 02.09.2021.
+
+\bibitem[Wit21]{wit}
+{\sc Wit.ai}: {\em {Wit.ai - Natural Language for everyone}}.
+\newblock https://github.com/wit-ai, 2021.
+\newblock Abgerufen am: 08.10.2021.
+
+\bibitem[YOC21]{bottender}
+{\sc YOCTOL.AI}: {\em {Bottender}}.
+\newblock https://github.com/yoctol/bottender, 2021.
+\newblock Abgerufen am: 08.10.2021.
 
 \end{thebibliography}

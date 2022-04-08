@@ -9,19 +9,19 @@
 \BOOKMARK [1][-]{section.3.3}{ConversationBot}{chapter.3}% 9
 \BOOKMARK [1][-]{section.3.4}{SQLite}{chapter.3}% 10
 \BOOKMARK [1][-]{section.3.5}{Mailing-Service und Mail-Server}{chapter.3}% 11
-\BOOKMARK [1][-]{section.3.6}{Web-GUI}{chapter.3}% 12
+\BOOKMARK [1][-]{section.3.6}{Web-App und -UI}{chapter.3}% 12
 \BOOKMARK [1][-]{section.3.7}{Google Calendar API}{chapter.3}% 13
 \BOOKMARK [2][-]{subsection.3.7.1}{Scope}{section.3.7}% 14
 \BOOKMARK [2][-]{subsection.3.7.2}{Zugangsdaten}{section.3.7}% 15
 \BOOKMARK [1][-]{section.3.8}{TheCoachingBot}{chapter.3}% 16
 \BOOKMARK [0][-]{chapter.4}{Konzept}{}% 17
-\BOOKMARK [1][-]{section.4.1}{Grundkonzept, User Journey und Features}{chapter.4}% 18
+\BOOKMARK [1][-]{section.4.1}{User Journey und Features}{chapter.4}% 18
 \BOOKMARK [1][-]{section.4.2}{Technischer Aufbau}{chapter.4}% 19
 \BOOKMARK [1][-]{section.4.3}{Zust\344nde \046 Konversationsfluss}{chapter.4}% 20
 \BOOKMARK [0][-]{chapter.5}{Realisierung}{}% 21
 \BOOKMARK [1][-]{section.5.1}{Rahmen- und Meta-Funktionen}{chapter.5}% 22
-\BOOKMARK [2][-]{subsection.5.1.1}{Start: Eine Konversation beginnen}{section.5.1}% 23
-\BOOKMARK [2][-]{subsection.5.1.2}{Ende: Konversation manuell beenden}{section.5.1}% 24
+\BOOKMARK [2][-]{subsection.5.1.1}{Eine Konversation beginnen}{section.5.1}% 23
+\BOOKMARK [2][-]{subsection.5.1.2}{Eine Konversation beenden}{section.5.1}% 24
 \BOOKMARK [2][-]{subsection.5.1.3}{Pers\366nliche Daten l\366schen}{section.5.1}% 25
 \BOOKMARK [2][-]{subsection.5.1.4}{Hilfe-Funktion aufrufen}{section.5.1}% 26
 \BOOKMARK [1][-]{section.5.2}{Zustands-Funktionen}{chapter.5}% 27
@@ -31,7 +31,7 @@
 \BOOKMARK [2][-]{subsection.5.2.4}{Abfragen der E-Mail Adresse}{section.5.2}% 31
 \BOOKMARK [2][-]{subsection.5.2.5}{Abfragen der Telefonnummer}{section.5.2}% 32
 \BOOKMARK [2][-]{subsection.5.2.6}{Abfragen des Standorts}{section.5.2}% 33
-\BOOKMARK [2][-]{subsection.5.2.7}{Abfragen des Bilds}{section.5.2}% 34
+\BOOKMARK [2][-]{subsection.5.2.7}{Abfragen des Bildes}{section.5.2}% 34
 \BOOKMARK [2][-]{subsection.5.2.8}{\334berspringen}{section.5.2}% 35
 \BOOKMARK [2][-]{subsection.5.2.9}{Zusammenfassungs-Funktion}{section.5.2}% 36
 \BOOKMARK [1][-]{section.5.3}{Support-Funktionen}{chapter.5}% 37
@@ -40,31 +40,31 @@
 \BOOKMARK [1][-]{section.5.4}{Datenbank}{chapter.5}% 40
 \BOOKMARK [2][-]{subsection.5.4.1}{Anbindung Datenbank an Python}{section.5.4}% 41
 \BOOKMARK [1][-]{section.5.5}{Kalender}{chapter.5}% 42
-\BOOKMARK [1][-]{section.5.6}{Web-GUI}{chapter.5}% 43
+\BOOKMARK [1][-]{section.5.6}{Web-App und -UI}{chapter.5}% 43
 \BOOKMARK [0][-]{chapter.6}{Implementierung}{}% 44
 \BOOKMARK [1][-]{section.6.1}{main.py - Anmeldung Bot, Updater, Dispatcher und Handler-Konfiguration}{chapter.6}% 45
-\BOOKMARK [2][-]{subsection.6.1.1}{states.py - Zust\344nde zentral verwalten}{section.6.1}% 46
+\BOOKMARK [2][-]{subsection.6.1.1}{Zust\344nde zentral verwalten}{section.6.1}% 46
 \BOOKMARK [1][-]{section.6.2}{Rahmen- und Meta-Funktionen}{chapter.6}% 47
 \BOOKMARK [2][-]{subsection.6.2.1}{start.py - Beginn und Weiterf\374hrung des Konversationsflusses}{section.6.2}% 48
-\BOOKMARK [2][-]{subsection.6.2.2}{cancel.py - Konversationen beenden und Nutzerdaten l\366schen}{section.6.2}% 49
-\BOOKMARK [2][-]{subsection.6.2.3}{help.py - Hilfe ausgeben}{section.6.2}% 50
-\BOOKMARK [1][-]{section.6.3}{Zustands-Funktionen\(Handler-Funktionen\) - Aufbau und Beispiele}{chapter.6}% 51
+\BOOKMARK [2][-]{subsection.6.2.2}{Konversationen beenden und Nutzerdaten l\366schen}{section.6.2}% 49
+\BOOKMARK [2][-]{subsection.6.2.3}{Hilfe ausgeben}{section.6.2}% 50
+\BOOKMARK [1][-]{section.6.3}{Zustands-Funktionen - Aufbau und Beispiele}{chapter.6}% 51
 \BOOKMARK [2][-]{subsection.6.3.1}{Handler-Funktionen mit Input Validation}{section.6.3}% 52
-\BOOKMARK [2][-]{subsection.6.3.2}{validation.py - Input-Validierung}{section.6.3}% 53
-\BOOKMARK [2][-]{subsection.6.3.3}{summary.py - Zusammenfassung f\374r den Nutzer}{section.6.3}% 54
-\BOOKMARK [2][-]{subsection.6.3.4}{confirmation\137mail.py - Best\344tigung per E-Mail}{section.6.3}% 55
-\BOOKMARK [2][-]{subsection.6.3.5}{appointment.py - Kalender-Event erstellen}{section.6.3}% 56
-\BOOKMARK [2][-]{subsection.6.3.6}{status.py - Fortschritt abrufen}{section.6.3}% 57
+\BOOKMARK [2][-]{subsection.6.3.2}{Input-Validierung}{section.6.3}% 53
+\BOOKMARK [2][-]{subsection.6.3.3}{Zusammenfassung f\374r den Nutzer}{section.6.3}% 54
+\BOOKMARK [2][-]{subsection.6.3.4}{Best\344tigung per E-Mail}{section.6.3}% 55
+\BOOKMARK [2][-]{subsection.6.3.5}{Kalender-Event erstellen}{section.6.3}% 56
+\BOOKMARK [2][-]{subsection.6.3.6}{Fortschritt abrufen}{section.6.3}% 57
 \BOOKMARK [1][-]{section.6.4}{Datenbank}{chapter.6}% 58
 \BOOKMARK [2][-]{subsection.6.4.1}{create\137db.py - Datenbank und Schema aufbauen}{section.6.4}% 59
-\BOOKMARK [2][-]{subsection.6.4.2}{select\137db.py - Nutzerdaten abfragen}{section.6.4}% 60
-\BOOKMARK [2][-]{subsection.6.4.3}{insert\137value\137db.py - Werte schreiben}{section.6.4}% 61
-\BOOKMARK [2][-]{subsection.6.4.4}{delete\137record.py}{section.6.4}% 62
+\BOOKMARK [2][-]{subsection.6.4.2}{Nutzerdaten abfragen}{section.6.4}% 60
+\BOOKMARK [2][-]{subsection.6.4.3}{Werte in die Datenbank schreiben}{section.6.4}% 61
+\BOOKMARK [2][-]{subsection.6.4.4}{Daten aus der Datenbank l\366schen}{section.6.4}% 62
 \BOOKMARK [1][-]{section.6.5}{Terminvereinbarung mit dem Google Calendar}{chapter.6}% 63
 \BOOKMARK [2][-]{subsection.6.5.1}{Zeitspanne pr\374fen}{section.6.5}% 64
 \BOOKMARK [2][-]{subsection.6.5.2}{Terminvorschl\344ge generieren}{section.6.5}% 65
-\BOOKMARK [2][-]{subsection.6.5.3}{make\137appointment - Finalen Termin vereinbaren}{section.6.5}% 66
-\BOOKMARK [1][-]{section.6.6}{Web-GUI}{chapter.6}% 67
+\BOOKMARK [2][-]{subsection.6.5.3}{Wunschtermin vereinbaren}{section.6.5}% 66
+\BOOKMARK [1][-]{section.6.6}{Web-App und -UI}{chapter.6}% 67
 \BOOKMARK [0][-]{chapter.7}{Beispielsitzung}{}% 68
 \BOOKMARK [0][-]{chapter.8}{Anwendungsszenarien}{}% 69
 \BOOKMARK [0][-]{chapter.9}{Zusammenfassung und Ausblick}{}% 70

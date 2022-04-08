@@ -1,46 +1,44 @@
-\label{Verwandte Arbeiten}
-\chapter{Verwandte Arbeiten}
+\chapter{Verwandte Arbeiten} \label{Verwandte Arbeiten}
 
-    Ziel der Recherche war es, einen kleinen, selbst wartbaren, quelloffenen Chatbot zu finden, der von angehenden Dienstleistern mit Grundkenntnissen der Programmierung und einer einfach verständlichen Dokumentation ohne monetäre Mittel auf die eigenen Bedürfnisse angepasst werden kann. Gleichzeitig sollte es dem Coach überlassen sein, wo der Service gehostet wird. Der Nutzer soll eine einfache, geskriptete OnBoarding-Phase durchlaufen und schließlich einen Termin vereinbaren können. Einen Bedarf für Natural Language Processing besteht in einer ersten Version nicht. 
+    Ziel der Recherche war es, einen kleinen, selbst wartbaren, quelloffenen Chatbot zu finden, der von angehenden Dienstleistern mit Grundkenntnissen der Programmierung und einer einfach verständlichen Dokumentation ohne monetäre Mittel auf die eigenen Bedürfnisse angepasst werden kann. Gleichzeitig sollte es dem Dienstleister überlassen sein, wo der Service gehostet wird. Der Nutzer soll eine einfache, geskriptete OnBoarding-Phase durchlaufen und schließlich einen Termin vereinbaren können. Bedarf für Machine Learning, Natural Language Processing oder intelligente Antworten bestand in einer ersten Version nicht. 
 
     \paragraph{Anforderungen}
     Das System soll folgenden Kriterien genügen:
     \begin{enumerate}
-        \item Open Source: Das System soll quelloffen sein, damit eine Adaption und Weiterentwicklung möglich sind.
+        \item Open Source: Das System soll quelloffen sein, damit Adaption und Weiterentwicklung unkompliziert möglich sind.
         \item Kostenlos: System und Infrastruktur sollen kostenlos sein, damit für den Dienstleister keine montären Kosten entstehen.
         \item Simplizität: Das System soll einfach genug nutz- und wartbar sein, dass ein Dienstleister mit Grundkenntnissen damit zurecht kommt.
         \item Skript-Fokus: Es soll ein geskripteter Ablauf abgebildet werden. (Der Bot muss in der PoC-Phase nicht dazulernen oder natürliche Sprache erkennen.) 
-        \item Abhängigkeiten: Das System darf keine Abhängigkeiten aufweisen, die ein angehender Dienstleister nicht einfach erfüllen kann.
-        \item Client-Plattformen: Das System soll Clients auf gängigen Betriebssystemen wie Android-, iOS- Microsoft Windows und macOS bereitstellen.
+        \item Abhängigkeiten: Das System soll keine Abhängigkeiten zu externen Systemen oder Ressourcen aufweisen, die für angehende Dienstleister schwierig zu erfüllen sind.
+        \item Client-Plattformen: Das System soll Clients auf gängigen Betriebssystemen wie Android, iOS, Microsoft Windows und macOS bereitstellen.
     \end{enumerate}
 
     \paragraph{Übersicht Frameworks}
+    Die folgenden Frameworks wurden analysiert:
     \begin{enumerate}
-        \item Ana\footnote{\url{https://www.ana.chat/}}
-        \item Bot Libre\footnote{\url{https://www.botlibre.com/}}
-        \item Botkit\footnote{\url{https://github.com/howdyai/botkit-cms}}
-        \item BotMan\footnote{\url{https://github.com/botman/botman}}
-        \item Botonic\footnote{\url{https://github.com/hubtype/botonic}}
-        \item Botpress\footnote{\url{https://botpress.com/}}
-        \item Bottender\footnote{\url{https://github.com/yoctol/bottender}}
-        \item Claudia Bot Builder\footnote{\url{https://github.com/claudiajs/claudia-bot-builder}}
-        \item DeepPavlov\footnote{\url{https://github.com/deepmipt/deeppavlov}}
-        \item Golem \footnote{\url{https://github.com/prihoda/golem}}
-        \item Microsoft Bot Framework and Botkit \footnote{\url{https://github.com/microsoft/botframework-sdk}}
-        \item OpenDialog\footnote{\url{https://www.opendialog.ai/}}
-        \item ParlAI by Facebook AI\footnote{\url{https://ai.facebook.com/blog/state-of-the-art-open-source-chatbot/}}
-        \item Rasa\footnote{\url{https://github.com/RasaHQ/rasa}}
-        \item Tock\footnote{\url{https://github.com/theopenconversationkit/tock}}
-        \item Wit.ai\footnote{\url{https://github.com/wit-ai}}
+        \item Ana \cite{anachat}
+        \item Bot Libre \cite{botlibre}
+        \item Botkit \cite{botkit}
+        \item BotMan \cite{botman}
+        \item Botonic \cite{botonic}
+        \item Botpress \cite{botpress}
+        \item Bottender \cite{bottender}
+        \item Claudia Bot Builder \cite{claudia-bot-builder}
+        \item DeepPavlov \cite{deepavlov}
+        \item Golem  \cite{golem}
+        \item Microsoft Bot Framework  \cite{ms-bot}
+        \item OpenDialog \cite{opendialog}
+        \item ParlAI \cite{parl-ai}
+        \item Rasa \cite{rasa}
+        \item Tock \cite{tock}
+        \item Wit.ai \cite{wit}
     \end{enumerate}
 
     \section{Analyse} \label{VerwandteArbeiten: Analyse}
-        Nach einer initialen Überprüfung der Frameworks gegen die genannten Kriterien wurden Frameworks in drei Schritten nach dem Ausschlussverfahren ausgewählt. Eine Übersicht darüber, welches Framework welche Ausschlusskriterien erfüllt, sind in \ref*{tab: related works} zu sehen.\footnote{Ein Haken bedeutet, dass das Kriterium erfüllt wurde. In Spalte 6 bedeutet ein Haken, dass keine No-Go-Abhängigkeiten gefunden wurden. Ein Kreuz bedeutet, dass hier ein Kriterium verletzt wurde und das Framework ausgeschlossen wurde.}
+        Nach einer initialen Überprüfung der Frameworks gegen die genannten Kriterien wurden Frameworks in drei Schritten nach dem Ausschlussverfahren ausgewählt. Eine Übersicht darüber, welches Framework welche Ausschlusskriterien erfüllt, sind in Tabelle \ref*{tab: related works} zu sehen.\footnote{Legende: Ein Haken bedeutet, dass ein Kriterium erfüllt wurde. In Spalte 6 bedeutet ein Haken, dass keine No-Go-Abhängigkeiten gefunden wurden. Ein Kreuz bedeutet, dass hier ein Kriterium verletzt wurde.}
     
-        Alle Frameworks erfüllen das Open-Source-Kriterium. Die meisten Kandidaten bieten umfangreiche und komplexe Feature-Sets, die für Enterprise-Grade-Software wahrscheinlich bestens geeignet, aber für die in der Problemstellung beschriebenen Zwecke zu umfangreichend sind. Daneben sind ansonsten valable Optionen teilweise nicht direkt, aber in zweiter Instanz zu eng mit nicht kostenlosen Systemen verknüpft.\\ \\
-        Einige Systeme gehen mit Lizenzkosten einher oder basieren auf nicht kostenfreier Infrastruktur und werden daher ohne Weiteres ausgeschlossen. Dazu gehören das Microsoft Bot Framework, Botkit, OpenDialog sowie der Claudia Bot Builder. Frameworks mit einem starken Fokus auf Corporate-Grade Applications mit Natural Language Proceccing oder Understanding Capabilities sind erheblich zu mächtig und zu komplex für die geskriptete Struktur des Coaching-Bots. Daneben steht uns kein hinreichend großes Datenset zur Verfügung, um derlei Systeme zu initialisieren. Dazu gehören Botpress, DeepPavlov, Golem, ParlAI, Rasa, Tock und Wit.ai. Ebenfalls nicht geeignet sind die Systeme Botkit, Ana und Bot Libre, die in Applikationen eingebunden werden können aber mit gängigen Messenger-Diensten inkompatibel oder nur auf einem bestimmten Betriebssystem lauffähig sind.
+        Alle Frameworks erfüllen das Open-Source-Kriterium. Die meisten Kandidaten bieten umfangreiche und komplexe Feature-Sets, die für Enterprise-Grade-Software wahrscheinlich bestens geeignet, aber für die in der Problemstellung beschriebenen Zwecke zu umfangreich sind. Mehrere ansonsten valable Optionen sind teilweise indirekt zu eng mit nicht kostenlosen Systemen verknüpft. Einige Systeme gehen mit Lizenzkosten einher oder basieren auf nicht kostenfreier Infrastruktur und werden daher ohne Weiteres ausgeschlossen. Dazu gehören das Microsoft Bot Framework, Botkit, OpenDialog sowie der Claudia Bot Builder. Frameworks mit einem starken Fokus auf Corporate-Grade Applications mit Natural-Language-Processing oder -Understanding-Capabilities sind erheblich zu mächtig und zu komplex für die geskriptete Struktur des Coaching-Bots. Daneben steht uns kein hinreichend großes Datenset zur Verfügung, um derlei Systeme zu initialisieren. Dazu gehören Botpress, DeepPavlov, Golem, ParlAI, Rasa, Tock und Wit.ai. Ebenfalls nicht geeignet sind die Systeme Botkit, Ana und Bot Libre, die in Applikationen eingebunden werden können aber mit gängigen Messenger-Diensten inkompatibel oder nur auf einem bestimmten Betriebssystem lauffähig sind.
     
-        \paragraph{Aufschlüsselung aller ausgewerteten Frameworks anhand der oben definierten Kriterien}
         \begin{table} %[hbtp]
             \centering
             \begin{tabular}{l | l | l | l | l | l | l}
@@ -62,19 +60,19 @@
             Rasa 					    &   \checkmark 		    &   \checkmark          &   \checkmark          &   \checkmark          &   Data Sets               &   \checkmark              \\
             Telegram Bot 				&   \checkmark 		    &   \checkmark          &   \checkmark          &   \checkmark          &   $\times$                &   \checkmark              \\
             Tock 					    &   \checkmark 		    &   \checkmark          &   $\times$            &   \checkmark          &   $\times$                &   \checkmark              \\
-            Wit.ai 					    &   \checkmark          &   \checkmark          &   $\times$            &   $\times$            &   $\times$                  &   \checkmark              \\
+            Wit.ai 					    &   \checkmark          &   \checkmark          &   $\times$            &   $\times$            &   $\times$                &   \checkmark              \\
             
         \end{tabular}
-        \caption{Analyse Bot Frameworks}
+        \caption{Aufschlüsselung aller ausgewerteten Frameworks anhand der oben definierten Kriterien}
         \label{tab: related works}
     \end{table}
-    Es verbleiben die Frameworks Botman, Botpress, Bottender, Botonic und der Telegram-Bot. Nach der Sichtung der Dokumentationen der verbleibenden Frameworks erscheinen uns BotMan, Botpress, Bottender sowie Botonic als erheblich zu komplex und umfangreich, um für einen Dienstleister einen einfachen Einstieg zu bieten. Botpress ist auf große Corporate-Applikationen ausgelegt. Um BotMan zu nutzen, sind Kenntnisse im PHP-Package-Development erforderlich. Für Botonic bedarf ist es React-Kenntnissen und die Wahrscheinlichkeit, dass ein Coaching-Dienstleister diese mitbringt, ist gering. Ansonsten sind die Systeme durchaus geeignet. Sie erfüllen alle Erfordernisse und sind auch noch plattformunabhängig. Es könnten also diverse, gängige Messenger-Dienste angebunden werden. 
+    Es verbleiben die Frameworks Botman, Botpress, Bottender, Botonic und Telegram-Bot. Nach der Sichtung der Dokumentationen der verbleibenden Frameworks erscheinen uns BotMan, Botpress sowie Botonic als erheblich zu komplex und umfangreich, um für einen Dienstleister einen einfachen Einstieg zu bieten. Botpress ist auf große Corporate-Applikationen ausgelegt. Um BotMan zu nutzen, sind Kenntnisse im PHP-Package-Development erforderlich. Für Botonic bedarf ist es React-Kenntnissen. Ansonsten sind die Systeme durchaus geeignet. Sie erfüllen alle Erfordernisse und sind auch noch plattformunabhängig. Es könnten also diverse, gängige Messenger-Dienste angebunden werden. 
     \\
     Schließlich möchten wir auf die verbleibenden beiden Frameworks näher eingehen und diese gegenüberstellen.
 
     \subsection{Bottender}
         Das plattformunabhängige TypeScript-Framework erfüllt auf den ersten Blick alle genannten Kriterien und noch mehr. 
-        Bottender abstrahiert für den Entwickler die Komplexität der UIs und lässt ihn Aktionen für Ereignisse und Zustände definieren und konfigurieren. Bottender führt diese dann auch gleich für uns aus. Die zugrunde liegende State Machine sollte dem Anwendungsfall des Coaching-Bots als mehr als genügen. Das Versprechen der Entwickler, einen einfaches Setup sowie einen umfangreichen Debugger zur Verfügung zu stellen kommt der Simplizität entgegen. Das stärkste Argument für Bottender ist sicherlich die Plattformunabhänigkgiet, gekoppelt mit einem starken Fokus auf User Experience. Die Dokumentation ist für ein solch mächtiges Framework eher schlank, aber verständlich gehalten. Eine Vielzahl von Beispiel-Implementierungen\footnote{\url{https://github.com/Yoctol/bottender/tree/master/examples}} gibt einen Einblick in die vielen verschiedenen Anwendungsfälle, die mit Bottender abgedeckt werden können. Auch wenn die Logik für den Bot auf TypeScript-Ebene abstrahiert werden kann, so muss doch jede Messenger-API einzeln angebunden werden. Bottender ist also skalierbar, aber nicht so einfach, wie zunächst der Eindruck erweckt wird.
+        Bottender abstrahiert für den Entwickler die Komplexität der UIs und lässt ihn Aktionen für Ereignisse und Zustände definieren und konfigurieren. Bottender führt diese dann auch gleich für den Entwickler aus. Die zugrunde liegende State Machine sollte dem Anwendungsfall des Coaching-Bots mehr als genügen. Das Versprechen der Entwickler, ein einfaches Setup sowie einen umfangreichen Debugger zur Verfügung zu stellen, kommt der Simplizität entgegen. Das stärkste Argument für Bottender ist sicherlich die Plattformunabhängigkeit, gekoppelt mit einem starken Fokus auf User Experience. Die Dokumentation ist für ein solch mächtiges Framework eher schlank, aber verständlich gehalten. Eine Vielzahl von Beispiel-Implementierungen\footnote{\url{https://github.com/Yoctol/bottender/tree/master/examples}} gibt einen Einblick in die vielen verschiedenen Anwendungsfälle, die mit Bottender abgedeckt werden können. Auch wenn die Logik für den Bot auf TypeScript-Ebene abstrahiert werden kann, so muss doch jede Messenger-API einzeln angebunden werden. Bottender ist also skalierbar, aber nicht so einfach zugänglich, wie zunächst erwartet.
 
 
     \subsection{Telegram-Bot}
@@ -82,8 +80,8 @@
         
         Das gesamte Telegram-Universum basiert auf einer .org-Domain und verfolgt damit kein inhärent kommerzielles Ziel. Das Bot-Framework ist via der Telegram App, die auf allen gängigen Plattformen zur Verfügung steht, einfach zugänglich und direkt via der App aufzusetzen und zu managen. Vom einfachsten Chat-Bot bis hin zu Bots, die ganze Einkaufsprozesse inkl. Zahlungssystem gegenüber einer Vielzahl von Kunden abwickeln, bietet uns die Telegram-API eine Schnittstelle, die mit dieser Komplexität umgehen kann, aber nicht muss. 
         
-        Das größte Hindernis für des System ist sicher der Vendor-Lock-In. (Der Bot ist nur in Verbindung mit der Telegram-App nutzbar.) Soll der Coaching-Bot zu einem späteren Zeitpunkt zu einem anderen Dienst migriert werden, so ist das nicht ohne Weiteres möglich. Die Lösung ist allerdings innerhalb des Telegram-Universums gut skalierbar. Aufgrund der technischen Vorteile, die dieses Framework bietet, ist dieser Nachteil in einer ersten Version in Kauf zu nehmen. Sollte das Prinzip Erfolg versprechen, so könnte die Architektur mittels eines der plattformunabhängigen Frameworks wie i.e. Bottender skaliert und auf andere Umgebungen erweitert werden.
-        Die meisten Menschen in Deutschland und der DACH-Region verwenden immer noch WhatsApp \cite{Nutzerzahlen} und doch bietet uns der populärste Messenger weder die Freiheiten, noch den Funktionsumfang, den wir uns für unseren Coaching Bot wünschen. Telegram jedoch hält genau diese Offenheit für uns bereit. \cite{telegramVergleich} So bietet der Dienst, die Möglichkeit, via einer API direkt in die Entwicklung einzusteigen und gibt uns sogar basale State-Machines für einen schnellen Entwicklungsstart Start and die Hand. (siehe Abschnitt \ref*{Grundlagen: ConversationBot})
+        Das größte Hindernis für des System ist sicher der Vendor-Lock-In. (Der Bot ist nur in Verbindung mit der Telegram-App nutzbar.) Soll der Coaching-Bot zu einem späteren Zeitpunkt zu einem anderen Dienst migriert werden, so ist das nicht ohne Weiteres möglich. Die Lösung ist allerdings innerhalb des Telegram-Universums gut skalierbar. Aufgrund der vielfältigen Vorteile, die dieses Framework bietet, ist dieser Nachteil in einer ersten Version in Kauf zu nehmen. Sollte das Prinzip Erfolg versprechen, so könnte die Architektur mittels eines der plattformunabhängigen Frameworks wie i.e. Bottender skaliert und auf andere Umgebungen erweitert werden.
+        Die meisten Menschen in Deutschland und der DACH-Region verwenden immer noch WhatsApp \cite{Nutzerzahlen} und doch bietet uns der populärste Messenger weder die Freiheiten, noch den Funktionsumfang, den wir uns für unseren Coaching Bot wünschen. Telegram jedoch hält genau diese Offenheit für uns bereit. \cite{telegramVergleich} So bietet der Dienst, die Möglichkeit, via einer API direkt in die Entwicklung einzusteigen und gibt uns sogar basale State-Machines für einen schnellen Entwicklungsstart and die Hand. (siehe Abschnitt \ref*{Grundlagen: ConversationBot} ConversationBot)
         
         Eine breit aufgestellte Community um die Telegram-Bot-API unterstützt Neulinge, was unserem Kriterium der Simplizität entgegenkommt. Für Dienstleister, die den Bot anpassen möchten, ist beides sehr wertvoll. Das System basiert auf der Programmiersprache Python, die ebenfalls sehr gut für Einsteiger geeignet ist. \\ \\
         
